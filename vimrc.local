@@ -3,6 +3,14 @@ let g:no_haskell_conceal = 1
 let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
 let g:haskell_conceal_enumerations = 0
+
+au BufNewFile,BufRead *.scala set sw=4
+hi scalaDef cterm=bold
+hi scalaClass cterm=bold
+hi scalaObject cterm=bold
+hi scalaTrait cterm=bold
+hi CursorLineNR cterm=bold
+
 set exrc
 set secure
 
