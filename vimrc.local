@@ -1,0 +1,34 @@
+let g:airline_powerline_fonts = 1
+let g:no_haskell_conceal = 1
+let g:haskell_conceal = 0
+let g:haskell_conceal_wide = 0
+let g:haskell_conceal_enumerations = 0
+set exrc
+set secure
+
+set relativenumber
+set splitright
+set splitbelow
+nnoremap Q @q
+set ruler
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default
+highlight Search ctermbg=81
+
+let mapleader = " "
+let g:mapleader = " "
+nnoremap <silent> <up> :copen<cr>
+nnoremap <silent> <right> :cnext<cr>
+nnoremap <silent> <down> :cclose<cr>
+nnoremap <silent> <left> :cprevious<cr>
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
