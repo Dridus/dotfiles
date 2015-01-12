@@ -5,6 +5,8 @@ let g:haskell_conceal_wide = 0
 let g:haskell_conceal_enumerations = 0
 
 au BufNewFile,BufRead *.scala set sw=4
+au BufNewFile,BufRead *.scala set makeprg=mvn\ install
+au BufNewFile,BufRead *.scala set nocst
 hi scalaDef cterm=bold
 hi scalaClass cterm=bold
 hi scalaObject cterm=bold
@@ -13,6 +15,8 @@ hi CursorLineNR cterm=bold
 
 set exrc
 set secure
+
+set history=1000
 
 set relativenumber
 set splitright
@@ -30,6 +34,8 @@ nnoremap <silent> <up> :copen<cr>
 nnoremap <silent> <right> :cnext<cr>
 nnoremap <silent> <down> :cclose<cr>
 nnoremap <silent> <left> :cprevious<cr>
+
+let g:ctrlp_extensions = ['buffertag', 'tag']
 
 if executable('ag')
   " Use ag over grep
