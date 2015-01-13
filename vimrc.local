@@ -23,9 +23,17 @@ set splitright
 set splitbelow
 nnoremap Q @q
 set ruler
+set sw=4
+set tw=0
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-default
 highlight Search ctermbg=81
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=254
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=255
+let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_guide_size = 1
 
 let mapleader = " "
 let g:mapleader = " "
