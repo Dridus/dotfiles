@@ -1,3 +1,7 @@
+--exclude=build
+--exclude=doc
+--exclude=target
+--exclude=dist
 --langdef=Scala
 --langmap=Scala:.scala
 --regex-scala=/^[ \t]*((abstract|final|sealed|implicit|lazy)[ \t]*)*(private[^ ]*|protected)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\4/c,classes/
