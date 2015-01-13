@@ -48,7 +48,7 @@ bindkey '^r' history-incremental-search-backward
 typeset -x SCALA_HOME="/usr/share/scala/scala"
 typeset -x MAVEN_OPTS="-Xmx2G"
 typeset -x JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
-typeset -x EDITOR="subl -w"
+typeset -x EDITOR="vim"
 
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 typeset -x GHC_DOT_APP="/Applications/ghc-7.8.3.app"
