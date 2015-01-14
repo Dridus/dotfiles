@@ -4,6 +4,9 @@ let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
 let g:haskell_conceal_enumerations = 0
 
+au BufNewFile,BufRead *.rst set sw=3
+au BufNewFile,BufRead *.rst set makeprg=make\ html
+
 au BufNewFile,BufRead *.scala set sw=4
 au BufNewFile,BufRead *.scala set makeprg=mvn\ install
 au BufNewFile,BufRead *.scala set nocst
