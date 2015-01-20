@@ -16,6 +16,12 @@ hi scalaObject cterm=bold
 hi scalaTrait cterm=bold
 hi CursorLineNR cterm=bold
 
+map <Leader>0 :RainbowParenthesesToggle<cr>
+" au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 set exrc
 set secure
 
