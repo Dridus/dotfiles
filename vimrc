@@ -24,7 +24,6 @@ set lazyredraw           " Don't draw while executing macros and similar
 set magic                " Regexps should be magic, yes?
 set mat=2                " Highlight matching bracket for 2/10ths of a second
 set mouse=a              " Enable mouse mode
-set nobackup             " Who wants those?
 set noerrorbells         " Quiet
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
@@ -57,7 +56,8 @@ Plugin 'gmarik/vundle'
 
 " Plugin 'jgdavey/tslime.vim' " Communication with tmux
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
-Plugin 'ervandew/supertab'               " Tab completion trigger thingy
+Plugin 'Valloric/YouCompleteMe'          " Completion framework
+" Plugin 'ervandew/supertab'               " Tab completion trigger thingy
 " Plugin 'scrooloose/syntastic' " Syntax check after save
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
@@ -111,10 +111,10 @@ endif
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-default
 
+syntax enable
+
 highlight clear Conceal
 highlight Search ctermbg=81
-
-syntax enable
 
 " Show whitespace
 "
@@ -204,7 +204,7 @@ let g:loaded_AlignMapsPlugin=1
 " Haskell
 "
 let $PATH = $PATH . ':' . expand("~/.haskell-vim-now/bin")
-let g:necoghc_enable_detailed_browse = 1
+" let g:necoghc_enable_detailed_browse = 1
 let g:no_haskell_conceal = 1
 let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
@@ -276,7 +276,7 @@ nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
 augroup haskell
   autocmd!
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
-  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
 set cscopeprg=~/.haskell-vim-now/bin/hscope
