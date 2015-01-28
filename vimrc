@@ -21,10 +21,10 @@ set ignorecase           " Case fold when searching
 set incsearch            " Highlight as the search is entered
 set laststatus=2         " Always show the status line, NO EXCEPTIONS
 set lazyredraw           " Don't draw while executing macros and similar
-set magic                " Regexps should be magic, yes?
-set mat=2                " Highlight matching bracket for 2/10ths of a second
+set matchtime=2          " Highlight matching bracket for 2/10ths of a second
 set mouse=a              " Enable mouse mode
 set noerrorbells         " Quiet
+set nowrap               " Wrap lines by default
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
 set relativenumber       " Show line number distance from cursor for easy [N]j/[N]k
@@ -45,7 +45,6 @@ set undofile
 set vb t_vb=
 set wildmenu             " Show the completion menu when tab completing
 set wildmode=list:longest,full " Configure wildmenu
-set wrap                 " Wrap lines by default
 
 " Vundle
 "
@@ -115,11 +114,12 @@ syntax enable
 
 highlight clear Conceal
 highlight Search ctermbg=81
+highlight CursorLineNr ctermfg=12 cterm=bold
 
 " Show whitespace
 "
 set list                 " Show whitespace (trailing -s and >s)
-set listchars=tab:▸\ ,trail:·,nbsp:_
+set listchars=tab:▸\ ,trail:·,nbsp:_,extends:…
 
 " Return to last edit position when opening files (You want this!)
 augroup last_edit
@@ -193,9 +193,6 @@ function! ToggleFindNerd()
     exec ':NERDTreeFind'
   endif
 endfunction
-" If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Alignment
 "
@@ -396,6 +393,10 @@ nmap <leader>gl :Extradite!<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
+
+" If nerd tree is closed, find current file, if open, close it
+nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Miscellaneous
 " Redraw the screen
