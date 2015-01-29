@@ -272,7 +272,7 @@ endfunction
 nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
 augroup haskell
   autocmd!
-  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
+  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
   " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
@@ -363,6 +363,7 @@ nnoremap <silent> <left> :cprevious<cr>
 " Tags and such
 map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
 map <leader>tt :TagbarToggle<CR>
+map <leader>t<space> :CtrlPTag<cr>
 
 " Haskell specific mappings
 " Type of expression under cursor
@@ -399,6 +400,10 @@ nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Miscellaneous
+" Save and make
+map <leader>wm :w|mak
+" Clear the highlight
+map <silent> <leader><cr> :noh
 " Redraw the screen
 map <silent> <leader>r :redraw!<CR>
 " Open file prompt with current path
