@@ -401,7 +401,7 @@ nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Miscellaneous
 " Save and make
-map <leader>wm :w|mak
+map <leader>wm :w<cr>:mak<cr>
 " Clear the highlight
 map <silent> <leader><cr> :noh
 " Redraw the screen
