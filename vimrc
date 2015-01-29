@@ -55,8 +55,7 @@ Plugin 'gmarik/vundle'
 
 " Plugin 'jgdavey/tslime.vim' " Communication with tmux
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
-Plugin 'Valloric/YouCompleteMe'          " Completion framework
-" Plugin 'ervandew/supertab'               " Tab completion trigger thingy
+Plugin 'Shougo/neocomplete.vim'          " Autocompletion
 " Plugin 'scrooloose/syntastic' " Syntax check after save
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
@@ -76,7 +75,7 @@ Plugin 'michaeljsmith/vim-indent-object' " Text object that follows indentation
 Plugin 'raichoo/haskell-vim'
 " Plugin 'enomsg/vim-haskellConcealPlus' " Haskell unicode sugar
 Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
-" Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
+Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
 Plugin 'Twinside/vim-hoogle'             " Hoogle (type search for haskell)
 Plugin 'rking/ag.vim'                    " Fast file search
 Plugin 'chriskempson/base16-vim'         " Color schemes
@@ -158,10 +157,29 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Supertab and tab completion
+" Neocomplete
 "
-set completeopt+=longest
-let g:SuperTabDefaultCompletionType = '<c-x><c-p>'
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#enable_smart_case = 1
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 
 " Indent Guides
 "
@@ -201,7 +219,7 @@ let g:loaded_AlignMapsPlugin=1
 " Haskell
 "
 let $PATH = $PATH . ':' . expand("~/.haskell-vim-now/bin")
-" let g:necoghc_enable_detailed_browse = 1
+let g:necoghc_enable_detailed_browse = 1
 let g:no_haskell_conceal = 1
 let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
@@ -273,7 +291,7 @@ nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
 augroup haskell
   autocmd!
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
-  " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
 set cscopeprg=~/.haskell-vim-now/bin/hscope
@@ -364,6 +382,16 @@ nnoremap <silent> <left> :cprevious<cr>
 map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
 map <leader>tt :TagbarToggle<CR>
 map <leader>t<space> :CtrlPTag<cr>
+
+" Autocompletion
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " Haskell specific mappings
 " Type of expression under cursor
