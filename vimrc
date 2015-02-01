@@ -191,7 +191,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " Rainbow Parentheses
 "
-map <Leader>0 :RainbowParenthesesToggle<cr>
 " au VimEnter * RainbowParenthesesToggle
 autocmd Syntax * RainbowParenthesesLoadRound
 autocmd Syntax * RainbowParenthesesLoadSquare
@@ -287,7 +286,6 @@ endfunction
 
 " Disable highlight when <leader><cr> is pressed
 " but preserve cursor coloring
-nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
 augroup haskell
   autocmd!
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
@@ -299,7 +297,6 @@ set cscopeprg=~/.haskell-vim-now/bin/hscope
 set cscopetagorder=1
 set cscopetag
 set cscopeverbose
-nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
 " Automatically make cscope connections
 function! LoadHscope()
   let db = findfile("hscope.out", ".;")
@@ -408,6 +405,7 @@ nnoremap <silent> <leader>hi :HoogleInfo<CR>
 nnoremap <leader>hI :HoogleInfo
 " Hoogle, close the Hoogle window
 nnoremap <silent> <leader>hz :HoogleClose<CR>
+nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
 
 " Alignment mappings
 map <Leader>a= :Align =<CR>
@@ -431,7 +429,7 @@ nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 " Save and make
 map <leader>wm :w<cr>:mak<cr>
 " Clear the highlight
-map <silent> <leader><cr> :noh
+map <silent> <leader><cr> :noh<cr>
 " Redraw the screen
 map <silent> <leader>r :redraw!<CR>
 " Open file prompt with current path
@@ -442,3 +440,5 @@ nmap <silent> <leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader><space> :CtrlP<CR>
 " Make it easier to get out of insert mode
 inoremap jj <esc>
+" Toggle Rainbow parens
+map <Leader>0 :RainbowParenthesesToggle<cr>
