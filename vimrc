@@ -343,6 +343,19 @@ augroup whitespace
   autocmd BufWrite *.hs :call DeleteTrailingWS()
 augroup END
 
+" Move to beginning of text on line unless already there, and then move to BOL
+"
+func BOTorBOL()
+    let curpos = getcurpos()
+    let line = getline(curpos[1])
+    let bot = match(line, "\\S")
+    if curpos[2] == 1 || curpos[2] > bot + 1
+        normal! ^
+    else
+        normal! 0
+    endif
+endfunc
+
 " EasyMotion
 "
 let g:EasyMotion_do_mapping = 0 " Control all the mappings
@@ -430,6 +443,10 @@ nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 " If nerd tree is closed, find current file, if open, close it
 nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
+
+" Motion with less onerous chording
+nnoremap <silent> <C-a> :call BOTorBOL()<CR>
+nnoremap <silent> <C-e> $
 
 " EasyMotion
 nmap <Tab>; <Plug>(easymotion-next)
