@@ -88,6 +88,7 @@ Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
 Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
 Plugin 'coderifous/textobj-word-column.vim' " Column text objects
+Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on
@@ -342,6 +343,11 @@ augroup whitespace
   autocmd BufWrite *.hs :call DeleteTrailingWS()
 augroup END
 
+" EasyMotion
+"
+let g:EasyMotion_do_mapping = 0 " Control all the mappings
+let g:EasyMotion_smartcase = 1 " Match set smartcase
+
 " Mappings
 "
 
@@ -424,6 +430,27 @@ nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 " If nerd tree is closed, find current file, if open, close it
 nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
+
+" EasyMotion
+nmap <Tab>; <Plug>(easymotion-next)
+nmap <Tab>, <Plug>(easymotion-prev)
+nmap <Tab>f <Plug>(easymotion-f)
+nmap <Tab>F <Plug>(easymotion-F)
+nmap <Tab>t <Plug>(easymotion-t)
+nmap <Tab>T <Plug>(easymotion-T)
+nmap <Tab>w <Plug>(easymotion-w)
+nmap <Tab>W <Plug>(easymotion-W)
+nmap <Tab>b <Plug>(easymotion-b)
+nmap <Tab>B <Plug>(easymotion-B)
+nmap <Tab>e <Plug>(easymotion-e)
+nmap <Tab>E <Plug>(easymotion-E)
+nmap <Tab>ge <Plug>(easymotion-ge)
+nmap <Tab>gE <Plug>(easymotion-gE)
+nmap <Tab>j <Plug>(easymotion-j)
+nmap <Tab>k <Plug>(easymotion-k)
+nmap <Tab>n <Plug>(easymotion-n)
+nmap <Tab>N <Plug>(easymotion-N)
+nmap <Tab>s <Plug>(easymotion-s2)
 
 " Miscellaneous
 " Save and make
