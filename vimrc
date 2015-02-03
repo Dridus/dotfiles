@@ -64,7 +64,7 @@ Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
 Plugin 'bling/vim-airline'               " Fancy status bar
-Plugin 'kien/ctrlp.vim'                  " Go to anywhere
+" Plugin 'kien/ctrlp.vim'                  " Go to anywhere
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 " Plugin 'godlygeek/tabular'               " More alignment!
@@ -89,6 +89,9 @@ Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell comma
 Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
 Plugin 'coderifous/textobj-word-column.vim' " Column text objects
 Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
+Plugin 'Shougo/unite.vim'                " Go to anywhere
+Plugin 'tsukkee/unite-help'              " Add help source to unite
+Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 
 call vundle#end()
 filetype plugin indent on
@@ -157,6 +160,10 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Unite
+"
+let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup --hidden -g ""'
 
 " Neocomplete
 "
@@ -383,7 +390,6 @@ nmap <leader>sj :rightbelow new<CR>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bn :bn<cr>
 noremap <leader>bd :Bd<cr>
-noremap <leader>b<space> :CtrlPBuffer<cr>
 
 " Q to execute the q macro
 nnoremap Q @q
@@ -397,7 +403,6 @@ nnoremap <silent> <left> :cprevious<cr>
 " Tags and such
 map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
 map <leader>tt :TagbarToggle<CR>
-map <leader>t<space> :CtrlPTag<cr>
 
 " Autocompletion
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -473,6 +478,18 @@ nmap <Tab>n <Plug>(easymotion-n)
 nmap <Tab>N <Plug>(easymotion-N)
 nmap <Tab>s <Plug>(easymotion-s2)
 
+" CtrlP
+" noremap <leader>b<space> :CtrlPBuffer<cr>
+" map <leader>t<space> :CtrlPTag<cr>
+" nnoremap <silent> <Leader><space> :CtrlP<CR>
+
+" Unite
+nnoremap <silent> <leader><space>b :Unite -no-hide-icon -start-insert buffer<cr>
+nnoremap <silent> <leader><space>t :Unite -no-hide-icon -start-insert tag<cr>
+nnoremap <silent> <Leader><space>f :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
+nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
+nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
+
 " Miscellaneous
 " Save and make
 map <leader>wm :w<cr>:mak<cr>
@@ -484,8 +501,6 @@ map <silent> <leader>r :redraw!<CR>
 nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show Gundo
 nmap <silent> <leader>u :GundoToggle<CR>
-" Show CtrlP
-nnoremap <silent> <Leader><space> :CtrlP<CR>
 " Make it easier to get out of insert mode
 inoremap jj <esc>
 " Toggle Rainbow parens
