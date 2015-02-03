@@ -88,7 +88,7 @@ Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
 Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
 Plugin 'coderifous/textobj-word-column.vim' " Column text objects
-Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
 
 call vundle#end()
 filetype plugin indent on
