@@ -448,6 +448,10 @@ nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 nnoremap <silent> <C-a> :call BOTorBOL()<CR>
 nnoremap <silent> <C-e> $
 
+" Add empty lines above or below
+nnoremap <leader>j o<esc>0"-D
+nnoremap <leader>k O<esc>0"-D
+
 " EasyMotion
 nmap <Tab>; <Plug>(easymotion-next)
 nmap <Tab>, <Plug>(easymotion-prev)
