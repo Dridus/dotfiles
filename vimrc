@@ -53,7 +53,7 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-" Plugin 'jgdavey/tslime.vim' " Communication with tmux
+Plugin 'jgdavey/tslime.vim'              " Send things to other tmux panes, e.g. a REPL
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
 Plugin 'Shougo/neocomplete.vim'          " Autocompletion
 " Plugin 'scrooloose/syntastic' " Syntax check after save
@@ -71,7 +71,7 @@ Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
 Plugin 'tpope/vim-commentary'            " Comment things!
 Plugin 'michaeljsmith/vim-indent-object' " Text object that follows indentation
-" Plugin 'christoomey/vim-tmux-navigator' " Window navigate out of vim into tmux
+Plugin 'christoomey/vim-tmux-navigator' " Window navigate out of vim into tmux
 Plugin 'raichoo/haskell-vim'
 " Plugin 'enomsg/vim-haskellConcealPlus' " Haskell unicode sugar
 Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
@@ -490,6 +490,12 @@ nnoremap <silent> <leader><space>t :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader><space>f :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
 nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
+
+" Tmux Slime
+"
+vmap <leader>ts <Plug>SendSelectionToTmux
+nmap <leader>ts <Plug>NormalModeSendToTmux
+nmap <leader>tr <Plug>SetTmuxVars
 
 " Miscellaneous
 " Save and make
