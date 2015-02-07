@@ -147,6 +147,7 @@ let g:airline#extensions#tabline#show_buffers = 1
 " Unite
 "
 let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup --hidden -g ""'
+let g:unite_source_history_yank_enable=1
 
 " Neocomplete
 "
@@ -467,6 +468,9 @@ nnoremap <silent> <leader><space>t :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader><space>f :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
 nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
+nnoremap <silent> <Leader><space>r :Unite -no-hide-icon -start-insert register history/yank<cr>
+nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
+nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
 
 " Tmux Slime
 "
