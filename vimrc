@@ -14,6 +14,7 @@ set encoding=utf8        " Be reasonable
 set expandtab            " Use spaces not tabs
 set exrc                 " Read ./.vimrc
 set fileformats=unix,dos,mac     " Choose line ending sanely
+set grepprg=ag\ --nogroup\ --nocolor
 set hidden               " Allow buffers to be hidden when not visible
 set history=1000         " Remember ONE THOUSAND commands
 set hlsearch             " Show search matches until :noh
