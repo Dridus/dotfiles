@@ -57,7 +57,6 @@ Plugin 'gmarik/vundle'
 Plugin 'jgdavey/tslime.vim'              " Send things to other tmux panes, e.g. a REPL
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
 Plugin 'Shougo/neocomplete.vim'          " Autocompletion
-" Plugin 'scrooloose/syntastic' " Syntax check after save
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
 Plugin 'tpope/vim-fugitive'              " Main git action
@@ -67,13 +66,11 @@ Plugin 'scrooloose/nerdtree'             " File tree
 Plugin 'bling/vim-airline'               " Fancy status bar
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
-" Plugin 'godlygeek/tabular'               " More alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
 Plugin 'tpope/vim-commentary'            " Comment things!
 Plugin 'michaeljsmith/vim-indent-object' " Text object that follows indentation
 Plugin 'christoomey/vim-tmux-navigator' " Window navigate out of vim into tmux
 Plugin 'raichoo/haskell-vim'
-" Plugin 'enomsg/vim-haskellConcealPlus' " Haskell unicode sugar
 Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
 Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
 Plugin 'Twinside/vim-hoogle'             " Hoogle (type search for haskell)
