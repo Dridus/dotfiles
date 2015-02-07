@@ -461,7 +461,7 @@ nmap <leader>\j <Plug>(easymotion-j)
 nmap <leader>\k <Plug>(easymotion-k)
 nmap <leader>\n <Plug>(easymotion-n)
 nmap <leader>\N <Plug>(easymotion-N)
-nmap <Tab> <Plug>(easymotion-s)
+nmap <leader>s <Plug>(easymotion-s)
 
 " Unite
 nnoremap <silent> <leader><space>b :Unite -no-hide-icon -start-insert buffer<cr>
