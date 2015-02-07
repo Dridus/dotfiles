@@ -350,7 +350,7 @@ endfunc
 " EasyMotion
 "
 let g:EasyMotion_do_mapping = 0 " Control all the mappings
-let g:EasyMotion_smartcase = 1 " Match set smartcase
+let g:EasyMotion_smartcase = 0 " Match set smartcase
 
 " Mappings
 "
