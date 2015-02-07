@@ -64,7 +64,6 @@ Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
 Plugin 'bling/vim-airline'               " Fancy status bar
-" Plugin 'kien/ctrlp.vim'                  " Go to anywhere
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 " Plugin 'godlygeek/tabular'               " More alignment!
@@ -146,21 +145,6 @@ set foldcolumn=0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-
-" CtrlP
-"
-let g:ctrlp_max_files=0
-let g:ctrlp_show_hidden=1
-let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
-let g:ctrlp_extensions = ['buffertag', 'tag']
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " Unite
 "
@@ -478,11 +462,6 @@ nmap <leader>\k <Plug>(easymotion-k)
 nmap <leader>\n <Plug>(easymotion-n)
 nmap <leader>\N <Plug>(easymotion-N)
 nmap <Tab> <Plug>(easymotion-s)
-
-" CtrlP
-" noremap <leader>b<space> :CtrlPBuffer<cr>
-" map <leader>t<space> :CtrlPTag<cr>
-" nnoremap <silent> <Leader><space> :CtrlP<CR>
 
 " Unite
 nnoremap <silent> <leader><space>b :Unite -no-hide-icon -start-insert buffer<cr>
