@@ -418,6 +418,10 @@ nnoremap <silent> <leader>hz :HoogleClose<CR>
 nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
 
 " Alignment mappings
+" these first two suppress cecutil.vim from binding them to <leader>swp and
+" <leader>rwp
+map <c-x>swp <Plug>SaveWinPosn
+map <c-x>rwp <Plug>RestoreWinPosn
 map <Leader>a= :Align =<CR>
 map <Leader>a, :Align ,<CR>
 map <Leader>a<bar> :Align <bar><CR>
