@@ -49,8 +49,4 @@ typeset -x HADOOP_USER_NAME=prodrmacleod
 eval "$(bash /Users/rmm/px/hadoop-conf/current/env.sh /Users/rmm/3rd/ue1b-qaB-cdh5.2.1 | sed -e 's,^export,typeset -x,')"
 
 typeset -x JAVA_HOME="$(/usr/libexec/java_home)"
-function aws-sb {
-  typeset -x AWS_ACCESS_KEY="AKIAJFN2MYOAS3A6RSDQ"
-  typeset -x AWS_SECRET_KEY="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"
-}
 typeset -x EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
