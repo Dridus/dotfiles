@@ -30,6 +30,8 @@ function zle-line-init {
     # Enable terminal application mode.
     echoti smkx
   fi
+module_path=($module_path /usr/local/lib/zpython)
+zmodload zsh/zpython
 
   # Update editor information.
   zle editor-info
@@ -42,6 +44,7 @@ function zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+# prompt agnoster
 
 bindkey '^r' history-incremental-search-backward
 
@@ -56,9 +59,12 @@ typeset -x GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 path=(
     /usr/local/bin
     $HOME/.cabal/bin
+    $HOME/Library/Python/2.7/bin
     $GHC_DOT_APP/Contents/bin
     $path[@]
 )
 
 typeset -x HADOOP_USER_NAME=rmacleod
 eval "$(bash /Users/rmm/px/hadoop-conf/current/env.sh /Users/rmm/3rd/cdh4.2.1 | sed -e 's,^export,typeset -x,')"
+/Users/rmm/Library/Python/2.7/bin/powerline-daemon -q
+. /Users/rmm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh

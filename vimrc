@@ -25,6 +25,7 @@ set lazyredraw           " Don't draw while executing macros and similar
 set matchtime=2          " Highlight matching bracket for 2/10ths of a second
 set mouse=a              " Enable mouse mode
 set noerrorbells         " Quiet
+set noshowmode           " Don't show the mode because powerline will
 set nowrap               " Wrap lines by default
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
@@ -34,6 +35,7 @@ set scrolloff=7          " Keep 7 lines visible when moving through file
 set secure               " Only allow safe things in ./.vimrc
 set shiftwidth=4         " 4 space indent stops
 set showmatch            " Highlight matching brackets
+set showtabline=2        " Always show the tabline
 set smartcase            " But don't case fold uppercase
 set smarttab             " No dumb tabs
 set splitbelow           " Put new splits down
@@ -63,7 +65,7 @@ Plugin 'tpope/vim-fugitive'              " Main git action
 Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
-Plugin 'bling/vim-airline'               " Fancy status bar
+" Plugin 'bling/vim-airline'               " Fancy status bar
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
@@ -140,9 +142,9 @@ set foldcolumn=0
 
 " Airline
 "
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 1
 
 " Unite
 "
@@ -477,6 +479,13 @@ nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
 vmap <leader>ts <Plug>SendSelectionToTmux
 nmap <leader>ts <Plug>NormalModeSendToTmux
 nmap <leader>tr <Plug>SetTmuxVars
+
+" Powerline
+"
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 
 " Miscellaneous
 " Save and make

@@ -1,0 +1,17 @@
+{
+    "common": {
+        "watcher": "stat"
+    },
+    "ext": {
+        "shell": {
+            "colorscheme": "solarized"
+        },
+        "tmux": {
+            "colorscheme": "default"
+        },
+        "vim": {
+            "colorscheme": "default"
+        }
+    }
+}
+
