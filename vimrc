@@ -325,16 +325,12 @@ autocmd BufNewFile,BufRead *.rst set sw=3
 autocmd BufNewFile,BufRead *.rst set makeprg=make\ html
 
 " Remove trailing whitespace on save
-func! DeleteTrailingWS()
-  exe "normal mz"
+function! DeleteTrailingWS()
+  mark z
   %s/\s\+$//ge
-  exe "normal `z"
+  normal g'z
+  delmarks z
 endfunc
-
-augroup whitespace
-  autocmd!
-  autocmd BufWrite *.hs :call DeleteTrailingWS()
-augroup END
 
 " Move to beginning of text on line unless already there, and then move to BOL
 "
@@ -490,10 +486,12 @@ python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
 
+" <leader>w keys to do things around saving a file
+nmap <leader>wm :w<cr>:mak<cr>
+nmap <leader>wd :call DeleteTrailingWS()<cr>
+nmap <leader>ww :w<cr>
 
 " Miscellaneous
-" Save and make
-map <leader>wm :w<cr>:mak<cr>
 " Clear the highlight
 map <silent> <leader><cr> :noh<cr>
 " Redraw the screen
