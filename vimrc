@@ -502,7 +502,5 @@ map <silent> <leader>r :redraw!<CR>
 nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show Gundo
 nmap <silent> <leader>u :GundoToggle<CR>
-" Make it easier to get out of insert mode
-inoremap jj <esc>
 " Toggle Rainbow parens
 map <Leader>0 :RainbowParenthesesToggle<cr>
