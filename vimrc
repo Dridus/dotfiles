@@ -285,6 +285,7 @@ augroup haskell
   autocmd!
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  autocmd FileType haskell setlocal indentkeys=
 augroup END
 
 set cscopeprg=~/.haskell-vim-now/bin/hscope
