@@ -465,7 +465,7 @@ nmap <leader>\N <Plug>(easymotion-N)
 nmap <leader>s <Plug>(easymotion-s)
 
 " Unite
-nnoremap <silent> <leader><space>b :Unite -no-hide-icon -start-insert buffer<cr>
+nnoremap <silent> <leader><space>b :Unite -no-hide-icon buffer<cr>
 nnoremap <silent> <leader><space>t :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader><space>f :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
