@@ -92,6 +92,7 @@ Plugin 'Shougo/unite.vim'                " Go to anywhere
 Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
+Plugin 'tpope/vim-repeat'                " Support . with plugins
 
 call vundle#end()
 filetype plugin indent on
