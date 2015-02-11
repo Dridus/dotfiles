@@ -76,7 +76,6 @@ Plugin 'raichoo/haskell-vim'
 Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
 Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
 Plugin 'Twinside/vim-hoogle'             " Hoogle (type search for haskell)
-Plugin 'rking/ag.vim'                    " Fast file search
 Plugin 'chriskempson/base16-vim'         " Color schemes
 Plugin 'tpope/vim-surround'              " Put delimiters around things
 Plugin 'derekwyatt/vim-scala'            " Scala support
@@ -96,11 +95,6 @@ Plugin 'tpope/vim-repeat'                " Support . with plugins
 
 call vundle#end()
 filetype plugin indent on
-
-
-
-
-
 
 " Color and such
 "
@@ -151,6 +145,9 @@ set foldcolumn=0
 "
 let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup --hidden -g ""'
 let g:unite_source_history_yank_enable=1
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden'
+let g:unite_source_grep_recursive_opt = ''
 
 " Neocomplete
 "
@@ -279,8 +276,6 @@ function! CommittedFiles()
   call setqflist(qf_list, '')
 endfunction
 
-" Disable highlight when <leader><cr> is pressed
-" but preserve cursor coloring
 augroup haskell
   autocmd!
   autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
@@ -475,6 +470,7 @@ nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
 nnoremap <silent> <Leader><space>r :Unite -no-hide-icon -start-insert register history/yank<cr>
 nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
 nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
+nnoremap <silent> <Leader><space>g :Unite -no-hide-icon -start-insert grep<cr>
 
 " Tmux Slime
 "
