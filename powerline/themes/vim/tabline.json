@@ -42,7 +42,6 @@
                     {
                         "function": "file_directory",
                         "priority": 40,
-                        "width": 10,
                         "args": {
                             "shorten_cwd": true
                         }
