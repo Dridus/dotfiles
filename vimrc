@@ -433,7 +433,11 @@ nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Motion with less onerous chording
 nnoremap <silent> <C-a> :call BOTorBOL()<CR>
+vnoremap <silent> <C-a> :call BOTorBOL()<CR>
+inoremap <silent> <C-a> <c-o>:call BOTorBOL()<CR>
 nnoremap <silent> <C-e> $
+vnoremap <silent> <C-e> $
+inoremap <silent> <C-e> <c-o>$
 
 " Add empty lines above or below
 nnoremap <leader>j o<esc>0"-D
