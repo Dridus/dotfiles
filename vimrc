@@ -65,7 +65,6 @@ Plugin 'tpope/vim-fugitive'              " Main git action
 Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
-" Plugin 'bling/vim-airline'               " Fancy status bar
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
