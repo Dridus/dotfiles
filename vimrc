@@ -473,7 +473,7 @@ nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
 nnoremap <silent> <Leader><space>r :Unite -no-hide-icon -start-insert register history/yank<cr>
 nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
 nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
-nnoremap <silent> <Leader><space>g :Unite -no-hide-icon -start-insert grep<cr>
+nnoremap <silent> <Leader><space>g :Unite -no-hide-icon grep<cr>
 
 " Tmux Slime
 "
