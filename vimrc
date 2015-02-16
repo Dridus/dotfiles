@@ -91,6 +91,7 @@ Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
+Plugin 'vim-scripts/ReplaceWithRegister' " Make "xgr{motion} a command which replaces with register contents, like "_d{motion}"xp
 
 call vundle#end()
 filetype plugin indent on
