@@ -428,7 +428,7 @@ nmap <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 
 " If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <leader>n <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Motion with less onerous chording
@@ -446,8 +446,8 @@ nnoremap <leader>k O<esc>0"-D
 " EasyMotion
 nmap <leader>\; <Plug>(easymotion-next)
 nmap <leader>\, <Plug>(easymotion-prev)
-nmap <leader>\f <Plug>(easymotion-f)
-nmap <leader>\F <Plug>(easymotion-F)
+nmap <leader>f <Plug>(easymotion-f)
+nmap <leader>F <Plug>(easymotion-F)
 nmap <leader>\t <Plug>(easymotion-t)
 nmap <leader>\T <Plug>(easymotion-T)
 nmap <leader>\w <Plug>(easymotion-w)
