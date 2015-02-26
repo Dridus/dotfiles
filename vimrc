@@ -91,6 +91,7 @@ Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
+Plugin 'terryma/vim-multiple-cursors'    " Multiple cursor support similar to Sublime with <c-n> <c-p>
 
 call vundle#end()
 filetype plugin indent on
@@ -345,6 +346,20 @@ endfunc
 "
 let g:EasyMotion_do_mapping = 0 " Control all the mappings
 let g:EasyMotion_smartcase = 0 " Match set smartcase
+
+" Multiple cursors
+"
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
 
 " Mappings
 "
