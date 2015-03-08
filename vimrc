@@ -56,9 +56,8 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'jgdavey/tslime.vim'              " Send things to other tmux panes, e.g. a REPL
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
-Plugin 'Shougo/neocomplete.vim'          " Autocompletion
+Plugin 'Valloric/YouCompleteMe'          " Completion
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
 Plugin 'tpope/vim-fugitive'              " Main git action
@@ -84,14 +83,12 @@ Plugin 'bronson/vim-visual-star-search'  " Use * on visually selected text to se
 Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
 Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
-Plugin 'coderifous/textobj-word-column.vim' " Column text objects
 Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
 Plugin 'Shougo/unite.vim'                " Go to anywhere
 Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
-Plugin 'terryma/vim-multiple-cursors'    " Multiple cursor support similar to Sublime with <c-n> <c-p>
 
 call vundle#end()
 filetype plugin indent on
@@ -135,12 +132,6 @@ set foldnestmax=5
 set foldlevelstart=99
 set foldcolumn=0
 
-" Airline
-"
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#show_buffers = 1
-
 " Unite
 "
 let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup --hidden -g ""'
@@ -149,29 +140,17 @@ let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden'
 let g:unite_source_grep_recursive_opt = ''
 
-" Neocomplete
+" YouCompleteMe
 "
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#enable_smart_case = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_key_list_select_completion = ['<c-n>', '<tab>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<s-tab>']
+let g:ycm_key_list_invoke_completion = ['<c-n>']
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
 
 " Indent Guides
 "
@@ -347,20 +326,6 @@ endfunc
 let g:EasyMotion_do_mapping = 0 " Control all the mappings
 let g:EasyMotion_smartcase = 0 " Match set smartcase
 
-" Multiple cursors
-"
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
 " Mappings
 "
 
@@ -396,16 +361,6 @@ nnoremap <silent> <left> :cprevious<cr>
 " Tags and such
 map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
 map <leader>tt :TagbarToggle<CR>
-
-" Autocompletion
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " Haskell specific mappings
 " Type of expression under cursor
@@ -490,12 +445,6 @@ nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<c
 nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
 nnoremap <silent> <Leader><space>g :Unite -no-hide-icon grep<cr>
 nnoremap <silent> <Leader><space>R :UniteResume<cr>
-
-" Tmux Slime
-"
-vmap <leader>ts <Plug>SendSelectionToTmux
-nmap <leader>ts <Plug>NormalModeSendToTmux
-nmap <leader>tr <Plug>SetTmuxVars
 
 " Powerline
 "
