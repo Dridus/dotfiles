@@ -89,6 +89,9 @@ Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
+Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
+Plugin 'eagletmt/unite-haddock'          " Haddock and hoogle in Unite
+Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
 
 call vundle#end()
 filetype plugin indent on
@@ -291,6 +294,11 @@ highlight scalaClass cterm=bold
 highlight scalaObject cterm=bold
 highlight scalaTrait cterm=bold
 
+" Elm
+"
+autocmd FileType elm setlocal indentkeys=
+
+
 " JSON
 "
 let g:vim_json_syntax_conceal = 0
@@ -443,6 +451,8 @@ nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
 nnoremap <silent> <Leader><space>r :Unite -no-hide-icon -start-insert register history/yank<cr>
 nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
 nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
+nnoremap <silent> <Leader><space>i :Unite -no-hide-icon -start-insert haskellimport<cr>
+nnoremap <silent> <Leader><space>H :Unite -no-hide-icon -start-insert haddock hoogle<cr>
 nnoremap <silent> <Leader><space>g :Unite -no-hide-icon grep<cr>
 nnoremap <silent> <Leader><space>R :UniteResume<cr>
 
