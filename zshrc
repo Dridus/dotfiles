@@ -30,15 +30,16 @@ typeset -x MAVEN_OPTS="-Xmx2G"
 typeset -x JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
 typeset -x EDITOR="vim"
 
-# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-typeset -x GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+typeset -x GHC_DOT_APP="/Applications/ghc-7.10.1.app"
 
 path=(
     /usr/local/bin
     $HOME/bin
-    $HOME/.cabal/bin
+    $HOME/.local/bin
     $HOME/Library/Python/2.7/bin
     $GHC_DOT_APP/Contents/bin
+    $HOME/3rd/elm/sandbox/.cabal-sandbox/bin
+    $HOME/3rd/yi/.cabal-sandbox/bin
     $path[@]
 )
 
@@ -50,3 +51,6 @@ eval "$(bash /Users/rmm/px/hadoop-conf/current/env.sh /Users/rmm/3rd/ue1b-qaB-cd
 
 typeset -x JAVA_HOME="$(/usr/libexec/java_home)"
 typeset -x EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
+typeset -x DOCKER_HOST=tcp://192.168.59.103:2376
+typeset -x DOCKER_CERT_PATH=/Users/rmm/.boot2docker/certs/boot2docker-vm
+typeset -x DOCKER_TLS_VERIFY=1
