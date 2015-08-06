@@ -45,7 +45,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(thrift)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(company company-ghc)
+   dotspacemacs-excluded-packages '(company-ghc)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -170,7 +170,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'box)
-  (setq global-auto-complete-mode t)
+  (add-hook 'after-init-hook 'global-company-mode)
   (add-hook 'prog-mode-hook #'linum-mode)
   (add-hook 'prog-mode-hook #'linum-relative-toggle)
 )
@@ -187,8 +187,12 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(evil-shift-width 2)
+ '(expand-region-contract-fast-key "V")
+ '(expand-region-reset-fast-key "r")
  '(haskell-check-command "/bin/true")
  '(haskell-compile-cabal-build-command "cd %s && stack build --ghc-option=-ferror-spans")
+ '(highlight-indentation-offset 2)
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
