@@ -37,7 +37,7 @@ path=(
     $HOME/bin
     $HOME/.local/bin
     $HOME/Library/Python/2.7/bin
-    $GHC_DOT_APP/Contents/bin
+    /Users/rmm/.stack/programs/x86_64-osx/ghc-7.10.2/bin
     $HOME/3rd/elm/sandbox/.cabal-sandbox/bin
     $HOME/3rd/yi/.cabal-sandbox/bin
     $path[@]
@@ -51,6 +51,7 @@ eval "$(bash /Users/rmm/px/hadoop-conf/current/env.sh /Users/rmm/3rd/ue1b-qaB-cd
 
 typeset -x JAVA_HOME="$(/usr/libexec/java_home)"
 typeset -x EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
-typeset -x DOCKER_HOST=tcp://192.168.59.103:2376
-typeset -x DOCKER_CERT_PATH=/Users/rmm/.boot2docker/certs/boot2docker-vm
-typeset -x DOCKER_TLS_VERIFY=1
+typeset -x DOCKER_TLS_VERIFY="1"
+typeset -x DOCKER_HOST="tcp://192.168.99.100:2376"
+typeset -x DOCKER_CERT_PATH="/Users/rmm/.docker/machine/machines/default"
+typeset -x DOCKER_MACHINE_NAME="default"
