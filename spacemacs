@@ -43,9 +43,9 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(thrift)
+   dotspacemacs-additional-packages '(thrift swift-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(company-ghc)
+   dotspacemacs-excluded-packages '(company-ghc ghc-mod)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -170,9 +170,10 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'box)
-  (add-hook 'after-init-hook 'global-company-mode)
+  (global-company-mode)
   (add-hook 'prog-mode-hook #'linum-mode)
   (add-hook 'prog-mode-hook #'linum-relative-toggle)
+  (add-hook 'swift-mode-hook (lambda () (disable-electric-indent-mode)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -187,13 +188,23 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(css-indent-offset 2)
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(haskell-check-command "/bin/true")
  '(haskell-compile-cabal-build-command "cd %s && stack build --ghc-option=-ferror-spans")
  '(highlight-indentation-offset 2)
- '(ring-bell-function (quote ignore) t))
+ '(ring-bell-function (quote ignore) t)
+ '(scala-indent:align-forms t)
+ '(scala-indent:align-parameters t)
+ '(scala-indent:default-run-on-strategy scala-indent:operator-strategy)
+ '(swift-indent-offset 2)
+ '(swift-indent-switch-case-offset 2)
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-sql-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
