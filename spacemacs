@@ -29,7 +29,7 @@
      ;haskell-lite
      html
      javascript
-     ;; markdown
+     markdown
      ;; org
      scala
      (shell :variables
