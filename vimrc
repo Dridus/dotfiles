@@ -25,7 +25,7 @@ set lazyredraw           " Don't draw while executing macros and similar
 set matchtime=2          " Highlight matching bracket for 2/10ths of a second
 set mouse=a              " Enable mouse mode
 set noerrorbells         " Quiet
-set noshowmode           " Don't show the mode because powerline will
+"set noshowmode           " Don't show the mode because powerline will
 set nowrap               " Wrap lines by default
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
@@ -33,7 +33,7 @@ set relativenumber       " Show line number distance from cursor for easy [N]j/[
 set ruler                " Show column position, but airline does no matter what
 set scrolloff=7          " Keep 7 lines visible when moving through file
 set secure               " Only allow safe things in ./.vimrc
-set shiftwidth=4         " 4 space indent stops
+set shiftwidth=2         " 2 space indent stops
 set showmatch            " Highlight matching brackets
 set showtabline=2        " Always show the tabline
 set smartcase            " But don't case fold uppercase
@@ -51,7 +51,7 @@ set wildmode=list:longest,full " Configure wildmenu
 
 " Vundle
 "
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
@@ -64,6 +64,7 @@ Plugin 'tpope/vim-fugitive'              " Main git action
 Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
+Plugin 'bling/vim-airline'               " Fancy status bar
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
@@ -134,6 +135,12 @@ set foldmethod=indent
 set foldnestmax=5
 set foldlevelstart=99
 set foldcolumn=0
+
+" AIrline
+" "
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
 
 " Unite
 "
@@ -455,12 +462,6 @@ nnoremap <silent> <Leader><space>i :Unite -no-hide-icon -start-insert haskellimp
 nnoremap <silent> <Leader><space>H :Unite -no-hide-icon -start-insert haddock hoogle<cr>
 nnoremap <silent> <Leader><space>g :Unite -no-hide-icon grep<cr>
 nnoremap <silent> <Leader><space>R :UniteResume<cr>
-
-" Powerline
-"
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " <leader>w keys to do things around saving a file
 nmap <leader>wm :w<cr>:mak<cr>
