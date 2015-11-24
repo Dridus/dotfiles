@@ -25,30 +25,6 @@ prompt agnoster
 
 bindkey '^r' history-incremental-search-backward
 
-typeset -x SCALA_HOME="/usr/share/scala/scala"
-typeset -x MAVEN_OPTS="-Xmx2G"
-typeset -x JAVA_OPTS="-Xms512M -Xmx2G"
-typeset -x EDITOR="vim"
-
-typeset -x GHC_DOT_APP="/Applications/ghc-7.10.1.app"
-
-path=(
-    /usr/local/bin
-    $HOME/bin
-    $HOME/.local/bin
-    $HOME/Library/Python/2.7/bin
-    $HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin
-    $HOME/3rd/elm/sandbox/.cabal-sandbox/bin
-    $HOME/3rd/yi/.cabal-sandbox/bin
-    $path[@]
-)
-
-# $HOME/Library/Python/2.7/bin/powerline-daemon -q
-# . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
-typeset -x JAVA_HOME="$(/usr/libexec/java_home)"
-typeset -x EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
-
 
 if test -f $HOME/.zshrc-local; then
     source $HOME/.zshrc-local
