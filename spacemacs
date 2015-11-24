@@ -171,8 +171,7 @@ before layers configuration."
 layers configuration."
   (setq powerline-default-separator 'box)
   (global-company-mode)
-  (add-hook 'prog-mode-hook #'linum-mode)
-  (add-hook 'prog-mode-hook #'linum-relative-toggle)
+  (add-hook 'prog-mode-hook (lambda () (setq fill-column 132)) t)
   (add-hook 'swift-mode-hook (lambda () (disable-electric-indent-mode)))
 )
 
@@ -192,6 +191,7 @@ layers configuration."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
+ '(fill-column 132)
  '(haskell-check-command "/bin/true")
  '(haskell-compile-cabal-build-command "cd %s && stack build --ghc-option=-ferror-spans")
  '(highlight-indentation-offset 2)
