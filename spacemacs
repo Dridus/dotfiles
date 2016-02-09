@@ -31,6 +31,7 @@
      javascript
      markdown
      ;; org
+     purescript
      scala
      (shell :variables
             shell-default-height 30
