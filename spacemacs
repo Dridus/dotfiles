@@ -189,13 +189,16 @@ layers configuration."
  '(ahs-inhibit-face-list nil)
  '(css-indent-offset 2)
  '(dired-use-ls-dired nil)
+ '(electric-indent-mode nil)
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fill-column 132)
  '(global-linum-mode t)
+ '(global-whitespace-mode t)
  '(haskell-check-command "/bin/true")
  '(haskell-compile-cabal-build-command "cd %s && stack build --ghc-option=-ferror-spans")
+ '(haskell-hoogle-url "https://www.stackage.org/lts/hoogle?q=%s")
  '(highlight-indentation-offset 2)
  '(linum-relative-global-mode t)
  '(ring-bell-function (quote ignore) t)
@@ -207,7 +210,11 @@ layers configuration."
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
- '(web-mode-sql-indent-offset 2))
+ '(web-mode-sql-indent-offset 2)
+ '(whitespace-line-column nil)
+ '(whitespace-style
+   (quote
+    (face tabs trailing indentation empty tab-mark lines))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
