@@ -31,6 +31,7 @@
      javascript
      markdown
      ;; org
+     purescript
      scala
      (shell :variables
             shell-default-height 30
@@ -171,7 +172,6 @@ before layers configuration."
 layers configuration."
   (setq powerline-default-separator 'box)
   (global-company-mode)
-  (add-hook 'prog-mode-hook (lambda () (setq fill-column 132)) t)
   (add-hook 'swift-mode-hook (lambda () (disable-electric-indent-mode)))
 )
 
