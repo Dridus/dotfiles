@@ -147,7 +147,7 @@ before layers configuration."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    dotspacemacs-smartparens-strict-mode nil
    ;; Select a scope to highlight delimiters. Possible value is `all',
@@ -171,8 +171,8 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator 'box)
+  (setq helm-echo-input-in-header-line nil)
   (global-company-mode)
-  (add-hook 'swift-mode-hook (lambda () (disable-electric-indent-mode)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -187,6 +187,7 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(c-basic-offset 2)
  '(css-indent-offset 2)
  '(dired-use-ls-dired nil)
  '(electric-indent-mode nil)
@@ -211,7 +212,7 @@ layers configuration."
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
  '(web-mode-sql-indent-offset 2)
- '(whitespace-line-column nil)
+ '(whitespace-line-column 132)
  '(whitespace-style
    (quote
     (face tabs trailing indentation empty tab-mark lines))))
@@ -222,3 +223,8 @@ layers configuration."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+
+(setenv "DOCKER_TLS_VERIFY" "1")
+(setenv "DOCKER_HOST" "tcp://192.168.99.100:2376")
+(setenv "DOCKER_CERT_PATH" "/Users/ross/.docker/machine/machines/default")
+(setenv "DOCKER_MACHINE_NAME" "default")
