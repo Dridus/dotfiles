@@ -226,5 +226,9 @@ layers configuration."
 
 (setenv "DOCKER_TLS_VERIFY" "1")
 (setenv "DOCKER_HOST" "tcp://192.168.99.100:2376")
+<<<<<<< Updated upstream
 (setenv "DOCKER_CERT_PATH" "/Users/ross/.docker/machine/machines/default")
+=======
+(setenv "DOCKER_CERT_PATH" "/Users/rmm/.docker/machine/machines/default")
+>>>>>>> Stashed changes
 (setenv "DOCKER_MACHINE_NAME" "default")

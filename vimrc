@@ -55,9 +55,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
-Plugin 'Valloric/YouCompleteMe'          " Completion
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
 Plugin 'tpope/vim-fugitive'              " Main git action
@@ -75,7 +74,7 @@ Plugin 'raichoo/haskell-vim'
 Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
 Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
 Plugin 'Twinside/vim-hoogle'             " Hoogle (type search for haskell)
-Plugin 'chriskempson/base16-vim'         " Color schemes
+Plugin 'jnurmine/Zenburn'                " Colors!
 Plugin 'tpope/vim-surround'              " Put delimiters around things
 Plugin 'derekwyatt/vim-scala'            " Scala support
 Plugin 'kien/rainbow_parentheses.vim'    " Colorize nested expressions
@@ -106,8 +105,7 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-default
+colors zenburn
 
 syntax enable
 
