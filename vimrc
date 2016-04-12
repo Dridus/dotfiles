@@ -40,7 +40,7 @@ set smartcase            " But don't case fold uppercase
 set smarttab             " No dumb tabs
 set splitbelow           " Put new splits down
 set splitright           " Put new vsplits right
-set tabstop=4            " 4 space indent stops
+set tabstop=2            " 2 space indent stops
 set textwidth=0          " Don't wrap until I tell you
 set timeoutlen=2000      " Set multikey timeout to 2 seconds
 set undodir=~/.vim/backup
@@ -48,6 +48,11 @@ set undofile
 set vb t_vb=
 set wildmenu             " Show the completion menu when tab completing
 set wildmode=list:longest,full " Configure wildmenu
+
+if has("gui_macvim")
+  set macligatures
+  set guifont=Fira\ Code\ Light:h10
+endif
 
 " Vundle
 "
@@ -58,32 +63,29 @@ Plugin 'gmarik/vundle'
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
-Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
+" Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
 Plugin 'tpope/vim-fugitive'              " Main git action
 Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
 Plugin 'scrooloose/nerdtree'             " File tree
 Plugin 'bling/vim-airline'               " Fancy status bar
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
 Plugin 'tpope/vim-commentary'            " Comment things!
 Plugin 'michaeljsmith/vim-indent-object' " Text object that follows indentation
-Plugin 'christoomey/vim-tmux-navigator' " Window navigate out of vim into tmux
-Plugin 'raichoo/haskell-vim'
-Plugin 'eagletmt/ghcmod-vim'             " Integration with ghc-mod to do type information
+" Plugin 'raichoo/haskell-vim'
+Plugin 'vim-scripts/haskell.vim'
 Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
-Plugin 'Twinside/vim-hoogle'             " Hoogle (type search for haskell)
-Plugin 'jnurmine/Zenburn'                " Colors!
 Plugin 'tpope/vim-surround'              " Put delimiters around things
 Plugin 'derekwyatt/vim-scala'            " Scala support
-Plugin 'kien/rainbow_parentheses.vim'    " Colorize nested expressions
 Plugin 'Keithbsmiley/swift.vim'          " Swift support
 Plugin 'bronson/vim-visual-star-search'  " Use * on visually selected text to search for it
 Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
 Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
-Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
+" Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
 Plugin 'Shougo/unite.vim'                " Go to anywhere
 Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'tsukkee/unite-tag'               " Add tag source to unite
@@ -92,6 +94,9 @@ Plugin 'tpope/vim-repeat'                " Support . with plugins
 Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
 Plugin 'eagletmt/unite-haddock'          " Haddock and hoogle in Unite
 Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
+Plugin 'raichoo/purescript-vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
 filetype plugin indent on
@@ -105,7 +110,8 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-colors zenburn
+set background=dark
+colorscheme base16-default
 
 syntax enable
 
@@ -117,15 +123,6 @@ highlight CursorLineNr ctermfg=12 cterm=bold
 "
 set list                 " Show whitespace (trailing -s and >s)
 set listchars=tab:▸\ ,trail:·,nbsp:_,extends:…
-
-" Return to last edit position when opening files (You want this!)
-augroup last_edit
-  autocmd!
-  autocmd BufReadPost *
-       \ if line("'\"") > 0 && line("'\"") <= line("$") |
-       \   exe "normal! g`\"" |
-       \ endif
-augroup END
 
 " Folding
 "
@@ -142,38 +139,11 @@ let g:airline#extensions#tabline#show_buffers = 1
 
 " Unite
 "
-let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
 let g:unite_source_history_yank_enable=1
 let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nogroup --nocolor --hidden'
+let g:unite_source_grep_default_opts = '--nogroup --nocolor'
 let g:unite_source_grep_recursive_opt = ''
-
-" YouCompleteMe
-"
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_select_completion = ['<c-n>', '<tab>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<s-tab>']
-let g:ycm_key_list_invoke_completion = ['<c-n>']
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Indent Guides
-"
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=15
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=21
-let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_guide_size = 1
-
-" Rainbow Parentheses
-"
-" au VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
 
 " NERDtree
 "
@@ -197,7 +167,6 @@ let g:loaded_AlignMapsPlugin=1
 " Haskell
 "
 let $PATH = $PATH . ':' . expand("~/.haskell-vim-now/bin")
-let g:necoghc_enable_detailed_browse = 1
 let g:no_haskell_conceal = 1
 let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
@@ -265,34 +234,13 @@ endfunction
 
 augroup haskell
   autocmd!
-  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>
-  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
   autocmd FileType haskell setlocal indentkeys=
 augroup END
 
-set cscopeprg=~/.haskell-vim-now/bin/hscope
-" search codex tags first
-set cscopetagorder=1
-set cscopetag
-set cscopeverbose
-" Automatically make cscope connections
-function! LoadHscope()
-  let db = findfile("hscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/hscope.out$"))
-    " suppress 'duplicate connection' error
-    set nocscopeverbose
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  endif
-endfunction
-autocmd BufEnter /*.hs call LoadHscope()
-
-
 " Scala
 "
-autocmd BufNewFile,BufRead *.scala set sw=4
-autocmd BufNewFile,BufRead *.scala set makeprg=mvn\ install
+autocmd BufNewFile,BufRead *.scala set sw=2
+autocmd BufNewFile,BufRead *.scala set makeprg=sbt\ compile
 autocmd BufNewFile,BufRead *.scala set nocst
 highlight scalaDef cterm=bold
 highlight scalaClass cterm=bold
@@ -302,7 +250,6 @@ highlight scalaTrait cterm=bold
 " Elm
 "
 autocmd FileType elm setlocal indentkeys=
-
 
 " JSON
 "
@@ -321,41 +268,15 @@ function! DeleteTrailingWS()
   delmarks z
 endfunc
 
-" Move to beginning of text on line unless already there, and then move to BOL
-"
-func BOTorBOL()
-    let curpos = getcurpos()
-    let line = getline(curpos[1])
-    let bot = match(line, "\\S")
-    if curpos[2] == 1 || curpos[2] > bot + 1
-        normal! ^
-    else
-        normal! 0
-    endif
-endfunc
-
 " EasyMotion
 "
-let g:EasyMotion_do_mapping = 0 " Control all the mappings
-let g:EasyMotion_smartcase = 0 " Match set smartcase
+" let g:EasyMotion_do_mapping = 0 " Control all the mappings
+" let g:EasyMotion_smartcase = 0 " Match set smartcase
 
 " Mappings
 "
-
 let mapleader = " "
 let g:mapleader = " "
-
-" Move around windows with <c-direction> rather than <c-w>direction
-noremap <c-h> <c-w>h
-noremap <c-k> <c-w>k
-noremap <c-j> <c-w>j
-noremap <c-l> <c-w>l
-
-" Open window splits in various places
-" nmap <leader>sh :leftabove  vnew<CR>
-" nmap <leader>sl :rightbelow vnew<CR>
-" nmap <leader>sk :leftabove  new<CR>
-" nmap <leader>sj :rightbelow new<CR>
 
 " Buffer management
 nnoremap <leader>bp :bp<cr>
@@ -371,27 +292,6 @@ nnoremap <silent> <right> :cnext<cr>
 nnoremap <silent> <down> :cclose<cr>
 nnoremap <silent> <left> :cprevious<cr>
 
-" Tags and such
-map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
-map <leader>tt :TagbarToggle<CR>
-
-" Haskell specific mappings
-" Type of expression under cursor
-nmap <silent> <leader>ht :GhcModType<CR>
-" Insert type of expression under cursor
-nmap <silent> <leader>hT :GhcModTypeInsert<CR>
-" Hoogle the word under the cursor
-nnoremap <silent> <leader>hh :Hoogle<CR>
-" Hoogle and prompt for input
-nnoremap <leader>hH :Hoogle
-" Hoogle for detailed documentation (e.g. "Functor")
-nnoremap <silent> <leader>hi :HoogleInfo<CR>
-" Hoogle for detailed documentation and prompt for input
-nnoremap <leader>hI :HoogleInfo
-" Hoogle, close the Hoogle window
-nnoremap <silent> <leader>hz :HoogleClose<CR>
-nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
-
 " Alignment mappings
 " these first two suppress cecutil.vim from binding them to <leader>swp and
 " <leader>rwp
@@ -400,7 +300,7 @@ map <c-x>rwp <Plug>RestoreWinPosn
 map <Leader>a= :Align =<CR>
 map <Leader>a, :Align ,<CR>
 map <Leader>a<bar> :Align <bar><CR>
-map <leader>ap :Align
+map <leader>ar :Align
 
 " Git
 nmap <leader>gs :Gstatus<CR>
@@ -411,69 +311,51 @@ nmap <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 
 " If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>n <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <leader>pf <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
-" Motion with less onerous chording
-nnoremap <silent> <C-a> :call BOTorBOL()<CR>
-vnoremap <silent> <C-a> :call BOTorBOL()<CR>
-inoremap <silent> <C-a> <c-o>:call BOTorBOL()<CR>
-nnoremap <silent> <C-e> $
-vnoremap <silent> <C-e> $
-inoremap <silent> <C-e> <c-o>$
-
 " Add empty lines above or below
-nnoremap <leader>j o<esc>0"-D
-nnoremap <leader>k O<esc>0"-D
+nnoremap <C-j> o<esc>0"-D
 
 " EasyMotion
-nmap <leader>\; <Plug>(easymotion-next)
-nmap <leader>\, <Plug>(easymotion-prev)
-nmap <leader>f <Plug>(easymotion-f)
-nmap <leader>F <Plug>(easymotion-F)
-nmap <leader>\t <Plug>(easymotion-t)
-nmap <leader>\T <Plug>(easymotion-T)
-nmap <leader>\w <Plug>(easymotion-w)
-nmap <leader>\W <Plug>(easymotion-W)
-nmap <leader>\b <Plug>(easymotion-b)
-nmap <leader>\B <Plug>(easymotion-B)
-nmap <leader>\e <Plug>(easymotion-e)
-nmap <leader>\E <Plug>(easymotion-E)
-nmap <leader>\ge <Plug>(easymotion-ge)
-nmap <leader>\gE <Plug>(easymotion-gE)
-nmap <leader>\j <Plug>(easymotion-j)
-nmap <leader>\k <Plug>(easymotion-k)
-nmap <leader>\n <Plug>(easymotion-n)
-nmap <leader>\N <Plug>(easymotion-N)
-nmap <leader>s <Plug>(easymotion-s)
+" nmap <leader>\; <Plug>(easymotion-next)
+" nmap <leader>\, <Plug>(easymotion-prev)
+" nmap <leader>f <Plug>(easymotion-f)
+" nmap <leader>F <Plug>(easymotion-F)
+" nmap <leader>\t <Plug>(easymotion-t)
+" nmap <leader>\T <Plug>(easymotion-T)
+" nmap <leader>\w <Plug>(easymotion-w)
+" nmap <leader>\W <Plug>(easymotion-W)
+" nmap <leader>\b <Plug>(easymotion-b)
+" nmap <leader>\B <Plug>(easymotion-B)
+" nmap <leader>\e <Plug>(easymotion-e)
+" nmap <leader>\E <Plug>(easymotion-E)
+" nmap <leader>\ge <Plug>(easymotion-ge)
+" nmap <leader>\gE <Plug>(easymotion-gE)
+" nmap <leader>\j <Plug>(easymotion-j)
+" nmap <leader>\k <Plug>(easymotion-k)
+" nmap <leader>\n <Plug>(easymotion-n)
+" nmap <leader>\N <Plug>(easymotion-N)
+" nmap <leader>s <Plug>(easymotion-s)
 
 " Unite
-nnoremap <silent> <leader><space><space> :Unite -no-hide-icon buffer<cr>
-nnoremap <silent> <leader><space>t :Unite -no-hide-icon -start-insert tag<cr>
-nnoremap <silent> <Leader><space>f :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
+nnoremap <silent> <leader>bb :Unite -no-hide-icon buffer<cr>
+nnoremap <silent> <leader>pt :Unite -no-hide-icon -start-insert tag<cr>
+nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
-nnoremap <silent> <Leader><space>h :Unite -no-hide-icon -start-insert help<cr>
-nnoremap <silent> <Leader><space>r :Unite -no-hide-icon -start-insert register history/yank<cr>
-nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
-nnoremap <silent> <Leader><space>/ :Unite -no-hide-icon -start-insert line<cr>
-nnoremap <silent> <Leader><space>i :Unite -no-hide-icon -start-insert haskellimport<cr>
-nnoremap <silent> <Leader><space>H :Unite -no-hide-icon -start-insert haddock hoogle<cr>
-nnoremap <silent> <Leader><space>g :Unite -no-hide-icon grep<cr>
-nnoremap <silent> <Leader><space>R :UniteResume<cr>
-
-" <leader>w keys to do things around saving a file
-nmap <leader>wm :w<cr>:mak<cr>
-nmap <leader>wd :call DeleteTrailingWS()<cr>
-nmap <leader>ww :w<cr>
+nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
+nnoremap <silent> <Leader>y :Unite -no-hide-icon -start-insert register history/yank<cr>
+" nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
+nnoremap <silent> <Leader>ss :Unite -no-hide-icon -start-insert line<cr>
+nnoremap <silent> <Leader>/ :Unite -no-hide-icon grep<cr>
+nnoremap <silent> <Leader>hl :UniteResume<cr>
 
 " Miscellaneous
 " Clear the highlight
-map <silent> <leader><cr> :noh<cr>
+map <silent> <leader>sc :noh<cr>
 " Redraw the screen
-map <silent> <leader>r :redraw!<CR>
+" map <silent> <leader>r :redraw!<CR>
 " Open file prompt with current path
 nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show Gundo
-nmap <silent> <leader>u :GundoToggle<CR>
-" Toggle Rainbow parens
-map <Leader>0 :RainbowParenthesesToggle<cr>
+nmap <silent> <leader>au :GundoToggle<CR>

@@ -39,6 +39,7 @@
      ;; syntax-checking
      version-control
      osx
+     vinegar
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -78,12 +79,12 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(solarized-light
+                         zenburn
                          solarized-dark
                          spacemacs-light
                          spacemacs-dark
                          leuven
-                         monokai
-                         zenburn)
+                         monokai)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -226,9 +227,5 @@ layers configuration."
 
 (setenv "DOCKER_TLS_VERIFY" "1")
 (setenv "DOCKER_HOST" "tcp://192.168.99.100:2376")
-<<<<<<< Updated upstream
-(setenv "DOCKER_CERT_PATH" "/Users/ross/.docker/machine/machines/default")
-=======
 (setenv "DOCKER_CERT_PATH" "/Users/rmm/.docker/machine/machines/default")
->>>>>>> Stashed changes
 (setenv "DOCKER_MACHINE_NAME" "default")
