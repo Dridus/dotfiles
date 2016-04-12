@@ -97,6 +97,7 @@ Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
 Plugin 'raichoo/purescript-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'ktvoelker/sbt-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -139,8 +140,8 @@ let g:airline#extensions#tabline#show_buffers = 1
 
 " Unite
 "
-let g:unite_source_rec_async_command='ag --follow --nocolor --nogroup -g ""'
-let g:unite_source_history_yank_enable=1
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nogroup --nocolor'
 let g:unite_source_grep_recursive_opt = ''
@@ -166,7 +167,6 @@ let g:loaded_AlignMapsPlugin=1
 
 " Haskell
 "
-let $PATH = $PATH . ':' . expand("~/.haskell-vim-now/bin")
 let g:no_haskell_conceal = 1
 let g:haskell_conceal = 0
 let g:haskell_conceal_wide = 0
