@@ -316,8 +316,10 @@ nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 nmap <silent> <leader>pf <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
-" Add empty lines above or below
-nnoremap <C-j> o<esc>0"-D
+" Insert line break
+nnoremap <C-j> i<cr><esc>
+" Reindent line
+nnoremap <tab> ==
 
 " EasyMotion
 " nmap <leader>\; <Plug>(easymotion-next)
