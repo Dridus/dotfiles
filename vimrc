@@ -98,6 +98,7 @@ Plugin 'raichoo/purescript-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ktvoelker/sbt-vim'
+Plugin 'uarun/vim-protobuf'
 
 call vundle#end()
 filetype plugin indent on
@@ -359,3 +360,6 @@ map <silent> <leader>sc :noh<cr>
 nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show Gundo
 nmap <silent> <leader>au :GundoToggle<CR>
+" Switch to the most recent buffer
+nmap <silent> <leader><tab> :b#<cr>
+
