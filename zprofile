@@ -25,14 +25,12 @@ typeset -x JAVA_OPTS="-Xms512M -Xmx2G"
 typeset -x EDITOR="vim"
 typeset -x VISUAL="vim"
 
-typeset -x GHC_DOT_APP="/Applications/ghc-7.10.1.app"
-
 path=(
     /usr/local/bin
     $HOME/bin
     $HOME/.local/bin
     $HOME/Library/Python/2.7/bin
-    $HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin
+    $HOME/.stack/programs/x86_64-osx/ghc-7.10.3/bin
     $path[@]
 )
 
