@@ -47,7 +47,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(thrift swift-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(company-ghc ghc-mod)
+   dotspacemacs-excluded-packages '(company-ghc ghc-mod company-cabal)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -173,7 +173,8 @@ before layers configuration."
 layers configuration."
   (setq powerline-default-separator 'box)
   (setq helm-echo-input-in-header-line nil)
-  (global-company-mode)
+  (setq haskell-tags-on-save nil)
+  (global-auto-complete-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -189,6 +190,11 @@ layers configuration."
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(c-basic-offset 2)
+ '(company-backends
+   (quote
+    (company-bbdb company-nxml company-css company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
+                  (company-dabbrev-code company-keywords)
+                  company-oddmuse company-dabbrev)))
  '(css-indent-offset 2)
  '(dired-use-ls-dired nil)
  '(electric-indent-mode nil)
