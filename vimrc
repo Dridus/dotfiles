@@ -299,10 +299,10 @@ nnoremap <silent> <left> :cprevious<cr>
 " <leader>rwp
 map <c-x>swp <Plug>SaveWinPosn
 map <c-x>rwp <Plug>RestoreWinPosn
-map <Leader>a= :Align =<CR>
-map <Leader>a, :Align ,<CR>
-map <Leader>a<bar> :Align <bar><CR>
-map <leader>ar :Align
+map <Leader>xa= :Align =<CR>
+map <Leader>xa, :Align ,<CR>
+map <Leader>xa<bar> :Align <bar><CR>
+map <leader>xar :Align
 
 " Git
 nmap <leader>gs :Gstatus<CR>
