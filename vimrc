@@ -99,6 +99,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ktvoelker/sbt-vim'
 Plugin 'uarun/vim-protobuf'
+Plugin 'Shougo/neomru.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -343,8 +344,8 @@ nnoremap <tab> ==
 " nmap <leader>s <Plug>(easymotion-s)
 
 " Unite
-nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
-nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer<cr>
+nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer neomru/file<cr>
+nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer neomru/file<cr>
 nnoremap <silent> <leader>pt :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
