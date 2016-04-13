@@ -352,7 +352,7 @@ nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
 nnoremap <silent> <Leader>y :Unite -no-hide-icon -start-insert register history/yank<cr>
 " nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
 nnoremap <silent> <Leader>ss :Unite -no-hide-icon -start-insert line<cr>
-nnoremap <silent> <Leader>/ :Unite -no-hide-icon grep<cr>
+nnoremap <silent> <Leader>/ :Unite -no-hide-icon grep:.<cr>
 nnoremap <silent> <Leader>hl :UniteResume<cr>
 
 " Miscellaneous
