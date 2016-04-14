@@ -97,7 +97,7 @@ Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
 Plugin 'raichoo/purescript-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'ktvoelker/sbt-vim'
+Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'Shougo/neomru.vim'
 
