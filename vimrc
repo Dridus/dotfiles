@@ -252,6 +252,10 @@ highlight scalaClass cterm=bold
 highlight scalaObject cterm=bold
 highlight scalaTrait cterm=bold
 
+" Python
+"
+autocmd BufNewFile,BufRead *.py set sw=2
+
 " Elm
 "
 autocmd FileType elm setlocal indentkeys=
