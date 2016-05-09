@@ -270,6 +270,10 @@ let g:vim_json_syntax_conceal = 0
 autocmd BufNewFile,BufRead *.rst set sw=3
 autocmd BufNewFile,BufRead *.rst set makeprg=make\ html
 
+" Markdown
+"
+autocmd BufNewFile,BufRead *.md set wrap
+
 " Remove trailing whitespace on save
 function! DeleteTrailingWS()
   mark z
