@@ -33,3 +33,5 @@ export NVM_DIR="/Users/ross/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 alias em="emacsclient -n"
+alias ghci="stack ghci classy-prelude lens --ghci-options=-XNoImplicitPrelude"
+
