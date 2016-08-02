@@ -312,6 +312,7 @@ nnoremap <silent> <left> :cprevious<cr>
 map <c-x>swp <Plug>SaveWinPosn
 map <c-x>rwp <Plug>RestoreWinPosn
 map <Leader>xa= :Align =<CR>
+map <Leader>xa: :Align ::<CR>
 map <Leader>xa, :Align ,<CR>
 map <Leader>xa<bar> :Align <bar><CR>
 map <leader>xar :Align
@@ -354,10 +355,13 @@ nnoremap <tab> ==
 " nmap <leader>\N <Plug>(easymotion-N)
 " nmap <leader>s <Plug>(easymotion-s)
 
+" NERDTree
+nnoremap <silent> <leader>pt :NERDTree<cr>
+
 " Unite
 nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer neomru/file<cr>
 nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer neomru/file<cr>
-nnoremap <silent> <leader>pt :Unite -no-hide-icon -start-insert tag<cr>
+nnoremap <silent> <leader>pT :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
 nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
