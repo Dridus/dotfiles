@@ -8,6 +8,7 @@ set autoread             " Automatically reload changed files
 set backspace=eol,start,indent " Make backspace helpful
 set backup               " Turn on regular backups
 set backupdir=~/.vim/backup
+set colorcolumn=160
 set cursorline           " Highlight the current line
 set directory=~/.vim/tmp
 set encoding=utf8        " Be reasonable
