@@ -96,7 +96,7 @@ Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
 Plugin 'eagletmt/unite-haddock'          " Haddock and hoogle in Unite
 Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
 Plugin 'raichoo/purescript-vim'
-Plugin 'chriskempson/base16-vim'
+Plugin 'jonathanfilip/vim-lucius'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
@@ -114,9 +114,9 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-set background=dark
-colorscheme base16-default
+set background=light
+colorscheme lucius
+LuciusLight
 
 syntax enable
 
