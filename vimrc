@@ -247,7 +247,6 @@ augroup END
 " Scala
 "
 autocmd BufNewFile,BufRead *.scala set sw=2
-autocmd BufNewFile,BufRead *.scala set makeprg=sbt\ compile
 autocmd BufNewFile,BufRead *.scala set nocst
 highlight scalaDef cterm=bold
 highlight scalaClass cterm=bold
