@@ -242,7 +242,7 @@ endfunction
 augroup haskell
   autocmd!
   autocmd FileType haskell setlocal indentkeys=
-  autocmd FileType haskell set errorformat=%C\t%.%#,%A\ \ \ \ %f:%l:%c:,%Z\ \ \ \ 
+  autocmd FileType haskell set errorformat=%C\t%.%#,%W\ \ \ \ %f:%l:%c:\ Warning:,%E\ \ \ \ %f:%l:%c:,%Z\ \ \ \ 
 augroup END
 
 " Scala
