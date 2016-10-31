@@ -10,7 +10,7 @@ set backup               " Turn on regular backups
 set backupdir=~/.vim/backup
 set colorcolumn=160
 set cursorline           " Highlight the current line
-set directory=~/.vim/tmp
+set directory=~/.vim/tmp//
 set encoding=utf8        " Be reasonable
 set expandtab            " Use spaces not tabs
 set exrc                 " Read ./.vimrc
@@ -242,7 +242,7 @@ endfunction
 augroup haskell
   autocmd!
   autocmd FileType haskell setlocal indentkeys=
-  autocmd FileType haskell set errorformat=set errorformat=%C\t%.%#,%W\ \ \ \ %f:%l:%c:\ Warning:,%E\ \ \ \ %f:%l:%c:,%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
+  autocmd FileType haskell set errorformat=%C\t%.%#,%W\ \ \ \ %f:%l:%c:\ Warning:,%E\ \ \ \ %f:%l:%c:,%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
 augroup END
 
 " Scala
