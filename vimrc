@@ -62,7 +62,6 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 " Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
 Plugin 'tpope/vim-fugitive'              " Main git action
@@ -78,29 +77,23 @@ Plugin 'tpope/vim-commentary'            " Comment things!
 Plugin 'michaeljsmith/vim-indent-object' " Text object that follows indentation
 " Plugin 'raichoo/haskell-vim'
 Plugin 'vim-scripts/haskell.vim'
-Plugin 'eagletmt/neco-ghc'               " Neocomplete support using GHC
 Plugin 'tpope/vim-surround'              " Put delimiters around things
 Plugin 'derekwyatt/vim-scala'            " Scala support
-Plugin 'Keithbsmiley/swift.vim'          " Swift support
 Plugin 'bronson/vim-visual-star-search'  " Use * on visually selected text to search for it
 Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
-Plugin 'bkad/CamelCaseMotion'            " CamelCase and words_in_identifiers movement
 " Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
 Plugin 'Shougo/unite.vim'                " Go to anywhere
 Plugin 'tsukkee/unite-help'              " Add help source to unite
-Plugin 'tsukkee/unite-tag'               " Add tag source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
 Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
-Plugin 'eagletmt/unite-haddock'          " Haddock and hoogle in Unite
-Plugin 'ujihisa/unite-haskellimport'     " Haskell imports in Unite
 Plugin 'raichoo/purescript-vim'
 Plugin 'jonathanfilip/vim-lucius'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'Shougo/neomru.vim'
+Plugin 'rodjek/vim-puppet'
 
 call vundle#end()
 filetype plugin indent on
