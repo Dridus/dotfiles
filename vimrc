@@ -60,7 +60,7 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 " Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
@@ -90,7 +90,7 @@ Plugin 'tpope/vim-repeat'                " Support . with plugins
 Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
 Plugin 'raichoo/purescript-vim'
 Plugin 'jonathanfilip/vim-lucius'
-Plugin 'Dridus/sbt-vim'
+" Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'Shougo/neomru.vim'
 Plugin 'rodjek/vim-puppet'
