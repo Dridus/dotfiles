@@ -92,7 +92,7 @@ Plugin 'raichoo/purescript-vim'
 Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
-Plugin 'Shougo/neomru.vim'
+" Plugin 'Shougo/neomru.vim'
 Plugin 'rodjek/vim-puppet'
 Plugin 'rust-lang/rust.vim'
 Plugin 'spwhitt/vim-nix'
@@ -355,8 +355,8 @@ nnoremap <tab> ==
 nnoremap <silent> <leader>pt :NERDTree<cr>
 
 " Unite
-nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer neomru/file<cr>
-nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer neomru/file<cr>
+nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
+nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer<cr>
 nnoremap <silent> <leader>pT :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
