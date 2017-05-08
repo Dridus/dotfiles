@@ -134,6 +134,7 @@ set foldcolumn=0
 " Airline
 " "
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -353,6 +354,19 @@ nnoremap <tab> ==
 
 " NERDTree
 nnoremap <silent> <leader>pt :NERDTree<cr>
+
+" Switch buffers fast
+nmap <D-1> <Plug>AirlineSelectTab1
+nmap <D-2> <Plug>AirlineSelectTab2
+nmap <D-3> <Plug>AirlineSelectTab3
+nmap <D-4> <Plug>AirlineSelectTab4
+nmap <D-5> <Plug>AirlineSelectTab5
+nmap <D-6> <Plug>AirlineSelectTab6
+nmap <D-7> <Plug>AirlineSelectTab7
+nmap <D-8> <Plug>AirlineSelectTab8
+nmap <D-9> <Plug>AirlineSelectTab9
+nmap <D-left> <Plug>AirlineSelectPrevTab
+nmap <D-right> <Plug>AirlineSelectNextTab
 
 " Unite
 nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
