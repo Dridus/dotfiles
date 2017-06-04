@@ -19,9 +19,6 @@ fi
 
 export PAGER='less'
 
-typeset -x SCALA_HOME="/usr/share/scala/scala"
-typeset -x MAVEN_OPTS="-Xmx2G"
-typeset -x JAVA_OPTS="-Xms512M -Xmx2G"
 typeset -x EDITOR="vim"
 typeset -x VISUAL="vim"
 
@@ -29,15 +26,9 @@ path=(
     /usr/local/bin
     $HOME/bin
     $HOME/.local/bin
-    $HOME/Library/Python/2.7/bin
-    $HOME/.stack/programs/x86_64-osx/ghc-7.10.3/bin
     $path[@]
 )
 
-# $HOME/Library/Python/2.7/bin/powerline-daemon -q
-# . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
-typeset -x JAVA_HOME="$(/usr/libexec/java_home)"
 typeset -x EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.7.1.0/libexec"
 
 
