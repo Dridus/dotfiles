@@ -374,6 +374,7 @@ nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
 nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer<cr>
 nnoremap <silent> <leader>pT :Unite -no-hide-icon -start-insert tag<cr>
 nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
+nnoremap <silent> <leader>ff :Unite -no-hide-icon -start-insert file -path=<C-R>=expand("%:p:h") . '/'<CR><CR>
 nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
 nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
 nnoremap <silent> <Leader>y :Unite -no-hide-icon -start-insert register history/yank<cr>
