@@ -96,6 +96,7 @@ Plugin 'uarun/vim-protobuf'
 Plugin 'rodjek/vim-puppet'
 Plugin 'rust-lang/rust.vim'
 Plugin 'spwhitt/vim-nix'
+Plugin 'bumaociyuan/vim-swift'
 
 call vundle#end()
 filetype plugin indent on
