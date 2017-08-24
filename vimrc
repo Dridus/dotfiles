@@ -52,7 +52,7 @@ set wildmode=list:longest,full " Configure wildmenu
 
 if has("gui_macvim")
   set macligatures
-  set guifont=Fira\ Code\ Light:h10
+  set guifont=Fira\ Code:h10
 endif
 
 " Vundle
