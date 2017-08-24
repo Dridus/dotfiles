@@ -394,4 +394,6 @@ nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 nmap <silent> <leader>au :GundoToggle<CR>
 " Switch to the most recent buffer
 nmap <silent> <leader><tab> :b#<cr>
+" Sort words in a visual range
+vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<cr>
 
