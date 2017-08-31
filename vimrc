@@ -299,7 +299,7 @@ noremap <leader>bd :Bd<cr>
 nnoremap Q @q
 
 " Navigate quickfix with arrow keys
-nnoremap <silent> <up> :copen<cr>
+nnoremap <silent> <up> :copen 25<cr>
 nnoremap <silent> <right> :cnext<cr>
 nnoremap <silent> <down> :cclose<cr>
 nnoremap <silent> <left> :cprevious<cr>
