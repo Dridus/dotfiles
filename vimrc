@@ -55,6 +55,18 @@ if has("gui_macvim")
   set guifont=Fira\ Code:h10
 endif
 
+if has("gui_gtk")
+  set guifont=Fira\ Code\ 8
+  " relative to defaults:
+  "   not [a]utoselect
+  "   yes [c]onsole prompts
+  "   not [m]enubar
+  "   not [t]ear off menus
+  "   not [T]oolbar
+  set guioptions=cegirL
+endif
+
+
 " Vundle
 "
 set rtp+=~/.vim/bundle/Vundle.vim
