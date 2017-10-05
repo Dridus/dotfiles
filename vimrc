@@ -306,6 +306,7 @@ let g:mapleader = " "
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bn :bn<cr>
 noremap <leader>bd :Bd<cr>
+noremap <leader>bD :1,$bd<cr>
 
 " Q to execute the q macro
 nnoremap Q @q
