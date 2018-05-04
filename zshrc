@@ -30,4 +30,3 @@ if test -f $HOME/.zshrc-local; then
 fi
 
 alias em="emacsclient -n"
-alias ghci="stack ghci classy-prelude lens --ghci-options=-XNoImplicitPrelude"

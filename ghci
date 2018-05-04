@@ -1,5 +1,4 @@
-:set -XNoImplicitPrelude -XTypeFamilies -XTypeApplications -XGADTs -XDataKinds -XLambdaCase -XRecordWildCards -XNamedFieldPuns
+:set -XTypeFamilies -XTypeApplications -XGADTs -XDataKinds -XLambdaCase -XRecordWildCards -XNamedFieldPuns
 :set prompt "➤ "
 :set prompt2 "| "
-import ClassyPrelude
 
