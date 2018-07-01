@@ -57,7 +57,7 @@ if has("gui_macvim")
 endif
 
 if has("gui_gtk")
-  set guifont=Fira\ Code\ 8
+  set guifont=Fira\ Code\ 7
   " relative to defaults:
   "   not [a]utoselect
   "   yes [c]onsole prompts
