@@ -20,6 +20,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # module_path=($module_path /usr/local/lib/zpython)
 # zmodload zsh/zpython
 
+setopt NO_SHARE_HISTORY
+
 prompt agnoster
 
 bindkey '^r' history-incremental-search-backward
