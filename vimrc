@@ -105,11 +105,10 @@ Plugin 'raichoo/purescript-vim'
 Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
-" Plugin 'Shougo/neomru.vim'
-Plugin 'rodjek/vim-puppet'
-Plugin 'rust-lang/rust.vim'
 Plugin 'spwhitt/vim-nix'
 Plugin 'bumaociyuan/vim-swift'
+Plugin 'Shougo/neomru.vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
