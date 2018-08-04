@@ -102,13 +102,15 @@ Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutte
 Plugin 'tpope/vim-repeat'                " Support . with plugins
 Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
 Plugin 'raichoo/purescript-vim'
-Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'Dridus/sbt-vim'
 Plugin 'uarun/vim-protobuf'
 Plugin 'spwhitt/vim-nix'
 Plugin 'bumaociyuan/vim-swift'
 Plugin 'Shougo/neomru.vim'
 Plugin 'rust-lang/rust.vim'
+
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -122,9 +124,10 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-set background=light
-colorscheme lucius
-LuciusLight
+set background=dark
+" colorscheme lucius
+colorscheme base16-ashes
+" LuciusLight
 
 syntax enable
 
