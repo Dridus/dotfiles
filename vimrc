@@ -95,7 +95,7 @@ Plugin 'derekwyatt/vim-scala'            " Scala support
 Plugin 'bronson/vim-visual-star-search'  " Use * on visually selected text to search for it
 Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
-" Plugin 'Lokaltog/vim-easymotion'         " Wacky super motion!
+Plugin 'easymotion/vim-easymotion'       " Wacky super motion!
 Plugin 'Shougo/unite.vim'                " Go to anywhere
 Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
@@ -109,8 +109,9 @@ Plugin 'bumaociyuan/vim-swift'
 Plugin 'Shougo/neomru.vim'
 Plugin 'rust-lang/rust.vim'
 
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'chriskempson/base16-vim'
+" Plugin 'jonathanfilip/vim-lucius'
+" Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on
@@ -125,8 +126,9 @@ if &term =~ '256color'
 endif
 
 set background=dark
+colorscheme solarized
 " colorscheme lucius
-colorscheme base16-ashes
+" colorscheme base16-atelier-estuary-light
 " LuciusLight
 
 syntax enable
@@ -341,8 +343,8 @@ nmap <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 
 " If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>pf <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
+" nmap <silent> <leader>pf <ESC>:call ToggleFindNerd()<CR>
+" nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 " Insert line break
 nnoremap <C-j> i<cr><esc>
@@ -350,6 +352,11 @@ nnoremap <C-j> i<cr><esc>
 nnoremap <tab> ==
 
 " EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap <C-s> <Plug>(easymotion-overwin-f2)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
 " nmap <leader>\; <Plug>(easymotion-next)
 " nmap <leader>\, <Plug>(easymotion-prev)
 " nmap <leader>f <Plug>(easymotion-f)
