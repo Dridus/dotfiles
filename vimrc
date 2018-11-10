@@ -31,6 +31,7 @@ set noerrorbells         " Quiet
 set nowrap               " Wrap lines by default
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
+set pythonthreedll=/nix/store/23i9yrf5i0166lkbrcvxv0qdws2f0m51-python3-3.7.0/lib/libpython3.7m.dylib
 set relativenumber       " Show line number distance from cursor for easy [N]j/[N]k
 set ruler                " Show column position, but airline does no matter what
 set scrolloff=7          " Keep 7 lines visible when moving through file
@@ -74,16 +75,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Shougo/vimproc.vim'              " Asynchronous execution. Required by ghcmod
+Plugin 'Shougo/denite.nvim'
 Plugin 'moll/vim-bbye'                   " Sane :bdelete
 " Plugin 'nathanaelkane/vim-indent-guides' " Visible indent guides
-Plugin 'tpope/vim-fugitive'              " Main git action
-Plugin 'int3/vim-extradite'              " Fancy git log
+" Plugin 'tpope/vim-fugitive'              " Main git action
+" Plugin 'int3/vim-extradite'              " Fancy git log
 Plugin 'vim-scripts/gitignore'           " .gitignore -> wildignore
-Plugin 'scrooloose/nerdtree'             " File tree
+" Plugin 'scrooloose/nerdtree'             " File tree
 Plugin 'bling/vim-airline'               " Fancy status bar
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'majutsushi/tagbar'               " Outline panel
+" Plugin 'majutsushi/tagbar'               " Outline panel
 Plugin 'vim-scripts/Align'               " Alignment!
 Plugin 'vim-scripts/Gundo'               " Fancy undo tree
 Plugin 'tpope/vim-commentary'            " Comment things!
@@ -96,18 +97,16 @@ Plugin 'bronson/vim-visual-star-search'  " Use * on visually selected text to se
 Plugin 'elzr/vim-json'                   " Better JSON syntax coloring
 Plugin 'tpope/vim-eunuch'                " Vim sugar for common UNIX shell commands
 Plugin 'easymotion/vim-easymotion'       " Wacky super motion!
-Plugin 'Shougo/unite.vim'                " Go to anywhere
-Plugin 'tsukkee/unite-help'              " Add help source to unite
 Plugin 'kshenoy/vim-signature'           " Show marks and bookmarks in the gutter
 Plugin 'tpope/vim-repeat'                " Support . with plugins
-Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
-Plugin 'raichoo/purescript-vim'
+" Plugin 'lambdatoast/elm.vim'             " Elm language highlighting
+" Plugin 'raichoo/purescript-vim'
 " Plugin 'Dridus/sbt-vim'
-Plugin 'uarun/vim-protobuf'
+" Plugin 'uarun/vim-protobuf'
 Plugin 'spwhitt/vim-nix'
 Plugin 'bumaociyuan/vim-swift'
-Plugin 'Shougo/neomru.vim'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'Shougo/neomru.vim'
+" Plugin 'rust-lang/rust.vim'
 
 " Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'chriskempson/base16-vim'
@@ -162,26 +161,38 @@ let g:airline#extensions#tagbar#enabled = 0
 
 " Unite
 "
-let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-let g:unite_source_history_yank_enable = 1
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-let g:unite_source_grep_recursive_opt = ''
+" let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+" let g:unite_source_history_yank_enable = 1
+" let g:unite_source_grep_command = 'ag'
+" let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+" let g:unite_source_grep_recursive_opt = ''
 
 " NERDtree
 "
-let g:NERDTreeShowLineNumbers=1
-let g:NERDTreeQuitOnOpen = 1    " Close nerdtree after a file is selected
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-function! ToggleFindNerd()
-  if IsNERDTreeOpen()
-    exec ':NERDTreeToggle'
-  else
-    exec ':NERDTreeFind'
-  endif
-endfunction
+" let g:NERDTreeShowLineNumbers=1
+" let g:NERDTreeQuitOnOpen = 1    " Close nerdtree after a file is selected
+" function! IsNERDTreeOpen()
+"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+" function! ToggleFindNerd()
+"   if IsNERDTreeOpen()
+"     exec ':NERDTreeToggle'
+"   else
+"     exec ':NERDTreeFind'
+"   endif
+" endfunction
+
+" Denite
+"
+call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hide_hidden_files'])
+call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', ['--'])
 
 " Alignment
 "
@@ -275,7 +286,7 @@ autocmd BufNewFile,BufRead *.py set sw=2
 
 " Elm
 "
-autocmd FileType elm setlocal indentkeys=
+" autocmd FileType elm setlocal indentkeys=
 
 " JSON
 "
@@ -378,7 +389,7 @@ nmap <leader>k <Plug>(easymotion-k)
 " nmap <leader>s <Plug>(easymotion-s)
 
 " NERDTree
-nnoremap <silent> <leader>pt :NERDTree<cr>
+" nnoremap <silent> <leader>pt :NERDTree<cr>
 
 " Switch buffers fast
 nmap <D-1> <Plug>AirlineSelectTab1
@@ -394,18 +405,28 @@ nmap <D-left> <Plug>AirlineSelectPrevTab
 nmap <D-right> <Plug>AirlineSelectNextTab
 
 " Unite
-nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
-nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer<cr>
-nnoremap <silent> <leader>pT :Unite -no-hide-icon -start-insert tag<cr>
-nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
-nnoremap <silent> <leader>ff :Unite -no-hide-icon -start-insert file -path=<C-R>=expand("%:p:h") . '/'<CR><CR>
-nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
-nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
-nnoremap <silent> <Leader>y :Unite -no-hide-icon -start-insert register history/yank<cr>
-" nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
-nnoremap <silent> <Leader>ss :Unite -no-hide-icon -start-insert line<cr>
-nnoremap <silent> <Leader>/ :Unite -no-hide-icon grep:.<cr>
-nnoremap <silent> <Leader>hl :UniteResume<cr>
+" nnoremap <silent> <leader>bb :Unite -no-hide-icon -start-insert buffer<cr>
+" nnoremap <silent> <leader>bl :Unite -no-hide-icon buffer<cr>
+" nnoremap <silent> <leader>pT :Unite -no-hide-icon -start-insert tag<cr>
+" nnoremap <silent> <Leader>pf :Unite -no-hide-icon -start-insert file_rec/async buffer<cr>
+" nnoremap <silent> <leader>ff :Unite -no-hide-icon -start-insert file -path=<C-R>=expand("%:p:h") . '/'<CR><CR>
+" nnoremap <silent> <Leader><space>w :Unite -no-hide-icon -start-insert window<cr>
+" nnoremap <silent> <Leader>hh :Unite -no-hide-icon -start-insert help<cr>
+" nnoremap <silent> <Leader>y :Unite -no-hide-icon -start-insert register history/yank<cr>
+" " nnoremap <silent> <Leader><space>B :Unite -no-hide-icon -start-insert bookmark<cr>
+" nnoremap <silent> <Leader>ss :Unite -no-hide-icon -start-insert line<cr>
+" nnoremap <silent> <Leader>/ :Unite -no-hide-icon grep:.<cr>
+" nnoremap <silent> <Leader>hl :UniteResume<cr>
+
+" Denite
+nnoremap <silent> <leader>bb :Denite buffer<cr>
+nnoremap <silent> <leader>bl :Denite -mode=normal buffer<cr>
+nnoremap <silent> <leader>pf :Denite file/rec buffer<cr>
+nnoremap <silent> <leader>/ :Denite grep:.<cr>
+nnoremap <silent> <leader>ss :Denite line<cr>
+nnoremap <silent> <leader>hh :Denite help<cr>
+nnoremap <silent> <leader>hl :Denite -resume<cr>
+nnoremap <silent> <leader>y :Denite register<cr>
 
 " Miscellaneous
 " Clear the highlight
