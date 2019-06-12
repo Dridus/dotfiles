@@ -19,7 +19,7 @@ HELPDIR=/usr/local/share/zsh/help
 
 setopt NO_SHARE_HISTORY
 
-prompt agnoster
+prompt skwp
 
 bindkey '^r' history-incremental-search-backward
 
