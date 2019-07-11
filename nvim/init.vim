@@ -78,6 +78,7 @@ call deoplete#enable()
 
 " Netrw
 "
+let g:netrw_home=$HOME.'/.cache/netrw'
 let g:netrw_liststyle=3
 
 " Denite
