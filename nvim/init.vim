@@ -51,6 +51,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('int3/vim-extradite') " Git log browser
   call dein#add('michaeljsmith/vim-indent-object') " Indented blocks as text objects
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
+  call dein#add('neomake/neomake')
+  call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('parsonsmatt/intero-neovim')
   call dein#add('simnalamburt/vim-mundo') " Undo tree browser
   call dein#add('spwhitt/vim-nix')
   call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' }) " Auto-completion via TabNine
@@ -62,7 +65,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
   call dein#add('vim-scripts/Align') " Second best thing ever?
   call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
-  call dein#add('vim-scripts/haskell.vim')
 
   call dein#end()
   call dein#save_state()
@@ -122,17 +124,19 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tagbar#enabled = 0
 
 " Alignment
+
 "
 let g:loaded_AlignMapsPlugin=1
 
 " Haskell
 "
-let g:no_haskell_conceal = 1
-let g:haskell_conceal = 0
-let g:haskell_conceal_wide = 0
-let g:haskell_conceal_enumerations = 0
-let g:haskell_tabular = 1
-set tags=tags;/,codex.tags;/
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'  : 'hasktags',
     \ 'ctagsargs' : '-x -c -o-',
@@ -170,6 +174,33 @@ augroup haskell
   autocmd FileType haskell set errorformat=%C\t%.%#,%W\ \ \ \ %f:%l:%c:\ Warning:,%E\ \ \ \ %f:%l:%c:,%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
 augroup END
 
+" Intero
+"
+augroup interoMaps
+  au!
+  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
+  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
+  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
+  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
+  au BufWritePost *.hs InteroReload
+  au FileType haskell nnoremap <silent> <leader>ir :InteroReload<CR>
+  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
+  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
+  au FileType haskell nnoremap <silent> <leader>ie :InteroEval<CR>
+  au FileType haskell map <silent> <leader>t <Plug>InteroGenericType
+  au FileType haskell map <silent> <leader>T <Plug>InteroType
+  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
+  au FileType haskell nnoremap <silent> <leader>id :InteroGoToDef<CR>
+  au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
+augroup END
+let g:intero_start_immediately = 0
+let g:intero_window_size = 80
+let g:intero_vertical_split = 1
+set updatetime=1000
+let g:intero_backend = {
+  \ 'command': 'cabal new-repl',
+  \ }
+
 " Scala
 "
 autocmd BufNewFile,BufRead *.scala set sw=2
@@ -195,6 +226,20 @@ autocmd BufNewFile,BufRead *.rst set makeprg=make\ html
 " Markdown
 "
 autocmd BufNewFile,BufRead *.md set wrap
+
+" Neomake
+"
+let g:neomake_cabalnew_maker = {
+  \ 'exe': 'cabal',
+  \ 'args': ['new-build'],
+  \ 'errorformat': 
+  \ join([
+  \   '%A%f:%l:%c:',
+  \   '%A%f:%l:%c: %m',
+  \   '%+C    %m',
+  \   '%-Z%[%^ ]',
+  \ ], ',')
+  \ }
 
 " ********************************************************************************
 " Leader key mappings
@@ -248,6 +293,8 @@ nmap <silent> <leader>au :MundoToggle<CR>
 nmap <silent> <leader><tab> :b#<cr>
 " Sort words in a visual range
 vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<cr>
+" Show the type with Intero
+nmap <silent> <leader>t <Plug>InteroGenericType
 
 " ********************************************************************************
 " Other mappings
