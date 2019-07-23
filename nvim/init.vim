@@ -2,6 +2,7 @@
 " Basic stuff
 "
 set backup               " Turn on regular backups
+set backupdir=~/.local/share/nvim/backup
 set colorcolumn=160
 set cursorline           " Highlight the current line
 set expandtab            " Use spaces not tabs
