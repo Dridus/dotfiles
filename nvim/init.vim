@@ -312,6 +312,10 @@ nnoremap <silent> <left> :cprevious<cr>
 nnoremap <C-j> i<cr><esc>
 " Reindent line
 nnoremap <tab> ==
+" Show highlighting and syntax information at point
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Switch buffers fast
 nmap <D-1> <Plug>AirlineSelectTab1
