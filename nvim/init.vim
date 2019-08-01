@@ -286,8 +286,9 @@ nnoremap <silent> <left> :cprevious<cr>
 
 " Insert line break
 nnoremap <C-j> i<cr><esc>
-" Reindent line
-nnoremap <tab> ==
+" Accept the first completion immediately
+inoremap <silent> <tab> <c-r>=pumvisible() ? "\<lt>c-n>\<lt>c-y>" : "\<lt>tab>"<cr>
+
 " Show highlighting and syntax information at point
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
