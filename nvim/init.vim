@@ -44,6 +44,9 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
+  call dein#add('~/1st/denite-hoogle')
+  " call dein#add('Dridus/denite-hoogle.nvim')
+
   call dein#add('Marzipanzerfaust/vim-colors-jlc')
   call dein#add('Shougo/denite.nvim') " Helm/Ivy/Unite
   call dein#add('Shougo/deoplete.nvim') " Auto-completion
@@ -248,6 +251,10 @@ nnoremap <silent> <leader>ss :Denite -start-filter line<cr>
 nnoremap <silent> <leader>hh :Denite -start-filter help<cr>
 nnoremap <silent> <leader>rl :Denite -resume<cr>
 nnoremap <silent> <leader>y :Denite register<cr>
+
+" Denite hoogle
+nnoremap <silent> <leader>Hi :Denite hoogle -default-action=insert_import<cr>
+nnoremap <silent> <leader>Hl :Denite hoogle -default-action=open_link<cr>
 
 " Miscellaneous
 "
