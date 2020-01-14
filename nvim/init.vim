@@ -70,7 +70,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
   call dein#add('vim-scripts/Align') " Second best thing ever?
   call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
-  call dein#add('vim-scripts/nc.vim--Eno') " Read .gitignore files into wildignore
+  call dein#add('vim-scripts/nc.vim--Eno')
 
   call dein#end()
   call dein#save_state()
@@ -290,6 +290,7 @@ nnoremap <silent> <up> :copen 25<cr>
 nnoremap <silent> <right> :cnext<cr>
 nnoremap <silent> <down> :cclose<cr>
 nnoremap <silent> <left> :cprevious<cr>
+nnoremap <silent> <cr> :cc<cr>
 
 " Insert line break
 nnoremap <C-j> i<cr><esc>
