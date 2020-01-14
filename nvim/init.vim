@@ -44,14 +44,16 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('~/1st/denite-hoogle')
-  " call dein#add('Dridus/denite-hoogle.nvim')
+  " call dein#add('~/1st/denite-hoogle')
+  call dein#add('Dridus/denite-hoogle.nvim')
 
-  call dein#add('Marzipanzerfaust/vim-colors-jlc')
   call dein#add('Shougo/denite.nvim') " Helm/Ivy/Unite
   call dein#add('Shougo/deoplete.nvim') " Auto-completion
   call dein#add('elzr/vim-json')
+  call dein#add('fsharp/vim-fsharp')
+  call dein#add('hashivim/vim-terraform')
   call dein#add('int3/vim-extradite') " Git log browser
+  call dein#add('marzipanzerfaust/vim-colors-jlc')
   call dein#add('michaeljsmith/vim-indent-object') " Indented blocks as text objects
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
@@ -59,7 +61,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('parsonsmatt/intero-neovim')
   call dein#add('simnalamburt/vim-mundo') " Undo tree browser
   call dein#add('spwhitt/vim-nix')
-  call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' }) " Auto-completion via TabNine
+  " call dein#add('tbodt/deoplete-tabnine', { 'build': './install.sh' }) " Auto-completion via TabNine
   call dein#add('tpope/vim-commentary') " Add/remove comments
   call dein#add('tpope/vim-fugitive') " A git wrapper so awesome, it should be illegal
   call dein#add('tpope/vim-repeat') " Support . with plugins
@@ -68,6 +70,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
   call dein#add('vim-scripts/Align') " Second best thing ever?
   call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
+  call dein#add('vim-scripts/nc.vim--Eno') " Read .gitignore files into wildignore
 
   call dein#end()
   call dein#save_state()
@@ -143,7 +146,11 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 augroup haskell
   autocmd!
   autocmd FileType haskell setlocal indentkeys=
-  autocmd FileType haskell set errorformat=%C\t%.%#,%W\ \ \ \ %f:%l:%c:\ Warning:,%E\ \ \ \ %f:%l:%c:,%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
+  autocmd FileType haskell set errorformat=
+    \%C\t%.%#,
+    \%W\ \ \ \ %f:%l:%c:\ Warning:,
+    \%E\ \ \ \ %f:%l:%c:,
+    \%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
 augroup END
 
 " Intero
