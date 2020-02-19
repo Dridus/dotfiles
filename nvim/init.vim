@@ -53,7 +53,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fsharp/vim-fsharp')
   call dein#add('hashivim/vim-terraform')
   call dein#add('int3/vim-extradite') " Git log browser
-  call dein#add('marzipanzerfaust/vim-colors-jlc')
+  call dein#add('justinmk/vim-dirvish') " File browser that isn't NetRW
+  call dein#add('kristijanhusak/vim-dirvish-git') " Git symbols for dir edits
+  call dein#add('lsdr/monokai')
   call dein#add('michaeljsmith/vim-indent-object') " Indented blocks as text objects
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
@@ -77,18 +79,13 @@ if dein#load_state('~/.cache/dein')
 endif
 
 set background=dark
-colorscheme jlc
+colorscheme monokai
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
 " Deoplete
 "
 call deoplete#enable()
-
-" Netrw
-"
-let g:netrw_home=$HOME.'/.cache/netrw'
-let g:netrw_liststyle=3
 
 " Denite
 "
@@ -161,7 +158,7 @@ augroup interoMaps
   au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
   au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
   au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
-  au BufWritePost *.hs InteroReload
+  " au BufWritePost *.hs InteroReload
   au FileType haskell nnoremap <silent> <leader>ir :InteroReload<CR>
   au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
   au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
