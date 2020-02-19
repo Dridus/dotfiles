@@ -28,4 +28,6 @@ if test -f $HOME/.zshrc-local; then
     source $HOME/.zshrc-local
 fi
 
-alias em="emacsclient -n"
+alias sysu="systemctl --user"
+alias jour="journalctl --user"
+
