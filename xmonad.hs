@@ -42,7 +42,7 @@ myTerminal :: String
 myTerminal = "kitty"
 
 gaps :: l a -> ModifiedLayout Spacing l a
-gaps = spacingRaw True (Border 0 0 0 0) False (Border 4 4 4 4) True -- gaps (border / window spacing)
+gaps = spacingRaw True (Border 0 0 0 0) False (Border 4 4 4 4) False -- gaps (border / window spacing)
 
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll . concat $
@@ -76,7 +76,7 @@ promptConfig = def
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig { }) = M.fromList $
   [ ((mod1Mask              , XMonad.xK_Return), spawn myTerminal)
-  , ((mod1Mask              , XMonad.xK_p     ), ShellPrompt.shellPrompt (XMonad.terminal conf) promptConfig)
+  , ((mod1Mask              , XMonad.xK_p     ), ShellPrompt.prompt (XMonad.terminal conf) promptConfig)
   , ((mod1Mask              , XMonad.xK_c     ), xmonadPrompt promptConfig)
   , ((mod1Mask              , XMonad.xK_w     ), windowMultiPrompt promptConfig [(Goto, allWindows), (Goto, wsWindows)])
   , ((mod1Mask .|. shiftMask, XMonad.xK_w     ), windowMultiPrompt promptConfig [(Bring, allWindows), (Bring, wsWindows)])
@@ -131,7 +131,7 @@ main = do
     , focusFollowsMouse  = False
     -- , modMask            = modMask
     , terminal           = myTerminal
-    , workspaces         = ["Main", "Secondary"]
+    , workspaces         = ["Main", "Infra", "3rd"]
     , keys               = myKeys
     , startupHook        = spawnOnce "polybar main"
     , manageHook         = myNewManageHook <+> manageDocks
