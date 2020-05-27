@@ -23,6 +23,9 @@ prompt oliver
 
 bindkey '^r' history-incremental-search-backward
 
+zstyle ':prezto:load' pmodule 'environment' 'terminal'
+zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 
 if test -f $HOME/.zshrc-local; then
     source $HOME/.zshrc-local
@@ -30,4 +33,8 @@ fi
 
 alias sysu="systemctl --user"
 alias jour="journalctl --user"
-
+function nghci
+{
+  set -x
+  nix-shell -p "haskellPackages.ghcWithPackages (p: with p; [$@])" --run ghci
+}

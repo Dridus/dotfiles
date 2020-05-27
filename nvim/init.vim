@@ -139,7 +139,8 @@ let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
 let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_indent_disable = 1
+let g:haskell_indent_disable = 1          " get your dirty automation off my indents
+
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 augroup haskell
   autocmd!
@@ -216,6 +217,8 @@ let g:neomake_cabalnew_maker = {
   \   '%-Z%[%^ ]',
   \ ], ',')
   \ }
+call neomake#config#set('maker_defaults.buffer_output', 0)
+
 
 " ********************************************************************************
 " Leader key mappings
@@ -275,6 +278,8 @@ nmap <silent> <leader><tab> :b#<cr>
 vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<cr>
 " Show the type with Intero
 nmap <silent> <leader>t <Plug>InteroGenericType
+" Write the current file and trigger :Neomake!
+nmap <silent> <leader>wm :w<cr>:Neomake!<cr>
 
 " ********************************************************************************
 " Other mappings
