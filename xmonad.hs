@@ -155,5 +155,5 @@ main = do
       , D.urgentBorderColor   = "#fd971f"
       , D.urgentTextColor     = "#f8f8f2"
       , D.decoHeight          = 24
-      , D.fontName            = "xft:Fira Code Retina:size=7"
+      , D.fontName            = "xft:Fira Code Retina:size=11"
       }

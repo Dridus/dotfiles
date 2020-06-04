@@ -35,7 +35,7 @@
 *.color7:       #f8f8f2
 *.color15:      #f9f8f5
 
-Xft.dpi: 226
+Xft.dpi: 282
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
@@ -43,7 +43,7 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-*termname: xterm-kitty
+*termname: xterm-256color
 dmenu.selforeground:	    #FFFFFF
 dmenu.background:	        #000000
 dmenu.selbackground:	    #0C73C2
