@@ -25,7 +25,7 @@ alert = ${xrdb:color1:#e60053}
 
 [bar/main]
 width = 100%
-height = 40
+height = 58
 offset-y = 0%
 radius = 0.0
 fixed-center = true
@@ -38,26 +38,25 @@ padding-left = 0
 padding-right = 2
 module-margin-left = 1
 module-margin-right = 3
-font-0 = Fira Code Retina:size=12;1
-font-1 = Font Awesome 5 Free Solid:size=11;3
+font-0 = Fira Sans Medium:size=12;1
+font-1 = Font Awesome 5 Free Solid:size=8;3
 modules-left = ewmh
 modules-center = date
-modules-right = xkeyboard memory cpu filesystem
+modules-right = xkeyboard memory cpu filesystem wired-network wireless-network battery
+tray-maxsize = 32
+tray-offset-y = -3
 tray-position = right
 tray-padding = 2
+tray-scale = 1.0
 override-redirect = true
 cursor-click = pointer
 cursor-scroll = ns-resize
-dpi-x = 282
-dpi-y = 282
+dpi-x = 200
+dpi-y = 200
 
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
-format-prefix = "%{T1} "
-format-prefix-foreground = ${colors.foreground-alt}
-label-layout = %layout%
-label-indicator-padding = 2
+blacklist-0 = num lock format-prefix = "%{T1} " format-prefix-foreground = ${colors.foreground-alt} label-layout = %layout% label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 
@@ -68,6 +67,14 @@ mount-0 = /
 label-mounted =  %{F#8be9fd}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/wired-network]
+type = internal/network
+interface = enp0s31f6
+
+[module/wireless-network]
+type = internal/network
+interface = wlp82s0
 
 [module/ewmh]
 type = internal/xworkspaces
@@ -107,6 +114,9 @@ time-alt = %H:%M:%S
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 label = %date% %time%
+
+[module/battery]
+type = internal/battery
 
 [settings]
 screenchange-reload = true

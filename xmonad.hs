@@ -67,7 +67,7 @@ myNewManageHook = composeAll
 
 promptConfig :: XPConfig
 promptConfig = def
-  { Prompt.font = "xft:Fira Code Retina:size=8"
+  { Prompt.font = "xft:Fira Sans Medium:size=10"
   , Prompt.height = 40
   , Prompt.searchPredicate = fuzzyMatch
   -- , Prompt.sorter = fuzzySort
@@ -76,7 +76,7 @@ promptConfig = def
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig { }) = M.fromList $
   [ ((mod1Mask              , XMonad.xK_Return), spawn myTerminal)
-  , ((mod1Mask              , XMonad.xK_p     ), ShellPrompt.prompt (XMonad.terminal conf) promptConfig)
+  , ((mod1Mask              , XMonad.xK_p     ), spawn "dmenu_run -fn 'Fira Code Retina'")
   , ((mod1Mask              , XMonad.xK_c     ), xmonadPrompt promptConfig)
   , ((mod1Mask              , XMonad.xK_w     ), windowMultiPrompt promptConfig [(Goto, allWindows), (Goto, wsWindows)])
   , ((mod1Mask .|. shiftMask, XMonad.xK_w     ), windowMultiPrompt promptConfig [(Bring, allWindows), (Bring, wsWindows)])
@@ -154,6 +154,6 @@ main = do
       , D.urgentColor         = "#fd971f"
       , D.urgentBorderColor   = "#fd971f"
       , D.urgentTextColor     = "#f8f8f2"
-      , D.decoHeight          = 24
-      , D.fontName            = "xft:Fira Code Retina:size=11"
+      , D.decoHeight          = 40
+      , D.fontName            = "xft:Fira Sans Medium:size=11"
       }
