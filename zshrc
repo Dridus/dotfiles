@@ -25,6 +25,7 @@ if test -f $HOME/.zshrc-local; then
     source $HOME/.zshrc-local
 fi
 
+alias ls="exa"
 alias sysu="systemctl --user"
 alias jour="journalctl --user"
 function nghci
@@ -32,3 +33,5 @@ function nghci
   set -x
   nix-shell -p "haskellPackages.ghcWithPackages (p: with p; [$@])" --run ghci
 }
+
+[ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ] && . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

@@ -9,8 +9,8 @@ import System.Exit (ExitCode(ExitSuccess), exitWith)
 import System.IO ()
 import XMonad
   ( Choose, KeyMask, KeySym, Layout, LayoutMessages(ReleaseResources), Query, WindowSet, X, XConfig(XConfig), (<+>), (-->), (=?), borderWidth
-  , broadcastMessage, className, composeAll, focusedBorderColor, focusFollowsMouse, handleEventHook, io, keys, kill, layoutHook, manageHook, mod1Mask, mod4Mask
-  , normalBorderColor, restart, sendMessage, setLayout, shiftMask, spawn, startupHook, stringProperty, terminal, windows, withFocused, workspaces
+  , broadcastMessage, className, composeAll, doShift, focusedBorderColor, focusFollowsMouse, handleEventHook, io, keys, kill, layoutHook, manageHook, modMask
+  , mod1Mask, mod4Mask, normalBorderColor, restart, sendMessage, setLayout, shiftMask, spawn, startupHook, stringProperty, terminal, windows, withFocused, workspaces
   , xmonad
   )
 import qualified XMonad
@@ -36,10 +36,20 @@ import qualified XMonad.Prompt.Shell as ShellPrompt
 import XMonad.Prompt.Window (WindowPrompt(Goto, Bring), windowMultiPrompt, allWindows, wsWindows)
 import XMonad.Prompt.XMonad (xmonadPrompt)
 import qualified XMonad.StackSet as StackSet
-import XMonad.Util.SpawnOnce (spawnOnce)
+import XMonad.Util.SpawnOnce (spawnOnce, spawnOnOnce)
 
 myTerminal :: String
 myTerminal = "kitty"
+
+commWS, alphaWS, betaWS, webWS, gammaWS :: String
+commWS   = "Comm"
+alphaWS  = "α"
+betaWS   = "β"
+gammaWS  = "γ"
+webWS = "Web"
+
+myWorkspaces :: [String]
+myWorkspaces = [commWS, alphaWS, betaWS, webWS, gammaWS]
 
 gaps :: l a -> ModifiedLayout Spacing l a
 gaps = spacingRaw True (Border 0 0 0 0) False (Border 4 4 4 4) False -- gaps (border / window spacing)
@@ -48,9 +58,9 @@ myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll . concat $
   -- [ [className =? "qutebrowser" --> doShift "Qutebrowser"]
   -- , [className =? "Spotify" --> doShift "Media"]
-  -- , [className =? "Firefox" --> doShift "Firefox"]
-  -- , [className =? "Chromium" --> doShift "Chrome"]
-  [ [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
+  [ [className =? "Slack" --> doShift commWS]
+  , [className =? "zoom" --> doShift commWS]
+  , [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
   , [wmName =? "sxiv" -->  doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4)] 
   ]
   where
@@ -65,6 +75,14 @@ myNewManageHook = composeAll
   -- , namedScratchpadManageHook scratchpads
   ]
 
+-- runs whenever XMonad is started (or restarted)
+myStartupHook :: X ()
+myStartupHook = do
+  spawnOnce "polybar main"
+  spawnOnce "flameshot"
+  spawnOnce "slack"
+  spawnOnce "QT_SCALE_FACTOR=2 zoom-us"
+
 promptConfig :: XPConfig
 promptConfig = def
   { Prompt.font = "xft:Fira Sans Medium:size=10"
@@ -74,52 +92,39 @@ promptConfig = def
   }
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
-myKeys conf@(XConfig { }) = M.fromList $
-  [ ((mod1Mask              , XMonad.xK_Return), spawn myTerminal)
-  , ((mod1Mask              , XMonad.xK_p     ), spawn "dmenu_run -fn 'Fira Code Retina'")
-  , ((mod1Mask              , XMonad.xK_c     ), xmonadPrompt promptConfig)
-  , ((mod1Mask              , XMonad.xK_w     ), windowMultiPrompt promptConfig [(Goto, allWindows), (Goto, wsWindows)])
-  , ((mod1Mask .|. shiftMask, XMonad.xK_w     ), windowMultiPrompt promptConfig [(Bring, allWindows), (Bring, wsWindows)])
-  , ((mod1Mask              , XMonad.xK_Tab   ), nextWS)
-  , ((mod1Mask .|. shiftMask, XMonad.xK_Tab   ), prevWS)
-  , ((mod1Mask              , XMonad.xK_j     ), windows StackSet.focusDown) -- %! Move focus to the next window
-  , ((mod1Mask              , XMonad.xK_k     ), windows StackSet.focusUp)
-  , ((mod1Mask              , XMonad.xK_comma ), sendMessage (IncMasterN 1)) -- %! Increment the number of windows in the master area
-  , ((mod1Mask              , XMonad.xK_period), sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
-  , ((mod1Mask              , XMonad.xK_space ), sendMessage NextLayout) -- %! Rotate through the available layout algorithms
-  , ((mod1Mask .|. shiftMask, XMonad.xK_space ), setLayout $ layoutHook conf) -- %!  Reset the layouts on the current workspace to default
-  , ((mod4Mask              , XMonad.xK_comma ), sendMessage (IncMasterN 1)) -- %! Increment the number of windows in the master area
-  , ((mod4Mask              , XMonad.xK_period), sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
-  , ((mod4Mask              , XMonad.xK_t     ), withFocused $ windows . StackSet.sink) -- %! Push window back into tiling
-  , ((mod4Mask              , XMonad.xK_h     ), sendMessage Shrink) -- %! Shrink the master area
-  , ((mod4Mask              , XMonad.xK_l     ), sendMessage Expand) -- %! Expand the master area
-  , ((mod4Mask              , XMonad.xK_m     ), windows StackSet.swapMaster) -- %! Swap the focused window and the master window
-  , ((mod4Mask .|. shiftMask, XMonad.xK_j     ), windows StackSet.swapDown) -- %! Swap the focused window with the next window
-  , ((mod4Mask .|. shiftMask, XMonad.xK_k     ), windows StackSet.swapUp) -- %! Swap the focused window with the previous window
-   -- , ((mod4Mask              , XMonad.xK_m     ), windows StackSet.focusMaster  ) -- %! Move focus to the master window
-  , ((mod4Mask .|. shiftMask, XMonad.xK_c     ), kill) -- %! Close the focused window
-  , ((mod1Mask .|. shiftMask, XMonad.xK_q     ), io (exitWith ExitSuccess)) -- Quit xmonad.
-  , ((mod1Mask .|. shiftMask, XMonad.xK_r     ), broadcastMessage ReleaseResources >> restart "xmonad" True) -- %! Restart xmonad
-  , ((mod1Mask .|. shiftMask, XMonad.xK_x     ), spawn "p=$(pidof polybar) && kill $p; polybar main")
-  , ((mod1Mask              , XMonad.xK_f     ), withFocused (sendMessage . maximizeRestore))
-  , ((mod1Mask              , XMonad.xK_z     ), sendMessage MirrorShrink)
-  , ((mod1Mask              , XMonad.xK_a     ), sendMessage MirrorExpand)
-  , ((mod1Mask              , XMonad.xK_e     ), toggleFloatNext)
-  , ((mod1Mask .|. shiftMask, XMonad.xK_e     ), toggleFloatAllNew)
-  , ((mod1Mask              , XMonad.xK_b     ), sendMessage ToggleStruts) -- toggle fullscreen (really just lower status bar below everything)
-  , ((mod1Mask              , XMonad.xK_g     ), toggleWindowSpacingEnabled)
-  -- floating window keys
-  -- , ((mod1Mask, XMonad.xK_equal), withFocused (keysMoveWindow (0, -30)))
-  -- , ((mod1Mask, XMonad.xK_apostrophe), withFocused (keysMoveWindow (0, 30)))
-  -- , ((mod1Mask, XMonad.xK_bracketright), withFocused (keysMoveWindow (30, 0)))
-  -- , ((mod1Mask, XMonad.xK_bracketleft), withFocused (keysMoveWindow (-30, 0)))
-  -- , ((controlMask .|. shiftMask, XMonad.xK_m), withFocused $ keysResizeWindow (0, -15) (0, 0))
-  -- , ((controlMask .|. shiftMask, XMonad.xK_comma), withFocused $ keysResizeWindow (0, 15) (0, 0))
-  ]
-    ++ [ ((m .|. mod1Mask, k), windows $ f i) -- mod-[1..9], Switch to workspace N
-       | (i, k) <- zip (workspaces conf) [XMonad.xK_1 .. XMonad.xK_9] -- mod-shift-[1..9], Move client to workspace N
-       , (f, m) <- [(StackSet.greedyView, 0), (StackSet.shift, shiftMask)]
-       ]
+myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
+  $  [ ((modm              , XMonad.xK_Return), spawn myTerminal)
+     , ((modm              , XMonad.xK_p     ), spawn "dmenu_run -fn 'Fira Code Retina'")
+     , ((modm              , XMonad.xK_c     ), xmonadPrompt promptConfig)
+     , ((modm              , XMonad.xK_w     ), windowMultiPrompt promptConfig [(Goto, allWindows), (Goto, wsWindows)])
+     , ((modm .|. shiftMask, XMonad.xK_w     ), windowMultiPrompt promptConfig [(Bring, allWindows), (Bring, wsWindows)])
+     , ((modm              , XMonad.xK_Tab   ), windows StackSet.swapDown)
+     , ((modm .|. shiftMask, XMonad.xK_Tab   ), windows StackSet.swapUp)
+     , ((modm              , XMonad.xK_comma ), sendMessage (IncMasterN 1))
+     , ((modm              , XMonad.xK_period), sendMessage (IncMasterN (-1)))
+     , ((modm              , XMonad.xK_space ), sendMessage NextLayout)
+     , ((modm .|. shiftMask, XMonad.xK_space ), setLayout $ layoutHook conf)
+     , ((modm              , XMonad.xK_i     ), withFocused $ windows . StackSet.sink)
+     , ((modm              , XMonad.xK_minus ), sendMessage Shrink)
+     , ((modm              , XMonad.xK_plus  ), sendMessage Expand)
+     , ((modm              , XMonad.xK_m     ), windows StackSet.swapMaster) -- %! Swap the focused window and the master window
+     , ((modm .|. shiftMask, XMonad.xK_c     ), kill) -- %! Close the focused window
+     , ((modm .|. shiftMask, XMonad.xK_q     ), broadcastMessage ReleaseResources >> restart "xmonad" True) -- %! Restart xmonad
+     , ((modm .|. shiftMask, XMonad.xK_x     ), spawn "p=$(pidof polybar) && kill $p; polybar main")
+     , ((modm              , XMonad.xK_f     ), withFocused (sendMessage . maximizeRestore))
+     , ((modm              , XMonad.xK_z     ), sendMessage MirrorShrink)
+     , ((modm              , XMonad.xK_a     ), sendMessage MirrorExpand)
+     , ((modm              , XMonad.xK_u     ), toggleFloatNext)
+     , ((modm .|. shiftMask, XMonad.xK_u     ), toggleFloatAllNew)
+     , ((modm              , XMonad.xK_b     ), sendMessage ToggleStruts) -- toggle fullscreen (really just lower status bar below everything)
+     , ((modm              , XMonad.xK_g     ), toggleWindowSpacingEnabled)
+     , ((mod1Mask              , XMonad.xK_Tab   ), windows StackSet.focusDown)
+     , ((mod1Mask .|. shiftMask, XMonad.xK_Tab   ), windows StackSet.focusUp)
+     ]
+  ++ [ ((modm .|. modifier, key), windows $ action ws)
+     | (ws, key)          <- zip (workspaces conf) [XMonad.xK_1 .. XMonad.xK_9]
+     , (action, modifier) <- [(StackSet.greedyView, 0), (StackSet.shift, shiftMask)]
+     ]
 
 main :: IO ()
 main = do
@@ -129,11 +134,11 @@ main = do
     , normalBorderColor  = "#606060"
     , focusedBorderColor = "#f0f0f0"
     , focusFollowsMouse  = False
-    -- , modMask            = modMask
+    , modMask            = mod4Mask
     , terminal           = myTerminal
-    , workspaces         = ["Main", "Infra", "3rd"]
+    , workspaces         = myWorkspaces
     , keys               = myKeys
-    , startupHook        = spawnOnce "polybar main"
+    , startupHook        = myStartupHook
     , manageHook         = myNewManageHook <+> manageDocks
     , layoutHook         = avoidStruts
                          . gaps
