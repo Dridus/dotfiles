@@ -13,6 +13,7 @@ in
     /home/ross/vital/vital-nix/user/feh-background.nix
     /home/ross/vital/vital-nix/user/xkb-caps-and-ctrl.nix
     /home/ross/vital/vital-nix/user/p53.nix
+    /home/ross/vital/vital-nix/user/software-workstation.nix
   ];
 
   home = {
@@ -79,13 +80,6 @@ in
     # FIXME neovim?
 
     # FIXME prezto for zsh
-
-    ssh = {
-      enable = true;
-      extraConfig = ''
-        AddKeysToAgent yes
-      '';
-    };
   };
 
   xdg.configFile = {
