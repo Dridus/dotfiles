@@ -2,44 +2,24 @@
 
 let
 
-  xkbkeymap = ''
-    xkb_keymap {
-      xkb_keycodes  { include "evdev+aliases(qwerty)"	};
-      xkb_types     { include "complete"	};
-      xkb_compat    { include "complete"	};
-      xkb_symbols   { include "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)+rmm(caps_and_ctrl)"	};
-      xkb_geometry  { include "pc(pc104)"	};
-    };
-  '';
-
-  xkbsymbols = ''
-    partial modifier_keys
-    xkb_symbols "caps_and_ctrl" {
-      replace key <CAPS> { [ Control_L ] };
-      replace key <LCTL> { [ Escape ] };
-      modifier_map Control { <CAPS> };
-    };
-  '';
-
-  xkbcompCommand = ''
-    #! /bin/sh
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp -I${pkgs.writeTextDir "symbols/rmm" xkbsymbols} ${pkgs.writeText "xkbkeymap" xkbkeymap} $DISPLAY
-  '';
-
   xmonad = pkgs.xmonad-with-packages.override {
     packages = p: with p; [ xmonad-contrib xmonad-extras ];
   };
+
 in
 
 {
+  imports = [
+    /home/ross/vital/vital-nix/user/feh-background.nix
+    /home/ross/vital/vital-nix/user/xkb-caps-and-ctrl.nix
+    /home/ross/vital/vital-nix/user/p53.nix
+  ];
+
   home = {
     file = {
       ".xmonad/xmonad.hs".source = ./xmonad.hs;
-      # ".zpreztorc".target = "${pkgs.zsh-prezto}/runcoms/zpreztorc";
       ".zshrc".source = ./zshrc;
     };
-
-    keyboard = null;
 
     packages = with pkgs; [
       zsh-prezto
@@ -49,7 +29,6 @@ in
       file
       exa
       silver-searcher
-      feh
       inkscape
       gimp
       glxinfo
@@ -100,43 +79,12 @@ in
     # FIXME neovim?
 
     # FIXME prezto for zsh
-  };
 
-  systemd.user.services = {
-    feh-background = {
-      Unit = {
-        Descriptoin = "Background image";
-        After = [ "graphical-session-pre.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
-
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-
-      Service = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = "${pkgs.feh}/bin/feh --bg-scale ${config.home.homeDirectory}/.config/background.jpg";
-      };
-    };
-
-    xkbcomp = {
-      Unit = {
-        Description = "Set up keyboard overrides";
-        After = [ "graphical-session-pre.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
-
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-
-      Service = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = "${pkgs.writeScript "xkbcomp-setup" xkbcompCommand}";
-      };
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        AddKeysToAgent yes
+      '';
     };
   };
 
@@ -200,11 +148,6 @@ in
 
   xsession = {
     enable = true;
-    pointerCursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-      size = 64;
-    };
 
     windowManager.command = "${xmonad}/bin/xmonad";
   };
