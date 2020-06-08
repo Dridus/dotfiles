@@ -80,7 +80,7 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "polybar main"
   spawnOnce "flameshot"
-  spawnOnce "slack"
+  spawnOnce "slack --silent"
   spawnOnce "QT_SCALE_FACTOR=2 zoom-us"
 
 promptConfig :: XPConfig
