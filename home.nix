@@ -34,6 +34,11 @@ in
       gimp
       glxinfo
       sublime-merge
+      rofi
+      fira
+      fira-code
+      open-sans
+      font-awesome
     ];
 
     sessionVariables = {

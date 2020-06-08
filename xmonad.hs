@@ -94,9 +94,9 @@ promptConfig = def
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
   $  [ ((modm              , XMonad.xK_Return), spawn myTerminal)
-     , ((modm              , XMonad.xK_p     ), spawn "dmenu_run -fn 'Fira Code Retina'")
+     , ((modm              , XMonad.xK_p     ), spawn "rofi -dpi 185 -fn 'Fira Code Retina' -show run")
      , ((modm              , XMonad.xK_c     ), xmonadPrompt promptConfig)
-     , ((modm              , XMonad.xK_w     ), windowMultiPrompt promptConfig [(Goto, allWindows), (Goto, wsWindows)])
+     , ((modm              , XMonad.xK_w     ), spawn "rofi -dpi 185 -fn 'Fira Sans Medium' -show window")
      , ((modm .|. shiftMask, XMonad.xK_w     ), windowMultiPrompt promptConfig [(Bring, allWindows), (Bring, wsWindows)])
      , ((modm              , XMonad.xK_Tab   ), windows StackSet.swapDown)
      , ((modm .|. shiftMask, XMonad.xK_Tab   ), windows StackSet.swapUp)
