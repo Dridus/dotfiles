@@ -156,7 +156,7 @@ label-connected = %{T1} %{F#75715e}%{T4}%local_ip% %{F#ae81ff}%upspeed% %{F#6
 type = internal/network
 interface = wlp82s0
 format-connected =  <label-connected>
-label-connected = %{T1} %essid% %{F#75715e}%{T4}-%signal%dBm %local_ip% %{F#ae81ff}%upspeed:9% %{F#66d9ef}%downspeed:9%
+label-connected = %{T1} %essid% %{T4}%signal%% %{F#75715e}%local_ip% %{F#ae81ff}%upspeed:9% %{F#66d9ef}%downspeed:9%
 
 [module/battery]
 type = internal/battery
