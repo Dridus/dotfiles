@@ -105,7 +105,7 @@ icon-4 = γ;γ
 
 [module/window]
 type = internal/xwindow
-label-maxlen = 75
+label-maxlen = 60
 
 [module/memory]
 type = internal/memory
