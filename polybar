@@ -24,6 +24,7 @@ secondary = #f92672
 alert = #f92672
 
 [vu]
+width = 16
 indicator =
 empty = %{T4}▮ 
 empty-foreground = #000
@@ -105,6 +106,7 @@ icon-4 = γ;γ
 
 [module/window]
 type = internal/xwindow
+label-maxlen = 75
 
 [module/memory]
 type = internal/memory
@@ -113,7 +115,7 @@ format = <bar-used>
 format-prefix = "%{T1} "
 
 bar-used-indicator = ${vu.indicator}
-bar-used-width = 20
+bar-used-width = ${vu.width}
 bar-used-foreground-0 = ${vu.foreground-0}
 bar-used-foreground-1 = ${vu.foreground-1}
 bar-used-foreground-2 = ${vu.foreground-2}
@@ -129,7 +131,7 @@ format = <bar-load>
 format-prefix = "%{T1} %{T0}"
 
 bar-load-indicator = ${vu.indicator}
-bar-load-width = 20
+bar-load-width = ${vu.width}
 bar-load-foreground-0 = ${vu.foreground-0}
 bar-load-foreground-1 = ${vu.foreground-1}
 bar-load-foreground-2 = ${vu.foreground-2}
@@ -154,15 +156,8 @@ label-connected = %{T1} %{F#75715e}%{T4}%local_ip% %{F#ae81ff}%upspeed% %{F#6
 [module/wireless-network]
 type = internal/network
 interface = wlp82s0
-format-connected =  <ramp-signal> <label-connected>
-label-connected = %essid% %{F#75715e}%{T4}%local_ip% %{F#ae81ff}%upspeed% %{F#66d9ef}%downspeed%
-
-ramp-signal-0 = %{T5}😱
-ramp-signal-1 = %{T5}😠
-ramp-signal-2 = %{T5}😒
-ramp-signal-3 = %{T5}😊
-ramp-signal-4 = %{T5}😃
-ramp-signal-5 = %{T5}😈
+format-connected =  <label-connected>
+label-connected = %essid% %{F#75715e}%{T4}-%signal%dBm %local_ip% %{F#ae81ff}%upspeed:9% %{F#66d9ef}%downspeed:9%
 
 [module/battery]
 type = internal/battery
