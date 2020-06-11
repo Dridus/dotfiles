@@ -1,9 +1,24 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 
   xmonad = pkgs.xmonad-with-packages.override {
     packages = p: with p; [ xmonad-contrib xmonad-extras ];
+  };
+
+  mkOutOfStoreSymlink = path:
+    let
+      pathStr = toString path;
+      name = lib.hm.strings.storeFileName (baseNameOf pathStr);
+    in
+      pkgs.runCommandLocal name {} ''ln -s ${lib.escapeShellArg pathStr} $out'';
+
+  zpreztoContrib = pkgs.fetchFromGitHub {
+    owner = "belak";
+    repo = "prezto-contrib";
+    rev = "17a6e476dbfd304e392243115a40e96332bc30ad";
+    sha256 = "090nndj7dnmv213zwksivj19g691sjh4sqzr3ddgmmfdz1n73y0w";
+    fetchSubmodules = true;
   };
 
 in
@@ -18,8 +33,10 @@ in
 
   home = {
     file = {
-      ".xmonad/xmonad.hs".source = ./xmonad.hs;
-      ".zshrc".source = ./zshrc;
+      ".xmonad/xmonad.hs".source = mkOutOfStoreSymlink ./xmonad.hs;
+      ".prezto-contrib".source = zpreztoContrib;
+      ".zpreztorc".source = mkOutOfStoreSymlink ./zpreztorc;
+      ".zshrc".source = mkOutOfStoreSymlink ./zshrc;
     };
 
     packages = with pkgs; [
@@ -41,6 +58,9 @@ in
       font-awesome
       virt-manager
       remmina
+      zip
+      unzip
+      kitty
     ];
 
     sessionVariables = {
@@ -67,21 +87,6 @@ in
     };
 
     jq.enable = true;
-
-    kitty = {
-      enable = true;
-      settings = {
-        foreground = "#f8f8f2";
-        background = "#272822";
-        selection_foreground = "#f8f8f2";
-        selection_background = "#49483e";
-        font_family = "Fira Code Retina";
-        font_size = "8";
-        visual_bell_duration = "0.05";
-        term = "xterm-256color";
-      };
-    };
-
     man.enable = true;
 
     # FIXME neovim?
@@ -90,8 +95,10 @@ in
   };
 
   xdg.configFile = {
-    "nvim/init.vim".source = ./nvim/init.vim;
-    "polybar/config".source = ./polybar;
+    "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
+    "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
+    "polybar/config".source = mkOutOfStoreSymlink ./polybar;
+    "rofi/config.rasi".source = mkOutOfStoreSymlink ./rofi.rasi;
   };
 
   xresources.properties = {
