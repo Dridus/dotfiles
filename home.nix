@@ -39,6 +39,8 @@ in
       fira-code
       open-sans
       font-awesome
+      virt-manager
+      remmina
     ];
 
     sessionVariables = {
