@@ -4,7 +4,7 @@ import Data.Bits ((.|.))
 import Data.Default (def)
 import qualified Data.Map as M
 import Data.Semigroup (Endo)
-import Graphics.X11.ExtraTypes.XF86 ()
+import Graphics.X11.ExtraTypes.XF86 as XF86
 import System.Exit (ExitCode(ExitSuccess), exitWith)
 import System.IO ()
 import XMonad
@@ -120,6 +120,13 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
      , ((modm              , XMonad.xK_g     ), toggleWindowSpacingEnabled)
      , ((mod1Mask              , XMonad.xK_Tab   ), windows StackSet.focusDown)
      , ((mod1Mask .|. shiftMask, XMonad.xK_Tab   ), windows StackSet.focusUp)
+
+     , ((0, XF86.xF86XK_AudioMute),         spawn "pactl set-sink-mute 0 toggle")
+     , ((0, XF86.xF86XK_AudioLowerVolume),  spawn "pactl set-sink-volume 0 -5%")
+     , ((0, XF86.xF86XK_AudioRaiseVolume),  spawn "pactl set-sink-volume 0 +5%")
+     , ((0, XF86.xF86XK_AudioMicMute),      spawn "pactl set-source-mute 1 toggle")
+     , ((0, XF86.xF86XK_MonBrightnessDown), spawn "brightnessctl s 5%-")
+     , ((0, XF86.xF86XK_MonBrightnessUp),   spawn "brightnessctl s 5%+")
      ]
   ++ [ ((modm .|. modifier, key), windows $ action ws)
      | (ws, key)          <- zip (workspaces conf) [XMonad.xK_1 .. XMonad.xK_9]
