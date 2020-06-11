@@ -41,15 +41,16 @@ import XMonad.Util.SpawnOnce (spawnOnce, spawnOnOnce)
 myTerminal :: String
 myTerminal = "kitty"
 
-commWS, alphaWS, betaWS, webWS, gammaWS :: String
-commWS   = "Comm"
-alphaWS  = "α"
-betaWS   = "β"
-gammaWS  = "γ"
-webWS = "Web"
+alphaWS, betaWS, gammaWS, commWS, webWS, winWS :: String
+alphaWS = "α"
+betaWS  = "β"
+gammaWS = "γ"
+commWS  = "Comm"
+webWS   = "Web"
+winWS   = "Windows"
 
 myWorkspaces :: [String]
-myWorkspaces = [commWS, alphaWS, betaWS, webWS, gammaWS]
+myWorkspaces = [commWS, alphaWS, betaWS, webWS, winWS, gammaWS]
 
 gaps :: l a -> ModifiedLayout Spacing l a
 gaps = spacingRaw True (Border 0 0 0 0) False (Border 4 4 4 4) False -- gaps (border / window spacing)

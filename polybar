@@ -57,6 +57,7 @@ font-4 = Noto Color Emoji:pixelsize=32:style=Regular:scale=8;4
 font-5 = Fira Code:style=Bold:size=12;3
 font-6 = Fira Sans:size=14:style=Medium;3
 font-7 = Fira Sans:size=8:style=Medium;3
+font-8 = Font Awesome 5 Brands:size=12:style=Regular;3
 modules-left = date ewmh
 modules-center = window
 modules-right = wired-network wireless-network memory cpu temperature battery pulseaudio
@@ -97,11 +98,12 @@ label-urgent-foreground = #272822
 label-urgent-background = #f92672
 label-empty-padding = 2
 label-active-padding = 2
-icon-0 = Comm;
-icon-1 = Web;
-icon-2 = α;α
-icon-3 = β;β
-icon-4 = γ;γ
+icon-0 = α;%{T0}α
+icon-1 = β;%{T0}β
+icon-2 = γ;%{T0}γ
+icon-3 = Comm;%{T1}
+icon-4 = Web;%{T1}
+icon-5 = Windows;%{T1}
 
 [module/window]
 type = internal/xwindow
