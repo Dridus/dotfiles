@@ -61,6 +61,11 @@ in
       zip
       unzip
       kitty
+      speedcrunch
+      adapta-kde-theme
+      adapta-gtk-theme
+      arc-icon-theme
+      evince
     ];
 
     sessionVariables = {
