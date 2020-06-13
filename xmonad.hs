@@ -23,7 +23,7 @@ import XMonad.Hooks.ManageHelpers (doRectFloat)
 import XMonad.Layout ((|||), Full(Full), IncMasterN(IncMasterN), ChangeLayout(NextLayout), Resize(Expand, Shrink))
 import qualified XMonad.Layout.Decoration as D
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
-import XMonad.Layout.Maximize (Maximize, maximize, maximizeRestore)
+import XMonad.Layout.Maximize (Maximize, maximizeWithPadding, maximizeRestore)
 import XMonad.Layout.NoBorders (SmartBorder, smartBorders)
 import XMonad.Layout.ResizableTile (ResizableTall(ResizableTall), MirrorResize(MirrorExpand, MirrorExpand, MirrorShrink))
 import XMonad.Layout.Simplest (Simplest(Simplest))
@@ -113,7 +113,7 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
      , ((modm .|. shiftMask    , XMonad.xK_c     ), kill) -- %! Close the focused window
      , ((modm .|. shiftMask    , XMonad.xK_q     ), broadcastMessage ReleaseResources >> restart "xmonad" True) -- %! Restart xmonad
      , ((modm .|. shiftMask    , XMonad.xK_x     ), spawn "p=$(pidof polybar) && kill $p; polybar main")
-     , ((modm                  , XMonad.xK_f     ), withFocused (sendMessage . maximizeRestore))
+     , ((modm                  , XMonad.xK_f     ), withFocused (sendMessage . maximizeRestore) >> sendMessage ToggleStruts)
      , ((modm                  , XMonad.xK_z     ), sendMessage MirrorShrink)
      , ((modm                  , XMonad.xK_a     ), sendMessage MirrorExpand)
      , ((modm                  , XMonad.xK_u     ), toggleFloatNext)
@@ -152,7 +152,7 @@ main = do
     , layoutHook         = avoidStruts
                          . gaps
                          . smartBorders
-                         . maximize
+                         . maximizeWithPadding 0
                          $ tabs ||| tiles
     }
   where
