@@ -66,6 +66,7 @@ in
       adapta-gtk-theme
       arc-icon-theme
       evince
+      vlc
     ];
 
     sessionVariables = {
