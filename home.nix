@@ -40,33 +40,33 @@ in
     };
 
     packages = with pkgs; [
-      zsh-prezto
-      neovim
-      google-chrome
-      firefox
-      file
-      exa
-      silver-searcher
-      inkscape
-      gimp
-      glxinfo
-      sublime-merge
-      rofi
-      fira
-      fira-code
-      open-sans
-      font-awesome
-      virt-manager
-      remmina
-      zip
-      unzip
-      kitty
-      speedcrunch
-      adapta-kde-theme
-      adapta-gtk-theme
-      arc-icon-theme
-      evince
-      vlc
+      zsh-prezto        # shellz
+      neovim            # edit those texts
+      google-chrome     # faster creepier browser
+      firefox           # slower browser
+      file              #
+      exa               # ls
+      silver-searcher   # like grep but greppier
+      inkscape          # vector image
+      gimp              # raster image
+      glxinfo           # dunno, check out some GPU stuff
+      sublime-merge     # git
+      rofi              # dmenu but better
+      fira              # variable width font
+      fira-code         # fixed width font
+      open-sans         # dunno why I have this
+      font-awesome      # iconz
+      virt-manager      # VMs
+      remmina           # remote desktop
+      zip               # put things in the box
+      unzip             # take things out of the box
+      kitty             # terminal
+      speedcrunch       # calculator
+      adapta-kde-theme  # good lookin kde that scales?
+      adapta-gtk-theme  # good lookin gtk that scales
+      arc-icon-theme    # some icons
+      evince            # pdf viewer
+      vlc               # media player
     ];
 
     sessionVariables = {
