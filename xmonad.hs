@@ -8,7 +8,7 @@ import Graphics.X11.ExtraTypes.XF86 as XF86
 import System.Exit (ExitCode(ExitSuccess), exitWith)
 import System.IO ()
 import XMonad
-  ( Choose, KeyMask, KeySym, Layout, LayoutMessages(ReleaseResources), Query, WindowSet, X, XConfig(XConfig), (<+>), (-->), (=?), borderWidth
+  ( Choose, KeyMask, KeySym, Layout, LayoutMessages(ReleaseResources), Query, WindowSet, X, XConfig(XConfig), (-->), (=?), borderWidth
   , broadcastMessage, className, composeAll, doShift, focusedBorderColor, focusFollowsMouse, handleEventHook, io, keys, kill, layoutHook, manageHook, modMask
   , mod1Mask, mod4Mask, normalBorderColor, restart, sendMessage, setLayout, shiftMask, spawn, startupHook, stringProperty, terminal, windows, withFocused, workspaces
   , xmonad
@@ -16,7 +16,7 @@ import XMonad
 import qualified XMonad
 import XMonad.Actions.CycleWS (nextWS, prevWS)
 import XMonad.Config.Desktop (desktopConfig)
-import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Hooks.FloatNext (floatNextHook, toggleFloatAllNew, toggleFloatNext)
 import XMonad.Hooks.ManageDocks (AvoidStruts, ToggleStruts(ToggleStruts), avoidStruts, docks, manageDocks)
 import XMonad.Hooks.ManageHelpers (doFullFloat, doRectFloat, isFullscreen)
@@ -36,6 +36,7 @@ import qualified XMonad.Prompt.Shell as ShellPrompt
 import XMonad.Prompt.Window (WindowPrompt(Goto, Bring), windowMultiPrompt, allWindows, wsWindows)
 import XMonad.Prompt.XMonad (xmonadPrompt)
 import qualified XMonad.StackSet as StackSet
+import XMonad.Util.Cursor (setDefaultCursor, xC_left_ptr)
 import XMonad.Util.SpawnOnce (spawnOnce, spawnOnOnce)
 
 myTerminal :: String
@@ -73,7 +74,7 @@ myNewManageHook :: Query (Endo WindowSet)
 myNewManageHook = composeAll
   [ myManageHook
   , floatNextHook
-  , manageHook desktopConfig
+  , manageHook def
   -- , namedScratchpadManageHook scratchpads
   ]
 
@@ -84,6 +85,7 @@ myStartupHook = do
   spawnOnce "flameshot"
   spawnOnce "slack --silent"
   spawnOnce "QT_SCALE_FACTOR=2 zoom-us"
+  setDefaultCursor xC_left_ptr
 
 promptConfig :: XPConfig
 promptConfig = def
@@ -138,8 +140,8 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
 
 main :: IO ()
 main = do
-  xmonad . ewmh . docks $ desktopConfig
-    { handleEventHook = handleEventHook desktopConfig
+  xmonad . ewmh . docks $ def
+    { handleEventHook = handleEventHook def <> fullscreenEventHook
     , borderWidth        = 8
     , normalBorderColor  = "#606060"
     , focusedBorderColor = "#f0f0f0"
@@ -149,7 +151,7 @@ main = do
     , workspaces         = myWorkspaces
     , keys               = myKeys
     , startupHook        = myStartupHook
-    , manageHook         = myNewManageHook <+> manageDocks
+    , manageHook         = myNewManageHook <> manageDocks
     , layoutHook         = avoidStruts
                          . gaps
                          . smartBorders
