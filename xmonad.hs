@@ -19,7 +19,7 @@ import XMonad.Config.Desktop (desktopConfig)
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.FloatNext (floatNextHook, toggleFloatAllNew, toggleFloatNext)
 import XMonad.Hooks.ManageDocks (AvoidStruts, ToggleStruts(ToggleStruts), avoidStruts, docks, manageDocks)
-import XMonad.Hooks.ManageHelpers (doRectFloat)
+import XMonad.Hooks.ManageHelpers (doFullFloat, doRectFloat, isFullscreen)
 import XMonad.Layout ((|||), Full(Full), IncMasterN(IncMasterN), ChangeLayout(NextLayout), Resize(Expand, Shrink))
 import qualified XMonad.Layout.Decoration as D
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
@@ -63,6 +63,7 @@ myManageHook = composeAll . concat $
   , [className =? "zoom" --> doShift commWS]
   , [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
   , [wmName =? "sxiv" -->  doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4)] 
+  , [isFullscreen --> doFullFloat]
   ]
   where
     wmName = stringProperty "WM_NAME"

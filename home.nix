@@ -50,6 +50,8 @@ in
       inkscape          # vector image
       gimp              # raster image
       glxinfo           # dunno, check out some GPU stuff
+      xorg.xwininfo     # dump them windows
+      xorg.xev          # dump them events
       sublime-merge     # git
       rofi              # dmenu but better
       fira              # variable width font
