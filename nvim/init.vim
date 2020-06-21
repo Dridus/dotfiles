@@ -46,6 +46,7 @@ if dein#load_state('~/.cache/dein')
 
   " call dein#add('~/1st/denite-hoogle')
   call dein#add('Dridus/denite-hoogle.nvim')
+  call dein#add('~/1st/nc.vim')
 
   call dein#add('Shougo/denite.nvim') " Helm/Ivy/Unite
   call dein#add('Shougo/deoplete.nvim') " Auto-completion
@@ -56,6 +57,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('justinmk/vim-dirvish') " File browser that isn't NetRW
   call dein#add('kristijanhusak/vim-dirvish-git') " Git symbols for dir edits
   call dein#add('lsdr/monokai')
+  call dein#add('kergoth/vim-hilinks')
   call dein#add('michaeljsmith/vim-indent-object') " Indented blocks as text objects
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
@@ -72,7 +74,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
   call dein#add('vim-scripts/Align') " Second best thing ever?
   call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
-  call dein#add('vim-scripts/nc.vim--Eno')
 
   call dein#end()
   call dein#save_state()
@@ -218,6 +219,15 @@ let g:neomake_cabalnew_maker = {
   \ }
 call neomake#config#set('maker_defaults.buffer_output', 0)
 
+
+" NC (G-code)
+"
+autocmd BufNewFile,BufRead *.mpf set syntax=nc
+autocmd BufNewFile,BufRead *.MPF set syntax=nc
+autocmd BufNewFile,BufRead *.spf set syntax=nc
+autocmd BufNewFile,BufRead *.SPF set syntax=nc
+autocmd BufNewFile,BufRead *.tap set syntax=nc
+autocmd BufNewFile,BufRead *.TAP set syntax=nc
 
 " ********************************************************************************
 " Leader key mappings
