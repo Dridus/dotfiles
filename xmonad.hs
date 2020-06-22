@@ -112,7 +112,7 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
      , ((modm .|. shiftMask    , XMonad.xK_space ), setLayout $ layoutHook conf)
      , ((modm                  , XMonad.xK_i     ), withFocused $ windows . StackSet.sink)
      , ((modm                  , XMonad.xK_minus ), sendMessage Shrink)
-     , ((modm                  , XMonad.xK_plus  ), sendMessage Expand)
+     , ((modm                  , XMonad.xK_equal ), sendMessage Expand)
      , ((modm                  , XMonad.xK_m     ), windows StackSet.swapMaster) -- %! Swap the focused window and the master window
      , ((modm .|. shiftMask    , XMonad.xK_c     ), kill) -- %! Close the focused window
      , ((modm .|. shiftMask    , XMonad.xK_q     ), broadcastMessage ReleaseResources >> restart "xmonad" True) -- %! Restart xmonad

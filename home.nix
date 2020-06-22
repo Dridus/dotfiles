@@ -70,6 +70,7 @@ in
       arc-icon-theme    # some icons
       evince            # pdf viewer
       vlc               # media player
+      _1password        # CLI secrets
     ];
 
     sessionVariables = {
