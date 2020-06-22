@@ -81,6 +81,7 @@ myNewManageHook = composeAll
 -- runs whenever XMonad is started (or restarted)
 myStartupHook :: X ()
 myStartupHook = do
+  spawnOnce "xcompmgr"
   spawnOnce "polybar main"
   spawnOnce "flameshot"
   spawnOnce "slack --silent"
