@@ -60,9 +60,9 @@ myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll . concat $
   -- [ [className =? "qutebrowser" --> doShift "Qutebrowser"]
   -- , [className =? "Spotify" --> doShift "Media"]
-  [ [className =? "Slack" --> doShift commWS]
-  , [className =? "zoom" --> doShift commWS]
-  , [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
+  -- [ [className =? "Slack" --> doShift commWS]
+  -- , [className =? "zoom" --> doShift commWS]
+  [ [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
   , [wmName =? "sxiv" -->  doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4)] 
   , [isFullscreen --> doFullFloat]
   ]
