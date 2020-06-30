@@ -73,6 +73,7 @@ in
       _1password        # CLI secrets
       v4l_utils         # Tweak the camera
       terraform         # Go to ~Mars~ ~the cloud~!
+      easyrsa           # Manage PKI
     ];
 
     sessionVariables = {
