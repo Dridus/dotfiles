@@ -60,6 +60,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
   call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('nixprime/cpsm') " Fuzzy matching used in denite. nix-shell -p python3 -p cmake -p boost -p ncurses; cmake -DPY3:BOOL=true; make; make install
   call dein#add('parsonsmatt/intero-neovim')
   call dein#add('simnalamburt/vim-mundo') " Undo tree browser
   call dein#add('spwhitt/vim-nix')
@@ -88,7 +89,7 @@ call deoplete#enable()
 
 " Denite
 "
-call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hide_hidden_files'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm', 'matcher/hide_hidden_files'])
 call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
 call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 call denite#custom#var('grep', 'command', ['ag'])
