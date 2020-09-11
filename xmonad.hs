@@ -62,6 +62,7 @@ myManageHook = composeAll . concat $
   -- , [className =? "Spotify" --> doShift "Media"]
   -- [ [className =? "Slack" --> doShift commWS]
   -- , [className =? "zoom" --> doShift commWS]
+  -- [ [className =? "polybar" --> doPlaceAboveRoot]
   [ [className =? c --> doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4) | c <- floatsClass]
   , [wmName =? "sxiv" -->  doRectFloat (StackSet.RationalRect 0.3 0.3 0.4 0.4)] 
   , [isFullscreen --> doFullFloat]
@@ -69,6 +70,14 @@ myManageHook = composeAll . concat $
   where
     wmName = stringProperty "WM_NAME"
     floatsClass = []
+    {-
+    doPlaceAboveRoot s = do
+      w <- ask
+      doF $ \ s -> case findTag w s of
+        Just ws ->
+          onWorkspace ws (insert . delete' w)
+        _ -> s
+    -}
 
 myNewManageHook :: Query (Endo WindowSet)
 myNewManageHook = composeAll
@@ -82,7 +91,7 @@ myNewManageHook = composeAll
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "xcompmgr"
-  spawnOnce "polybar main"
+  -- spawnOnce "polybar main"
   spawnOnce "flameshot"
   spawnOnce "slack --silent"
   spawnOnce "QT_SCALE_FACTOR=2 zoom-us"
@@ -117,6 +126,7 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList
      , ((modm .|. shiftMask    , XMonad.xK_c     ), kill) -- %! Close the focused window
      , ((modm .|. shiftMask    , XMonad.xK_q     ), broadcastMessage ReleaseResources >> restart "xmonad" True) -- %! Restart xmonad
      , ((modm .|. shiftMask    , XMonad.xK_x     ), spawn "p=$(pidof polybar) && kill $p; polybar main")
+     , ((modm .|. mod1Mask     , XMonad.xK_x     ), spawn "p=$(pidof polybar) && kill $p")
      , ((modm                  , XMonad.xK_f     ), withFocused (sendMessage . maximizeRestore) >> sendMessage ToggleStruts)
      , ((modm                  , XMonad.xK_z     ), sendMessage MirrorShrink)
      , ((modm                  , XMonad.xK_a     ), sendMessage MirrorExpand)
