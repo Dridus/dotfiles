@@ -53,6 +53,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fsharp/vim-fsharp')
   call dein#add('hashivim/vim-terraform')
   call dein#add('int3/vim-extradite') " Git log browser
+  call dein#add('jceb/vim-orgmode')
   call dein#add('justinmk/vim-dirvish') " File browser that isn't NetRW
   call dein#add('kristijanhusak/vim-dirvish-git') " Git symbols for dir edits
   call dein#add('lsdr/monokai')
@@ -224,7 +225,9 @@ call neomake#config#set('maker_defaults.buffer_output', 0)
 " Leader key mappings
 
 let mapleader = " "
+let maplocalleader = " "
 let g:mapleader = " "
+let g:maplocalleader = " "
 
 " Buffer management
 nnoremap <leader>bp :bp<cr>
@@ -262,6 +265,10 @@ nnoremap <silent> <leader>y :Denite register<cr>
 " Denite hoogle
 nnoremap <silent> <leader>Hi :Denite hoogle -default-action=insert_import<cr>
 nnoremap <silent> <leader>Hl :Denite hoogle -default-action=open_link<cr>
+
+" Org mode
+"
+let g:org_heading_shade_leading_chars = 0
 
 " Miscellaneous
 "
