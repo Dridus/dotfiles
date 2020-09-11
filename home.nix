@@ -25,6 +25,13 @@ in
     /home/ross/vital/vital-nix/user/software-workstation.nix
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      # openmodelica = self.callPackage ./openmodelica.nix {};
+      zoom-us = self.libsForQt5.callPackage ./zoom-us.nix {};
+    })
+  ];
+
   home = {
     file = {
       ".prezto-contrib".source = zpreztoContrib;
@@ -56,7 +63,6 @@ in
       zip               # put things in the box
       unzip             # take things out of the box
       kitty             # terminal
-      speedcrunch       # calculator
       adapta-kde-theme  # good lookin kde that scales?
       adapta-gtk-theme  # good lookin gtk that scales
       arc-icon-theme    # some icons
@@ -64,10 +70,22 @@ in
       vlc               # media player
       _1password        # CLI secrets
       v4l_utils         # Tweak the camera
-      terraform         # Go to ~Mars~ ~the cloud~!
+      packer            # prepare and...
+      terraform         # Go to ~Mars~ the cloud!
       easyrsa           # Manage PKI
       gnomeExtensions.appindicator   # show systray stuff in the top bar
       gnomeExtensions.system-monitor # graphs and statzz
+      wineWowPackages.full           # wine works surprisingly well!
+      (winetricks.override { wine = wineWowPackages.full; }) # winetricks is basically mandatory
+      git-lfs                        # big stuff!
+      shutter           # fancy screenshots... that I never use?
+      wireshark         # packets!
+      libreoffice       # spreadsheets, basically
+      # openmodelica      # OMG OMC
+      octaveFull        # desktop calculator... or something more??
+      guvcview          # webcam stuff
+      slack
+      zoom-us           # business business business. is this working?
     ];
 
     sessionVariables = {
