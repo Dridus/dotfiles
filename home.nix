@@ -2,10 +2,6 @@
 
 let
 
-  xmonad = pkgs.xmonad-with-packages.override {
-    packages = p: with p; [ xmonad-contrib xmonad-extras ];
-  };
-
   mkOutOfStoreSymlink = path:
     let
       pathStr = toString path;
@@ -25,15 +21,12 @@ in
 
 {
   imports = [
-    /home/ross/vital/vital-nix/user/feh-background.nix
-    /home/ross/vital/vital-nix/user/xkb-caps-and-ctrl.nix
     /home/ross/vital/vital-nix/user/p53.nix
     /home/ross/vital/vital-nix/user/software-workstation.nix
   ];
 
   home = {
     file = {
-      ".xmonad/xmonad.hs".source = mkOutOfStoreSymlink ./xmonad.hs;
       ".prezto-contrib".source = zpreztoContrib;
       ".zpreztorc".source = mkOutOfStoreSymlink ./zpreztorc;
       ".zshrc".source = mkOutOfStoreSymlink ./zshrc;
@@ -54,7 +47,6 @@ in
       xorg.xev          # dump them events
       xorg.xcompmgr     # window compositing
       sublime-merge     # git
-      rofi              # dmenu but better
       fira              # variable width font
       fira-code         # fixed width font
       open-sans         # dunno why I have this
@@ -74,6 +66,8 @@ in
       v4l_utils         # Tweak the camera
       terraform         # Go to ~Mars~ ~the cloud~!
       easyrsa           # Manage PKI
+      gnomeExtensions.appindicator   # show systray stuff in the top bar
+      gnomeExtensions.system-monitor # graphs and statzz
     ];
 
     sessionVariables = {
@@ -108,10 +102,9 @@ in
   };
 
   xdg.configFile = {
+    "autostart/org.gnome.SettingsDaemon.Keyboard.desktop".source = mkOutOfStoreSymlink ./org.gnome.SettingsDaemon.Keyboard.desktop;
     "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
     "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
-    "polybar/config".source = mkOutOfStoreSymlink ./polybar;
-    "rofi/config.rasi".source = mkOutOfStoreSymlink ./rofi.rasi;
   };
 
   xresources.properties = {
@@ -170,6 +163,6 @@ in
   xsession = {
     enable = true;
 
-    windowManager.command = "${xmonad}/bin/xmonad";
+    windowManager.command = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
   };
 }
