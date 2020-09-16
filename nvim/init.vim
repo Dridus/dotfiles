@@ -74,7 +74,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
   call dein#add('vim-scripts/Align') " Second best thing ever?
   call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
-  call dein#add('vim-scripts/nc.vim--Eno')
 
   call dein#end()
   call dein#save_state()
