@@ -28,9 +28,11 @@ in
   nixpkgs.overlays = [
     (self: super: {
       # openmodelica = self.callPackage ./openmodelica.nix {};
-      zoom-us = self.libsForQt5.callPackage ./zoom-us.nix {};
+      # zoom-us = self.libsForQt5.callPackage ./zoom-us.nix {};
     })
   ];
+
+  manual.manpages.enable = false;
 
   home = {
     file = {
