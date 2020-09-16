@@ -61,7 +61,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
   call dein#add('neovimhaskell/haskell-vim')
-  call dein#add('nixprime/cpsm') " Fuzzy matching used in denite. nix-shell -p python3 -p cmake -p boost -p ncurses; cmake -DPY3:BOOL=true; make; make install
+  call dein#add('raghur/fruzzy') " Fast fuzzy matching for denite
   call dein#add('parsonsmatt/intero-neovim')
   call dein#add('simnalamburt/vim-mundo') " Undo tree browser
   call dein#add('spwhitt/vim-nix')
@@ -90,7 +90,7 @@ call deoplete#enable()
 
 " Denite
 "
-call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm', 'matcher/hide_hidden_files'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/fruzzy', 'matcher/hide_hidden_files'])
 call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
 call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 call denite#custom#var('grep', 'command', ['ag'])
@@ -115,6 +115,8 @@ autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
+
+let g:fruzzy#usenative=1
 
 " Airline
 "
