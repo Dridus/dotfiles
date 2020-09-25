@@ -62,11 +62,12 @@ modules-left = date ewmh
 modules-center = window
 modules-right = wired-network wireless-network memory cpu temperature battery pulseaudio
 tray-maxsize = 32
-tray-offset-y = -3
+; tray-offset-y = -3
 tray-position = right
 tray-padding = 2
 tray-scale = 1.0
 override-redirect = true
+wm-restack = i3
 cursor-scroll = ns-resize
 dpi = 192
 separator = %{F#272822}%{T2}┃ %{T0}%{F#f8f8f2}
@@ -144,7 +145,7 @@ bar-load-empty-foreground = ${vu.empty-foreground}
 [module/temperature]
 type = internal/temperature
 thermal-zone = 8
-warn-temperature = 85
+warn-temperature = 90
 units = true
 label = %{T1} %{T6}%temperature-c%
 label-warn = %{F#f92672}%{T1} %{T6}%temperature-c%
@@ -152,13 +153,13 @@ label-warn = %{F#f92672}%{T1} %{T6}%temperature-c%
 [module/wired-network]
 type = internal/network
 interface = enp0s31f6
-label-connected = %{T1} %{F#75715e}%{T4}%local_ip% %{F#ae81ff}%upspeed% %{F#66d9ef}%downspeed%
+label-connected = %{T1}  %{F#ae81ff}%upspeed% %{F#66d9ef}%downspeed%
 
 [module/wireless-network]
 type = internal/network
 interface = wlp82s0
 format-connected =  <label-connected>
-label-connected = %{T1} %essid% %{T4}%signal%% %{F#75715e}%local_ip% %{F#ae81ff}%upspeed:9% %{F#66d9ef}%downspeed:9%
+label-connected = %{T1} %essid% %{T4}%signal%% %{F#ae81ff}%upspeed:9% %{F#66d9ef}%downspeed:9%
 
 [module/battery]
 type = internal/battery

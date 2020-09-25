@@ -2,10 +2,6 @@
 
 let
 
-  xmonad = pkgs.xmonad-with-packages.override {
-    packages = p: with p; [ xmonad-contrib xmonad-extras ];
-  };
-
   mkOutOfStoreSymlink = path:
     let
       pathStr = toString path;
@@ -25,15 +21,21 @@ in
 
 {
   imports = [
-    /home/ross/vital/vital-nix/user/feh-background.nix
-    /home/ross/vital/vital-nix/user/xkb-caps-and-ctrl.nix
     /home/ross/vital/vital-nix/user/p53.nix
     /home/ross/vital/vital-nix/user/software-workstation.nix
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      # openmodelica = self.callPackage ./openmodelica.nix {};
+      # zoom-us = self.libsForQt5.callPackage ./zoom-us.nix {};
+    })
+  ];
+
+  manual.manpages.enable = false;
+
   home = {
     file = {
-      ".xmonad/xmonad.hs".source = mkOutOfStoreSymlink ./xmonad.hs;
       ".prezto-contrib".source = zpreztoContrib;
       ".zpreztorc".source = mkOutOfStoreSymlink ./zpreztorc;
       ".zshrc".source = mkOutOfStoreSymlink ./zshrc;
@@ -54,7 +56,6 @@ in
       xorg.xev          # dump them events
       xorg.xcompmgr     # window compositing
       sublime-merge     # git
-      rofi              # dmenu but better
       fira              # variable width font
       fira-code         # fixed width font
       open-sans         # dunno why I have this
@@ -64,13 +65,29 @@ in
       zip               # put things in the box
       unzip             # take things out of the box
       kitty             # terminal
-      speedcrunch       # calculator
       adapta-kde-theme  # good lookin kde that scales?
       adapta-gtk-theme  # good lookin gtk that scales
       arc-icon-theme    # some icons
       evince            # pdf viewer
       vlc               # media player
       _1password        # CLI secrets
+      v4l_utils         # Tweak the camera
+      packer            # prepare and...
+      terraform         # Go to ~Mars~ the cloud!
+      easyrsa           # Manage PKI
+      gnomeExtensions.appindicator   # show systray stuff in the top bar
+      gnomeExtensions.system-monitor # graphs and statzz
+      wineWowPackages.full           # wine works surprisingly well!
+      (winetricks.override { wine = wineWowPackages.full; }) # winetricks is basically mandatory
+      git-lfs                        # big stuff!
+      shutter           # fancy screenshots... that I never use?
+      wireshark         # packets!
+      libreoffice       # spreadsheets, basically
+      # openmodelica      # OMG OMC
+      octaveFull        # desktop calculator... or something more??
+      guvcview          # webcam stuff
+      slack
+      zoom-us           # business business business. is this working?
     ];
 
     sessionVariables = {
@@ -105,10 +122,9 @@ in
   };
 
   xdg.configFile = {
+    "autostart/org.gnome.SettingsDaemon.Keyboard.desktop".source = mkOutOfStoreSymlink ./org.gnome.SettingsDaemon.Keyboard.desktop;
     "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
     "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
-    "polybar/config".source = mkOutOfStoreSymlink ./polybar;
-    "rofi/config.rasi".source = mkOutOfStoreSymlink ./rofi.rasi;
   };
 
   xresources.properties = {
@@ -167,6 +183,6 @@ in
   xsession = {
     enable = true;
 
-    windowManager.command = "${xmonad}/bin/xmonad";
+    windowManager.command = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
   };
 }

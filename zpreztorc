@@ -24,6 +24,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 zstyle ':prezto:module:terminal' auto-title 'yes'
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_GIT_SHOW=false
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section

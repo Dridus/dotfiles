@@ -31,7 +31,7 @@ set noerrorbells         " Quiet
 set nowrap               " Wrap lines by default
 set nowritebackup        " No need to be too safe
 set number               " Instead of showing 0 at the cursor line, show the actual line
-set pythonthreedll=/nix/store/23i9yrf5i0166lkbrcvxv0qdws2f0m51-python3-3.7.0/lib/libpython3.7m.dylib
+set pythonthreedll=/nix/store/bs03sg8b0gq2zr4v252hh9psp780qj5q-python3-3.8.5/lib/libpython3.so
 set relativenumber       " Show line number distance from cursor for easy [N]j/[N]k
 set ruler                " Show column position, but airline does no matter what
 set scrolloff=7          " Keep 7 lines visible when moving through file

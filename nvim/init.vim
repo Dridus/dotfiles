@@ -54,6 +54,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fsharp/vim-fsharp')
   call dein#add('hashivim/vim-terraform')
   call dein#add('int3/vim-extradite') " Git log browser
+  call dein#add('jceb/vim-orgmode')
   call dein#add('justinmk/vim-dirvish') " File browser that isn't NetRW
   call dein#add('kristijanhusak/vim-dirvish-git') " Git symbols for dir edits
   call dein#add('lsdr/monokai')
@@ -62,6 +63,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
   call dein#add('neomake/neomake')
   call dein#add('neovimhaskell/haskell-vim')
+  call dein#add('raghur/fruzzy') " Fast fuzzy matching for denite
   call dein#add('parsonsmatt/intero-neovim')
   call dein#add('simnalamburt/vim-mundo') " Undo tree browser
   call dein#add('spwhitt/vim-nix')
@@ -89,7 +91,7 @@ call deoplete#enable()
 
 " Denite
 "
-call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hide_hidden_files'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/fruzzy', 'matcher/hide_hidden_files'])
 call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
 call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 call denite#custom#var('grep', 'command', ['ag'])
@@ -114,6 +116,8 @@ autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
+
+let g:fruzzy#usenative=1
 
 " Airline
 "
@@ -235,7 +239,9 @@ autocmd BufNewFile,BufRead *.NGC set syntax=linuxcnc
 " Leader key mappings
 
 let mapleader = " "
+let maplocalleader = " "
 let g:mapleader = " "
+let g:maplocalleader = " "
 
 " Buffer management
 nnoremap <leader>bp :bp<cr>
@@ -273,6 +279,10 @@ nnoremap <silent> <leader>y :Denite register<cr>
 " Denite hoogle
 nnoremap <silent> <leader>Hi :Denite hoogle -default-action=insert_import<cr>
 nnoremap <silent> <leader>Hl :Denite hoogle -default-action=open_link<cr>
+
+" Org mode
+"
+let g:org_heading_shade_leading_chars = 0
 
 " Miscellaneous
 "
