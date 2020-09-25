@@ -222,12 +222,14 @@ call neomake#config#set('maker_defaults.buffer_output', 0)
 
 " NC (G-code)
 "
-autocmd BufNewFile,BufRead *.mpf set syntax=nc
-autocmd BufNewFile,BufRead *.MPF set syntax=nc
-autocmd BufNewFile,BufRead *.spf set syntax=nc
-autocmd BufNewFile,BufRead *.SPF set syntax=nc
-autocmd BufNewFile,BufRead *.tap set syntax=nc
-autocmd BufNewFile,BufRead *.TAP set syntax=nc
+autocmd BufNewFile,BufRead *.mpf set syntax=sinumerik
+autocmd BufNewFile,BufRead *.MPF set syntax=sinumerik
+autocmd BufNewFile,BufRead *.spf set syntax=sinumerik
+autocmd BufNewFile,BufRead *.SPF set syntax=sinumerik
+" autocmd BufNewFile,BufRead *.tap set syntax=nc
+" autocmd BufNewFile,BufRead *.TAP set syntax=nc
+autocmd BufNewFile,BufRead *.ngc set syntax=linuxcnc
+autocmd BufNewFile,BufRead *.NGC set syntax=linuxcnc
 
 " ********************************************************************************
 " Leader key mappings
