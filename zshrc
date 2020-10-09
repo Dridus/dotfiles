@@ -1,4 +1,4 @@
-PREZTO_DIR=$(nix-build --no-out-link -A zsh-prezto "<nixos>")
+PREZTO_DIR=$(nix-build --no-out-link -A zsh-prezto "<nixpkgs>")
 if [ ! -f ${ZDOTDIR:-$HOME}/.zpreztorc ]; then
   ln -s ${PREZTO_DIR}/runcoms/zpreztorc ${ZDOTDIR:-$HOME}/.zpreztorc
 fi
