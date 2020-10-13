@@ -88,6 +88,8 @@ in
       guvcview          # webcam stuff
       slack
       zoom-us           # business business business. is this working?
+      eagle
+      kicad-with-packages3d
     ];
 
     sessionVariables = {
@@ -124,7 +126,7 @@ in
   xdg.configFile = {
     "autostart/org.gnome.SettingsDaemon.Keyboard.desktop".source = mkOutOfStoreSymlink ./org.gnome.SettingsDaemon.Keyboard.desktop;
     "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
-    "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
+# "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
   };
 
   xresources.properties = {
