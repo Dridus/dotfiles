@@ -20,8 +20,10 @@ call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('denite')
 call SpaceVim#layers#load('git')
 call SpaceVim#layers#load('lang#c')
+call SpaceVim#layers#load('lang#haskell')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#sh')
+call SpaceVim#layers#load('language-server-protocol')
 call SpaceVim#layers#load('shell', {
       \ 'default_position': 'top',
       \ 'default_height': 30,
