@@ -23,6 +23,7 @@ in
   imports = [
     /home/ross/vital/vital-nix/user/p53.nix
     /home/ross/vital/vital-nix/user/software-workstation.nix
+    /home/ross/vital/vital-nix/packages/overlays.nix
   ];
 
   nixpkgs.overlays = [
@@ -90,6 +91,10 @@ in
       zoom-us           # business business business. is this working?
       eagle
       kicad-with-packages3d
+      patchelf
+      ovftool
+      ctags
+      openssl
     ];
 
     sessionVariables = {
