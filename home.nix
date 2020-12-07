@@ -85,7 +85,7 @@ in
       wireshark         # packets!
       libreoffice       # spreadsheets, basically
       # openmodelica      # OMG OMC
-      octaveFull        # desktop calculator... or something more??
+      # octaveFull        # desktop calculator... or something more??
       guvcview          # webcam stuff
       slack
       zoom-us           # business business business. is this working?
@@ -95,6 +95,13 @@ in
       ovftool
       ctags
       openssl
+      speedcrunch
+      prusa-slicer
+      bmap-tools
+      screen
+      gnumake
+      rustup
+      emacs27
     ];
 
     sessionVariables = {
