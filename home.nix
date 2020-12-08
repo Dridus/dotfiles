@@ -102,6 +102,8 @@ in
       gnumake
       rustup
       emacs27
+      ripgrep
+      fd
     ];
 
     sessionVariables = {
