@@ -1,4 +1,4 @@
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 PREZTO_DIR=$(nix-build --no-out-link -A zsh-prezto "<nixpkgs>")
 if [ ! -f ${ZDOTDIR:-$HOME}/.zpreztorc ]; then
   ln -s ${PREZTO_DIR}/runcoms/zpreztorc ${ZDOTDIR:-$HOME}/.zpreztorc
