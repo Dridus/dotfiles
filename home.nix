@@ -21,9 +21,9 @@ in
 
 {
   imports = [
-    /home/ross/vital/vital-nix/user/p53.nix
-    /home/ross/vital/vital-nix/user/software-workstation.nix
-    /home/ross/vital/vital-nix/packages/overlays.nix
+#    /home/ross/vital/vital-nix/user/p53.nix
+#    /home/ross/vital/vital-nix/user/software-workstation.nix
+#    /home/ross/vital/vital-nix/packages/overlays.nix
   ];
 
   nixpkgs.overlays = [
@@ -45,69 +45,70 @@ in
     packages = with pkgs; [
       zsh-prezto        # shellz
       neovim            # edit those texts
-      google-chrome     # faster creepier browser
-      firefox           # slower browser
+#      google-chrome     # faster creepier browser
+#      firefox           # slower browser
       file              #
       exa               # ls
       silver-searcher   # like grep but greppier
-      inkscape          # vector image
-      gimp              # raster image
-      glxinfo           # dunno, check out some GPU stuff
-      xorg.xwininfo     # dump them windows
-      xorg.xev          # dump them events
-      xorg.xcompmgr     # window compositing
-      sublime-merge     # git
-      fira              # variable width font
-      fira-code         # fixed width font
-      open-sans         # dunno why I have this
-      font-awesome      # iconz
-      virt-manager      # VMs
-      remmina           # remote desktop
+#      inkscape          # vector image
+#      gimp              # raster image
+#      glxinfo           # dunno, check out some GPU stuff
+#      xorg.xwininfo     # dump them windows
+#      xorg.xev          # dump them events
+#      xorg.xcompmgr     # window compositing
+#      sublime-merge     # git
+#      fira              # variable width font
+#      fira-code         # fixed width font
+#      open-sans         # dunno why I have this
+#      font-awesome      # iconz
+#      virt-manager      # VMs
+#      remmina           # remote desktop
       zip               # put things in the box
       unzip             # take things out of the box
-      kitty             # terminal
-      adapta-kde-theme  # good lookin kde that scales?
-      adapta-gtk-theme  # good lookin gtk that scales
-      arc-icon-theme    # some icons
-      evince            # pdf viewer
-      vlc               # media player
-      _1password        # CLI secrets
-      v4l_utils         # Tweak the camera
+#      kitty             # terminal
+#      adapta-kde-theme  # good lookin kde that scales?
+#      adapta-gtk-theme  # good lookin gtk that scales
+#      arc-icon-theme    # some icons
+#      evince            # pdf viewer
+#      vlc               # media player
+#      _1password        # CLI secrets
+#      v4l_utils         # Tweak the camera
       packer            # prepare and...
       terraform         # Go to ~Mars~ the cloud!
       easyrsa           # Manage PKI
-      gnomeExtensions.appindicator   # show systray stuff in the top bar
-      gnomeExtensions.system-monitor # graphs and statzz
-      wineWowPackages.full           # wine works surprisingly well!
-      (winetricks.override { wine = wineWowPackages.full; }) # winetricks is basically mandatory
+#      gnomeExtensions.appindicator   # show systray stuff in the top bar
+#      gnomeExtensions.system-monitor # graphs and statzz
+#      wineWowPackages.full           # wine works surprisingly well!
+#      (winetricks.override { wine = wineWowPackages.full; }) # winetricks is basically mandatory
       git-lfs                        # big stuff!
-      shutter           # fancy screenshots... that I never use?
-      wireshark         # packets!
-      libreoffice       # spreadsheets, basically
+#      shutter           # fancy screenshots... that I never use?
+#      wireshark         # packets!
+#      libreoffice       # spreadsheets, basically
       # openmodelica      # OMG OMC
       # octaveFull        # desktop calculator... or something more??
-      guvcview          # webcam stuff
-      slack
-      zoom-us           # business business business. is this working?
-      eagle
-      kicad-with-packages3d
+#      guvcview          # webcam stuff
+#      slack
+#      zoom-us           # business business business. is this working?
+#      eagle
+#      kicad-with-packages3d
       patchelf
-      ovftool
+#      ovftool
       ctags
       openssl
-      speedcrunch
-      prusa-slicer
+#      speedcrunch
+#      prusa-slicer
       bmap-tools
       screen
       gnumake
       rustup
-      emacs27
+#      emacs27
       ripgrep
       fd
+      keychain
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "emacsclient";
       TERM = "xterm-256color";
     };
 
@@ -139,7 +140,7 @@ in
 
   xdg.configFile = {
     "autostart/org.gnome.SettingsDaemon.Keyboard.desktop".source = mkOutOfStoreSymlink ./org.gnome.SettingsDaemon.Keyboard.desktop;
-    "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
+#    "kitty/kitty.conf".source = mkOutOfStoreSymlink ./kitty.conf;
 # "nvim/init.vim".source = mkOutOfStoreSymlink ./nvim/init.vim;
   };
 
@@ -196,9 +197,9 @@ in
     "dmenu.foreground"    = "#A0A0A0";
   };
 
-  xsession = {
-    enable = true;
-
-    windowManager.command = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
-  };
+#  xsession = {
+#    enable = true;
+#
+#    windowManager.command = "${pkgs.gnome3.gnome-session}/bin/gnome-session";
+#  };
 }
