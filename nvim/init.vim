@@ -92,6 +92,23 @@ let &background = 'dark'
 colorscheme monokai
 let g:airline_theme = 'molokai'
 
+let s:win32yankpath = getenv('HOME') . '/.local/bin/win32yank.exe'
+if executable(s:win32yankpath)
+  let g:clipboard = {
+        \ 'name': 'win32yank',
+        \ 'copy': {
+        \   '*': s:win32yankpath . ' -i --crlf',
+        \   '+': s:win32yankpath . ' -i --crlf',
+        \ },
+        \ 'paste': {
+        \   '*': s:win32yankpath . ' -o --lf',
+        \   '+': s:win32yankpath . ' -o --lf',
+        \ },
+        \ 'cache_enabled': 0,
+        \ }
+endif
+
+
 " Airline
 "
 let g:airline_powerline_fonts = 1
