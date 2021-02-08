@@ -52,6 +52,7 @@ in
       keychain
       pstree
       direnv
+      stdenv.cc 
     ];
 
     sessionVariables = {
