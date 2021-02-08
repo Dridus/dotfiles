@@ -1,12 +1,12 @@
 
-if !isdirectory(getenv("HOME") . "/.local/share/nvim/backup")
-    execute "!mkdir -p " . getenv("HOME") . "/.local/share/nvim/backup"
+if !isdirectory(getenv('HOME') . '/.local/share/nvim/backup')
+    execute '!mkdir -p ' . getenv('HOME') . '/.local/share/nvim/backup'
 endif
 
 " Basic stuff
 "
 let &backup = 1               " Turn on regular backups
-let &backupdir = '~/.local/share/nvim/backup'
+let &backupdir = getenv('HOME') . '/.local/share/nvim/backup'
 let &colorcolumn = 160
 let &cursorline = 1           " Highlight the current line
 let &expandtab = 1            " Use spaces not tabs
@@ -283,7 +283,7 @@ function FzfLinesInBuffer()
   call fzf#run({
     \ 'sink': funcref('<sid>GoLine'),
     \ 'source': map(getline(0, line('$')), '(v:key+1) . ":" . v:val'),
-    \ 'options': '--no-multi',
+    \ 'options': ['--no-multi', '--no-sort', '--delimiter', ':', '--nth', '2..'],
     \ })
 endfunction
 
