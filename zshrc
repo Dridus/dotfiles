@@ -20,9 +20,9 @@ if test -f $HOME/.zshrc-local; then
     source $HOME/.zshrc-local
 fi
 
-alias ls="exa"
 alias sysu="systemctl --user"
 alias jour="journalctl --user"
+typeset -x FZF_DEFAULT_COMMAND="fd --type f"
 function nghci
 {
   set -x

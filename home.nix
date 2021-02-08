@@ -25,9 +25,6 @@ in
 
   home = {
     file = {
-      ".doom.d/init.el".source = mkOutOfStoreSymlink ./doom.d/init.el;
-      ".doom.d/config.el".source = mkOutOfStoreSymlink ./doom.d/config.el;
-      ".doom.d/packages.el".source = mkOutOfStoreSymlink ./doom.d/packages.el;
       ".prezto-contrib".source = zpreztoContrib;
       ".zpreztorc".source = mkOutOfStoreSymlink ./zpreztorc;
       ".zshrc".source = mkOutOfStoreSymlink ./zshrc;
@@ -37,8 +34,6 @@ in
       zsh-prezto
       neovim
       file
-      exa
-      silver-searcher
       zip
       unzip
       packer
@@ -53,7 +48,10 @@ in
       rustup
       ripgrep
       fd
+      fzf
       keychain
+      pstree
+      direnv
     ];
 
     sessionVariables = {
@@ -85,4 +83,6 @@ in
 
     # FIXME prezto for zsh
   };
+
+  xdg.configFile.nvim.source = mkOutOfStoreSymlink ./nvim;
 }
