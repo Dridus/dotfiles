@@ -3,7 +3,7 @@
 (doom! :input
        :completion
        company           ; the ultimate code completion backend
-       (ivy +icons)               ; a search engine for love and life
+       ivy               ; a search engine for love and life
 
        :ui
        doom              ; what makes DOOM look the way it does
