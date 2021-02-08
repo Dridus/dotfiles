@@ -56,7 +56,9 @@ in
     ];
 
     sessionVariables = {
-      EDITOR = "emacsclient";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      FZF_DEFAULT_COMMAND = "fd --type f";
       TERM = "xterm-256color";
     };
 
