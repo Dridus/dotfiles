@@ -23,6 +23,7 @@ fi
 alias sysu="systemctl --user"
 alias jour="journalctl --user"
 typeset -x FZF_DEFAULT_COMMAND="fd --type f"
+typeset -x EDITOR="nvim"
 function nghci
 {
   set -x
