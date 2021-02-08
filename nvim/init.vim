@@ -240,7 +240,7 @@ endfunction
 function FzfFilesHere()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
-    \ 'source': 'ls',
+    \ 'source': 'fd --type f --search-path ' . expand('%:h'),
     \ 'options': s:filepreview_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
