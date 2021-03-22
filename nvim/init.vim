@@ -53,6 +53,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('kergoth/vim-hilinks')
 
   " Syntaxes
+  call dein#add('1955parham/vim-spice')
   call dein#add('Dridus/nc.vim')
   call dein#add('elzr/vim-json')
   call dein#add('hashivim/vim-terraform')
