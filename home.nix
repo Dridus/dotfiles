@@ -21,7 +21,7 @@ in
 
 {
   imports = [ ./home-local.nix ];
-  # manual.manpages.enable = false;
+  manual.manpages.enable = true;
 
   home = {
     file = {
@@ -53,6 +53,9 @@ in
       pstree
       direnv
       stdenv.cc 
+      glibc.dev
+      linuxHeaders
+      manpages
     ];
 
     sessionVariables = {
