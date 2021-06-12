@@ -43,6 +43,7 @@ in
       patchelf
       ctags
       openssl
+      openssl.dev
       screen
       gnumake
       rustup
@@ -56,6 +57,9 @@ in
       glibc.dev
       linuxHeaders
       manpages
+      rsync
+      pkg-config
+      qemu
     ];
 
     sessionVariables = {
