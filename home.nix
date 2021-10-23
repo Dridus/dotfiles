@@ -60,6 +60,7 @@ in
       rsync
       pkg-config
       qemu
+      nix-doc
     ];
 
     sessionVariables = {
