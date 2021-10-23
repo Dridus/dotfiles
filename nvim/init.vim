@@ -53,7 +53,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('kergoth/vim-hilinks')
 
   " Syntaxes
-  call dein#add('1955parham/vim-spice')
+  call dein#add('1995parham/vim-spice')
   call dein#add('Dridus/nc.vim')
   call dein#add('elzr/vim-json')
   call dein#add('hashivim/vim-terraform')
@@ -262,7 +262,7 @@ endfunction
 function FzfLinesInFilesRec()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
-    \ 'source': 'rg ' . s:rg_opts . ' ' . shellescape(input('query: ')),
+    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(input('query: ')),
     \ 'options': s:rg_fzf_opts + s:filepreview_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
@@ -288,7 +288,7 @@ endfunction
 function FzfLinesInFilesRecQF()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleLinesInFilesRecQF'),
-    \ 'source': 'rg ' . s:rg_opts . ' ' . shellescape(input('query: ')),
+    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(input('query: ')),
     \ 'options': s:rg_fzf_opts + s:filepreview_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
@@ -358,10 +358,10 @@ map <Leader>xa<bar> :Align <bar><CR>
 map <leader>xar :Align
 
 " Git
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gl :Extradite!<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Git<CR>
+nmap <leader>gl :Git log<CR>
+nmap <leader>gd :Git diff<CR>
+nmap <leader>gb :Git blame<CR>
 
 " Navigation
 nnoremap <silent> <leader>. :call FzfFilesRec()<cr>
