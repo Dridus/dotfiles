@@ -201,8 +201,9 @@ autocmd BufNewFile,BufRead *.NGC let &syntax = 'linuxcnc'
 "
 
 let s:rg_opts = '--line-number --column --no-messages --color=always'
-let s:rg_fzf_opts = ['--ansi', '--delimiter', ':', '--nth', '4..']
-let s:filepreview_fzf_opts = ['--preview=head -$FZF_PREVIEW_LINES {}']
+let s:rg_fzf_opts = ['--ansi', '--delimiter', ':', '--nth', '1,4..']
+let s:filepreview_fd_fzf_opts = ['--preview=bat --color=always --style=numbers --line-range=:$FZF_PREVIEW_LINES {+}']
+let s:filepreview_rg_fzf_opts = ['--preview=bat-fzf-preview {2} {+1}']
 let s:multi_fzf_opts = ['--multi', '--expect=ctrl-t,ctrl-v,ctrl-x', '--bind=ctrl-a:select-all,ctrl-d:deselect-all', '--color=hl:68,hl+:110']
 
 function s:ParseFileLineColumn(line)
@@ -234,7 +235,7 @@ function FzfFilesRec()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
     \ 'source': 'fd --type f' ,
-    \ 'options': s:filepreview_fzf_opts + s:multi_fzf_opts,
+    \ 'options': s:filepreview_fd_fzf_opts + s:multi_fzf_opts,
     \})
 endfunction
 
@@ -242,7 +243,7 @@ function FzfFilesHere()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
     \ 'source': 'fd --type f --search-path ' . expand('%:h'),
-    \ 'options': s:filepreview_fzf_opts + s:multi_fzf_opts,
+    \ 'options': s:filepreview_fd_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
 
@@ -255,15 +256,26 @@ function FzfRecentFilesAndBuffers()
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
     \ 'source': l:candidates,
-    \ 'options': s:filepreview_fzf_opts + s:multi_fzf_opts,
+    \ 'options': s:filepreview_fd_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
 
 function FzfLinesInFilesRec()
+  let l:query = input('query: ')
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleFzfFiles'),
-    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(input('query: ')),
-    \ 'options': s:rg_fzf_opts + s:filepreview_fzf_opts + s:multi_fzf_opts,
+    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(l:query),
+    \ 'options': s:rg_fzf_opts + s:filepreview_rg_fzf_opts + s:multi_fzf_opts,
+    \ })
+endfunction
+
+function FzfLinesInFilesWithOptionsRec()
+  let l:options = input('options: ')
+  let l:query = input('query: ')
+  call fzf#run({
+    \ 'sink*': funcref('<sid>HandleFzfFiles'),
+    \ 'source': 'rg ' . s:rg_opts . ' ' . l:options . ' -e ' . shellescape(l:query),
+    \ 'options': s:rg_fzf_opts + s:filepreview_rg_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
 
@@ -286,10 +298,21 @@ function s:HandleLinesInFilesRecQF(lines)
 endfunction
 
 function FzfLinesInFilesRecQF()
+  let l:query = input('query: ')
   call fzf#run({
     \ 'sink*': funcref('<sid>HandleLinesInFilesRecQF'),
-    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(input('query: ')),
-    \ 'options': s:rg_fzf_opts + s:filepreview_fzf_opts + s:multi_fzf_opts,
+    \ 'source': 'rg ' . s:rg_opts . ' -e ' . shellescape(l:query),
+    \ 'options': s:rg_fzf_opts + s:filepreview_rg_fzf_opts + s:multi_fzf_opts,
+    \ })
+endfunction
+
+function FzfLinesInFilesWithOptionsRecQF()
+  let l:options = input('options: ')
+  let l:query = input('query: ')
+  call fzf#run({
+    \ 'sink*': funcref('<sid>HandleLinesInFilesRecQF'),
+    \ 'source': 'rg ' . s:rg_opts . ' ' . l:options . ' -e ' . shellescape(l:query),
+    \ 'options': s:rg_fzf_opts + s:filepreview_rg_fzf_opts + s:multi_fzf_opts,
     \ })
 endfunction
 
@@ -368,7 +391,9 @@ nnoremap <silent> <leader>. :call FzfFilesRec()<cr>
 nnoremap <silent> <leader>f. :call FzfFilesHere()<cr>
 nnoremap <silent> <leader>fr :call FzfRecentFilesAndBuffers()<cr>
 nnoremap <silent> <leader>ss :call FzfLinesInBuffer()<cr>
+nnoremap <silent> <leader>? :call FzfLinesInFilesWithOptionsRec()<cr>
 nnoremap <silent> <leader>/ :call FzfLinesInFilesRec()<cr>
+nnoremap <silent> <leader>f? :call FzfLinesInFilesWithOptionsRecQF()<cr>
 nnoremap <silent> <leader>f/ :call FzfLinesInFilesRecQF()<cr>
 nnoremap <silent> <leader>bb :call FzfBuffers()<cr>
 nnoremap <silent> <leader>hs :call FzfHelp()<cr>

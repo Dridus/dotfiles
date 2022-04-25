@@ -93,6 +93,14 @@ in
       pkg-config
       qemu
       # helix
+      bat
+      (writeShellScriptBin "bat-fzf-preview" ''
+        target_line="$1"
+        first_window_line="$(($target_line-$FZF_PREVIEW_LINES/2))"
+        last_window_line="$(($target_line+$FZF_PREVIEW_LINES))"
+        shift
+        ${bat}/bin/bat --color=always --style=numbers --highlight-line=$target_line --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) "$@"
+      '')
     ];
 
     sessionVariables = {
