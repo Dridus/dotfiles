@@ -7,7 +7,7 @@ endif
 "
 let &backup = 1             " Turn on regular backups
 let &backupdir = getenv('HOME') . '/.local/share/nvim/backup'
-let &colorcolumn = 160
+let &colorcolumn = 96
 let &cursorline = 1         " Highlight the current line
 let &expandtab = 1          " Use spaces not tabs
 let &exrc = 1               " Read ./.vimrc
@@ -62,28 +62,28 @@ if dein#load_state('~/.cache/dein')
   call dein#add('rust-lang/rust.vim')
 
   " SCM
-  call dein#add('tpope/vim-fugitive') " A git wrapper so awesome, it should be illegal
-  call dein#add('kristijanhusak/vim-dirvish-git') " Git symbols for dir edits
-  call dein#add('int3/vim-extradite') " Git log browser
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('kristijanhusak/vim-dirvish-git')
+  call dein#add('int3/vim-extradite')
 
   " Tools and navigation
-  call dein#add('junegunn/fzf') " Fuzzy find
-  call dein#add('justinmk/vim-dirvish') " File browser that isn't NetRW
-  call dein#add('moll/vim-bbye') " Layout-preserving :Bdelete and :Bwipeout
+  call dein#add('junegunn/fzf')
+  call dein#add('justinmk/vim-dirvish')
+  call dein#add('moll/vim-bbye')
   call dein#add('neomake/neomake')
-  call dein#add('vim-scripts/gitignore') " Read .gitignore files into wildignore
+  call dein#add('vim-scripts/gitignore')
 
   " Text manipulation
-  call dein#add('michaeljsmith/vim-indent-object') " Indented blocks as text objects
-  call dein#add('tpope/vim-commentary') " Add/remove comments
-  call dein#add('tpope/vim-repeat') " Support . with plugins
-  call dein#add('tpope/vim-surround') " Best thing ever?
-  call dein#add('vim-scripts/Align') " Second best thing ever?
+  call dein#add('michaeljsmith/vim-indent-object')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
+  call dein#add('vim-scripts/Align')
 
   " UI
-  call dein#add('vim-airline/vim-airline') " Good status bars
-  call dein#add('vim-airline/vim-airline-themes') " Good status bars, with colors
-  call dein#add('simnalamburt/vim-mundo') " Undo tree browser
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('simnalamburt/vim-mundo')
 
   call dein#end()
   call dein#save_state()
@@ -127,6 +127,7 @@ let g:loaded_AlignMapsPlugin = 1
 
 " Haskell
 "
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
@@ -134,21 +135,6 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_indent_disable = 1          " get your dirty automation off my indents
-
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-augroup haskell
-  autocmd!
-  autocmd FileType haskell let &errorformat = ''
-    \%C\t%.%#,
-    \%W\ \ \ \ %f:%l:%c:\ Warning:,
-    \%E\ \ \ \ %f:%l:%c:,
-    \%Z\ \ \ \ ,\ \ \ \ %f:%l:%c:\ %m
-augroup END
-
-" Scala
-"
-autocmd BufNewFile,BufRead *.scala let &shiftwidth = 2
-autocmd BufNewFile,BufRead *.scala let &cscopetag = 0
 
 " Git
 "
