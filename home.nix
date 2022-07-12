@@ -69,6 +69,7 @@ in
         shift
         ${bat}/bin/bat --color=always --style=numbers --highlight-line=$target_line --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) "$@"
       '')
+      delta
     ];
 
     sessionVariables = {
@@ -92,6 +93,13 @@ in
       userName = "Ross MacLeod";
       extraConfig = {
         core.editor = "$EDITOR";
+        core.pager = "${pkgs.delta}/bin/delta";
+        interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
+        add.interactive.useBuiltin = false;
+        delta.navigate = true;
+        delta.light = false;
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
       };
     };
 
