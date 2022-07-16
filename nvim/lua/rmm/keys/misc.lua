@@ -59,3 +59,9 @@ vim.keymap.set(
   ":e <c-r>=expand('%:p:h') . '/'<cr>",
   { desc = "Open a file relative to the current file's path" }
 )
+
+vim.keymap.set(
+  "n", "<leader><tab>",
+  "<c-w>p",
+  { desc = "Switch to last window" }
+)
