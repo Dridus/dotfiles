@@ -28,7 +28,7 @@
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "Fira Code Retina",
+                "face": "FiraCode NF Retina",
                 "size": 7
             },
             "intenseTextStyle": "bright"
