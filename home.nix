@@ -9,14 +9,6 @@ let
     in
       pkgs.runCommandLocal name {} ''ln -s ${lib.escapeShellArg pathStr} $out'';
 
-  zpreztoContrib = pkgs.fetchFromGitHub {
-    owner = "belak";
-    repo = "prezto-contrib";
-    rev = "17a6e476dbfd304e392243115a40e96332bc30ad";
-    sha256 = "090nndj7dnmv213zwksivj19g691sjh4sqzr3ddgmmfdz1n73y0w";
-    fetchSubmodules = true;
-  };
-
 in
 
 {
