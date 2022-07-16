@@ -24,12 +24,6 @@ in
   manual.manpages.enable = true;
 
   home = {
-    file = {
-      ".prezto-contrib".source = zpreztoContrib;
-      ".zpreztorc".source = mkOutOfStoreSymlink ./zpreztorc;
-      ".zshrc".source = mkOutOfStoreSymlink ./zshrc;
-    };
-
     packages = with pkgs; [
       nushell
       zsh-prezto
@@ -70,6 +64,7 @@ in
         ${bat}/bin/bat --color=always --style=numbers --highlight-line=$target_line --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) "$@"
       '')
       delta
+      exa
     ];
 
     sessionVariables = {
@@ -87,6 +82,11 @@ in
   programs = {
     home-manager.enable = true;
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     git = {
       package = pkgs.git;
       enable = true;
@@ -96,8 +96,12 @@ in
         core.pager = "${pkgs.delta}/bin/delta";
         interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
         add.interactive.useBuiltin = false;
-        delta.navigate = true;
-        delta.light = false;
+        include.path = "${builtins.fetchurl "https://raw.githubusercontent.com/dandavison/delta/4c879ac1afca68a30c9a100bea2965b858eb1853/themes.gitconfig"}";
+        delta = {
+          features = "chameleon";
+          navigate = true;
+          light = false;
+        };
         merge.conflictstyle = "diff3";
         diff.colorMoved = "default";
       };
@@ -106,7 +110,42 @@ in
     jq.enable = true;
     man.enable = true;
 
-    # FIXME prezto for zsh
+    zsh = {
+      enable = true;
+      defaultKeymap = "emacs";
+      shellAliases = {
+        ls = "exa";
+        sysu = "systemctl --user";
+        jour = "journalctl --user";
+      };
+      enableCompletion = true;
+      enableSyntaxHighlighting = true;
+      initExtraFirst = ''
+        if [ -e ''${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then source ''${HOME}/.nix-profile/etc/profile.d/nix.sh; fi
+        typeset -x BAT_THEME=OneHalfDark
+        typeset -x DELTA_SYNTAX_THEME=OneHalfDark
+        bindkey '^r' history-incremental-search-backward
+
+        ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_rsa
+        source $HOME/.keychain/$(hostname)-sh
+
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
+      '';
+
+      initExtra = ''
+        source ${./p10k.zsh}
+      '';
+
+      zplug = {
+        enable = true;
+        plugins = [
+          { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
+          { name = "marlonrichert/zsh-autocomplete"; tags = ["as:plugin"]; }
+        ];
+      };
+    };
   };
 
   xdg.configFile.nvim.source = mkOutOfStoreSymlink ./nvim;

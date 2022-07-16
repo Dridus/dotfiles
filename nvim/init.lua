@@ -45,7 +45,7 @@ local Plug = vim.fn["plug#"]
 vim.fn["plug#begin"](vim.fn.stdpath("data") .. "/plugged")
 
 -- Colorz
-Plug "lsdr/monokai"
+Plug("sonph/onehalf", { rtp = "vim" })
 Plug "kergoth/vim-hilinks"
 
 -- Syntaxes
@@ -99,10 +99,10 @@ vim.fn["plug#end"]()
 
 -- Colorscheme
 vim.opt.background = "dark"
-vim.cmd("colorscheme monokai")
+vim.cmd("colorscheme onehalfdark")
 
 -- Airline
-vim.g["airline_theme"] = "molokai"
+vim.g["airline_theme"] = "onehalfdark"
 vim.g["airline_powerline_fonts"] = 1
 vim.g["airline#extensions#tabline#buffer_idx_mode"] = 1
 vim.g["airline#extensions#tabline#enabled"] = 1
