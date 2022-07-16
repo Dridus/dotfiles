@@ -1,3 +1,0 @@
-:set -XTypeFamilies -XTypeApplications -XGADTs -XDataKinds -XLambdaCase -XRecordWildCards -XNamedFieldPuns
-:set +c
-
