@@ -56,7 +56,7 @@ in
         ${bat}/bin/bat --color=always --style=numbers --highlight-line=$target_line --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) "$@"
       '')
       delta
-      exa
+      lsd
     ];
 
     sessionVariables = {
@@ -106,7 +106,8 @@ in
       enable = true;
       defaultKeymap = "emacs";
       shellAliases = {
-        ls = "exa";
+        cat = "bat";
+        ls = "lsd";
         sysu = "systemctl --user";
         jour = "journalctl --user";
       };
