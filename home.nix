@@ -106,10 +106,9 @@ in
     jq.enable = true;
     man.enable = true;
 
-    # FIXME neovim?
-
     # FIXME prezto for zsh
   };
 
   xdg.configFile.nvim.source = mkOutOfStoreSymlink ./nvim;
+  xdg.dataFile."nvim/site/autoload/plug.vim".source = builtins.fetchurl "https://raw.githubusercontent.com/junegunn/vim-plug/8fdabfba0b5a1b0616977a32d9e04b4b98a6016a/plug.vim";
 }
