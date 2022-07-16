@@ -1,0 +1,9 @@
+vim.g["airline_theme"] = "onehalfdark"
+vim.g["airline_powerline_fonts"] = 1
+vim.g["airline#extensions#tabline#buffer_idx_mode"] = 1
+vim.g["airline#extensions#tabline#enabled"] = 1
+vim.g["airline#extensions#tabline#show_buffers"] = 1
+vim.g["airline#extensions#tabline#fnamemod"] = ":t"
+vim.g["airline#extensions#tabline#fnamecollapse"] = 0
+vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
+vim.g["airline#extensions#tagbar#enabled"] = 0

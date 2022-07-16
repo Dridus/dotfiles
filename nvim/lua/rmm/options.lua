@@ -1,0 +1,36 @@
+vim.opt.backup = true -- Turn on regular backups
+vim.opt.colorcolumn = "96"
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.cursorline = true -- Highlight the current line
+vim.opt.expandtab = true -- Use spaces not tabs
+vim.opt.exrc = true -- Read ./.vimrc
+vim.opt.foldmethod = "indent"
+vim.opt.foldnestmax = 5
+vim.opt.foldlevelstart = 99
+vim.opt.grepprg = "rg"
+vim.opt.hidden = true -- Allow buffers to be hidden when not visible
+vim.opt.ignorecase = true -- Case fold when searching
+vim.opt.lazyredraw = true -- Don't draw while executing macros and similar
+vim.opt.list = true -- Show whitespace (trailing -s and >s)'
+vim.opt.listchars = { tab = "▸\\ ", trail = "·", nbsp = "_", extends = "…" }
+vim.opt.matchtime = 2 -- Highlight matching bracket for 2/10ths of a second
+vim.opt.mouse = "a" -- Enable mouse mode
+vim.opt.number = true -- Instead of showing 0 at the cursor line, show the actual line
+vim.opt.relativenumber = true -- Show line number distance from cursor for easy j/k
+vim.opt.scrolloff = 7 -- Keep 7 lines visible when moving through file
+vim.opt.secure = true -- Only allow safe things in ./.vimrc
+vim.opt.shiftwidth = 2 -- 2 space indent stops
+vim.opt.showmatch = true -- Highlight matching brackets
+vim.opt.showtabline = 2 -- Always show the tabline
+vim.opt.smartcase = true -- But don't case fold uppercase
+vim.opt.splitbelow = true -- Put new splits down
+vim.opt.splitright = true -- Put new vsplits right
+vim.opt.termguicolors = true -- Use true color support in terminals
+vim.opt.timeoutlen = 2000 -- Set multikey timeout to 2 seconds
+vim.opt.undofile = true -- Persist undo information across sessions
+vim.opt.wildmode = "list:longest,full" -- Configure wildmenu
+vim.opt.wrap = false -- Don't wrap lines by default
+vim.opt.writebackup = false -- No need to be too safe
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
