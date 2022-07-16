@@ -129,6 +129,11 @@ in
 
       initExtra = ''
         source ${./p10k.zsh}
+
+        setopt -o EXTENDED_HISTORY
+        setopt -o HIST_IGNORE_DUPS
+        setopt -o HIST_IGNORE_SPACE
+        setopt +o SHARE_HISTORY
       '';
 
       zplug = {
