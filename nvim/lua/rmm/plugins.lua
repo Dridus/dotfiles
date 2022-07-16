@@ -45,8 +45,8 @@ Plug "tpope/vim-surround"
 Plug "vim-scripts/Align"
 
 -- UI
-Plug "vim-airline/vim-airline"
-Plug "vim-airline/vim-airline-themes"
+Plug "nvim-lualine/lualine.nvim"
+Plug "kyazdani42/nvim-web-devicons"
 Plug "simnalamburt/vim-mundo"
 
 vim.fn["plug#end"]()

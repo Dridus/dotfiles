@@ -5,11 +5,11 @@ require "rmm/win32yank"
 vim.opt.background = "dark"
 vim.cmd("colorscheme onehalfdark")
 
-require "rmm/airline"
 require "rmm/cmp"
 require "rmm/haskell"
 require "rmm/json"
 require "rmm/lsp"
+require "rmm/lualine"
 require "rmm/nc"
 require "rmm/restructuredtext"
 
