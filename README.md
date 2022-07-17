@@ -9,7 +9,7 @@
 | Normal | `<sp>xa=` | Align `=`s |
 | Normal | `<sp>xa:` | Align `::`s |
 | Normal | `<sp>xa,` | Align `,`s |
-| Normal | `<sp>xa|` | Align `|`s |
+| Normal | `<sp>xa\|` | Align `\|`s |
 | Normal | `<sp>xar` | Prompt for a regex and align based on that pattern |
 
 #### Buffer navigation
@@ -29,6 +29,8 @@
 | --- | --- | --- |
 | Normal | `<tab>` | Next suggested completion. |
 | Normal | `<s-tab>` | Previous suggested completion. |
+| Normal | `<c-b>` | Scroll up in the documentation popup. |
+| Normal | `<c-f>` | Scroll down in the documentation popup. |
 | Normal | `<c-y>` | Take the currently selected completion, or the first one if none is selected. |
 | Normal | `<c-e>` | Stop suggesting. |
 
@@ -118,7 +120,6 @@
 | Normal | `<sp>wa` | Add another folder to the workspace. |
 | Normal | `<sp>wr` | Remove a folder from the workspace. |
 | Normal | `<sp>wl` | Show the folders open in the workspace. |
-
 
 #### Misc.
 
