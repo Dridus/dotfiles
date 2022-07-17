@@ -12,6 +12,7 @@ require "rmm/lsp"
 require "rmm/lualine"
 require "rmm/nc"
 require "rmm/restructuredtext"
+require "rmm/treesitter"
 
 require "rmm/keys/align" -- <leader>a
 require "rmm/keys/buffer" -- <leader>b

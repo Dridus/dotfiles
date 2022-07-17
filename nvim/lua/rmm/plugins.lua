@@ -7,13 +7,14 @@ Plug("sonph/onehalf", { rtp = "vim" })
 Plug "kergoth/vim-hilinks"
 
 -- Syntaxes
-Plug "1995parham/vim-spice"
-Plug "Dridus/nc.vim"
-Plug "elzr/vim-json"
-Plug "hashivim/vim-terraform"
-Plug "LnL7/vim-nix"
-Plug "neovimhaskell/haskell-vim"
-Plug "rust-lang/rust.vim"
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+-- Plug "1995parham/vim-spice"
+-- Plug "Dridus/nc.vim"
+-- Plug "elzr/vim-json"
+-- Plug "hashivim/vim-terraform"
+-- Plug "LnL7/vim-nix"
+-- Plug "neovimhaskell/haskell-vim"
+-- Plug "rust-lang/rust.vim"
 
 -- SCM
 Plug "tpope/vim-fugitive"
