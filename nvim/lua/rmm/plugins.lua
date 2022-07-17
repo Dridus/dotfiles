@@ -51,6 +51,7 @@ Plug "vim-scripts/Align"
 
 -- UI
 Plug "kyazdani42/nvim-web-devicons"
+Plug "onsails/lspkind-nvim"
 Plug "nvim-lualine/lualine.nvim"
 Plug "akinsho/bufferline.nvim"
 Plug "simnalamburt/vim-mundo"

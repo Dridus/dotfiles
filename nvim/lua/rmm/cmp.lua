@@ -19,46 +19,6 @@ local function border(hl_name)
    }
 end
 
-local lspkind = {
-  Namespace = "",
-  Text = " ",
-  Method = " ",
-  Function = " ",
-  Constructor = " ",
-  Field = "ﰠ ",
-  Variable = " ",
-  Class = "ﴯ ",
-  Interface = " ",
-  Module = " ",
-  Property = "ﰠ ",
-  Unit = "塞 ",
-  Value = " ",
-  Enum = " ",
-  Keyword = " ",
-  Snippet = " ",
-  Color = " ",
-  File = " ",
-  Reference = " ",
-  Folder = " ",
-  EnumMember = " ",
-  Constant = " ",
-  Struct = "פּ ",
-  Event = " ",
-  Operator = " ",
-  TypeParameter = " ",
-  Table = "",
-  Object = " ",
-  Tag = "",
-  Array = "[]",
-  Boolean = " ",
-  Number = " ",
-  Null = "ﳠ",
-  String = " ",
-  Calendar = "",
-  Watch = " ",
-  Package = "",
-}
-
 vim.cmd([[
   " gray
   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
@@ -77,7 +37,6 @@ vim.cmd([[
   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 ]])
-
 
 cmp.setup {
   view = {
@@ -98,9 +57,13 @@ cmp.setup {
     },
   },
   formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = string.format("%s %s", lspkind[vim_item.kind], vim_item.kind)
-      return vim_item
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+      return kind
     end,
   },
   mapping = cmp.mapping.preset.insert {
