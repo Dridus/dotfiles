@@ -6,6 +6,8 @@ vim.fn["plug#begin"](vim.fn.stdpath("data") .. "/plugged")
 Plug "navarasu/onedark.nvim"
 Plug "kergoth/vim-hilinks"
 
+-- Visualization
+Plug "lukas-reineke/indent-blankline.nvim"
 -- Syntaxes
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 -- Plug "1995parham/vim-spice"
