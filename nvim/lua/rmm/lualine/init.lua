@@ -1,3 +1,6 @@
+local gitsigns_head = require("rmm/lualine/gitsigns_head") 
+local gitsigns_diff = require("rmm/lualine/gitsigns_diff") 
+
 require("lualine").setup {
   options = {
     icons_enabled = true,
@@ -8,25 +11,18 @@ require("lualine").setup {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { { "branch", icon = "" } },
+    lualine_b = { { gitsigns_head } },
     lualine_c = { "filename" },
     lualine_x = {
       "diagnostics",
-      {
-        "diff",
-        symbols = {
-          added = "\u{f918} ",
-          modified = "\u{f6c1} ",
-          removed = "\u{f876} "
-        }
-      }
+      { gitsigns_diff }
     },
     lualine_y = { "fileformat", "encoding", "filetype" },
     lualine_z = { "progress", "location" }
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = { "branch" },
+    lualine_b = { { gitsigns_head } },
     lualine_c = { "filename" },
     lualine_x = {},
     lualine_y = {},
@@ -53,6 +49,11 @@ require("lualine").setup {
 
   },
   extensions = {
+    "fugitive",
+    "fzf",
+    "man",
+    "mundo",
+    "quickfix"
   }
 }
 

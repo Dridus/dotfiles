@@ -8,6 +8,8 @@ Plug "kergoth/vim-hilinks"
 
 -- Visualization
 Plug "lukas-reineke/indent-blankline.nvim"
+Plug "lewis6991/gitsigns.nvim"
+
 -- Syntaxes
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 -- Plug "1995parham/vim-spice"

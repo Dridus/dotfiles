@@ -6,6 +6,7 @@ vim.opt.background = "dark"
 vim.cmd("colorscheme onehalfdark")
 
 require "rmm/cmp"
+require "rmm/gitsigns"
 require "rmm/haskell"
 require "rmm/json"
 require "rmm/lsp"
