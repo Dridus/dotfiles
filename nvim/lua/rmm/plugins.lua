@@ -3,7 +3,7 @@ local Plug = vim.fn["plug#"]
 vim.fn["plug#begin"](vim.fn.stdpath("data") .. "/plugged")
 
 -- Colorz
-Plug("sonph/onehalf", { rtp = "vim" })
+Plug "navarasu/onedark.nvim"
 Plug "kergoth/vim-hilinks"
 
 -- Syntaxes
