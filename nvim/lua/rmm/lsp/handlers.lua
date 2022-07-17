@@ -1,4 +1,5 @@
 local fzf = require "rmm/fzf"
+local log = require "vim.lsp.log"
 local util = require "rmm/util"
 local lsp_util = require "rmm/lsp/util"
 

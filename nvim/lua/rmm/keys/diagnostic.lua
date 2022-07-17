@@ -1,6 +1,8 @@
 vim.keymap.set(
   "n", "<leader>E",
-  vim.diagnostic.open_float,
+  function()
+    vim.diagnostic.open_float { border = "rounded" }
+  end,
   { silent = true, desc = "Open diagnostics in floating window" }
 )
 

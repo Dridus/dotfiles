@@ -9,12 +9,12 @@ vim.keymap.set(
   { desc = "Git log" }
 )
 vim.keymap.set(
-  "n", "<Leader>gd",
+  "n", "<Leader>gbd",
   ":Git diff<cr>",
   { desc = "Git diff" }
 )
 vim.keymap.set(
-  "n", "<Leader>gb",
+  "n", "<Leader>gbb",
   ":Git blame<cr>",
   { desc = "Git blame" }
 )
