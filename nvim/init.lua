@@ -2,8 +2,7 @@ require "rmm/options"
 require "rmm/plugins"
 require "rmm/win32yank"
 
-vim.opt.background = "dark"
-vim.cmd("colorscheme onehalfdark")
+require "rmm/onedark"
 
 require "rmm/cmp"
 require "rmm/gitsigns"
