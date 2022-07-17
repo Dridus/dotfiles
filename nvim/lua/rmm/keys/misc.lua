@@ -62,6 +62,6 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n", "<leader><tab>",
-  "<c-w>p",
-  { desc = "Switch to last window" }
+  ":b #<cr>",
+  { desc = "Switch to last buffer" }
 )
