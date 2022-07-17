@@ -6,6 +6,59 @@ end
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
+local function border(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
+
+local lspkind = {
+  Namespace = "",
+  Text = " ",
+  Method = " ",
+  Function = " ",
+  Constructor = " ",
+  Field = "ﰠ ",
+  Variable = " ",
+  Class = "ﴯ ",
+  Interface = " ",
+  Module = " ",
+  Property = "ﰠ ",
+  Unit = "塞 ",
+  Value = " ",
+  Enum = " ",
+  Keyword = " ",
+  Snippet = " ",
+  Color = " ",
+  File = " ",
+  Reference = " ",
+  Folder = " ",
+  EnumMember = " ",
+  Constant = " ",
+  Struct = "פּ ",
+  Event = " ",
+  Operator = " ",
+  TypeParameter = " ",
+  Table = "",
+  Object = " ",
+  Tag = "",
+  Array = "[]",
+  Boolean = " ",
+  Number = " ",
+  Null = "ﳠ",
+  String = " ",
+  Calendar = "",
+  Watch = " ",
+  Package = "",
+}
+
 vim.cmd([[
   " gray
   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
@@ -36,6 +89,19 @@ cmp.setup {
     end
   },
   window = {
+    completion = {
+      border = border "CmpBorder",
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+    },
+    documentation = {
+      border = border "CmpDocBorder",
+    },
+  },
+  formatting = {
+    format = function(_, vim_item)
+      vim_item.kind = string.format("%s %s", lspkind[vim_item.kind], vim_item.kind)
+      return vim_item
+    end,
   },
   mapping = cmp.mapping.preset.insert {
    ["<tab>"] = cmp.mapping(function(fallback)
