@@ -2,6 +2,18 @@ local fzf = require "rmm/fzf"
 local util = require "rmm/util"
 local lsp_util = require "rmm/lsp/util"
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "rounded"
+  }
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = "rounded"
+  }
+)
+
 vim.lsp.handlers["textDocument/documentSymbol"] = lsp_util.response_to_fzf(
   "document symbols",
   function(ctx)
