@@ -4,6 +4,7 @@ require "rmm/win32yank"
 
 require "rmm/onedark"
 
+require "rmm/bufferline"
 require "rmm/cmp"
 require "rmm/gitsigns"
 require "rmm/haskell"

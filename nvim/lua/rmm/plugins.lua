@@ -50,8 +50,9 @@ Plug "tpope/vim-surround"
 Plug "vim-scripts/Align"
 
 -- UI
-Plug "nvim-lualine/lualine.nvim"
 Plug "kyazdani42/nvim-web-devicons"
+Plug "nvim-lualine/lualine.nvim"
+Plug "akinsho/bufferline.nvim"
 Plug "simnalamburt/vim-mundo"
 
 vim.fn["plug#end"]()
