@@ -63,7 +63,7 @@ cmp.setup {
     ["<c-f>"] = cmp.mapping.scroll_docs(4),
     ["<c-space>"] = cmp.mapping.complete(),
     ["<c-e>"] = cmp.mapping.abort(),
-    ["<cr>"] = cmp.mapping.confirm { select = true },
+    ["<c-y>"] = cmp.mapping.confirm { select = true },
   },
   sources = cmp.config.sources(
     {
