@@ -6,6 +6,7 @@ require("bufferline").setup {
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
     end,
+    tab_size = 1,
     numbers = "ordinal"
   },
   highlights = {
