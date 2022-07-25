@@ -106,7 +106,6 @@ in
       enable = true;
       defaultKeymap = "emacs";
       shellAliases = {
-        cat = "bat";
         ls = "lsd";
         sysu = "systemctl --user";
         jour = "journalctl --user";
