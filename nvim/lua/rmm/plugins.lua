@@ -6,6 +6,9 @@ vim.fn["plug#begin"](vim.fn.stdpath("data") .. "/plugged")
 Plug "navarasu/onedark.nvim"
 Plug "kergoth/vim-hilinks"
 
+-- UI support
+Plug "rcarriga/nvim-notify"
+
 -- Visualization
 Plug "lukas-reineke/indent-blankline.nvim"
 Plug "lewis6991/gitsigns.nvim"

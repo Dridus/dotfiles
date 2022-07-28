@@ -4,6 +4,7 @@ require "rmm/win32yank"
 
 require "rmm/onedark"
 
+
 require "rmm/bufferline"
 require "rmm/cmp"
 require "rmm/gitsigns"
@@ -14,6 +15,8 @@ require "rmm/lualine"
 require "rmm/nc"
 require "rmm/restructuredtext"
 require "rmm/treesitter"
+
+require "rmm/notify"
 
 require "rmm/keys/align" -- <leader>a
 require "rmm/keys/buffer" -- <leader>b
