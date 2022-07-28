@@ -1,5 +1,6 @@
-local gitsigns_head = require("rmm/lualine/gitsigns_head") 
-local gitsigns_diff = require("rmm/lualine/gitsigns_diff") 
+local gitsigns_head = require("rmm/lualine/gitsigns_head")
+local gitsigns_diff = require("rmm/lualine/gitsigns_diff")
+local lsp_status = require("lsp-status")
 
 require("lualine").setup {
   options = {
@@ -13,6 +14,7 @@ require("lualine").setup {
     lualine_b = { { gitsigns_head } },
     lualine_c = { "filename" },
     lualine_x = {
+      "require'lsp-status'.status()",
       "diagnostics",
       { gitsigns_diff }
     },

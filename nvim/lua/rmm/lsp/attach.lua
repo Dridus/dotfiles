@@ -1,4 +1,5 @@
 local lsp_util = require "rmm/lsp/util"
+local lsp_status = require "lsp-status"
 
 local function on_attach(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -21,10 +22,13 @@ local function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>sl", vim.lsp.buf.document_symbol, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, bufopts)
+
+  lsp_status.on_attach(client)
 end
 
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 lsp_capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_capabilities)
+lsp_capabilities = vim.tbl_extend("keep", lsp_capabilities, lsp_status.capabilities)
 
 require("lspconfig")["hls"].setup {
   on_attach = function(client, bufnr)
