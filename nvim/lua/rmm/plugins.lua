@@ -37,6 +37,7 @@ Plug "vim-scripts/gitignore"
 
 -- LSP and completion
 Plug "neovim/nvim-lspconfig"
+Plug "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 Plug "hrsh7th/cmp-nvim-lsp"
 Plug "hrsh7th/cmp-buffer"
 Plug "hrsh7th/cmp-path"
