@@ -1,3 +1,4 @@
+require "rmm/lsp/nlspsettings"
 require "rmm/lsp/lsplines"
 require "rmm/lsp/lspstatus"
 require "rmm/lsp/attach"
