@@ -116,6 +116,7 @@ in
         if [ -e ''${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then source ''${HOME}/.nix-profile/etc/profile.d/nix.sh; fi
         typeset -x BAT_THEME=OneHalfDark
         typeset -x DELTA_SYNTAX_THEME=OneHalfDark
+        typeset -x RA_LOG=info
         bindkey '^r' history-incremental-search-backward
 
         ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_rsa
