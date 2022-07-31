@@ -3,7 +3,7 @@ local lsp_lines = require "lsp_lines"
 lsp_lines.setup()
 
 vim.keymap.set(
-  "n", "<leader>d",
+  "n", "<leader>dt",
   function()
    local lines_enabled = not vim.diagnostic.config().virtual_lines
    vim.diagnostic.config {

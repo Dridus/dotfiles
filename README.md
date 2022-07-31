@@ -43,6 +43,7 @@
 | --- | --- | --- |
 | Normal | `<sp>dl` | Pop up a window showing all diagnostics applying to the current line |
 | Normal | `<sp>db` | Pop up a window showing all diagnostics applying to the current buffer |
+| Normal | `<sp>dt` | Toggle expanded multiline diagnostics |
 | Normal | `<sp>dw` | Pop up a window showing all diagnostics applying to the current workspace |
 | Normal | `[d` | Jump to previous diagnostic site |
 | Normal | `]d` | Jump to next diagnostic site |
