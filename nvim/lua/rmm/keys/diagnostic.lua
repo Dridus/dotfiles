@@ -1,9 +1,31 @@
+local telescope_builtin = require "telescope.builtin"
+
 vim.keymap.set(
-  "n", "<leader>E",
+  "n", "<leader>dl",
   function()
     vim.diagnostic.open_float { border = "rounded" }
   end,
-  { silent = true, desc = "Open diagnostics in floating window" }
+  { silent = true, desc = "Open diagnostic for current line in floating window" }
+)
+
+vim.keymap.set(
+  "n", "<leader>db",
+  function()
+    telescope_builtin.diagnostics {
+      bufnr = 0,
+    }
+  end,
+  { silent = true, desc = "Telescope diagnostics applying to the current buffer" }
+)
+
+vim.keymap.set(
+  "n", "<leader>dw",
+  function()
+    telescope_builtin.diagnostics {
+      bufnr = 0,
+    }
+  end,
+  { silent = true, desc = "Telescope diagnostics applying to all open buffers" }
 )
 
 vim.keymap.set(
@@ -16,30 +38,4 @@ vim.keymap.set(
   "n", "]d",
   vim.diagnostic.goto_next,
   { silent = true, desc = "Next diagnostic" }
-)
-
-vim.keymap.set(
-  "n", "[h",
-  function()
-    vim.diagnostic.goto_prev {
-      severity = vim.diagnostic.severity.HINT
-    }
-  end,
-  { silent = true, desc = "Previous hint diagnostic" }
-)
-
-vim.keymap.set(
-  "n", "]d",
-  function()
-    vim.diagnostic.goto_next {
-      severity = vim.diagnostic.severity.HINT
-    }
-  end,
-  { silent = true, desc = "Next hint diagnostic" }
-)
-
-vim.keymap.set(
-  "n", "<leader>q",
-  vim.diagnostic.setqflist,
-  { silent = true, desc = "Add diagnostics to quickfix" }
 )

@@ -1,47 +1,7 @@
-local fzf = require "rmm/fzf"
 local util = require "rmm/util"
 
 local M = {}
 
-function M.symbols_to_lines(symbols0, bufnr0)
-  local function go(_symbols, items, bufnr)
-    for _, symbol in ipairs(_symbols) do
-      local kind = vim.lsp.protocol.SymbolKind[symbol.kind] or "Unknown"
-      if symbol.location then -- SymbolInformation type
-        local range = symbol.location.range
-        local filename = vim.fn.fnamemodify(vim.uri_to_fname(symbol.location.uri), ":.")
-        local lnum = range.start.line + 1
-        local col = range.start.character + 1
-        table.insert(items, filename..":"..lnum..":"..col..": "..kind..": " .. symbol.name)
-      elseif symbol.selectionRange then -- DocumentSymbol type
-        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":.")
-        local lnum = symbol.selectionRange.start.line + 1
-        local col = symbol.selectionRange.start.character + 1
-        local kind = kind
-        table.insert(items, filename..":"..lnum..":"..col..": "..kind..": " .. symbol.name)
-        if symbol.children then
-          go(symbol.children, items, bufnr)
-        end
-      end
-    end
-    return items
-  end
-  return go(symbols0, {}, bufnr0 or 0)
-end
-
-function M.response_to_fzf(entity, title_fn)
-  return function(_, result, ctx, config)
-    if not result or vim.tbl_isempty(result) then
-      vim.notify('No ' .. entity .. ' found')
-    else
-      vim.fn["fzf#run"] {
-        ["sink*"] = fzf.handle_fzf_files,
-        source = M.symbols_to_lines(result, ctx.bufnr),
-        options = util.list_concat(fzf.rg_fzf_opts, fzf.filepreview_rg_fzf_opts, fzf.multi_fzf_opts)
-      }
-    end
-  end
-end
 
 function M.invoke_particular_code_action(kind)
   local bufnr = vim.api.nvim_get_current_buf()

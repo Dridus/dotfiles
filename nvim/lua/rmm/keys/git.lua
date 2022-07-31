@@ -4,11 +4,6 @@ vim.keymap.set(
   { desc = "Git status" }
 )
 vim.keymap.set(
-  "n", "<Leader>gl",
-  ":Git log<cr>",
-  { desc = "Git log" }
-)
-vim.keymap.set(
   "n", "<Leader>gbd",
   ":Git diff<cr>",
   { desc = "Git diff" }

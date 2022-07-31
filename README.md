@@ -41,39 +41,26 @@
 
 | Mode | Key | Effect |
 | --- | --- | --- |
-| Normal | `<sp>E` | Pop up a window showing all diagnostics applying to the current line |
-| Normal | `<sp>q` | Output all diagnostics for current buffer into quickfix |
+| Normal | `<sp>dl` | Pop up a window showing all diagnostics applying to the current line |
+| Normal | `<sp>db` | Pop up a window showing all diagnostics applying to the current buffer |
+| Normal | `<sp>dw` | Pop up a window showing all diagnostics applying to the current workspace |
 | Normal | `[d` | Jump to previous diagnostic site |
 | Normal | `]d` | Jump to next diagnostic site |
-| Normal | `[h` | Jump to previous hint-level diagnostic site |
-| Normal | `]h` | Jump to next hint-level diagnostic site |
 
-#### FZF (Fuzzy find)
+#### Telescope (fuzzy find)
 
 | Mode | Key | Effect |
 | --- | --- | --- |
-| Normal | `<sp>.` | Show files in project and variously open the selected files. See FZF files result keys below. |
-| Normal | `<sp>f.` | Show files in project and open the first selected file and put all selected files in quickfix. See FZF files result keys below. |
-| Normal | `<sp>fr` | Show currently open buffers and recently opened files. See FZF files result keys below. |
+| Normal | `<sp>.` | Show files in project and variously open the selected files. |
+| Normal | `<sp>r` | Resume the last find. |
+| Normal | `<sp>f.` | Show files in project and open the first selected file and put all selected files in quickfix. |
+| Normal | `<sp>fr` | Show recently opened files. |
 | Normal | `<sp>ss` | Fuzzy find within lines of the current buffer. `<cr>` to go to the selected line. |
-| Normal | `<sp>?` | Prompt for options (e.g. `-t hs`) and query for ripgrep, then fuzzy find on the results and open selection(s). See FZF files result keys below. |
+| Normal | `<sp>st` | Fuzzy find symbols in the current file queried from treesitter. |
+| Normal | `<sp>?` | Prompt for glob (e.g. `*.hs`) and filetype (e.g. `hs`) and pattern, then vimgrep and fuzzy find on the results and open selection(s).  |
 | Normal | `<sp>/` | Prompt query for ripgrep, then fuzzy find on the results and open selection(s). See FZF files result keys below. |
-| Normal | `<sp>f?` | Prompt for options (e.g. `-t hs`) and query for ripgrep, then fuzzy find on the results and open the first selection and put all selection(s) into quickfix. See FZF files result keys below. |
-| Normal | `<sp>f/` | Prompt query for ripgrep, then fuzzy find on the results and open the first selection and put all selection(s) into quickfix. See FZF files result keys below. |
 | Normal | `<sp>bb` | Fuzzy find among open buffers by name. `<cr>` to switch to selection. |
 | Normal | `<sp>hs` | Fuzzy find among editor help files. `<cr>` to go to selection. |
-
-##### FZF Files Result Keys
-
-| Key | Effect |
-| --- | --- |
-| `<c-a>` | Select all files. |
-| `<c-d>` | Deselect all files. |
-| `<c-t>` | Open selection(s) with `:tabedit` |
-| `<c-v>` | Open selection(s) with `:vertical split` |
-| `<c-x>` | Open selection(s) with `:split` |
-| `<tab>` | Select or deselect current file. |
-| `<cr>` | Open selection(s) with `:edit` |
 
 #### Git
 
@@ -94,7 +81,8 @@
 | Normal or Visual | `<sp>ghr` | Reset (unstage) the current / marked hunk. |
 | Normal | `<sp>ghu` | Unstage the last hunk staged. |
 | Normal | `<sp>ghp` | Show the current hunk in diff form. |
-| Normal | `<sp>gl` | Git log the repository. `g?` for help on keys in the log buffer. |
+| Normal | `<sp>gld` | Git log the repository. |
+| Normal | `<sp>glb` | Git log the current buffer. |
 | Normal | `<sp>gs` | Show git status. Also where you select things to stage and commit. `g?` for help on keys in the status buffer. |
 | Text object | `ih` | Inside current hunk. |
 
@@ -105,7 +93,7 @@
 | Normal | `gD` | Jumps to the declaration of the symbol under cursor. Not in Haskell though. |
 | Normal | `gd` | Jumps to the definition of the symbol under cursor. Only local definitions in Haskell though. |
 | Normal | `gi` | Jumps to the implementation of the symbol under cursor. |
-| Normal | `gr` | Put references to the current symbol in quickfix. |
+| Normal | `gr` | Jump to a reference to the symbol under cursor. |
 | Normal | `K` | Shows a pop up with information about the symbol under cursor. Do it again to focus in the pop up. `q` to leave focus. |
 | Normal | `<c-k>` | Shows pop up with signature information about the symbol under cursor. Not in Haskell though. |
 | Normal | `<sp>ca` | Show code actions that apply to the code under the cursor. |
@@ -117,8 +105,8 @@
 | Normal (Haskell) | `<sp>hca` | Case split on all function parameters (cross product), generating additional equations for each constructor. Use NamedFieldPuns. |
 | Normal (Haskell) | `<sp>hid` | Fill a function hole with a lambda and case or additional function equations, one case arm or equation per constructor. |
 | Normal (Haskell) | `<sp>hil` | Fill a function hole with a lambda or additional function equations. |
-| Normal | `<sp>rn` | Rename symbol. |
-| Normal | `<sp>sf` | Query symbols in the whole workspace and put them in quickfix. |
+| Normal | `<sp>sr` | Rename symbol. |
+| Normal | `<sp>sf` | Query symbols in the whole workspace. |
 | Normal | `<sp>sl` | Fuzzy find among the symbols in the current buffer. |
 | Normal | `<sp>wa` | Add another folder to the workspace. |
 | Normal | `<sp>wr` | Remove a folder from the workspace. |

@@ -23,4 +23,4 @@ require "rmm/keys/buffer" -- <leader>b
 require "rmm/keys/diagnostic" -- <leader>E, <leader>q, brackets d, brackets h
 require "rmm/keys/git" -- <leader>g
 require "rmm/keys/misc"
-require "rmm/keys/fzf"
+require "rmm/keys/telescope"

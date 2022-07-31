@@ -1,5 +1,6 @@
 local lsp_util = require "rmm/lsp/util"
 local lsp_status = require "lsp-status"
+local telescope_builtin = require "telescope/builtin"
 
 local function on_attach(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -13,14 +14,12 @@ local function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-  vim.keymap.set("n", "<leader>sf", function()
-    vim.lsp.buf.workspace_symbol()
-  end, bufopts)
-  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set("n", "<leader>sf", function() telescope_builtin.lsp_workspace_symbols {} end, bufopts)
+  vim.keymap.set("n", "<leader>D", function() telescope_builtin.lsp_type_defeinitions {} end, bufopts)
+  vim.keymap.set("n", "<leader>sr", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set("n", "<leader>sl", vim.lsp.buf.document_symbol, bufopts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set("n", "<leader>sl", function() telescope_builtin.lsp_document_symbols {} end, bufopts)
+  vim.keymap.set("n", "gr", function() telescope_builtin.lsp_references {} end, bufopts)
   vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, bufopts)
 
   lsp_status.on_attach(client)
