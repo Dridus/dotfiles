@@ -7,6 +7,7 @@ require "rmm/onedark"
 
 require "rmm/bufferline"
 require "rmm/cmp"
+require "rmm/diagnosticsigns"
 require "rmm/gitsigns"
 require "rmm/haskell"
 require "rmm/json"
