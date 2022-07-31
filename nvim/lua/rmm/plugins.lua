@@ -53,7 +53,7 @@ Plug "michaeljsmith/vim-indent-object"
 Plug "tpope/vim-commentary"
 Plug "tpope/vim-repeat"
 Plug "tpope/vim-surround"
-Plug "vim-scripts/Align"
+Plug "Vonr/align.nvim"
 
 -- UI
 Plug "kyazdani42/nvim-web-devicons"

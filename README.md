@@ -6,11 +6,14 @@
 
 | Mode | Key | Effect |
 | --- | --- | --- |
+| Normal | `<sp>xa1` | Align to an entered character |
+| Normal | `<sp>xa2` | Align to an entered couplet |
 | Normal | `<sp>xa=` | Align `=`s |
 | Normal | `<sp>xa:` | Align `::`s |
 | Normal | `<sp>xa,` | Align `,`s |
 | Normal | `<sp>xa\|` | Align `\|`s |
-| Normal | `<sp>xar` | Prompt for a regex and align based on that pattern |
+| Normal | `<sp>xap` | Prompt for a lua pattern and align based on that |
+| Normal | `<sp>xas` | Prompt for string and align based on that |
 
 #### Buffer navigation
 
