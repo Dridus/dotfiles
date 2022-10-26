@@ -12,9 +12,11 @@ require("lualine").setup {
   sections = {
     lualine_a = { "mode" },
     lualine_b = { { gitsigns_head } },
-    lualine_c = { "filename" },
+    lualine_c = {
+      "filename",
+      "require'lsp-status'.status()"
+    },
     lualine_x = {
-      "require'lsp-status'.status()",
       "diagnostics",
       { gitsigns_diff }
     },
