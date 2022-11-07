@@ -26,7 +26,7 @@ local function on_attach(client, bufnr)
 end
 
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
-lsp_capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_capabilities)
+lsp_capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
 lsp_capabilities = vim.tbl_extend("keep", lsp_capabilities, lsp_status.capabilities)
 
 require("lspconfig")["hls"].setup {
