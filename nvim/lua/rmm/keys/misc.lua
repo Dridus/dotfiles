@@ -56,7 +56,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n", "<Leader>e",
-  ":e <c-r>=expand('%:p:h') . '/'<cr>",
+  ":e <c-r>=fnamemodify(expand('%:p:h'), ':p')<cr>",
   { desc = "Open a file relative to the current file's path" }
 )
 
