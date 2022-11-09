@@ -15,6 +15,7 @@ Plug "lewis6991/gitsigns.nvim"
 
 -- Syntaxes
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+Plug("rhaiscript/vim-rhai")
 -- Plug "1995parham/vim-spice"
 -- Plug "Dridus/nc.vim"
 -- Plug "elzr/vim-json"
