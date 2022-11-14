@@ -1,5 +1,5 @@
 local win32yankpath = vim.fn.getenv("HOME") .. "/.local/bin/win32yank.exe"
-if vim.fn.executable(win32yankpath) then
+if vim.fn.executable(win32yankpath) == 1 then
   vim.g.clipboard = {
     name = "win32yank",
     copy = {
