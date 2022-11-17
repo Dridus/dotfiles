@@ -13,7 +13,10 @@ require("lualine").setup {
     lualine_a = { "mode" },
     lualine_b = { { gitsigns_head } },
     lualine_c = {
-      "filename",
+      {
+        "filename",
+        path = 1
+      },
       "require'lsp-status'.status()"
     },
     lualine_x = {
@@ -26,7 +29,9 @@ require("lualine").setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = { { gitsigns_head } },
-    lualine_c = { "filename" },
+    lualine_c = {
+      { "filename", path = 1 }
+    },
     lualine_x = {},
     lualine_y = {},
     lualine_z = { "progress", "location" }
