@@ -4,6 +4,7 @@ vim.opt.colorcolumn = "96"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.cursorline = true -- Highlight the current line
 vim.opt.expandtab = true -- Use spaces not tabs
+vim.opt.fileformats = "unix,dos" -- always prefer unix line endings, regardless of platform
 vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 5
 vim.opt.foldlevelstart = 99
