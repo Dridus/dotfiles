@@ -20,7 +20,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "<leader>sl", function() telescope_builtin.lsp_document_symbols {} end, bufopts)
   vim.keymap.set("n", "gr", function() telescope_builtin.lsp_references {} end, bufopts)
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, bufopts)
 
   lsp_status.on_attach(client)
 end
