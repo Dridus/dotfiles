@@ -17,7 +17,6 @@ in
 
   home = {
     packages = with pkgs; [
-      zsh-prezto
       neovim
       file
       zip
@@ -56,6 +55,9 @@ in
       '')
       delta
       lsd
+      strace
+      dnsutils
+      openssh
     ];
 
     sessionVariables = {
