@@ -120,7 +120,12 @@ in
         typeset -x DELTA_SYNTAX_THEME=OneHalfDark
         bindkey '^r' history-incremental-search-backward
 
-        ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_rsa
+        if [ -f "$HOME/.ssh/id_rsa" ]; then
+          ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_rsa
+        fi
+        if [ -f "$HOME/.ssh/id_ed25519" ]; then
+          ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_ed25519
+        fi
         source $HOME/.keychain/$(hostname)-sh
 
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
