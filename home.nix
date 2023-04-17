@@ -140,6 +140,12 @@ in
         setopt -o HIST_IGNORE_DUPS
         setopt -o HIST_IGNORE_SPACE
         setopt +o SHARE_HISTORY
+
+        bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+        zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+        zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+        zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+        zstyle ':autocomplete:*' list-lines 16
       '';
 
       zplug = {
