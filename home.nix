@@ -153,6 +153,7 @@ in
         plugins = [
           { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
           { name = "marlonrichert/zsh-autocomplete"; tags = ["as:plugin"]; }
+          { name = "trystan2k/zsh-tab-title"; tags = ["as:plugin"]; }
         ];
       };
     };
