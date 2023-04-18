@@ -112,8 +112,8 @@ in
         sysu = "systemctl --user";
         jour = "journalctl --user";
       };
-      enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      # enableCompletion = true;
+      # enableSyntaxHighlighting = true;
       initExtraFirst = ''
         if [ -e ''${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then source ''${HOME}/.nix-profile/etc/profile.d/nix.sh; fi
         typeset -x BAT_THEME=OneHalfDark
@@ -128,31 +128,34 @@ in
         fi
         source $HOME/.keychain/$(hostname)-sh
 
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
+        # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        # fi
       '';
 
       initExtra = ''
-        source $HOME/.config/p10k/p10k.zsh
+        # source $HOME/.config/p10k/p10k.zsh
 
         setopt -o EXTENDED_HISTORY
         setopt -o HIST_IGNORE_DUPS
         setopt -o HIST_IGNORE_SPACE
         setopt +o SHARE_HISTORY
 
-        bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-        zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-        zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-        zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-        zstyle ':autocomplete:*' list-lines 16
+        autoload -U colors && colors
+        PROMPT="%{$fg[green]%}%~ ❯%{$reset_color%} "
+
+        # bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+        # zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+        # zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+        # zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+        # zstyle ':autocomplete:*' list-lines 16
       '';
 
       zplug = {
         enable = true;
         plugins = [
-          { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; }
-          { name = "marlonrichert/zsh-autocomplete"; tags = ["as:plugin"]; }
+          /* { name = "romkatv/powerlevel10k"; tags = ["as:theme" "depth:1"]; } */
+          { name = "zdharma-continuum/fast-syntax-highlighting"; tags = ["as:plugin"]; }
           { name = "trystan2k/zsh-tab-title"; tags = ["as:plugin"]; }
         ];
       };
@@ -161,7 +164,7 @@ in
 
   xdg.configFile = {
     "lsd/config.yaml".source = mkOutOfStoreSymlink ./lsd.yaml;
-    "p10k/p10k.zsh".source = mkOutOfStoreSymlink ./p10k.zsh;
+    # "p10k/p10k.zsh".source = mkOutOfStoreSymlink ./p10k.zsh;
     nvim.source = mkOutOfStoreSymlink ./nvim;
   };
 
