@@ -9,6 +9,13 @@ let
     in
       pkgs.runCommandLocal name {} ''ln -s ${lib.escapeShellArg pathStr} $out'';
 
+  pkgsUnstable = import (pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "f00994e78cd39e6fc966f0c4103f908e63284780";
+    sha256 = "sha256-pHhjgsIkRMu80LmVe8QoKIZB6VZGRRxFmIvsC5S89k4=";
+  }) {};
+
 in
 
 {
@@ -17,7 +24,7 @@ in
 
   home = {
     packages = with pkgs; [
-      neovim
+      pkgsUnstable.neovim
       helix
       file
       zip
