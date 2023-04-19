@@ -18,6 +18,7 @@ in
   home = {
     packages = with pkgs; [
       neovim
+      helix
       file
       zip
       unzip
@@ -44,7 +45,6 @@ in
       rsync
       pkg-config
       qemu
-      # helix
       bat
       (writeShellScriptBin "bat-fzf-preview" ''
         target_line="$1"
@@ -166,6 +166,7 @@ in
     "lsd/config.yaml".source = mkOutOfStoreSymlink ./lsd.yaml;
     # "p10k/p10k.zsh".source = mkOutOfStoreSymlink ./p10k.zsh;
     nvim.source = mkOutOfStoreSymlink ./nvim;
+    helix.source = mkOutOfStoreSymlink ./helix;
   };
 
   xdg.dataFile."nvim/site/autoload/plug.vim".source = builtins.fetchurl "https://raw.githubusercontent.com/junegunn/vim-plug/8fdabfba0b5a1b0616977a32d9e04b4b98a6016a/plug.vim";

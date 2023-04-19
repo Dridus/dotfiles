@@ -1,0 +1,12 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+auto-format = false
+cursorline = true
+rulers = [96]
+color-modes = true
+auto-pairs = false
+
+[editor.indent-guides]
+render = true
