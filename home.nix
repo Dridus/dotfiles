@@ -149,7 +149,7 @@ in
         setopt +o SHARE_HISTORY
 
         autoload -U colors && colors
-        PROMPT="%{$fg[green]%}%~ ❯%{$reset_color%} "
+        PROMPT="%{$bg[black]$fg[yellow]%}%~ ❯%{$reset_color%} "
 
         # bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
         # zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
