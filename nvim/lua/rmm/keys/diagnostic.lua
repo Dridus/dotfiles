@@ -22,7 +22,7 @@ vim.keymap.set(
   "n", "<leader>dw",
   function()
     telescope_builtin.diagnostics {
-      bufnr = 0,
+      bufnr = nil,
     }
   end,
   { silent = true, desc = "Telescope diagnostics applying to all open buffers" }
