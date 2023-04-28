@@ -150,6 +150,7 @@ in
 
         autoload -U colors && colors
         PROMPT="%{$bg[black]$fg[yellow]%}%~ ❯%{$reset_color%} "
+        ZSH_TAB_TITLE_CONCAT_FOLDER_PROCESS=true
 
         # bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
         # zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
