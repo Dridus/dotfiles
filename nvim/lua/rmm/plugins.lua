@@ -36,6 +36,7 @@ Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug "justinmk/vim-dirvish"
 Plug "moll/vim-bbye"
 Plug "neomake/neomake"
+Plug "stevearc/overseer.nvim"
 Plug "vim-scripts/gitignore"
 
 -- LSP and completion
@@ -63,6 +64,7 @@ Plug "kyazdani42/nvim-web-devicons"
 Plug "onsails/lspkind-nvim"
 Plug "nvim-lualine/lualine.nvim"
 Plug "akinsho/bufferline.nvim"
-Plug "simnalamburt/vim-mundo"
+Plug "stevearc/dressing.nvim"
+-- Plug "simnalamburt/vim-mundo"
 
 vim.fn["plug#end"]()

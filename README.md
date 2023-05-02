@@ -113,6 +113,15 @@
 | Normal | `<sp>wr` | Remove a folder from the workspace. |
 | Normal | `<sp>wl` | Show the folders open in the workspace. |
 
+#### Overseer (Task/Build)
+
+| Mode | Key | Effect |
+| --- | --- | --- |
+| Normal | `<sp>ot` | `:OverseerRun` Prompt for a template task to add to the task list, and run it. |
+| Normal | `<sp>oo` | `:OverseerToggle` Toggle the task list. |
+| Normal | `<sp>or` | `:OverseerQuickAction restart` Restart the current task. |
+| Normal | `<sp>oq` | `:OverseerQuickAction` Prompt for a action to take on the current task. |
+
 #### Misc.
 
 | Mode | Key | Effect |
