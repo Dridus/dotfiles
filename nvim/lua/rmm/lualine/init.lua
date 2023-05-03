@@ -17,7 +17,6 @@ require("lualine").setup {
         "filename",
         path = 1
       },
-      "require'lsp-status'.status()"
     },
     lualine_x = {
       "diagnostics",
@@ -37,12 +36,20 @@ require("lualine").setup {
     lualine_z = { "progress", "location" }
   },
   tabline = {
+    lualine_a = {
+      {
+        "filename",
+        path = 1
+      },
+    },
+    lualine_c = {
+      "require'lsp-status'.status()"
+    },
   },
   extensions = {
     "fugitive",
     "fzf",
     "man",
-    "mundo",
     "quickfix"
   }
 }
