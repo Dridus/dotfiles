@@ -1,2 +1,5 @@
 rust-analyzer.procMacro.enable: false
+rust-analyzer.diagnostics.disabled:
+  - inactive-code
+  - unresolved-proc-macro
 

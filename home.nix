@@ -65,6 +65,7 @@ in
       strace
       dnsutils
       openssh
+      git-filter-repo
     ];
 
     sessionVariables = {

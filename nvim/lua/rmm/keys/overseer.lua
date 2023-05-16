@@ -11,6 +11,12 @@ vim.keymap.set(
 )
 
 vim.keymap.set(
+  "n", "<leader>ol",
+  ":OverseerLoad<cr>",
+  { desc = "Prompt for a saved task bundle and load it.", silent = true }
+)
+
+vim.keymap.set(
   "n", "<leader>or",
   ":OverseerQuickAction restart<cr>",
   { desc = "Restart the current task.", silent = true }

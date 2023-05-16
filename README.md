@@ -118,6 +118,7 @@
 | Mode | Key | Effect |
 | --- | --- | --- |
 | Normal | `<sp>ot` | `:OverseerRun` Prompt for a template task to add to the task list, and run it. |
+| Normal | `<sp>ol` | `:OverseerLoad` Load a saved task bundle. |
 | Normal | `<sp>oo` | `:OverseerToggle` Toggle the task list. |
 | Normal | `<sp>or` | `:OverseerQuickAction restart` Restart the current task. |
 | Normal | `<sp>oq` | `:OverseerQuickAction` Prompt for a action to take on the current task. |
