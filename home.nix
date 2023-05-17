@@ -16,6 +16,8 @@ let
     sha256 = "sha256-pHhjgsIkRMu80LmVe8QoKIZB6VZGRRxFmIvsC5S89k4=";
   }) {};
 
+  nil = builtins.getFlake "github:oxalica/nil";
+
 in
 
 {
@@ -66,6 +68,7 @@ in
       dnsutils
       openssh
       git-filter-repo
+      nil.packages.${builtins.currentSystem}.nil
     ];
 
     sessionVariables = {

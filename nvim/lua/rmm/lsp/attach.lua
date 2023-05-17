@@ -101,3 +101,13 @@ require("lspconfig")["rust_analyzer"].setup {
     ["rust-analyzer"] = {}
   }
 }
+
+require("lspconfig")["nil_ls"].setup {
+  autostart = true,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["nil"] = {}
+  }
+}
+
