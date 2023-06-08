@@ -18,6 +18,7 @@ require "rmm/nc"
 require "rmm/overseer"
 require "rmm/restructuredtext"
 require "rmm/treesitter"
+require "rmm/telescope"
 
 require "rmm/notify"
 
