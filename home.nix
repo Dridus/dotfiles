@@ -69,6 +69,8 @@ in
       openssh
       git-filter-repo
       nil.packages.${builtins.currentSystem}.nil
+      awscli2
+      xxd
     ];
 
     sessionVariables = {
