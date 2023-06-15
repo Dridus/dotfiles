@@ -1,6 +1,8 @@
-{ config, pkgs, lib, ... }:
-
+{ pkgs, lib, ... }:
 let
+  inherit (builtins)
+    getFlake
+    toString;
 
   mkOutOfStoreSymlink = path:
     let
@@ -9,15 +11,22 @@ let
     in
       pkgs.runCommandLocal name {} ''ln -s ${lib.escapeShellArg pathStr} $out'';
 
-  pkgsUnstable = import (pkgs.fetchFromGitHub {
-    owner = "NixOS";
-    repo = "nixpkgs";
-    rev = "f00994e78cd39e6fc966f0c4103f908e63284780";
-    sha256 = "sha256-pHhjgsIkRMu80LmVe8QoKIZB6VZGRRxFmIvsC5S89k4=";
-  }) {};
+  flake = getFlake (toString ./.);
 
-  nil = builtins.getFlake "github:oxalica/nil";
+  pkgsUnstable = import flake.inputs.nixpkgsUnstable {};
 
+  bat-fzf-preview = pkgs.writeShellScriptBin "bat-fzf-preview" ''
+    target_line="$1"
+    first_window_line="$(($target_line-$FZF_PREVIEW_LINES/2))"
+    last_window_line="$(($target_line+$FZF_PREVIEW_LINES))"
+    shift
+    ${pkgs.bat}/bin/bat \
+      --color=always \
+      --style=numbers \
+      --highlight-line=$target_line \
+      --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) \
+      "$@"
+  '';
 in
 
 {
@@ -25,52 +34,47 @@ in
   manual.manpages.enable = true;
 
   home = {
-    packages = with pkgs; [
+    packages = [
+      pkgs.awscli2
+      pkgs.bat
+      bat-fzf-preview
+      pkgs.ctags
+      pkgs.delta
+      pkgs.direnv
+      pkgs.dnsutils
+      pkgs.easyrsa
+      pkgs.fd
+      pkgs.file
+      pkgs.fzf
+      pkgs.git-filter-repo
+      pkgs.git-lfs
+      pkgs.gitRepo
+      pkgs.glibc.dev
+      pkgs.gnumake
+      pkgs.helix
+      pkgs.keychain
+      pkgs.linuxHeaders
+      pkgs.lsd
+      pkgs.man-pages
+      flake.inputs.nil.packages.${builtins.currentSystem}.nil
+      pkgs.openssh
+      pkgs.openssl
+      pkgs.openssl.dev
+      pkgs.packer
+      pkgs.patchelf
+      pkgs.pkg-config
       pkgsUnstable.neovim
-      helix
-      file
-      zip
-      unzip
-      packer
-      terraform
-      easyrsa
-      git-lfs
-      patchelf
-      ctags
-      openssl
-      openssl.dev
-      screen
-      gnumake
-      ripgrep
-      fd
-      fzf
-      keychain
-      pstree
-      direnv
-      stdenv.cc 
-      glibc.dev
-      linuxHeaders
-      man-pages
-      rsync
-      pkg-config
-      qemu
-      bat
-      (writeShellScriptBin "bat-fzf-preview" ''
-        target_line="$1"
-        first_window_line="$(($target_line-$FZF_PREVIEW_LINES/2))"
-        last_window_line="$(($target_line+$FZF_PREVIEW_LINES))"
-        shift
-        ${bat}/bin/bat --color=always --style=numbers --highlight-line=$target_line --line-range=$(($first_window_line<1?1:$first_window_line)):$(($last_window_line)) "$@"
-      '')
-      delta
-      lsd
-      strace
-      dnsutils
-      openssh
-      git-filter-repo
-      nil.packages.${builtins.currentSystem}.nil
-      awscli2
-      xxd
+      pkgs.pstree
+      pkgs.qemu
+      pkgs.ripgrep
+      pkgs.rsync
+      pkgs.screen
+      pkgs.stdenv.cc
+      pkgs.strace
+      pkgs.terraform
+      pkgs.unzip
+      pkgs.xxd
+      pkgs.zip
     ];
 
     sessionVariables = {
