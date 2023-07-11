@@ -6,6 +6,7 @@ require("nvim-treesitter.configs").setup {
     "css",
     "go",
     "haskell",
+    "hjson",
     "html",
     "javascript",
     "json",
