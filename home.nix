@@ -143,7 +143,9 @@ in
         if [ -f "$HOME/.ssh/id_ed25519" ]; then
           ${pkgs.keychain}/bin/keychain --nogui $HOME/.ssh/id_ed25519
         fi
-        source $HOME/.keychain/$(hostname)-sh
+        if [ -z "$SSH_AUTH_SOCK" ]; then
+          source $HOME/.keychain/$(hostname)-sh
+        fi
 
         # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
