@@ -31,7 +31,7 @@ Plug "int3/vim-extradite"
 
 -- Tools and navigation
 Plug "nvim-lua/plenary.nvim"
-Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
+Plug("nvim-telescope/telescope.nvim", { tag = "0.1.4" })
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug "justinmk/vim-dirvish"
 Plug "moll/vim-bbye"
