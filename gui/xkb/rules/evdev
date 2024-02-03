@@ -1,0 +1,5 @@
+! option = symbols
+  custom:rmm_caps_and_ctrl = +custom(rmm_caps_and_ctrl)
+
+! include %S/evdev
+

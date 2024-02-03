@@ -1,0 +1,57 @@
+{
+  anchor_to_edges = true
+  height = 24
+  position = "top"
+
+  start = [
+    {
+      type = "focused"
+      show_icon = false
+      show_title = true
+      truncate = "middle"
+    }
+  ]
+
+  center = [
+    {
+      type = "sys_info"
+      interval = {
+        cpu = 1
+        memory = 5
+        networks = 1
+      }
+      format = [
+        "  {cpu_percent}%"
+        "󰖡  {load_average:1}"
+        "  {memory_used}/{memory_total}GB"
+      ]
+    }
+
+    {
+      type = "custom"
+      bar = [ {
+        type = "button"
+        label = ""
+        on_click = "!hyprctl dispatch exec $env_blueberry/bin/blueberry"
+      } ]
+    }
+
+    {
+      type = "custom"
+      bar = [ {
+        type = "button"
+        label = "{{watch:rfebar-volume}}"
+        on_click = "!hyprctl dispatch exec $env_pavucontrol/bin/pavucontrol"
+      } ]
+    }
+  ]
+
+  end = [
+    { type = "tray" }
+    {
+      type = "clock"
+      format = "%Y-%m-%d  <b>%H:%M</b>  %z"
+      format_popup = "%H:%M:%S"
+    }
+  ]
+}
