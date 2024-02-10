@@ -27,3 +27,10 @@ require("nvim-treesitter.configs").setup {
     enable = true
   }
 }
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"*.corn"},
+  callback = function()
+    vim.bo.filetype = "corn"
+  end
+})
