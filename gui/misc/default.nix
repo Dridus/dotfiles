@@ -1,9 +1,15 @@
 { pkgs, ... }: {
   gtk = {
     enable = true;
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
     theme = {
-      package = pkgs.orchis-theme;
-      name = "Orchis-Teal-Dark";
+      package = pkgs.pantheon.elementary-gtk-theme;
+      name = "io.elementary.stylesheet.strawberry";
     };
   };
 
