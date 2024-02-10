@@ -8,10 +8,15 @@ let
       runtimeInputs = [ pkgs.jq pkgs.pipewire ];
       text = readFile ./rfebar-volume.sh;
     };
+    rfebar-swaync = {
+      runtimeInputs = [ pkgs.jq pkgs.swaynotificationcenter ];
+      text = readFile ./rfebar-swaync.sh;
+    };
   };
 
   runtimeInputs = hookScripts ++ [
     pkgs.hyprland
+    pkgs.swaynotificationcenter
   ];
 in
 {

@@ -53,5 +53,13 @@
       format = "%Y-%m-%d  <b>%H:%M</b>  %z"
       format_popup = "%H:%M:%S"
     }
+    {
+      type = "custom"
+      bar = [ {
+        type = "button"
+        label = "{{watch:rfebar-swaync}}"
+        on_click = "!swaync-client -t -sw"
+      } ]
+    }
   ]
 }
