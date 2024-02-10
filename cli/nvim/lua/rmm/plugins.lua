@@ -60,7 +60,7 @@ Plug "tpope/vim-surround"
 Plug "Vonr/align.nvim"
 
 -- UI
-Plug "kyazdani42/nvim-web-devicons"
+Plug("kyazdani42/nvim-web-devicons", { tag = "313d9e7193354c5de7cdb1724f9e2d3f442780b0" })
 Plug "onsails/lspkind-nvim"
 Plug "nvim-lualine/lualine.nvim"
 Plug "akinsho/bufferline.nvim"
