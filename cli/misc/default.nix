@@ -21,7 +21,6 @@
       pkgs.gnumake
       pkgs.htop
       pkgs.linuxHeaders
-      pkgs.nil
       pkgs.openssh
       pkgs.openssl
       pkgs.openssl.dev
