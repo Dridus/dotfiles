@@ -16,9 +16,11 @@ in {
   home = {
     packages = [
       bat-fzf-preview
+      pkgs.alejandra
       pkgs.fd
       pkgs.fzf
       pkgs.neovim
+      pkgs.nil
       pkgs.ripgrep
     ];
 
