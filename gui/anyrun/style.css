@@ -1,0 +1,32 @@
+#window {
+  background-color: rgba(0,0,0,0.6);
+}
+
+#entry {
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+list#main {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 4px;
+
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+label#plugin {
+  font-weight: 700;
+  font-size: 16px;
+  padding-top: 2px;
+}
+
+image#plugin {
+  opacity: 0;
+}
+
+label#match-title {
+  font-size: 15px;
+  font-weight: 500;
+}

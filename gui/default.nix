@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./anyrun
     ./gnome
     ./hyprland
     ./hyprpaper
