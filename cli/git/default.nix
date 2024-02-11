@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home = {
     packages = [
       pkgs.delta
@@ -22,7 +22,7 @@
       include.path = "${pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/dandavison/delta/4c879ac1afca68a30c9a100bea2965b858eb1853/themes.gitconfig";
         sha256 = "d+g4xcnMicguU9LhsdeZUrB8r6PKT0E79iAo7lLRuxI=";
-      } }";
+      }}";
       delta = {
         features = "chameleon";
         side-by-side = false;

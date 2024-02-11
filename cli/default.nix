@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./bat
     ./direnv

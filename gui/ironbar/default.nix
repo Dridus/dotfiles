@@ -1,30 +1,38 @@
-{ config, impurity, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  impurity,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (builtins) readFile;
   inherit (lib) mapAttrsToList;
 
-  hookScripts = mapAttrsToList (name: v: pkgs.writeShellApplication (v // { inherit name; })) {
+  hookScripts = mapAttrsToList (name: v: pkgs.writeShellApplication (v // {inherit name;})) {
     rfebar-volume = {
-      runtimeInputs = [ pkgs.jq pkgs.pipewire ];
+      runtimeInputs = [pkgs.jq pkgs.pipewire];
       text = readFile ./rfebar-volume.sh;
     };
     rfebar-swaync = {
-      runtimeInputs = [ pkgs.jq pkgs.swaynotificationcenter ];
+      runtimeInputs = [pkgs.jq pkgs.swaynotificationcenter];
       text = readFile ./rfebar-swaync.sh;
     };
   };
 
-  runtimeInputs = hookScripts ++ [
-    pkgs.hyprland
-    pkgs.swaynotificationcenter
-  ];
-in
-{
+  runtimeInputs =
+    hookScripts
+    ++ [
+      pkgs.hyprland
+      pkgs.swaynotificationcenter
+    ];
+in {
   assertions = [
     {
       assertion = let
         cfg = config.wayland.windowManager.hyprland;
-      in cfg.enable && cfg.systemd.enable;
+      in
+        cfg.enable && cfg.systemd.enable;
       message = "gui/ironbar expects hyprland";
     }
   ];
@@ -43,8 +51,8 @@ in
 
   systemd.user.services.ironbar = {
     Unit = {
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session-pre.target" ];
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session-pre.target"];
     };
 
     Service = let
@@ -62,7 +70,7 @@ in
       ExecReload = "${pkgs.ironbar}/bin/ironbar reload";
     };
 
-    Install.WantedBy = [ "hyprland-session.target" ];
+    Install.WantedBy = ["hyprland-session.target"];
   };
 
   xdg.configFile = {
@@ -70,4 +78,3 @@ in
     "ironbar/style.css".source = impurity.link ./style.css;
   };
 }
-

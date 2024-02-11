@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   gtk = {
     enable = true;
     gtk3.extraConfig = {
@@ -22,5 +22,3 @@
     pkgs.sublime-merge
   ];
 }
-
-

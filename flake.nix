@@ -52,11 +52,17 @@
     };
   };
 
-  outputs = { self, home-manager, impurity, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    home-manager,
+    impurity,
+    nixpkgs,
+    ...
+  } @ inputs: {
     homeConfigurations = {
       "ross@Lumen" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {inherit inputs;};
 
         modules = [
           {
@@ -71,7 +77,7 @@
       "ross@radiance" = let
         baseConfig = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {inherit inputs;};
 
           modules = [
             {
@@ -93,13 +99,15 @@
           ];
         };
         inherit (baseConfig) pkgs;
-      in baseConfig // {
-        activationPackage = pkgs.replaceDependency {
-          oldDependency = pkgs.mesa;
-          newDependency = pkgs.mesa-asahi-edge;
-          drv = baseConfig.activationPackage;
+      in
+        baseConfig
+        // {
+          activationPackage = pkgs.replaceDependency {
+            oldDependency = pkgs.mesa;
+            newDependency = pkgs.mesa-asahi-edge;
+            drv = baseConfig.activationPackage;
+          };
         };
-      };
     };
   };
 }

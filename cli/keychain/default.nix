@@ -1,9 +1,16 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   assertions = [
-    { assertion = config.programs.zsh.enable; message = "cli/keychain expects zsh"; }
+    {
+      assertion = config.programs.zsh.enable;
+      message = "cli/keychain expects zsh";
+    }
   ];
 
-  home.packages = [ pkgs.keychain ];
+  home.packages = [pkgs.keychain];
 
   programs.zsh.initExtraFirst = ''
     if [ -f "$HOME/.ssh/id_rsa" ]; then

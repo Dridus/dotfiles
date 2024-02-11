@@ -1,6 +1,14 @@
-{ config, impurity, pkgs, ... }: {
+{
+  config,
+  impurity,
+  pkgs,
+  ...
+}: {
   assertions = [
-    { assertion = config.programs.zsh.enable; message = "cli/misc expects zsh"; }
+    {
+      assertion = config.programs.zsh.enable;
+      message = "cli/misc expects zsh";
+    }
   ];
 
   home = {

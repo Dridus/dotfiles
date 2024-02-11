@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.zsh = {
     enable = true;
 
@@ -29,8 +29,14 @@
     zplug = {
       enable = true;
       plugins = [
-        { name = "zdharma-continuum/fast-syntax-highlighting"; tags = ["as:plugin"]; }
-        { name = "trystan2k/zsh-tab-title"; tags = ["as:plugin"]; }
+        {
+          name = "zdharma-continuum/fast-syntax-highlighting";
+          tags = ["as:plugin"];
+        }
+        {
+          name = "trystan2k/zsh-tab-title";
+          tags = ["as:plugin"];
+        }
       ];
     };
   };

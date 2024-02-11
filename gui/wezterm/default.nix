@@ -1,6 +1,14 @@
-{ config, impurity, pkgs, ... }: {
+{
+  config,
+  impurity,
+  pkgs,
+  ...
+}: {
   assertions = [
-    { assertion = config.programs.zsh.enable; message = "gui/wezterm expects zsh"; }
+    {
+      assertion = config.programs.zsh.enable;
+      message = "gui/wezterm expects zsh";
+    }
   ];
 
   nixpkgs.overlays = [
@@ -35,4 +43,3 @@
 
   xdg.configFile."wezterm/wezterm.lua".source = impurity.link ./wezterm.lua;
 }
-

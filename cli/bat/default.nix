@@ -1,8 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home = {
-    packages = [ pkgs.bat ];
+    packages = [pkgs.bat];
     sessionVariables.BAT_THEME = "OneHalfDark";
   };
 }
-
-

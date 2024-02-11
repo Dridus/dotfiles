@@ -1,10 +1,19 @@
-{ impurity, inputs, lib, pkgs, ... }:
-let
-  inherit (builtins)
-    attrNames;
-  inherit (lib)
+{
+  impurity,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit
+    (builtins)
+    attrNames
+    ;
+  inherit
+    (lib)
     concatStringsSep
-    mapAttrsToList;
+    mapAttrsToList
+    ;
 
   system = pkgs.stdenv.hostPlatform.system;
 
@@ -54,26 +63,28 @@ in {
       '';
       systemd = {
         enable = true;
-        variables = [
-          "DISPLAY"
-          "HYPRLAND_INSTANCE_SIGNATURE"
-          "WAYLAND_DISPLAY"
-          "XDG_CURRENT_DESKTOP"
-        ] ++ attrNames compatibilityEnvs;
+        variables =
+          [
+            "DISPLAY"
+            "HYPRLAND_INSTANCE_SIGNATURE"
+            "WAYLAND_DISPLAY"
+            "XDG_CURRENT_DESKTOP"
+          ]
+          ++ attrNames compatibilityEnvs;
       };
     };
 
     systemd.user.services.polkit-gnome-authentication-agent-1 = {
       Unit = {
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session-pre.target"];
       };
 
       Service = {
         ExecStart = "${pkgs.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
       };
 
-      Install.WantedBy = [ "hyprland-session.target" ];
+      Install.WantedBy = ["hyprland-session.target"];
     };
 
     xdg = {
@@ -86,8 +97,8 @@ in {
         ];
 
         config.common = {
-          default = [ "hyprland" ];
-          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+          default = ["hyprland"];
+          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
         };
       };
     };

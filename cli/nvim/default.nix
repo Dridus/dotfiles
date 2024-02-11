@@ -1,5 +1,8 @@
-{ impurity, pkgs, ... }:
-let
+{
+  impurity,
+  pkgs,
+  ...
+}: let
   bat-fzf-preview = pkgs.writeShellScriptBin "bat-fzf-preview" ''
     target_line="$1"
     first_window_line="$(($target_line-$FZF_PREVIEW_LINES/2))"
@@ -40,5 +43,3 @@ in {
     };
   };
 }
-
-
