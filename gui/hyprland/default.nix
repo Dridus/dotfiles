@@ -54,13 +54,11 @@ in {
         inputs.hyprfocus.packages.${system}.default
         # inputs.hyprland-plugins.packages.${system}.hyprbars
       ];
-      settings.env = mapAttrsToList (k: v: "${k},${v}") compatibilityEnvs;
-      extraConfig = ''
-        $fileManager = ${pkgs.gnome.nautilus}/bin/nautilus
-        $menu = wofi --show drun
-        $terminal = ${pkgs.wezterm}/bin/wezterm start --always-new-process
-        source = ${impurity.link ./settings.conf}
-      '';
+      settings = {
+        env = mapAttrsToList (k: v: "${k},${v}") compatibilityEnvs;
+        "$fileManager" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      };
+      extraConfig = "source = ./settings.conf";
       systemd = {
         enable = true;
         variables =
@@ -88,6 +86,7 @@ in {
     };
 
     xdg = {
+      configFile."hypr/settings.conf".source = impurity.link ./settings.conf;
       portal = {
         enable = true;
 

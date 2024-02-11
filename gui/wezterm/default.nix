@@ -41,5 +41,7 @@
     source "${pkgs.wezterm}/etc/profile.d/wezterm.sh"
   '';
 
+  wayland.windowManager.hyprland.settings."$terminal" = "${pkgs.wezterm}/bin/wezterm start --always-new-process";
+
   xdg.configFile."wezterm/wezterm.lua".source = impurity.link ./wezterm.lua;
 }
