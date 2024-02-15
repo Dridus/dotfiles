@@ -1,4 +1,5 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = [pkgs.perl];
   programs.zsh = {
     enable = true;
 
