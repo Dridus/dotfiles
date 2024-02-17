@@ -42,19 +42,6 @@
         "type": "github"
       }
     },
-    "firmware": {
-      "flake": false,
-      "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-ltIsAREAdjakN0p3j8f4QkdXSNOXQItTUQemjPo+3GM=",
-        "path": "/etc/nixos/firmware",
-        "type": "path"
-      },
-      "original": {
-        "path": "/etc/nixos/firmware",
-        "type": "path"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1688025799,
@@ -377,6 +364,32 @@
         "type": "github"
       }
     },
+    "local": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708105971,
+        "narHash": "sha256-qKEwm3S8Ox1b4/gh+SU2cR98lHzsrmQtGZeBujPnWM8=",
+        "path": "/home/ross/.config/home-manager",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/ross/.config/home-manager",
+        "type": "path"
+      }
+    },
+    "local_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708149384,
+        "narHash": "sha256-gctBFM2UPCdVAnD568yXRxxhoVnAJ4/Je99VoDjiYKU=",
+        "path": "/etc/nixos",
+        "type": "path"
+      },
+      "original": {
+        "path": "/etc/nixos",
+        "type": "path"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -540,6 +553,7 @@
         "hyprpaper": "hyprpaper",
         "impurity": "impurity",
         "ironbar": "ironbar",
+        "local": "local",
         "nil": "nil",
         "nixos-apple-silicon": [
           "system-config",
@@ -618,7 +632,7 @@
     },
     "system-config": {
       "inputs": {
-        "firmware": "firmware",
+        "local": "local_2",
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": [
           "system-config",
@@ -627,14 +641,18 @@
         ]
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-CBxc+faCOd3yuLa/ZVMaHwfKisAXVPDkBLkyh5WOgLQ=",
+        "dir": "systems/radiance",
+        "dirtyRev": "7b384e3908fba70e63bd3cc781b133e6e0754954-dirty",
+        "dirtyShortRev": "7b384e3-dirty",
+        "lastModified": 1708030408,
+        "narHash": "sha256-VfKZmrejt+gAS9PF6r0C3Gdgh5TKtTpmQeW224BqfJI=",
         "type": "git",
-        "url": "file:///etc/nixos/system-config"
+        "url": "file:///home/ross/1st/dotfiles?dir=systems/radiance"
       },
       "original": {
+        "dir": "systems/radiance",
         "type": "git",
-        "url": "file:///etc/nixos/system-config"
+        "url": "file:///home/ross/1st/dotfiles?dir=systems/radiance"
       }
     },
     "systems": {

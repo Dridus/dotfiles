@@ -42,13 +42,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    local = {
+      url = "path:/home/ross/.config/home-manager";
+      flake = false;
+    };
+
     nil.url = "github:oxalica/nil";
 
     nixos-apple-silicon.follows = "system-config/nixos-apple-silicon";
 
     nixpkgs.follows = "system-config/nixpkgs";
 
-    system-config.url = "/etc/nixos/system-config";
+    system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/radiance";
 
     xdg-desktop-portal-hyprland = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland?ref=v1.3.1";
@@ -65,20 +70,6 @@
     ...
   } @ inputs: {
     homeConfigurations = {
-      "ross@Lumen" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-
-        modules = [
-          {
-            home.stateVersion = "23.11";
-          }
-          impurity.nixosModules.default
-          ./cli
-          ./home-local.nix
-        ];
-      };
-
       "ross@radiance" = let
         baseConfig = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
@@ -86,11 +77,13 @@
 
           modules = [
             {
+              dotfiles.homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/radiance";
+
               home.stateVersion = "23.11";
 
               impurity = {
                 enable = true;
-                configRoot = self;
+                configRoot = nixpkgs.lib.strings.removeSuffix "/homes/radiance" self;
               };
 
               nixpkgs.overlays = [
@@ -98,9 +91,9 @@
               ];
             }
             impurity.nixosModules.default
-            ./cli
-            ./gui
-            ./home-local.nix
+            ../../cli
+            ../../gui
+            "${inputs.local}/home-local.nix"
           ];
         };
         inherit (baseConfig) pkgs;
