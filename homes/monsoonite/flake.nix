@@ -34,6 +34,10 @@
         {
           dotfiles.homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/monsoonite";
           home.stateVersion = "23.11";
+          impurity = {
+            enable = true;
+            configRoot = nixpkgs.lib.strings.removeSuffix "/homes/monsoonite" self;
+          };
         }
         impurity.nixosModules.default
         ../../cli
