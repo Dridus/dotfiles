@@ -5,6 +5,15 @@
 
   start = [
     {
+      type = "workspaces"
+      favorites = [ "1" ]
+      all_monitors = true
+      sort = "alphanumeric"
+    }
+  ]
+
+  center = [
+    {
       type = "focused"
       show_icon = false
       show_title = true
@@ -12,7 +21,7 @@
     }
   ]
 
-  center = [
+  end = [
     {
       type = "sys_info"
       interval = {
@@ -44,15 +53,15 @@
         on_click = "!hyprctl dispatch exec $env_pavucontrol/bin/pavucontrol"
       } ]
     }
-  ]
 
-  end = [
     { type = "tray" }
+
     {
       type = "clock"
       format = "%Y-%m-%d  <b>%H:%M</b>  %z"
       format_popup = "%H:%M:%S"
     }
+
     {
       type = "custom"
       bar = [ {

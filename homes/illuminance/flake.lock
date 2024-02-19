@@ -126,18 +126,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1707256586,
-        "narHash": "sha256-lFe7Lf0K5ePTh4gflnvBohOGH4ayGDtNkbg/XtoNqRo=",
-        "owner": "outfoxxed",
-        "repo": "hy3",
-        "rev": "107cb86304435368c68a4d8111cf01de628734b2",
-        "type": "github"
+        "lastModified": 1708322313,
+        "narHash": "sha256-sR78XXC3zzkFX2zei6mfRT4siH7Uf4tL5Da1A8VmsyE=",
+        "ref": "rmm/special-workspace-support",
+        "rev": "70f77fd224c207fc382a9c0c6a29e4e680aa6f1f",
+        "revCount": 247,
+        "type": "git",
+        "url": "file:///home/ross/3rd/hy3"
       },
       "original": {
-        "owner": "outfoxxed",
-        "ref": "hl0.35.0",
-        "repo": "hy3",
-        "type": "github"
+        "ref": "rmm/special-workspace-support",
+        "type": "git",
+        "url": "file:///home/ross/3rd/hy3"
       }
     },
     "hyprfocus": {
