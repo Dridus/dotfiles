@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) optionals;
+in {
   gtk = let
     commonConfig = {
       gtk-application-prefer-dark-theme = true;
@@ -18,14 +24,18 @@
     };
   };
 
-  home.packages = [
-    pkgs.firefox
-    pkgs.glxinfo
-    pkgs.nwg-look
-    pkgs.pantheon.elementary-iconbrowser
-    pkgs.qt6ct
-    pkgs.shutter
-    # pkgs.slack # no arm64 linux package lolsob
-    pkgs.sublime-merge
-  ];
+  home.packages =
+    [
+      pkgs.firefox
+      pkgs.glxinfo
+      pkgs.nwg-look
+      pkgs.pantheon.elementary-iconbrowser
+      pkgs.qt6ct
+      pkgs.shutter
+      pkgs.sublime-merge
+      pkgs.wev
+    ]
+    ++ optionals (pkgs.hostPlatform.system == "x86_64-linux") [
+      pkgs.slack # no arm64 linux package lolsob
+    ];
 }
