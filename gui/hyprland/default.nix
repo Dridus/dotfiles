@@ -41,11 +41,21 @@ in {
   ];
 
   config = {
-    nixpkgs.overlays = [
-      (final: prev: {
-        xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.packages.${system}.default;
-      })
-    ];
+    systemd.user.services = {
+      polkit-gnome-authentication-agent-1 = {
+        Unit = {
+          PartOf = ["graphical-session.target"];
+          After = ["graphical-session-pre.target"];
+        };
+
+        Service = {
+          ExecStart = "${pkgs.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+        };
+
+        Install.WantedBy = ["hyprland-session.target"];
+      };
+
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -72,34 +82,6 @@ in {
       };
     };
 
-    systemd.user.services.polkit-gnome-authentication-agent-1 = {
-      Unit = {
-        PartOf = ["graphical-session.target"];
-        After = ["graphical-session-pre.target"];
-      };
-
-      Service = {
-        ExecStart = "${pkgs.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
-      };
-
-      Install.WantedBy = ["hyprland-session.target"];
-    };
-
-    xdg = {
-      configFile."hypr/settings.conf".source = impurity.link ./settings.conf;
-      portal = {
-        enable = true;
-
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-hyprland
-        ];
-
-        config.common = {
-          default = ["hyprland"];
-          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
-        };
-      };
-    };
+    xdg.configFile."hypr/settings.conf".source = impurity.link ./settings.conf;
   };
 }

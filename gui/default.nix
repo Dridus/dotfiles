@@ -8,6 +8,7 @@
     ./misc
     ./swaync
     ./wezterm
+    ./xdg-desktop-portal
     ./xkb
   ];
 }
