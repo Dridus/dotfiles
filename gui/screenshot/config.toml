@@ -1,0 +1,8 @@
+[general]
+fullscreen = true
+early-exit = false
+initial-tool = "brush"
+copy-command = "wl-copy"
+annotation-size-factor = 2
+save-after-copy = false
+

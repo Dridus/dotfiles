@@ -11,8 +11,7 @@
     };
 
     hy3 = {
-      #url = "github:outfoxxed/hy3?ref=hl0.35.0";
-      url = "git+file:///home/ross/3rd/hy3?ref=rmm/special-workspace-support";
+      url = "github:Dridus/hy3?ref=rmm/special-workspace-support";
       inputs.hyprland.follows = "hyprland";
     };
 
