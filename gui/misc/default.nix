@@ -1,9 +1,12 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
 }: let
   inherit (lib) optionals;
+
+  system = pkgs.hostPlatform.system;
 in {
   gtk = let
     commonConfig = {
@@ -27,15 +30,21 @@ in {
   home.packages =
     [
       pkgs.firefox
-      pkgs.glxinfo
+      pkgs.hyprpicker
       pkgs.nwg-look
       pkgs.pantheon.elementary-iconbrowser
       pkgs.qt6ct
-      pkgs.shutter
       pkgs.sublime-merge
       pkgs.wev
+      pkgs.wl-clipboard
     ]
     ++ optionals (pkgs.hostPlatform.system == "x86_64-linux") [
       pkgs.slack # no arm64 linux package lolsob
     ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      hyprpicker = inputs.hyprpicker.packages.${system}.default;
+    })
+  ];
 }
