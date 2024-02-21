@@ -10,7 +10,6 @@ Plug "kergoth/vim-hilinks"
 Plug "rcarriga/nvim-notify"
 
 -- Visualization
-Plug "lukas-reineke/indent-blankline.nvim"
 Plug "lewis6991/gitsigns.nvim"
 
 -- Syntaxes
@@ -27,7 +26,6 @@ Plug("rhaiscript/vim-rhai")
 -- SCM
 Plug "tpope/vim-fugitive"
 Plug "kristijanhusak/vim-dirvish-git"
-Plug "int3/vim-extradite"
 
 -- Tools and navigation
 Plug "nvim-lua/plenary.nvim"
@@ -35,7 +33,6 @@ Plug("nvim-telescope/telescope.nvim", { tag = "0.1.4" })
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug "justinmk/vim-dirvish"
 Plug "moll/vim-bbye"
-Plug "neomake/neomake"
 Plug "stevearc/overseer.nvim"
 Plug "vim-scripts/gitignore"
 
