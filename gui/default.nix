@@ -2,6 +2,7 @@
   imports = [
     ./anyrun
     ./gnome
+    ./hyprdim
     ./hyprland
     ./hyprpaper
     ./ironbar
