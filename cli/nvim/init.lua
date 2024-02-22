@@ -5,7 +5,6 @@ require "rmm/win32yank"
 require "rmm/onedark"
 
 
-require "rmm/bufferline"
 require "rmm/cmp"
 require "rmm/diagnosticsigns"
 require "rmm/dressing"

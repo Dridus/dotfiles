@@ -15,13 +15,6 @@ Plug "lewis6991/gitsigns.nvim"
 -- Syntaxes
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("rhaiscript/vim-rhai")
--- Plug "1995parham/vim-spice"
--- Plug "Dridus/nc.vim"
--- Plug "elzr/vim-json"
--- Plug "hashivim/vim-terraform"
--- Plug "LnL7/vim-nix"
--- Plug "neovimhaskell/haskell-vim"
--- Plug "rust-lang/rust.vim"
 
 -- SCM
 Plug "tpope/vim-fugitive"
@@ -60,8 +53,6 @@ Plug "Vonr/align.nvim"
 Plug("kyazdani42/nvim-web-devicons", { tag = "313d9e7193354c5de7cdb1724f9e2d3f442780b0" })
 Plug "onsails/lspkind-nvim"
 Plug "nvim-lualine/lualine.nvim"
-Plug "akinsho/bufferline.nvim"
 Plug "stevearc/dressing.nvim"
--- Plug "simnalamburt/vim-mundo"
 
 vim.fn["plug#end"]()
