@@ -1,7 +1,12 @@
 {
   inputs = {
-    anyrun = {
-      url = "github:Kirottu/anyrun";
+    cli = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    gui = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=gui";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -10,59 +15,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hy3 = {
-      url = "github:Dridus/hy3?ref=rmm/special-workspace-support";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.35.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/Hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     impurity.url = "github:outfoxxed/impurity.nix";
-
-    ironbar = {
-      url = "github:Dridus/ironbar?ref=rmm/clock-label-markup";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     local = {
       url = "path:/home/ross/.config/home-manager";
       flake = false;
     };
 
-    nil.url = "github:oxalica/nil";
-
     nixpkgs.follows = "system-config/nixpkgs";
 
     system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/illuminance";
-
-    xdg-desktop-portal-hyprland = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland?ref=v1.3.1";
-      inputs.hyprland-protocols.follows = "hyprland/hyprland-protocols";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -89,8 +51,8 @@
               };
             }
             impurity.nixosModules.default
-            ../../cli
-            ../../gui
+            inputs.cli.homeManagerModules.default
+            inputs.gui.homeManagerModules.default
             "${inputs.local}/home-local.nix"
           ];
         };

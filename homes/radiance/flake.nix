@@ -1,8 +1,19 @@
 {
   inputs = {
-    anyrun = {
-      url = "github:Kirottu/anyrun";
+    cli = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=cli";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    gui = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=gui";
+      inputs = {
+        # nested input overrides don't seem to work at least in v2.18.1, resulting in metastable
+        # inputs and incorrect resolution. but, floating the inputs up and following them works
+        hy3.follows = "hy3";
+        hyprland.follows = "hyprland";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     home-manager = {
@@ -15,51 +26,22 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.34.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/Hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     impurity.url = "github:outfoxxed/impurity.nix";
-
-    ironbar = {
-      url = "github:Dridus/ironbar?ref=rmm/clock-label-markup";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     local = {
       url = "path:/home/ross/.config/home-manager";
       flake = false;
     };
 
-    nil.url = "github:oxalica/nil";
-
     nixos-apple-silicon.follows = "system-config/nixos-apple-silicon";
 
     nixpkgs.follows = "system-config/nixpkgs";
 
     system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/radiance";
-
-    xdg-desktop-portal-hyprland = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland?ref=v1.3.1";
-      inputs.hyprland-protocols.follows = "hyprland/hyprland-protocols";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -91,8 +73,10 @@
               ];
             }
             impurity.nixosModules.default
-            ../../cli
-            ../../gui
+
+            inputs.cli.homeManagerModules.default
+            inputs.gui.homeManagerModules.default
+
             "${inputs.local}/home-local.nix"
           ];
         };
