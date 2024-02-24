@@ -1,5 +1,6 @@
 {
   impurity,
+  inputs,
   pkgs,
   ...
 }: let
@@ -33,6 +34,12 @@ in {
       FZF_DEFAULT_COMMAND = "fd --type f";
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (inputs.nil.packages.${pkgs.stdenv.hostPlatform.system}) nil;
+    })
+  ];
 
   xdg = {
     configFile.nvim.source = impurity.link ./.;
