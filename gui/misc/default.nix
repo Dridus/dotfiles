@@ -37,6 +37,7 @@ in {
       pkgs.sublime-merge
       pkgs.wev
       pkgs.wl-clipboard
+      pkgs.wlr-randr
     ]
     ++ optionals (pkgs.hostPlatform.system == "x86_64-linux") [
       pkgs.slack # no arm64 linux package lolsob
