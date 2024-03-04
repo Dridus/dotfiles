@@ -1,6 +1,6 @@
 {
   config,
-  impurity,
+  foos,
   inputs,
   lib,
   pkgs,
@@ -74,7 +74,7 @@ in {
   };
 
   xdg.configFile = {
-    "ironbar/config.corn".source = impurity.link ./config.corn;
-    "ironbar/style.css".source = impurity.link ./style.css;
+    "ironbar/config.corn".source = foos pkgs ./config.corn;
+    "ironbar/style.css".source = foos pkgs ./style.css;
   };
 }

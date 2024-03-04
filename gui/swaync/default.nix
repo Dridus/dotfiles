@@ -1,6 +1,6 @@
 {
   config,
-  impurity,
+  foos,
   pkgs,
   ...
 }: {
@@ -56,7 +56,7 @@
   };
 
   xdg.configFile = {
-    "swaync/config.json".source = impurity.link ./config.json;
-    "swaync/style.css".source = impurity.link ./style.css;
+    "swaync/config.json".source = foos pkgs ./config.json;
+    "swaync/style.css".source = foos pkgs ./style.css;
   };
 }

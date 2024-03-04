@@ -49,28 +49,38 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     inherit
       (import ../lib/modules.nix {inherit nixpkgs;})
       partialApplyModule
       publishModules
       ;
+    foos = import ../lib/foos.nix {
+      inherit (nixpkgs) lib;
+      storeRoot = nixpkgs.lib.strings.removeSuffix "/gui" self;
+    };
   in {
     homeManagerModules =
       publishModules
-      (partialApplyModule {inherit inputs;})
-      [
-        ./anyrun
-        ./hyprdim
-        ./hyprland
-        ./hyprpaper
-        ./ironbar
-        ./misc
-        ./screenshot
-        ./swaync
-        ./wezterm
-        ./xdg-desktop-portal
-        ./xkb
-      ];
+      (partialApplyModule {inherit foos inputs;})
+      {
+        default = [
+          ./anyrun
+          ./hyprdim
+          ./hyprland
+          ./hyprpaper
+          ./ironbar
+          ./misc
+          ./screenshot
+          ./swaync
+          ./wezterm
+          ./xdg-desktop-portal
+          ./xkb
+        ];
+      };
   };
 }

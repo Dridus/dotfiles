@@ -1,6 +1,5 @@
 {
   config,
-  impurity,
   pkgs,
   ...
 }: let

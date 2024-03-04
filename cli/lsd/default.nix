@@ -1,5 +1,5 @@
 {
-  impurity,
+  foos,
   pkgs,
   ...
 }: {
@@ -7,5 +7,5 @@
     packages = [pkgs.lsd];
     shellAliases.ls = "lsd";
   };
-  xdg.configFile."lsd/config.yaml".source = impurity.link ./lsd.yaml;
+  xdg.configFile."lsd/config.yaml".source = foos pkgs ./lsd.yaml;
 }

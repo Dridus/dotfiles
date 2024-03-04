@@ -1,6 +1,6 @@
 {
   config,
-  impurity,
+  foos,
   inputs,
   lib,
   pkgs,
@@ -40,14 +40,14 @@ in {
           terminal: Some("${pkgs.wezterm}/bin/wezterm"),
         )
       '';
-      "anyrun/config.ron".source = impurity.link ./config.ron;
+      "anyrun/config.ron".source = foos pkgs ./config.ron;
       "anyrun/dictionary.ron".text = ''
         Config(
           prefix: ":def",
           max_entries: 10,
         )
       '';
-      "anyrun/style.css".source = impurity.link ./style.css;
+      "anyrun/style.css".source = foos pkgs ./style.css;
       "anyrun/symbols.ron".text = ''
         Config(
           prefix: ":sym",

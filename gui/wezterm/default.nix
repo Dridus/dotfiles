@@ -1,6 +1,6 @@
 {
   config,
-  impurity,
+  foos,
   pkgs,
   ...
 }: {
@@ -43,5 +43,5 @@
 
   wayland.windowManager.hyprland.settings."$terminal" = "${pkgs.wezterm}/bin/wezterm start --always-new-process";
 
-  xdg.configFile."wezterm/wezterm.lua".source = impurity.link ./wezterm.lua;
+  xdg.configFile."wezterm/wezterm.lua".source = foos pkgs ./wezterm.lua;
 }

@@ -1,6 +1,6 @@
 {
   config,
-  impurity,
+  foos,
   inputs,
   pkgs,
   ...
@@ -28,5 +28,5 @@
     Install.WantedBy = ["hyprland-session.target"];
   };
 
-  xdg.configFile."hypr/hyprpaper.conf".source = impurity.link ./hyprpaper.conf;
+  xdg.configFile."hypr/hyprpaper.conf".source = foos pkgs ./hyprpaper.conf;
 }

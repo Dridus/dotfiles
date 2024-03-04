@@ -13,7 +13,6 @@
   programs.git = {
     package = pkgs.git;
     enable = true;
-    userName = "Ross MacLeod";
     extraConfig = {
       core.editor = "$EDITOR";
       core.pager = "${pkgs.delta}/bin/delta";

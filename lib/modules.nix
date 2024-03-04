@@ -1,19 +1,24 @@
 {nixpkgs}: let
   inherit
-    (nixpkgs.lib)
-    catAttrs
-    filterAttrs
-    listToAttrs
-    setDefaultModuleLocation
-    setFunctionArgs
-    functionArgs
-    ;
-  inherit
     (builtins)
     attrNames
+    attrValues
+    concatLists
     hasAttr
     removeAttrs
     toString
+    ;
+  inherit
+    (nixpkgs.lib)
+    concatMapAttrs
+    filterAttrs
+    functionArgs
+    hasPrefix
+    isFunction
+    listToAttrs
+    optionalAttrs
+    setDefaultModuleLocation
+    setFunctionArgs
     ;
 in rec {
   /*
@@ -26,13 +31,16 @@ in rec {
 
   Type: attrs -> (attrs -> attrs) -> (attrs -> attrs)
   */
-  partialApplyModule = fixed: m: let
-    mArgs = functionArgs m;
-    residualArgs = removeAttrs mArgs (attrNames fixed);
-    applicableFixed = filterAttrs (k: _: hasAttr k mArgs) fixed;
-    inner = args: m (args // applicableFixed);
-  in
-    setFunctionArgs inner residualArgs;
+  partialApplyModule = fixed: m:
+    if isFunction m
+    then let
+      mArgs = functionArgs m;
+      residualArgs = removeAttrs mArgs (attrNames fixed);
+      applicableFixed = filterAttrs (k: _: hasAttr k mArgs) fixed;
+      inner = args: m (args // applicableFixed);
+    in
+      setFunctionArgs inner residualArgs
+    else m;
 
   /*
   Import a module from a path, map it, and return a module function like it.
@@ -47,16 +55,23 @@ in rec {
   Import and map a number of modules and make an attrset with an entry for each along with a
   default module importing all, using the last segment of the path as the key name for each module.
 
-  Type: (attrs -> attrs) -> [path] -> {attrs -> attrs}
+  Type: (attrs -> attrs) -> attrsOf [path] -> {attrs -> attrs}
   */
-  publishModules = transform: paths: let
+  publishModules = transform: pathsets: let
     modulePairs =
       map (path: {
         name = baseNameOf path;
         value = importAndTransformModule transform path;
       })
-      paths;
-    default = {...}: {imports = catAttrs "value" modulePairs;};
+      (concatLists (attrValues pathsets));
+    modules = listToAttrs modulePairs;
+    modulesets =
+      concatMapAttrs (
+        name: paths:
+          optionalAttrs (!(hasPrefix "_" name))
+          {${name} = {imports = map (path: modules.${baseNameOf path}) paths;};}
+      )
+      pathsets;
   in
-    listToAttrs modulePairs // {inherit default;};
+    modules // modulesets;
 }

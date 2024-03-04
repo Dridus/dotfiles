@@ -1,5 +1,5 @@
 {
-  impurity,
+  foos,
   inputs,
   pkgs,
   ...
@@ -42,7 +42,7 @@ in {
   ];
 
   xdg = {
-    configFile.nvim.source = impurity.link ./.;
+    configFile.nvim.source = foos pkgs ./.;
 
     dataFile."nvim/site/autoload/plug.vim".source = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/junegunn/vim-plug/8fdabfba0b5a1b0616977a32d9e04b4b98a6016a/plug.vim";

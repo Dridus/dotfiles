@@ -1,3 +1,3 @@
-{impurity, ...}: {
-  xdg.configFile.xkb.source = impurity.link ./.;
+{foos, pkgs, ...}: {
+  xdg.configFile.xkb.source = foos pkgs ./.;
 }

@@ -1,5 +1,5 @@
 {
-  impurity,
+  foos,
   inputs,
   lib,
   pkgs,
@@ -83,6 +83,6 @@ in {
       };
     };
 
-    xdg.configFile."hypr/settings.conf".source = impurity.link ./settings.conf;
+    xdg.configFile."hypr/settings.conf".source = foos pkgs ./settings.conf;
   };
 }
