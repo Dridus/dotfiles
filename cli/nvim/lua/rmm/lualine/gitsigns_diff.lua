@@ -29,9 +29,9 @@ local function get_colors()
 end
 
 local symbols = {
-  added = "\u{f918} ",
-  changed = "\u{f6c1} ",
-  removed = "\u{f876} "
+  added = "\u{f0419} ",
+  changed = "\u{f0776} ",
+  removed = "\u{f0377} "
 }
 
 function M:init(options)
