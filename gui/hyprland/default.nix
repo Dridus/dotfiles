@@ -62,8 +62,6 @@ in {
       enable = true;
       plugins = [
         inputs.hy3.packages.${system}.default
-        # inputs.hyprfocus.packages.${system}.default
-        # inputs.hyprland-plugins.packages.${system}.hyprbars
       ];
       settings = {
         env = mapAttrsToList (k: v: "${k},${v}") compatibilityEnvs;
