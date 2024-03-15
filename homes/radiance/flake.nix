@@ -30,8 +30,6 @@
       url = "github:hyprwm/Hyprland?ref=v0.34.0";
     };
 
-    impurity.url = "github:outfoxxed/impurity.nix";
-
     local = {
       url = "path:/home/ross/.config/home-manager";
       flake = false;
@@ -47,7 +45,6 @@
   outputs = {
     self,
     home-manager,
-    impurity,
     nixpkgs,
     ...
   } @ inputs: {
@@ -59,22 +56,20 @@
 
           modules = [
             {
-              dotfiles.homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/radiance";
+              dotfiles = {
+                homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/radiance";
+                homeFlakeLocalInputs = ["cli" "gui"];
+              };
 
               home.stateVersion = "23.11";
-
-              impurity = {
-                enable = true;
-                configRoot = nixpkgs.lib.strings.removeSuffix "/homes/radiance" self;
-              };
 
               nixpkgs.overlays = [
                 inputs.nixos-apple-silicon.overlays.default
               ];
             }
-            impurity.nixosModules.default
 
             inputs.cli.homeManagerModules.default
+            inputs.cli.homeManagerModules.rmm
             inputs.gui.homeManagerModules.default
 
             "${inputs.local}/home-local.nix"

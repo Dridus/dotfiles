@@ -9,17 +9,17 @@
     concatMapStringsSep
     mkOption
     optionalString
+    toShellVar
     types
     ;
 
   hm = pkgs.writeShellApplication {
     name = "hm";
     runtimeInputs = [pkgs.home-manager];
-    runtimeEnv = {
-      FOOS_SOURCE_ROOT = config.dotfiles.foosSourceRoot;
-      HOME_FLAKE = config.dotfiles.homeFlake;
-    };
     text = ''
+      ${toShellVar "FOOS_SOURCE_ROOT" config.dotfiles.foosSourceRoot}
+      ${toShellVar "HOME_FLAKE" config.dotfiles.homeFlake}
+      export FOOS_SOURCE_ROOT HOME_FLAKE
       ${
         optionalString (config.dotfiles.homeFlakeLocalInputs != []) ''
           # FIXME ideally this would somehow only happen if the input has truly changed to avoid
@@ -41,10 +41,9 @@
   hmrepl = pkgs.writeShellApplication {
     name = "hmrepl";
     runtimeInputs = [];
-    runtimeEnv = {
-      HOME_FLAKE = config.dotfiles.homeFlake;
-    };
     text = ''
+      ${toShellVar "HOME_FLAKE" config.dotfiles.homeFlake}
+      export HOME_FLAKE
       nix repl --impure "$HOME_FLAKE"
     '';
   };

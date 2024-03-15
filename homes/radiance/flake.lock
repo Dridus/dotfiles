@@ -31,10 +31,10 @@
       },
       "locked": {
         "dir": "cli",
-        "dirtyRev": "96b0b0a23ba9acdde39badfee4e35a8085d02725-dirty",
-        "dirtyShortRev": "96b0b0a-dirty",
-        "lastModified": 1708577057,
-        "narHash": "sha256-O3Mxpar31XLnl0kFzf073pI0jHatG0+R03z6CcMDLYg=",
+        "dirtyRev": "0262cb4ddfff696ca7756701e5fdc88b55f1a032-dirty",
+        "dirtyShortRev": "0262cb4-dirty",
+        "lastModified": 1709680199,
+        "narHash": "sha256-i540rThhGEWb8sERkN+J2aOpg68KRbhK/B3EVkdR10M=",
         "type": "git",
         "url": "file:///home/ross/1st/dotfiles?dir=cli"
       },
@@ -160,10 +160,10 @@
       },
       "locked": {
         "dir": "gui",
-        "dirtyRev": "96b0b0a23ba9acdde39badfee4e35a8085d02725-dirty",
-        "dirtyShortRev": "96b0b0a-dirty",
-        "lastModified": 1708577057,
-        "narHash": "sha256-uNgBQr4rnOeewlss3odclePiyZxp9y5rDagIZIIZGrg=",
+        "dirtyRev": "0262cb4ddfff696ca7756701e5fdc88b55f1a032-dirty",
+        "dirtyShortRev": "0262cb4-dirty",
+        "lastModified": 1709680199,
+        "narHash": "sha256-1kDuWdCm0/UPqGAOO2X/xhqWG3BigmPAyj/ki5VtwBk=",
         "type": "git",
         "url": "file:///home/ross/1st/dotfiles?dir=gui"
       },
@@ -223,11 +223,11 @@
         "nix-filter": "nix-filter"
       },
       "locked": {
-        "lastModified": 1698854678,
-        "narHash": "sha256-JuUNQXUetKIUGGwzEA5dQmKtpFvYSZzG/IV373aKd6U=",
+        "lastModified": 1710409234,
+        "narHash": "sha256-eECQvz7iKXKYAqpQF+xucjJcXDi47QKpiFz8L5rU+o4=",
         "owner": "VortexCoyote",
         "repo": "hyprfocus",
-        "rev": "ec3b45482f651c2b1f0e4df90a41d24a1afa5a74",
+        "rev": "fa6775c0481f0d3628487cc26f7c7456fa082fb7",
         "type": "github"
       },
       "original": {
@@ -264,14 +264,20 @@
         "hyprland": [
           "gui",
           "hyprland"
+        ],
+        "systems": [
+          "gui",
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
         ]
       },
       "locked": {
-        "lastModified": 1708270226,
-        "narHash": "sha256-PCsEiFKBDZ1VKw8rlo8D/J+22gic7ls5zDWcU3AAxGQ=",
+        "lastModified": 1710281302,
+        "narHash": "sha256-Eo1Xi3WCc7rn43gxL0Fb1Wr1qjCLB0kTNr+at2a8yoA=",
         "owner": "hyprwm",
         "repo": "hyprland-plugins",
-        "rev": "f99822818ec8276cfd6ec99ab60c4708c9884e3d",
+        "rev": "34ade54e1be45210fb7e98d41a0990472d81cefe",
         "type": "github"
       },
       "original": {
@@ -350,11 +356,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1708532919,
-        "narHash": "sha256-G4PX7NlRLIlBYTDisbWx/Sif01SLSVzLThGU6v6Wrgg=",
+        "lastModified": 1710275050,
+        "narHash": "sha256-MMwlYYdPSkLEnvltef9liIBpoqUtilxuGiJE231prag=",
         "owner": "hyprwm",
         "repo": "Hyprpaper",
-        "rev": "897cf0ae26c7c54ce15c4946efe63970be75dadb",
+        "rev": "f57d991e3a73bcc447dc4b87e1689132295c7076",
         "type": "github"
       },
       "original": {
@@ -371,31 +377,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1703987863,
-        "narHash": "sha256-MHhAk74uk0qHVwSkLCcXLXMe4478M2oZEFPXwjSoo2E=",
+        "lastModified": 1710274605,
+        "narHash": "sha256-N75WUOOVl6dI8N03++3qrNNgYg4pF5cSiWX2Z+Bp7KQ=",
         "owner": "hyprwm",
         "repo": "hyprpicker",
-        "rev": "2ef703474fb96e97e03e66e8820f213359f29382",
+        "rev": "0e416939a172f1ea5f367cdba1490479dd6d4aec",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
         "repo": "hyprpicker",
-        "type": "github"
-      }
-    },
-    "impurity": {
-      "locked": {
-        "lastModified": 1689836741,
-        "narHash": "sha256-82KeRg2sAqDXCdzVs8P8GoqVaPsZjkWgrfsj6kgOLTY=",
-        "owner": "outfoxxed",
-        "repo": "impurity.nix",
-        "rev": "bbc41b69ab5485cd55aa315d08cff865781d3913",
-        "type": "github"
-      },
-      "original": {
-        "owner": "outfoxxed",
-        "repo": "impurity.nix",
         "type": "github"
       }
     },
@@ -625,7 +616,6 @@
         "home-manager": "home-manager",
         "hy3": "hy3",
         "hyprland": "hyprland",
-        "impurity": "impurity",
         "local": "local",
         "nixos-apple-silicon": [
           "system-config",
