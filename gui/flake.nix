@@ -81,6 +81,11 @@
           ./xdg-desktop-portal
           ./xkb
         ];
+        _solo = [
+          # not default because it needs the appropriate PAM configuration else locking the
+          # screen becomes a one-way trip.
+          ./lock
+        ];
       };
   };
 }
