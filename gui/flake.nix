@@ -75,6 +75,7 @@
           ./hyprpaper
           ./ironbar
           ./misc
+          ./obsidian
           ./screenshot
           ./swaync
           ./wezterm
