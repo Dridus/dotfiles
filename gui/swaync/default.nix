@@ -10,7 +10,7 @@
         cfg = config.wayland.windowManager.hyprland;
       in
         cfg.enable && cfg.systemd.enable;
-      message = "gui/ironbar expects hyprland";
+      message = "gui/swaync expects hyprland";
     }
   ];
 
