@@ -48,6 +48,7 @@
           inputs.cli.homeManagerModules.default
           inputs.cli.homeManagerModules.rmm
           inputs.gui.homeManagerModules.default
+          inputs.gui.homeManagerModules.lock
           "${inputs.local}/home-local.nix"
         ];
       };
