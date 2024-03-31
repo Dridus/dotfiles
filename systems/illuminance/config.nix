@@ -44,7 +44,11 @@ in {
     zsh.enable = true;
   };
 
-  security.polkit.enable = true;
+  security = {
+    pam.services.swaylock = {};
+    polkit.enable = true;
+    rtkit.enable = true; # needed for pipewire
+  };
 
   services = {
     accounts-daemon.enable = true;
@@ -61,6 +65,18 @@ in {
     hardware.bolt.enable = true;
 
     openssh.enable = true;
+
+    pipewire = {
+      enable = true;
+      extraLv2Packages = [pkgs.lsp-plugins pkgs.bankstown-lv2];
+      alsa.enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+      wireplumber = {
+        enable = true;
+        extraLv2Packages = [pkgs.lsp-plugins pkgs.bankstown-lv2];
+      };
+    };
 
     xserver = {
       autorun = false;

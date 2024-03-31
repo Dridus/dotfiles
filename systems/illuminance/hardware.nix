@@ -64,8 +64,6 @@
 
   services.xserver.videoDrivers = ["intel" "nvidia"];
 
-  sound.enable = true;
-
   swapDevices = [
     {device = "/dev/disk/by-uuid/16af6e7c-de1e-4c6c-a86f-99e437c9c13c";}
   ];
