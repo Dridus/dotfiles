@@ -2,6 +2,7 @@
   config = {
     home = {
       packages = [
+        pkgs.acpi
         pkgs.dnsutils
         pkgs.file
         pkgs.glibc.dev
