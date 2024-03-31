@@ -29,6 +29,7 @@ in {
 
   home.packages =
     [
+      pkgs.brightnessctl
       pkgs.firefox
       pkgs.hyprpicker
       pkgs.nwg-look
