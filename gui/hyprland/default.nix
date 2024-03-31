@@ -35,6 +35,7 @@
     CLUTTER_BACKEND = "wayland";
     NIXOS_OZONE_WL = "1";
     XCURSOR_SIZE = "24";
+    ANGLE_DEFAULT_PLATFORM = "vulkan";
   };
 in {
   imports = [
