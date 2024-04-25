@@ -29,7 +29,7 @@ in {
 
   networking = {
     hostName = "monsoonite";
-    firewall.allowedTCPPorts = [3000]; # vite
+    firewall.allowedTCPPorts = [3000 8000 8080]; # vite
   };
 
   nix = {
@@ -61,14 +61,21 @@ in {
     };
   };
 
-  services.tailscale.enable = true;
+  services = {
+    postgresql = {
+      enable = true;
+      port = 5432;
+      package = pkgs.postgresql_13;
+    };
+    tailscale.enable = true;
+  };
 
   system.stateVersion = "22.05";
 
   users.users.ross = {
-    #extraGroups = [ "docker" ];
+    extraGroups = [ "docker" ];
     shell = "/home/ross/.nix-profile/bin/zsh";
   };
 
-  #virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 }

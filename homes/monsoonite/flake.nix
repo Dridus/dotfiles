@@ -1,5 +1,10 @@
 {
   inputs = {
+    cli = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     local = {
       url = "path:/home/ross/.config/home-manager";
       flake = false;
@@ -10,19 +15,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impurity.url = "github:outfoxxed/impurity.nix";
-
     nil.url = "github:oxalica/nil";
 
     nixpkgs.follows = "system-config/nixpkgs";
 
-    system-config.url = "/etc/nixos/system-config";
+    system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/monsoonite";
   };
 
   outputs = {
     self,
     home-manager,
-    impurity,
     nixpkgs,
     ...
   } @ inputs: {
@@ -32,15 +34,15 @@
 
       modules = [
         {
-          dotfiles.homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/monsoonite";
-          home.stateVersion = "23.11";
-          impurity = {
-            enable = true;
-            configRoot = nixpkgs.lib.strings.removeSuffix "/homes/monsoonite" self;
+          dotfiles = {
+            homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/monsoonite";
+            homeFlakeLocalInputs = ["cli"];
           };
+
+          home.stateVersion = "23.11";
         }
-        impurity.nixosModules.default
-        ../../cli
+        inputs.cli.homeManagerModules.default
+        inputs.cli.homeManagerModules.rmm
         "${inputs.local}/home-local.nix"
       ];
     };
