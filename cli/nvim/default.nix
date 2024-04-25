@@ -20,7 +20,7 @@ in {
   home = {
     packages = [
       bat-fzf-preview
-      pkgs.alejandra
+      inputs.nixpkgs-nixfmt.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nixfmt-rfc-style
       pkgs.fd
       pkgs.fzf
       pkgs.neovim

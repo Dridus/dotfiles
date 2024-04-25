@@ -3,6 +3,8 @@
     nil.url = "github:oxalica/nil";
 
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    nixpkgs-nixfmt.url = "nixpkgs/nixos-unstable";
   };
 
   outputs = {
