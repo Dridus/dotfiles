@@ -30,14 +30,14 @@
           ./direnv
           ./git
           ./home-manager
-          ./keychain
           ./lsd
           ./man
           ./misc
           ./nvim
           ./zsh
         ];
-        _rmm = [
+        _other = [
+          ./keychain
           ./rmm
         ];
       };
