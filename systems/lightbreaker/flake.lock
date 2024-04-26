@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "local": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714081671,
+        "narHash": "sha256-m0lKfKMQG9wAEI61fzChLqgVp35J7GoutSZj+DqBoE8=",
+        "path": "/etc/nixos/system-config-local",
+        "type": "path"
+      },
+      "original": {
+        "path": "/etc/nixos/system-config-local",
+        "type": "path"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1714082080,
+        "narHash": "sha256-ntuxg7lSDr6HNZ9/3fVf6qFy/FNGvEAHYM0lXgyrW5w=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c8e7e76916a13361cb7761feac6175465722791b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "release-23.11",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "local": "local",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
