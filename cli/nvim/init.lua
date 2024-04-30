@@ -1,5 +1,6 @@
 require "rmm/options"
 require "rmm/plugins"
+require "rmm/osc52clipboard"
 require "rmm/win32yank"
 
 require "rmm/onedark"

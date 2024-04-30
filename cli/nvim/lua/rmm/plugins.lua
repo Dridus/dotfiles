@@ -54,5 +54,6 @@ Plug("kyazdani42/nvim-web-devicons", { tag = "313d9e7193354c5de7cdb1724f9e2d3f44
 Plug "onsails/lspkind-nvim"
 Plug "nvim-lualine/lualine.nvim"
 Plug "stevearc/dressing.nvim"
+Plug "ojroques/nvim-osc52"
 
 vim.fn["plug#end"]()
