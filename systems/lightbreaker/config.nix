@@ -60,7 +60,10 @@ in
       };
     };
 
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.AcceptEnv = "LANG LC_TERMINAL";
+    };
 
     postgresql = {
       enable = true;
