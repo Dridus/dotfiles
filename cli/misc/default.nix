@@ -3,11 +3,11 @@
     home = {
       packages = [
         pkgs.acpi
+        pkgs.btop
         pkgs.dnsutils
         pkgs.file
         pkgs.glibc.dev
         pkgs.gnumake
-        pkgs.htop
         pkgs.linuxHeaders
         pkgs.openssh
         pkgs.openssl
