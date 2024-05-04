@@ -49,6 +49,7 @@
             }
             inputs.cli.homeManagerModules.default
             inputs.cli.homeManagerModules.rmm
+            inputs.cli.homeManagerModules.keychain
             "${inputs.local}/home-local.nix"
           ];
         };

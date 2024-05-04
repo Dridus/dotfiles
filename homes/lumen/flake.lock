@@ -10,10 +10,10 @@
       },
       "locked": {
         "dir": "cli",
-        "dirtyRev": "144600a2cfe839175b1a86a9857a8970e91a9360-dirty",
-        "dirtyShortRev": "144600a-dirty",
-        "lastModified": 1714501683,
-        "narHash": "sha256-YIO3YvuRCIs6gQmHhMWGq13qr+nLpaZAMsS26KsI540=",
+        "dirtyRev": "774905c1ca3b4a3b9011d86a6ccf05f758295bbd-dirty",
+        "dirtyShortRev": "774905c-dirty",
+        "lastModified": 1714866137,
+        "narHash": "sha256-G8CGWkB9l/VSrMD3IesTVD9zM4Azli1jCA7yRbXgCbk=",
         "type": "git",
         "url": "file:///home/ross/1st/dotfiles?dir=cli"
       },
