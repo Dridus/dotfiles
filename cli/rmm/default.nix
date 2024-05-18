@@ -1,10 +1,11 @@
+{ lib, ... }:
 {
   dotfiles = {
-    foosSourceRoot = "/home/ross/1st/dotfiles";
+    foosSourceRoot = lib.mkDefault "/home/ross/1st/dotfiles";
   };
   home = {
-    homeDirectory = "/home/ross";
-    username = "ross";
+    homeDirectory = lib.mkDefault "/home/ross";
+    username = lib.mkDefault "ross";
   };
   programs.git.userName = "Ross MacLeod";
 }
