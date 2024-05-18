@@ -33,13 +33,13 @@
           ./lsd
           ./man
           ./misc
-          ./nvim
-          ./vscode
           ./zsh
         ];
         _other = [
           ./keychain
+          ./nvim
           ./rmm
+          ./vscode
         ];
       };
   };
