@@ -1,28 +1,32 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
     home = {
-      packages = [
-        pkgs.acpi
-        pkgs.btop
-        pkgs.dnsutils
-        pkgs.file
-        pkgs.glibc.dev
-        pkgs.gnumake
-        pkgs.linuxHeaders
-        pkgs.openssh
-        pkgs.openssl
-        pkgs.openssl.dev
-        pkgs.patchelf
-        pkgs.pkg-config
-        pkgs.pstree
-        pkgs.rsync
-        pkgs.screen
-        pkgs.stdenv.cc
-        pkgs.strace
-        pkgs.unzip
-        pkgs.xxd
-        pkgs.zip
-      ];
+      packages =
+        [
+          pkgs.btop
+          pkgs.dnsutils
+          pkgs.file
+          pkgs.gnumake
+          pkgs.openssh
+          pkgs.openssl
+          pkgs.pkg-config
+          pkgs.pstree
+          pkgs.rsync
+          pkgs.screen
+          pkgs.stdenv.cc
+          pkgs.unzip
+          pkgs.xxd
+          pkgs.zip
+        ]
+        ++ pkgs.lib.optionals pkgs.hostPlatform.isLinux [
+          pkgs.acpi
+          pkgs.glibc.dev
+          pkgs.linuxHeaders
+          pkgs.openssl.dev
+          pkgs.patchelf
+          pkgs.strace
+        ];
 
       sessionVariables.TERM = "xterm-256color";
     };
