@@ -2,6 +2,7 @@
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 10,
   "git.autofetch": true,
+  "git.confirmSync": false,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.serverPath": "nil",
