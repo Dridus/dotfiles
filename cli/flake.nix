@@ -34,6 +34,7 @@
           ./man
           ./misc
           ./nvim
+          ./vscode
           ./zsh
         ];
         _other = [

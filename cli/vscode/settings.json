@@ -1,0 +1,17 @@
+{
+  "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 10,
+  "workbench.colorTheme": "One Dark Pro",
+  "nix.enableLanguageServer": true,
+  "nix.formatterPath": "nixfmt",
+  "nix.serverPath": "nil",
+  "nix.serverSettings": {
+    "nil": {
+      "formatting": {
+        "command": [
+          "nixfmt"
+        ]
+      }
+    }
+  }
+}
