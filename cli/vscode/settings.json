@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 10,
-  "workbench.colorTheme": "One Dark Pro",
+  "git.autofetch": true,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.serverPath": "nil",
@@ -13,5 +13,6 @@
         ]
       }
     }
-  }
+  },
+  "workbench.colorTheme": "One Dark Pro"
 }
