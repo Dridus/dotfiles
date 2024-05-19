@@ -3,7 +3,7 @@
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
-  "git.autofetch": true,
+  "git.autofetch": false,
   "git.confirmSync": false,
   "gitlens.launchpad.indicator.enabled": false,
   "nix.enableLanguageServer": true,
