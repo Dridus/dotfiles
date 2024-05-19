@@ -22,31 +22,41 @@
     system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/lightbreaker";
   };
 
-  outputs = {
-    self,
-    home-manager,
-    nixpkgs,
-    ...
-  } @ inputs: {
-    homeConfigurations."ross@lightbreaker" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.aarch64-linux;
-      extraSpecialArgs = {inherit inputs;};
+  outputs =
+    {
+      self,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    {
+      homeConfigurations."ross@lightbreaker" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        extraSpecialArgs = {
+          inherit inputs;
+        };
 
-      modules = [
-        {
-          disabledModules = [ "cli/keychain/default.nix" ];
+        modules =
+          let
+            cli = inputs.cli.homeManagerModules;
+          in
+          [
+            {
+              disabledModules = [ "cli/keychain/default.nix" ];
 
-          dotfiles = {
-            homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/lightbreaker";
-            homeFlakeLocalInputs = ["cli"];
-          };
+              dotfiles = {
+                homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/lightbreaker";
+                homeFlakeLocalInputs = [ "cli" ];
+              };
 
-          home.stateVersion = "23.11";
-        }
-        inputs.cli.homeManagerModules.default
-        inputs.cli.homeManagerModules.rmm
-        "${inputs.local}/home-local.nix"
-      ];
+              home.stateVersion = "23.11";
+            }
+            cli.default
+            cli.nvim
+            cli.rmm
+            cli.vscode-server
+            "${inputs.local}/home-local.nix"
+          ];
+      };
     };
-  };
 }
