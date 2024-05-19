@@ -1,8 +1,11 @@
 {
+  "editor.autoClosingBrackets": "never",
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "editor.fontSize": 10,
   "git.autofetch": true,
   "git.confirmSync": false,
+  "gitlens.launchpad.indicator.enabled": false,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.serverPath": "nil",
@@ -15,5 +18,5 @@
       }
     }
   },
-  "workbench.colorTheme": "One Dark Pro"
+  "vim.autoindent": false
 }

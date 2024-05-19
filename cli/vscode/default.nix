@@ -30,9 +30,10 @@ in
         es.eamodio.gitlens
         es.haskell.haskell
         es.jnoortheen.nix-ide
+        es.mkhl.direnv
+        es.ms-vscode-remote.remote-ssh
         es.rust-lang.rust-analyzer
         es.vscodevim.vim
-        es.zhuangtongfa.material-theme
       ];
     mutableExtensionsDir = false;
   };
