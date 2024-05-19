@@ -2,6 +2,11 @@
   inputs = {
     nil.url = "github:oxalica/nil";
 
+    nixos-vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     nixpkgs-nixfmt.url = "nixpkgs/nixos-unstable";
@@ -40,6 +45,7 @@
           ./nvim
           ./rmm
           ./vscode
+          ./vscode-server
         ];
       };
   };
