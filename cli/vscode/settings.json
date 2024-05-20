@@ -4,7 +4,7 @@
   "editor.autoClosingDelete": "never",
   "editor.autoClosingOvertype": "never",
   "editor.autoClosingQuotes": "never",
-  "editor.autoIndent": "none",
+  "editor.autoIndent": "keep",
   "editor.autoSurround": "never",
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -26,5 +26,11 @@
     }
   },
   "vim.autoindent": false,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-j>"],
+      "after": ["i", "<cr>", "<esc>", "<right>"]
+    }
+  ],
   "workbench.editor.empty.hint": "hidden"
 }
