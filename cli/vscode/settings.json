@@ -1,8 +1,15 @@
 {
   "editor.autoClosingBrackets": "never",
+  "editor.autoClosingComments": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoIndent": "none",
+  "editor.autoSurround": "never",
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
+  "editor.wordWrap": "on",
   "git.autofetch": false,
   "git.confirmSync": false,
   "gitlens.launchpad.indicator.enabled": false,
@@ -18,5 +25,6 @@
       }
     }
   },
-  "vim.autoindent": false
+  "vim.autoindent": false,
+  "workbench.editor.empty.hint": "hidden"
 }
