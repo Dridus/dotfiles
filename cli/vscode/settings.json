@@ -25,6 +25,8 @@
       }
     }
   },
+  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.fontSize": 10,
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
     {
