@@ -4,44 +4,36 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     hy3 = {
       url = "github:Dridus/hy3?ref=rmm/special-workspace-support";
       inputs.hyprland.follows = "hyprland";
     };
-
     hyprfocus = {
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
-
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.35.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-
     hyprpaper = {
       url = "github:hyprwm/Hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     ironbar = {
       url = "github:Dridus/ironbar?ref=rmm/clock-label-markup";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
     xdg-desktop-portal-hyprland = {
       url = "github:hyprwm/xdg-desktop-portal-hyprland?ref=v1.3.1";
       inputs.hyprland-protocols.follows = "hyprland/hyprland-protocols";
@@ -49,25 +41,17 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    inherit
-      (import ../lib/modules.nix {inherit nixpkgs;})
-      partialApplyModule
-      publishModules
-      ;
-    foos = import ../lib/foos.nix {
-      inherit (nixpkgs) lib;
-      storeRoot = nixpkgs.lib.strings.removeSuffix "/gui" self;
-    };
-  in {
-    homeManagerModules =
-      publishModules
-      (partialApplyModule {inherit foos inputs;})
-      {
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    let
+      inherit (inputs.dotfiles-lib.lib) partialApplyModule publishModules;
+      foos = inputs.dotfiles-lib.lib.foos {
+        storeRoot = self;
+        sourceRootSubdir = "gui";
+      };
+    in
+    {
+      homeManagerModules = publishModules (partialApplyModule { inherit foos inputs; }) {
         default = [
           ./anyrun
           ./hyprdim
@@ -88,5 +72,5 @@
           ./lock
         ];
       };
-  };
+    };
 }
