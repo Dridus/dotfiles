@@ -1,7 +1,7 @@
 {
   inputs = {
     cli = {
-      url = "git+file:///home/ross/1st/dotfiles?dir=cli";
+      url = "path:../../cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
