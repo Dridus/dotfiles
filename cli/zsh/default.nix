@@ -36,7 +36,7 @@
         }
         {
           name = "trystan2k/zsh-tab-title";
-          tags = ["as:plugin"];
+          tags = ["as:plugin" "at:main"];
         }
       ];
     };
