@@ -12,7 +12,11 @@
   "editor.wordWrap": "on",
   "git.autofetch": false,
   "git.confirmSync": false,
-  "gitlens.launchpad.indicator.enabled": false,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.ai.experimental.generateCommitMessage.enabled": false,
+  "gitlens.telemetry.enabled": false,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.serverPath": "nil",
@@ -25,7 +29,7 @@
       }
     }
   },
-  "terminal.integrated.fontLigatures": true,
+  "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
