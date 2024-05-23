@@ -28,11 +28,11 @@ in
       in
       [
         es.eamodio.gitlens
+        es.github.vscode-pull-request-github
         es.haskell.haskell
         es.jnoortheen.nix-ide
         es.mkhl.direnv
         es.ms-vscode-remote.remote-ssh
-
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml
         es.vscodevim.vim
