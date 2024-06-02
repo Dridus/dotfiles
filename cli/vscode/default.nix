@@ -36,6 +36,7 @@ in
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml
         es.vscodevim.vim
+        es.zxh404.vscode-proto3
       ];
     mutableExtensionsDir = false;
   };
