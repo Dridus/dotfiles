@@ -31,11 +31,16 @@ in
         es.github.vscode-pull-request-github
         es.haskell.haskell
         es.jnoortheen.nix-ide
+        es.mhutchie.git-graph
         es.mkhl.direnv
+        es.ms-vscode.cpptools-extension-pack
+        es.ms-vscode.makefile-tools
+        es.ms-vscode.powershell
         es.ms-vscode-remote.remote-ssh
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml
         es.vscodevim.vim
+        es.vue.volar
         es.zxh404.vscode-proto3
       ];
     mutableExtensionsDir = false;

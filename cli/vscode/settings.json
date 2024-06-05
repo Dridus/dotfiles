@@ -35,8 +35,18 @@
       }
     }
   },
+  "powershell.enableProfileLoading": false,
+  "powershell.enableReferencesCodeLens": false,
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.pester.codeLens": false,
+  "powershell.pester.useLegacyCodeLens": false,
+  "powershell.promptToUpdatePowerShell": false,
+  "powershell.scriptAnalysis.enable": false,
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
+  "terminal.integrated.scrollback": 10000,
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
     {
@@ -44,5 +54,6 @@
       "after": ["i", "<cr>", "<esc>", "<right>"]
     }
   ],
+  "vim.smartRelativeLine": true,
   "workbench.editor.empty.hint": "hidden"
 }

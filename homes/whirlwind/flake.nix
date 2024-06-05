@@ -50,7 +50,7 @@
                 dotfiles = {
                   foosSourceRoot = "/Users/ross/1st/dotfiles";
                   homeFlake = "git+file:///Users/ross/1st/dotfiles?dir=homes/whirlwind";
-                  homeFlakeLocalInputs = [ "cli" ];
+                  homeFlakeLocalInputs = [ "cli" "local" ];
                 };
 
                 home = {
