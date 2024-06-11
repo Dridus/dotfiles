@@ -33,6 +33,7 @@ in
         es.jnoortheen.nix-ide
         es.mhutchie.git-graph
         es.mkhl.direnv
+        es.ms-python.python
         es.ms-vscode.cpptools-extension-pack
         es.ms-vscode.makefile-tools
         es.ms-vscode.powershell
