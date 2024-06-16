@@ -9,11 +9,11 @@
       flake = false;
     };
     home-manager = {
-      url = "home-manager";
+      url = "github:nix-community/home-manager?ref=release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nil.url = "github:oxalica/nil";
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=4a6b83b05df1a8bd7d99095ec4b4d271f2956b64";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=release-24.05";
   };
 
   outputs =
