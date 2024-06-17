@@ -99,6 +99,10 @@
     {
       "before": ["<C-j>"],
       "after": ["i", "<cr>", "<esc>", "<right>"]
+    },
+    {
+      "before": ["Q"],
+      "after": ["@", "q"],
     }
   ],
   "vim.smartRelativeLine": true,
