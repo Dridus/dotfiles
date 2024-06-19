@@ -29,8 +29,10 @@ in
       [
         es.eamodio.gitlens
         es.github.vscode-pull-request-github
+        es.hashicorp.terraform
         es.haskell.haskell
         es.jnoortheen.nix-ide
+        es.mechatroner.rainbow-csv
         es.mhutchie.git-graph
         es.mkhl.direnv
         es.ms-python.python
