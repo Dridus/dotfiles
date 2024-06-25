@@ -46,7 +46,7 @@
 
               dotfiles = {
                 homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/lightbreaker";
-                homeFlakeLocalInputs = [ "cli" ];
+                homeFlakeLocalInputs = [ "cli" "local" ];
               };
 
               home.stateVersion = "23.11";
