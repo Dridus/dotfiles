@@ -46,7 +46,7 @@ in
         es.vue.volar
         es.zxh404.vscode-proto3
       ];
-    # mutableExtensionsDir = false;
+    mutableExtensionsDir = false;
   };
 
   home.file."${userDir}/settings.json".source = foos pkgs ./settings.json;
