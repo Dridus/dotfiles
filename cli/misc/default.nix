@@ -15,6 +15,8 @@
           pkgs.rsync
           pkgs.screen
           pkgs.stdenv.cc
+          pkgs.sqlite # cargo-docset wants libsqlite3
+          pkgs.sqlite.dev # cargo-docset wants libsqlite3
           pkgs.unzip
           pkgs.xxd
           pkgs.zip
