@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nil.url = "github:oxalica/nil";
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=4a6b83b05df1a8bd7d99095ec4b4d271f2956b64";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
   outputs =
