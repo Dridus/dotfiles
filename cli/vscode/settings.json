@@ -9,6 +9,7 @@
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
+  "editor.minimap.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -54,6 +55,7 @@
     ]
   },
   "editor.wordWrap": "on",
+  "extensions.autoCheckUpdates": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "git.autofetch": false,
@@ -94,16 +96,38 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
+  "update.mode": "none",
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<C-j>"],
-      "after": ["i", "<cr>", "<esc>", "<right>"]
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "i",
+        "<cr>",
+        "<esc>",
+        "<right>"
+      ]
     },
     {
-      "before": ["Q"],
-      "after": ["@", "q"],
-    }
+      "before": [
+        "Q"
+      ],
+      "after": [
+        "@",
+        "q"
+      ]
+    },
+    {
+      "before": [
+        "<C-w>",
+        "<C-w>"
+      ],
+      "commands": [
+        "workbench.action.switchWindow"
+      ]
+    },
   ],
   "vim.smartRelativeLine": true,
   "window.autoDetectColorScheme": true,
