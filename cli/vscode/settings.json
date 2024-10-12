@@ -1,4 +1,5 @@
 {
+  "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingComments": "never",
   "editor.autoClosingDelete": "never",
@@ -62,11 +63,14 @@
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
   "gitlens.launchpad.indicator.enabled": false,
   "gitlens.launchpad.indicator.polling.enabled": false,
   "gitlens.plusFeatures.enabled": false,
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.statusBar.enabled": false,
   "gitlens.telemetry.enabled": false,
   "haskell.manageHLS": "PATH",
   "nix.enableLanguageServer": true,
@@ -132,5 +136,6 @@
   "vim.smartRelativeLine": true,
   "window.autoDetectColorScheme": true,
   "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.panel.defaultLocation": "right"
 }
