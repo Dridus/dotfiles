@@ -35,6 +35,7 @@ in
         es.mechatroner.rainbow-csv
         es.mhutchie.git-graph
         es.mkhl.direnv
+        es.ms-python.black-formatter
         es.ms-python.python
         es.ms-vscode.cpptools-extension-pack
         es.ms-vscode.makefile-tools
