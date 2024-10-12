@@ -4,7 +4,7 @@
       url = "path:/etc/nixos/system-config-local";
       flake = false;
     };
-    nixpkgs.url = "nixpkgs/release-23.11";
+    nixpkgs.url = "nixpkgs/release-24.05";
   };
 
   outputs = inputs @ {
