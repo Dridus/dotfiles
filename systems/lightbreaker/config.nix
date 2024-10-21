@@ -28,6 +28,9 @@ in
   };
 
   nix.settings = {
+    extra-sandbox-paths = [
+      "/var/nix-sandbox-shared"
+    ];
     substituters = [
       "https://cache.nixos.org/"
       "https://hydra.vital.company/"
@@ -79,6 +82,8 @@ in
 
     tailscale.enable = true;
   };
+
+  systemd.services.nix-daemon.environment.AWS_SHARED_CREDENTIALS_FILE = "/var/nix-sandbox-shared/aws_credentials";
 
   time.timeZone = "America/New_York";
 
