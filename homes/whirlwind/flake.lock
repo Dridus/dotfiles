@@ -12,7 +12,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-j6LYN1TA7zE8ngpSmUK4ahiTWFerARx8VzWKm9jLAOM=",
+        "narHash": "sha256-XKFcaJzhtzuX5fYWsOvT1CaPZrvtWXYVcmqP6rVDvBE=",
         "path": "../../cli",
         "type": "path"
       },
