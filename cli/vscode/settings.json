@@ -11,6 +11,10 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
   "editor.minimap.enabled": false,
+  "editor.rulers": [
+    88,
+    120
+  ],
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -56,6 +60,7 @@
     ]
   },
   "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 88,
   "extensions.autoCheckUpdates": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -92,6 +97,7 @@
   "powershell.pester.useLegacyCodeLens": false,
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
+  "rust-analyzer.diagnostics.previewRustcOutput": true,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
