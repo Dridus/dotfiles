@@ -27,7 +27,9 @@ in
         es = pkgs.vscode-extensions;
       in
       [
+        es.dbaeumer.vscode-eslint
         es.eamodio.gitlens
+        es.esbenp.prettier-vscode
         es.github.vscode-pull-request-github
         es.hashicorp.terraform
         es.haskell.haskell

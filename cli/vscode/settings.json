@@ -143,5 +143,11 @@
   "window.autoDetectColorScheme": true,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
-  "workbench.panel.defaultLocation": "right"
+  "workbench.panel.defaultLocation": "right",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
