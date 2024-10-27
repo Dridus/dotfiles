@@ -70,14 +70,18 @@
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
+  "gitlens.graph.layout": "editor",
   "gitlens.launchpad.indicator.enabled": false,
   "gitlens.launchpad.indicator.polling.enabled": false,
-  "gitlens.plusFeatures.enabled": false,
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
   "gitlens.statusBar.enabled": false,
   "gitlens.telemetry.enabled": false,
+  "gitlens.views.commitDetails.autolinks.enabled": false,
+  "gitlens.views.commitDetails.files.layout": "list",
+  "gitlens.views.worktrees.files.layout": "list",
   "haskell.manageHLS": "PATH",
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.serverPath": "nil",
@@ -106,6 +110,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
@@ -144,6 +149,10 @@
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.panel.defaultLocation": "right",
+  "workbench.tree.indent": 14,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
