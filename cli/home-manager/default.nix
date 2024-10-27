@@ -29,7 +29,7 @@
           # in question is also changing, even if only to bump the last modified. hacks involving
           # the flake.lock are made more complicated by the flake reference being git+file,
           # meaning finding the source tree is possible but a bit complicated to parse the URL.
-          ${pkgs.nixFlakes}/bin/nix flake lock ${
+          ${pkgs.nixVersions.stable or pkgs.nixFlakes}/bin/nix flake lock ${
             concatMapStringsSep " " (input: "--update-input ${input}") config.dotfiles.homeFlakeLocalInputs
           } "$HOME_FLAKE"
         ''
