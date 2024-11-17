@@ -1,4 +1,6 @@
 {
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingComments": "never",
@@ -11,48 +13,35 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
   "editor.minimap.enabled": false,
-  "editor.rulers": [
-    88,
-    120
-  ],
+  "editor.rulers": [88, 120],
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "asn1.keywords"
-        ],
+        "scope": ["asn1.keywords"],
         "settings": {
           "foreground": "#C586C0"
         }
       },
       {
-        "scope": [
-          "asn1.moduleName"
-        ],
+        "scope": ["asn1.moduleName"],
         "settings": {
           "foreground": "#A8962A"
         }
       },
       {
-        "scope": [
-          "asn1.typeName"
-        ],
+        "scope": ["asn1.typeName"],
         "settings": {
           "foreground": "#d7ba7d"
         }
       },
       {
-        "scope": [
-          "asn1.identifier"
-        ],
+        "scope": ["asn1.identifier"],
         "settings": {
           "foreground": "#4CC1BB"
         }
       },
       {
-        "scope": [
-          "asn1.openTypeIdentifier"
-        ],
+        "scope": ["asn1.openTypeIdentifier"],
         "settings": {
           "foreground": "#696969"
         }
@@ -61,12 +50,16 @@
   },
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 88,
+  "eslint.run": "onSave",
   "extensions.autoCheckUpdates": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "git.autofetch": false,
+  "git.autorefresh": false,
   "git.confirmSync": false,
+  "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
+  "githubPullRequests.pullBranch": "never",
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
@@ -80,7 +73,10 @@
   "gitlens.views.commitDetails.autolinks.enabled": false,
   "gitlens.views.commitDetails.files.layout": "list",
   "gitlens.views.worktrees.files.layout": "list",
+  "gitlens.views.repositories.autoRefresh": false,
   "haskell.manageHLS": "PATH",
+  "html.autoCreateQuotes": false,
+  "html.autoClosingTags": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
@@ -88,9 +84,7 @@
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": [
-          "nixfmt"
-        ]
+        "command": ["nixfmt"]
       }
     }
   },
@@ -101,7 +95,6 @@
   "powershell.pester.useLegacyCodeLens": false,
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
-  "rust-analyzer.diagnostics.previewRustcOutput": true,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
@@ -115,46 +108,41 @@
   "vim.autoindent": false,
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<C-j>"
-      ],
-      "after": [
-        "i",
-        "<cr>",
-        "<esc>",
-        "<right>"
-      ]
+      "before": ["<C-j>"],
+      "after": ["i", "<cr>", "<esc>", "<right>"]
     },
     {
-      "before": [
-        "Q"
-      ],
-      "after": [
-        "@",
-        "q"
-      ]
+      "before": ["Q"],
+      "after": ["@", "q"]
     },
     {
-      "before": [
-        "<C-w>",
-        "<C-w>"
-      ],
-      "commands": [
-        "workbench.action.switchWindow"
-      ]
-    },
+      "before": ["<C-w>", "<C-w>"],
+      "commands": ["workbench.action.switchWindow"]
+    }
   ],
   "vim.smartRelativeLine": true,
+  "vue.autoInsert.bracketSpacing": false,
   "window.autoDetectColorScheme": true,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.panel.defaultLocation": "right",
   "workbench.tree.indent": 14,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.indentSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.indentSize": 2
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

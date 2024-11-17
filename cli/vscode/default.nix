@@ -25,9 +25,19 @@ in
     extensions =
       let
         es = pkgs.vscode-extensions;
+        javascript-ejs-support = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "javascript-ejs-support";
+            publisher = "digitalbrainstem";
+            version = "1.3.3";
+            hash = "sha256-VvZ1CzgAbdYj10/j5lE5s88Rq3puqmYDfu1IcvRXXWg=";
+          };
+          meta.license = pkgs.lib.licenses.mit;
+        };
       in
       [
         es.dbaeumer.vscode-eslint
+        javascript-ejs-support
         es.eamodio.gitlens
         es.esbenp.prettier-vscode
         es.github.vscode-pull-request-github
@@ -35,7 +45,6 @@ in
         es.haskell.haskell
         es.jnoortheen.nix-ide
         es.mechatroner.rainbow-csv
-        es.mhutchie.git-graph
         es.mkhl.direnv
         es.ms-python.black-formatter
         es.ms-python.python
@@ -43,6 +52,7 @@ in
         es.ms-vscode.makefile-tools
         es.ms-vscode.powershell
         es.ms-vscode-remote.remote-ssh
+        es.nefrob.vscode-just-syntax
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml
         es.vscodevim.vim
