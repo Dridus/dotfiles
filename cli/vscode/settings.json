@@ -1,4 +1,5 @@
 {
+  "comments.openView": "never",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "off",
@@ -55,7 +56,6 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "git.autofetch": false,
-  "git.autorefresh": false,
   "git.confirmSync": false,
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
@@ -80,6 +80,9 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
+  "nix.hiddenLanguageServerErrors": [
+    "textDocument/formatting"
+  ],
   "nix.serverPath": "nil",
   "nix.serverSettings": {
     "nil": {
