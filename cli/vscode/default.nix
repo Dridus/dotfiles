@@ -44,6 +44,7 @@ in
         es.hashicorp.terraform
         es.haskell.haskell
         es.jnoortheen.nix-ide
+        es.justusadam.language-haskell
         es.mechatroner.rainbow-csv
         es.mkhl.direnv
         es.ms-python.black-formatter

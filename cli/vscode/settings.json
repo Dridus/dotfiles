@@ -20,25 +20,25 @@
       {
         "scope": ["asn1.keywords"],
         "settings": {
-          "foreground": "#C586C0"
+          "foreground": "#AF00DB"
         }
       },
       {
         "scope": ["asn1.moduleName"],
         "settings": {
-          "foreground": "#A8962A"
+          "foreground": "#c97002"
         }
       },
       {
         "scope": ["asn1.typeName"],
         "settings": {
-          "foreground": "#d7ba7d"
+          "foreground": "#795E26"
         }
       },
       {
         "scope": ["asn1.identifier"],
         "settings": {
-          "foreground": "#4CC1BB"
+          "foreground": "#267f99"
         }
       },
       {
@@ -140,6 +140,9 @@
   "workbench.panel.defaultLocation": "right",
   "workbench.tree.indent": 14,
   "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
