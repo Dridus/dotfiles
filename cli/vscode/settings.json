@@ -64,6 +64,7 @@
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.graph.layout": "editor",
+  "gitlens.graph.minimap.enabled": false,
   "gitlens.launchpad.indicator.enabled": false,
   "gitlens.launchpad.indicator.polling.enabled": false,
   "gitlens.showWelcomeOnInstall": false,
@@ -80,9 +81,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
-  "nix.hiddenLanguageServerErrors": [
-    "textDocument/formatting"
-  ],
+  "nix.hiddenLanguageServerErrors": ["textDocument/formatting"],
   "nix.serverPath": "nil",
   "nix.serverSettings": {
     "nil": {
@@ -109,6 +108,12 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
   "vim.autoindent": false,
+  "vim.camelCaseMotion.enable": true,
+  "vim.enableNeovim": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(200, 255, 255, 0.1)",
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
     {
       "before": ["<C-j>"],
@@ -121,6 +126,10 @@
     {
       "before": ["<C-w>", "<C-w>"],
       "commands": ["workbench.action.switchWindow"]
+    },
+    {
+      "before": ["<leader>", "s", "c"],
+      "commands": [":nohl"]
     }
   ],
   "vim.smartRelativeLine": true,
