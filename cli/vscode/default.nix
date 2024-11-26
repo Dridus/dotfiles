@@ -63,5 +63,8 @@ in
     mutableExtensionsDir = false;
   };
 
-  home.file."${userDir}/settings.json".source = foos pkgs ./settings.json;
+  home.file = {
+    "${userDir}/keybindings.json".source = foos pkgs ./keybindings.json;
+    "${userDir}/settings.json".source = foos pkgs ./settings.json;
+  };
 }
