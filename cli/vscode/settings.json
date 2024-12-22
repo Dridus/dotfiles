@@ -158,6 +158,8 @@
     "editor.tabSize": 2
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "diffEditor.hideUnchangedRegions.enabled": true
 }
