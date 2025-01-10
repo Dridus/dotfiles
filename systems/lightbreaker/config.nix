@@ -19,12 +19,9 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   networking = {
+    enableIPv6 = false;
+    firewall.enable = false; # VM
     hostName = "lightbreaker";
-    firewall.allowedTCPPorts = [
-      3000
-      8000
-      8080
-    ]; # vite
   };
 
   nix.settings = {
@@ -76,8 +73,8 @@ in
 
     postgresql = {
       enable = true;
-      port = 5432;
       package = pkgs.postgresql;
+      settings.port = 5432;
     };
 
     tailscale.enable = true;
