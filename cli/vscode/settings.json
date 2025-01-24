@@ -1,5 +1,6 @@
 {
   "comments.openView": "never",
+  "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
@@ -164,6 +165,5 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
-  },
-  "diffEditor.hideUnchangedRegions.enabled": true
+  }
 }
