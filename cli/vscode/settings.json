@@ -51,8 +51,10 @@
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 88,
   "eslint.run": "onSave",
+  "explorer.sortOrder": "mixed",
   "extensions.autoCheckUpdates": false,
   "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
   "files.trimFinalNewlines": true,
   "git.autofetch": false,
   "git.confirmSync": false,
@@ -104,6 +106,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.tabs.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
   "vim.autoindent": false,
@@ -136,6 +139,7 @@
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.panel.defaultLocation": "right",
+  "workbench.startupEditor": "none",
   "workbench.tree.indent": 14,
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
