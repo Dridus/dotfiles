@@ -12,7 +12,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-fpqVWS8KYrCy9kc7VqFy5FeULfKzsNMnZYCk8JTXGic=",
+        "narHash": "sha256-euIzbQ+q173PI61V1vPv0Rnue1MA8uEYj4MoN3XEuN8=",
         "path": "../../cli",
         "type": "path"
       },
@@ -117,8 +117,8 @@
     "local": {
       "flake": false,
       "locked": {
-        "lastModified": 1717445342,
-        "narHash": "sha256-NMCnZ1M6hhcSvySko70ztprZegZWcbdz69qd5WklKok=",
+        "lastModified": 1738781131,
+        "narHash": "sha256-rkbHDKJt/VSR1MdxUJRm9T0yyeixL8rpZBquoR+JWw4=",
         "path": "/home/ross/.config/home-manager",
         "type": "path"
       },
