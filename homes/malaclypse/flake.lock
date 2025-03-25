@@ -11,15 +11,14 @@
         "nixpkgs-nixfmt": "nixpkgs-nixfmt"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-vX5Ml8Bhmr0vKI5YFSz81xJ7/ULK+l8HTJydKQzqpmo=",
         "path": "../../cli",
         "type": "path"
       },
       "original": {
         "path": "../../cli",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "dotfiles-lib": {
       "inputs": {

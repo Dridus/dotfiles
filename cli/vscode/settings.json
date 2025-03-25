@@ -112,6 +112,9 @@
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
+  "typescript.preferences.organizeImports": {
+    "typeOrder": "last"
+  },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
   "vim.autoindent": false,

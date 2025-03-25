@@ -49,6 +49,7 @@ in
         es.mkhl.direnv
         es.ms-python.black-formatter
         es.ms-python.python
+        es.ms-toolsai.jupyter
         es.ms-vscode.cpptools-extension-pack
         es.ms-vscode.makefile-tools
         es.ms-vscode.powershell
