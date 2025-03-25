@@ -58,15 +58,9 @@
                   stateVersion = "24.11";
                 };
               }
-              cli.bat
-              cli.direnv
-              cli.git
-              cli.home-manager
-              cli.lsd
-              cli.misc
+              cli.default
               cli.nvim
               cli.vscode
-              cli.zsh
               cli.rmm
               "${inputs.local}/home-local.nix"
             ];
