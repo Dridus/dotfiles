@@ -1,11 +1,12 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     concatStringsSep
     mkOption
     optionalString
@@ -15,37 +16,36 @@
 
   hm = pkgs.writeShellApplication {
     name = "hm";
-    runtimeInputs = [pkgs.home-manager];
+    runtimeInputs = [ pkgs.home-manager ];
     text = ''
       ${toShellVar "FOOS_SOURCE_ROOT" config.dotfiles.foosSourceRoot}
       ${toShellVar "HOME_FLAKE" config.dotfiles.homeFlake}
       export FOOS_SOURCE_ROOT HOME_FLAKE
-      ${
-        optionalString (config.dotfiles.homeFlakeLocalInputs != []) ''
-          # FIXME ideally this would somehow only happen if the input has truly changed to avoid
-          # breaking the eval cache and things. however, to do that would be a little complicated
-          # and/or depend on knowing the out-of-store path. this is because update-input always
-          # updates the whole input (sensibly) but that input is changing because the flake.lock
-          # in question is also changing, even if only to bump the last modified. hacks involving
-          # the flake.lock are made more complicated by the flake reference being git+file,
-          # meaning finding the source tree is possible but a bit complicated to parse the URL.
-          ${pkgs.nix}/bin/nix flake update ${concatStringsSep " " config.dotfiles.homeFlakeLocalInputs} --flake "$HOME_FLAKE"
-        ''
-      }
+      ${optionalString (config.dotfiles.homeFlakeLocalInputs != [ ]) ''
+        # FIXME ideally this would somehow only happen if the input has truly changed to avoid
+        # breaking the eval cache and things. however, to do that would be a little complicated
+        # and/or depend on knowing the out-of-store path. this is because update-input always
+        # updates the whole input (sensibly) but that input is changing because the flake.lock
+        # in question is also changing, even if only to bump the last modified. hacks involving
+        # the flake.lock are made more complicated by the flake reference being git+file,
+        # meaning finding the source tree is possible but a bit complicated to parse the URL.
+        ${pkgs.nix}/bin/nix flake update ${concatStringsSep " " config.dotfiles.homeFlakeLocalInputs} --flake "$HOME_FLAKE"
+      ''}
       home-manager --impure --flake "$HOME_FLAKE" "$@"
     '';
   };
 
   hmrepl = pkgs.writeShellApplication {
     name = "hmrepl";
-    runtimeInputs = [];
+    runtimeInputs = [ ];
     text = ''
       ${toShellVar "HOME_FLAKE" config.dotfiles.homeFlake}
       export HOME_FLAKE
       nix repl --impure "$HOME_FLAKE"
     '';
   };
-in {
+in
+{
   options = {
     dotfiles = {
       foosSourceRoot = mkOption {
@@ -60,7 +60,7 @@ in {
 
       homeFlake = mkOption {
         type = types.str;
-        default = [];
+        default = [ ];
         description = ''
           Path to the home flake.nix, since putting the home.nix in ~/.config/home-manager means that the flake must be at the top
           level, which is isn't for my dotfiles, and path: schemes don't support ?dir but the flakes don't only refer to things in
@@ -79,7 +79,17 @@ in {
   };
 
   config = {
-    home.packages = [hm hmrepl];
+    home.packages = [
+      hm
+      hmrepl
+    ];
+    nixpkgs.overlays = [
+      (final: prev: {
+        home-manager = pkgs.callPackage "${inputs.home-manager}/home-manager" {
+          path = "${inputs.home-manager}";
+        };
+      })
+    ];
     programs.home-manager.enable = true;
   };
 }

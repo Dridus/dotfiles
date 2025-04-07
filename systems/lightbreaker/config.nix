@@ -34,7 +34,6 @@ in
     experimental-features = [
       "nix-command"
       "flakes"
-      "repl-flake"
     ];
     netrc-file = "/etc/netrc";
     max-jobs = 6;

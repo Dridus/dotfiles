@@ -2,7 +2,10 @@
   inputs = {
     cli = {
       url = "path:../../cli";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     local = {

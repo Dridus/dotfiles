@@ -2,7 +2,10 @@
   inputs = {
     cli = {
       url = "git+file:///home/ross/1st/dotfiles?dir=cli";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     gui = {
