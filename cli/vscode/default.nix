@@ -22,7 +22,7 @@ in
 
   programs.vscode = {
     enable = true;
-    extensions =
+    profiles.default.extensions =
       let
         es = pkgs.vscode-extensions;
         javascript-ejs-support = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
@@ -34,6 +34,7 @@ in
           };
           meta.license = pkgs.lib.licenses.mit;
         };
+        remote-ssh = pkgs.callPackage ./remote-ssh.nix {};
       in
       [
         es.dbaeumer.vscode-eslint
@@ -53,7 +54,8 @@ in
         es.ms-vscode.cpptools-extension-pack
         es.ms-vscode.makefile-tools
         es.ms-vscode.powershell
-        es.ms-vscode-remote.remote-ssh
+        #es.ms-vscode-remote.remote-ssh
+        remote-ssh
         es.nefrob.vscode-just-syntax
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml

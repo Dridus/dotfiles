@@ -104,6 +104,7 @@
   "powershell.pester.useLegacyCodeLens": false,
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
+  "remote.SSH.experimental.chat": false,
   "rust-analyzer.imports.granularity.group": "module",
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
