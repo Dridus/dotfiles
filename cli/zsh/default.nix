@@ -23,7 +23,8 @@
 
     initExtra = ''
       autoload -U colors && colors
-      PROMPT="%{$bg[black]$fg[yellow]%}%~ ❯%{$reset_color%} "
+      PROMPT_HOST="$(hostname -s)"
+      PROMPT="%{$bg[cyan]$fg[black]%} $PROMPT_HOST %{$bg[black]$fg[yellow]%} %~ ❯ %{$reset_color%}"
       ZSH_TAB_TITLE_CONCAT_FOLDER_PROCESS=true
     '';
 
