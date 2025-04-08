@@ -1,7 +1,8 @@
 {
+  "chat.commandCenter.enabled": false,
   "comments.openView": "never",
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingComments": "never",
@@ -65,6 +66,7 @@
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
+  "gitlens.graph.dimMergeCommits": true,
   "gitlens.graph.layout": "editor",
   "gitlens.graph.minimap.enabled": false,
   "gitlens.launchpad.indicator.enabled": false,
