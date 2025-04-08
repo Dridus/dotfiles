@@ -22,7 +22,7 @@
 
     nixpkgs.follows = "system-config/nixpkgs";
 
-    system-config.url = "git+file:///home/ross/1st/dotfiles?dir=systems/lightbreaker";
+    system-config.url = "path:../../systems/lightbreaker";
   };
 
   outputs =

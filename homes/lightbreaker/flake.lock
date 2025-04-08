@@ -490,19 +490,14 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "dir": "systems/lightbreaker",
-        "dirtyRev": "0eaa83c1361f1a1c5ae408aa7c412148754b5d84-dirty",
-        "dirtyShortRev": "0eaa83c-dirty",
-        "lastModified": 1744073298,
-        "narHash": "sha256-t135ywHerQipO3bjPUyp5BANcGq1Mu4K6P4kGA4gudM=",
-        "type": "git",
-        "url": "file:///home/ross/1st/dotfiles"
+        "path": "../../systems/lightbreaker",
+        "type": "path"
       },
       "original": {
-        "dir": "systems/lightbreaker",
-        "type": "git",
-        "url": "file:///home/ross/1st/dotfiles"
-      }
+        "path": "../../systems/lightbreaker",
+        "type": "path"
+      },
+      "parent": []
     },
     "systems": {
       "locked": {
