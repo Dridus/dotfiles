@@ -15,15 +15,14 @@
         "nixpkgs-nixfmt": "nixpkgs-nixfmt"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-WYSLECVkGjy3qrznx3Y6gDaraH37YAcJ1/g9npyBn9k=",
         "path": "../../cli",
         "type": "path"
       },
       "original": {
         "path": "../../cli",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "dotfiles-lib": {
       "inputs": {
@@ -492,18 +491,17 @@
       },
       "locked": {
         "dir": "systems/lightbreaker",
-        "lastModified": 1744068424,
-        "narHash": "sha256-hbAfAf2DToVkDf1YamNDUAgeIAxGxvjJNCkm9QSbJvE=",
-        "ref": "refs/heads/master",
-        "rev": "ba6352cb05752075cb182257ee450227dbc765ef",
-        "revCount": 463,
+        "dirtyRev": "0eaa83c1361f1a1c5ae408aa7c412148754b5d84-dirty",
+        "dirtyShortRev": "0eaa83c-dirty",
+        "lastModified": 1744073298,
+        "narHash": "sha256-t135ywHerQipO3bjPUyp5BANcGq1Mu4K6P4kGA4gudM=",
         "type": "git",
-        "url": "file:///home/ross/1st/dotfiles?dir=systems/lightbreaker"
+        "url": "file:///home/ross/1st/dotfiles"
       },
       "original": {
         "dir": "systems/lightbreaker",
         "type": "git",
-        "url": "file:///home/ross/1st/dotfiles?dir=systems/lightbreaker"
+        "url": "file:///home/ross/1st/dotfiles"
       }
     },
     "systems": {
