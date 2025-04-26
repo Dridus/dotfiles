@@ -155,7 +155,8 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 14,
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -177,5 +178,8 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
+  },
+  "workbench.editorAssociations": {
+    "*.svg": "default"
   }
 }

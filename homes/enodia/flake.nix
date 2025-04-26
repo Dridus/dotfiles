@@ -3,7 +3,7 @@
     cli = {
       url = "path:../../cli";
       inputs = {
-        home-manager.follows = "home-manager";
+	home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
       };
     };
