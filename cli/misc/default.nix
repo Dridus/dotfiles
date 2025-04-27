@@ -8,6 +8,7 @@
           pkgs.dnsutils
           pkgs.file
           pkgs.gnumake
+          pkgs.lsof
           pkgs.openssh
           pkgs.openssl
           pkgs.pkg-config

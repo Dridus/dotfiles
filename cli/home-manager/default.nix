@@ -79,10 +79,15 @@ in
   };
 
   config = {
-    home.packages = [
-      hm
-      hmrepl
-    ];
+    home = {
+      packages = [
+        hm
+        hmrepl
+      ];
+      sessionVariables = {
+        HOME_FLAKE = config.dotfiles.homeFlake;
+      };
+    };
     nixpkgs.overlays = [
       (final: prev: {
         home-manager = pkgs.callPackage "${inputs.home-manager}/home-manager" {

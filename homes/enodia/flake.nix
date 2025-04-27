@@ -59,6 +59,7 @@
                 };
               }
               cli.default
+              cli.nushell
               cli.nvim
               cli.vscode
               cli.rmm

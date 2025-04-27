@@ -59,6 +59,7 @@ in
         es.nefrob.vscode-just-syntax
         es.rust-lang.rust-analyzer
         es.tamasfe.even-better-toml
+        es.thenuprojectcontributors.vscode-nushell-lang
         es.vscodevim.vim
         es.vue.volar
         es.zxh404.vscode-proto3

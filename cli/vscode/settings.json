@@ -181,5 +181,6 @@
   },
   "workbench.editorAssociations": {
     "*.svg": "default"
-  }
+  },
+  "nushellLanguageServer.hints.showInferredTypes": false
 }

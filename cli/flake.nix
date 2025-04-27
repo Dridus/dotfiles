@@ -37,6 +37,7 @@
         _other = [
           ./keychain
           ./man
+          ./nushell
           ./nvim
           ./rmm
           ./vscode
