@@ -182,5 +182,6 @@
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
-  "nushellLanguageServer.hints.showInferredTypes": false
+  "nushellLanguageServer.hints.showInferredTypes": false,
+  "terminal.integrated.defaultProfile.osx": "Nushell"
 }

@@ -18,5 +18,9 @@ in
       use ${nu_scripts}/themes/nu-themes/vs-code-dark-plus.nu
       source ${foos pkgs ./config.nu}
     '';
+    plugins = [
+      pkgs.nushellPlugins.polars
+      pkgs.nushellPlugins.query
+    ];
   };
 }
