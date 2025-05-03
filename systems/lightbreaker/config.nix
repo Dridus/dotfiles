@@ -25,6 +25,7 @@ in
   };
 
   nix.settings = {
+    cores = 5;
     extra-sandbox-paths = [ "/var/nix-sandbox-shared" ];
     substituters = [
       "https://cache.nixos.org/"
@@ -36,7 +37,7 @@ in
       "flakes"
     ];
     netrc-file = "/etc/netrc";
-    max-jobs = 6;
+    max-jobs = 2;
   };
 
   nixpkgs = {
