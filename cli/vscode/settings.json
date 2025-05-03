@@ -1,4 +1,29 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
   "chat.commandCenter.enabled": false,
   "comments.openView": "never",
   "diffEditor.hideUnchangedRegions.enabled": true,
@@ -63,11 +88,14 @@
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
   "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.terminalLinksHandler": "github",
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.graph.dimMergeCommits": true,
   "gitlens.graph.layout": "editor",
+  "gitlens.graph.showDetailsView": "open",
+  "gitlens.graph.showRemoteNames": true,
   "gitlens.graph.minimap.enabled": false,
   "gitlens.launchpad.indicator.enabled": false,
   "gitlens.launchpad.indicator.polling.enabled": false,
@@ -79,6 +107,18 @@
   "gitlens.views.commitDetails.files.layout": "list",
   "gitlens.views.worktrees.files.layout": "list",
   "gitlens.views.repositories.autoRefresh": false,
+  "gitlens.views.scm.grouped.hiddenViews": {
+    "commits": false,
+    "branches": false,
+    "remotes": false,
+    "stashes": false,
+    "tags": false,
+    "worktrees": false,
+    "contributors": true,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
   "haskell.manageHLS": "PATH",
   "html.autoCreateQuotes": false,
   "html.autoClosingTags": false,
@@ -105,16 +145,21 @@
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
   "remote.SSH.experimental.chat": false,
+  "rust-analyzer.imports.granularity.enforce": true,
   "rust-analyzer.imports.granularity.group": "module",
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.lens.enable": false,
+  "rust-analyzer.lens.implementations.enable": false,
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.defaultProfile.osx": "Nushell",
   "terminal.integrated.tabs.enabled": false,
+  "terraform.languageServer.enable": false,
   "typescript.preferences.organizeImports": {
     "typeOrder": "last"
   },
@@ -154,34 +199,8 @@
   "workbench.panel.defaultLocation": "right",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 14,
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
-  "nushellLanguageServer.hints.showInferredTypes": false,
-  "terminal.integrated.defaultProfile.osx": "Nushell"
+  "nushellLanguageServer.hints.showInferredTypes": false
 }
