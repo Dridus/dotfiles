@@ -14,7 +14,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-24.11";
+      url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -56,6 +56,7 @@
             }
             cli.default
             cli.nvim
+            cli.nushell
             cli.rmm
             cli.vscode-server
             "${inputs.local}/home-local.nix"
