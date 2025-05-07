@@ -47,3 +47,18 @@ $env.PROMPT_COMMAND_RIGHT = {||
 
 $env.PROMPT_INDICATOR_VI_INSERT = "\u{276f} "
 $env.PROMPT_INDICATOR_VI_NORMAL = "\u{eb04} "
+
+def topdu [top?: path] {
+    ls ($top | default .)
+        | where type == "dir"
+        | par-each { ||
+            let dir = $in;
+            $dir
+                | update size (
+                    ls ($dir.name | path join "**/*" | into glob)
+                        | reduce --fold 0 {|i,a| ($i.size | into int) + $a }
+                        | into filesize
+                )
+        }
+        | sort-by size
+}
