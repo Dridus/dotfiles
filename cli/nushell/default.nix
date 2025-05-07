@@ -15,6 +15,7 @@ in
   programs.nushell = {
     enable = true;
     extraConfig = ''
+      use std/dirs
       use ${nu_scripts}/custom-completions/cargo/cargo-completions.nu *
       use ${nu_scripts}/custom-completions/git/git-completions.nu *
       use ${nu_scripts}/custom-completions/just/just-completions.nu *

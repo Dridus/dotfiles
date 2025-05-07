@@ -137,6 +137,7 @@
       }
     }
   },
+  "nushellLanguageServer.hints.showInferredTypes": false,
   "powershell.enableProfileLoading": false,
   "powershell.enableReferencesCodeLens": false,
   "powershell.integratedConsole.showOnStartup": false,
@@ -157,6 +158,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.defaultProfile.linux": "Nushell",
   "terminal.integrated.defaultProfile.osx": "Nushell",
   "terminal.integrated.tabs.enabled": false,
   "terraform.languageServer.enable": false,
@@ -201,6 +203,5 @@
   "workbench.tree.indent": 14,
   "workbench.editorAssociations": {
     "*.svg": "default"
-  },
-  "nushellLanguageServer.hints.showInferredTypes": false
+  }
 }
