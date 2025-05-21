@@ -80,6 +80,7 @@
   "eslint.run": "onSave",
   "explorer.sortOrder": "mixed",
   "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
   "files.simpleDialog.enable": true,
   "files.trimFinalNewlines": true,
@@ -87,6 +88,7 @@
   "git.confirmSync": false,
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
+  "githubPullRequests.createOnPublishBranch": "never",
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.terminalLinksHandler": "github",
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
@@ -104,7 +106,7 @@
   "gitlens.statusBar.enabled": false,
   "gitlens.telemetry.enabled": false,
   "gitlens.views.commitDetails.autolinks.enabled": false,
-  "gitlens.views.commitDetails.files.layout": "list",
+  "gitlens.views.commitDetails.files.layout": "tree",
   "gitlens.views.worktrees.files.layout": "list",
   "gitlens.views.repositories.autoRefresh": false,
   "gitlens.views.scm.grouped.hiddenViews": {
@@ -160,7 +162,6 @@
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.defaultProfile.linux": "Nushell",
   "terminal.integrated.defaultProfile.osx": "Nushell",
-  "terminal.integrated.tabs.enabled": false,
   "terraform.languageServer.enable": false,
   "typescript.preferences.organizeImports": {
     "typeOrder": "last"
