@@ -22,6 +22,7 @@ in
       use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
       use ${nu_scripts}/themes/nu-themes/vs-code-dark-plus.nu
       source ${foos pkgs ./config.nu}
+      source ${foos pkgs ./utils.nu}
     '';
     plugins = [
       pkgs.nushellPlugins.polars

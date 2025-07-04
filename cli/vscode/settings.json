@@ -204,5 +204,8 @@
   "workbench.tree.indent": 14,
   "workbench.editorAssociations": {
     "*.svg": "default"
-  }
+  },
+  "gitlens.rebaseEditor.ordering": "asc",
+  "editor.hover.enabled": false,
+  "haskell.formattingProvider": "fourmolu"
 }
