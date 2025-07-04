@@ -16,8 +16,8 @@ $env.PROMPT_COMMAND = {||
         $rel => ([~ $rel] | path join)
     }
 
-    let separator_color = (ansi light_yellow)
-    let path_color = (ansi yellow)
+    let separator_color = (ansi yellow_bold)
+    let path_color = $"(ansi reset)(ansi yellow)"
     let colorized_path_sep = $"($separator_color)(char path_sep)($path_color)"
     let colorized_path = $path | str replace --all (char path_sep) $colorized_path_sep
 

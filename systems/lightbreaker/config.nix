@@ -159,6 +159,7 @@ in
       extraGroups = [
         "wheel"
         "plugdev"
+        "dialout"
       ];
       shell = pkgs.zsh;
     };
