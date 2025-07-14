@@ -34,6 +34,14 @@ in
           };
           meta.license = pkgs.lib.licenses.mit;
         };
+        openscad-language-support = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+          mktplcRef = {
+            name = "openscad-language-support";
+            publisher = "leathong";
+            version = "2.0.1";
+            hash = "sha256-GTvn97POOVmie7mOD/Q3ivEHXmqb+hvgiic9pTWYS0s=";
+          };
+        };
         remote-ssh = pkgs.callPackage ./remote-ssh.nix {};
       in
       [
@@ -46,6 +54,7 @@ in
         es.haskell.haskell
         es.jnoortheen.nix-ide
         es.justusadam.language-haskell
+        openscad-language-support
         es.mechatroner.rainbow-csv
         es.mkhl.direnv
         es.ms-python.black-formatter
