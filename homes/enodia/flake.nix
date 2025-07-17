@@ -3,7 +3,7 @@
     cli = {
       url = "path:../../cli";
       inputs = {
-	home-manager.follows = "home-manager";
+        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
       };
     };
@@ -39,25 +39,31 @@
           modules =
             let
               cli = inputs.cli.homeManagerModules;
+              enodia =
+                { pkgs, ... }:
+                {
+                  disabledModules = [
+                    "cli/keychain/default.nix"
+                    "cli/man/default.nix"
+                  ];
+
+                  dotfiles = {
+                    foosSourceRoot = "/Users/ross/1st/dotfiles";
+                    homeFlake = "git+file:///Users/ross/1st/dotfiles?dir=homes/enodia";
+                    homeFlakeLocalInputs = [ "cli" ];
+                  };
+
+                  home = {
+                    homeDirectory = "/Users/ross";
+                    packages = [
+                      pkgs.qalculate-gtk
+                    ];
+                    stateVersion = "23.11";
+                  };
+                };
             in
             [
-              {
-                disabledModules = [
-                  "cli/keychain/default.nix"
-                  "cli/man/default.nix"
-                ];
-
-                dotfiles = {
-                  foosSourceRoot = "/Users/ross/1st/dotfiles";
-                  homeFlake = "git+file:///Users/ross/1st/dotfiles?dir=homes/enodia";
-                  homeFlakeLocalInputs = [ "cli" ];
-                };
-
-                home = {
-                  homeDirectory = "/Users/ross";
-                  stateVersion = "23.11";
-                };
-              }
+              enodia
               cli.default
               cli.nushell
               cli.nvim
