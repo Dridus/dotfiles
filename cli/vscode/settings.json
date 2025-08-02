@@ -11,10 +11,12 @@
     "editor.tabSize": 2
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
   "[scad]": {
     "editor.tabSize": 2
@@ -210,5 +212,8 @@
   },
   "gitlens.rebaseEditor.ordering": "asc",
   "editor.hover.enabled": false,
-  "haskell.formattingProvider": "fourmolu"
+  "haskell.formattingProvider": "fourmolu",
+  "files.associations": {
+    "*.sql": "postgres"
+  },
 }
