@@ -16,6 +16,7 @@ let
 in
 {
   home.packages = [
+    pkgs.claude-code
     nixfmt
     pkgs.nil
   ];
