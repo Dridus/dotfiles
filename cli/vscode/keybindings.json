@@ -3,5 +3,13 @@
         "key": "escape",
         "command": "-workbench.action.hideComment",
         "when": "commentEditorFocused"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
     }
 ]

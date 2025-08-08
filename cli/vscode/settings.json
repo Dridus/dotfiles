@@ -216,4 +216,5 @@
   "files.associations": {
     "*.sql": "postgres"
   },
+  "[jsonl]": {},
 }

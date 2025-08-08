@@ -68,6 +68,7 @@
               cli.nushell
               cli.nvim
               cli.vscode
+              cli.claude
               cli.rmm
               "${inputs.local}/home-local.nix"
             ];

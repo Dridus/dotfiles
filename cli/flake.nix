@@ -42,6 +42,7 @@
           ./rmm
           ./vscode
           ./vscode-server
+          ./claude
         ];
       };
     };

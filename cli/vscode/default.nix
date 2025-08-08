@@ -16,7 +16,6 @@ let
 in
 {
   home.packages = [
-    pkgs.claude-code
     nixfmt
     pkgs.nil
   ];
@@ -92,20 +91,20 @@ in
         };
       in
       [
-        black-formatter
+        # black-formatter
         claude-code
-        cpptools-extension-pack
+        # cpptools-extension-pack
         direnv
         even-better-toml
         gitlens
-        haskell
+        # haskell
         javascript-ejs-support
-        jupyter
-        language-haskell
-        makefile-tools
-        mypy-type-checker
+        # jupyter
+        # language-haskell
+        # makefile-tools
+        # mypy-type-checker
         nix-ide
-        openscad-language-support
+        # openscad-language-support
         powershell
         prettier-vscode
         python
@@ -115,13 +114,13 @@ in
         svelte-vscode
         terraform
         vim
-        volar
-        vscode-deno
+        # volar
+        # vscode-deno
         vscode-eslint
-        vscode-just-syntax
+        # vscode-just-syntax
         vscode-nushell-lang
         vscode-postgres
-        vscode-proto3
+        # vscode-proto3
         vscode-pull-request-github
       ];
     mutableExtensionsDir = false;
