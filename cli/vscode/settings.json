@@ -18,6 +18,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
+  "[jsonl]": {},
   "[scad]": {
     "editor.tabSize": 2
   },
@@ -44,6 +45,7 @@
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
+  "editor.hover.enabled": false,
   "editor.minimap.enabled": false,
   "editor.rulers": [88, 120],
   "editor.tokenColorCustomizations": {
@@ -86,6 +88,9 @@
   "explorer.sortOrder": "mixed",
   "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.sql": "postgres"
+  },
   "files.insertFinalNewline": true,
   "files.simpleDialog.enable": true,
   "files.trimFinalNewlines": true,
@@ -106,6 +111,7 @@
   "gitlens.graph.minimap.enabled": false,
   "gitlens.launchpad.indicator.enabled": false,
   "gitlens.launchpad.indicator.polling.enabled": false,
+  "gitlens.rebaseEditor.ordering": "asc",
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
   "gitlens.statusBar.enabled": false,
@@ -126,6 +132,7 @@
     "searchAndCompare": false,
     "launchpad": false
   },
+  "haskell.formattingProvider": "fourmolu",
   "haskell.manageHLS": "PATH",
   "html.autoCreateQuotes": false,
   "html.autoClosingTags": false,
@@ -210,11 +217,8 @@
   "workbench.editorAssociations": {
     "*.svg": "default"
   },
-  "gitlens.rebaseEditor.ordering": "asc",
-  "editor.hover.enabled": false,
-  "haskell.formattingProvider": "fourmolu",
-  "files.associations": {
-    "*.sql": "postgres"
+  "workbench.colorCustomizations": {
+    "panel.border": "#888888"
   },
-  "[jsonl]": {},
+  "prettier.trailingComma": "all"
 }
