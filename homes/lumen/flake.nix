@@ -1,7 +1,7 @@
 {
   inputs = {
-    cli = {
-      url = "git+file:///home/ross/1st/dotfiles?dir=cli";
+    shared = {
+      url = "git+file:///home/ross/1st/dotfiles?dir=shared";
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
@@ -45,14 +45,14 @@
             {
               dotfiles = {
                 homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/lumen";
-                homeFlakeLocalInputs = [ "cli" ];
+                homeFlakeLocalInputs = [ "shared" ];
               };
 
               home.stateVersion = "23.11";
             }
-            inputs.cli.homeManagerModules.default
-            inputs.cli.homeManagerModules.rmm
-            inputs.cli.homeManagerModules.keychain
+            inputs.shared.homeManagerModules.default
+            inputs.shared.homeManagerModules.rmm
+            inputs.shared.homeManagerModules.keychain
             "${inputs.local}/home-local.nix"
           ];
         };

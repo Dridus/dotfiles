@@ -1,0 +1,22 @@
+automatically-unhide-macos-hidden-apps = true
+default-root-container-layout = "accordion"
+on-focused-monitor-changed = []
+start-at-login = false
+
+[exec]
+inherit-env-vars = true
+
+[exec.env-vars]
+PATH = "${PATH}"
+
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
+
+[workspace-to-monitor-force-assignment]
+1 = "primary"
+2 = ["secondary", "primary"]

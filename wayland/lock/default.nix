@@ -11,7 +11,7 @@
         cfg = config.wayland.windowManager.hyprland;
       in
         cfg.enable && cfg.systemd.enable;
-      message = "gui/lock expects hyprland";
+      message = "wayland/lock expects hyprland";
     }
   ];
 

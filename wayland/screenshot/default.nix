@@ -20,7 +20,7 @@ in {
         cfg = config.wayland.windowManager.hyprland;
       in
         cfg.enable && cfg.systemd.enable;
-      message = "gui/screenshot expects hyprland";
+      message = "wayland/screenshot expects hyprland";
     }
   ];
 

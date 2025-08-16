@@ -6,7 +6,7 @@
   assertions = [
     {
       assertion = config.programs.zsh.enable;
-      message = "cli/keychain expects zsh";
+      message = "shared/keychain expects zsh";
     }
   ];
 

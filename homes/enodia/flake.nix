@@ -1,7 +1,7 @@
 {
   inputs = {
-    cli = {
-      url = "path:../../cli";
+    shared = {
+      url = "path:../../shared";
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
@@ -38,19 +38,18 @@
 
           modules =
             let
-              cli = inputs.cli.homeManagerModules;
+              shared = inputs.shared.homeManagerModules;
               enodia =
                 { pkgs, ... }:
                 {
                   disabledModules = [
-                    "cli/keychain/default.nix"
-                    "cli/man/default.nix"
+                    "shared/man/default.nix"
                   ];
 
                   dotfiles = {
                     foosSourceRoot = "/Users/ross/1st/dotfiles";
                     homeFlake = "git+file:///Users/ross/1st/dotfiles?dir=homes/enodia";
-                    homeFlakeLocalInputs = [ "cli" ];
+                    homeFlakeLocalInputs = [ "shared" ];
                   };
 
                   home = {
@@ -64,12 +63,13 @@
             in
             [
               enodia
-              cli.default
-              cli.nushell
-              cli.nvim
-              cli.vscode
-              cli.claude
-              cli.rmm
+              shared.aerospace
+              shared.default
+              shared.nushell
+              shared.nvim
+              shared.vscode
+              shared.claude
+              shared.rmm
               "${inputs.local}/home-local.nix"
             ];
         };

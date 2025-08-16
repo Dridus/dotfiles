@@ -47,7 +47,7 @@
       inherit (inputs.dotfiles-lib.lib) partialApplyModule publishModules;
       foos = inputs.dotfiles-lib.lib.foos {
         storeRoot = self;
-        sourceRootSubdir = "gui";
+        sourceRootSubdir = "wayland";
       };
     in
     {

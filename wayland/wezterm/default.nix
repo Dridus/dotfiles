@@ -7,7 +7,7 @@
   assertions = [
     {
       assertion = config.programs.zsh.enable;
-      message = "gui/wezterm expects zsh";
+      message = "wayland/wezterm expects zsh";
     }
   ];
 

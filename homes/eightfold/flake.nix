@@ -1,7 +1,7 @@
 {
   inputs = {
-    cli = {
-      url = "path:../../cli";
+    shared = {
+      url = "path:../../shared";
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
@@ -41,23 +41,24 @@
 
         modules =
           let
-            cli = inputs.cli.homeManagerModules;
+            shared = inputs.shared.homeManagerModules;
           in
           [
             {
-              disabledModules = [ "cli/keychain/default.nix" ];
-
               dotfiles = {
                 homeFlake = "git+file:///home/ross/1st/dotfiles?dir=homes/eightfold";
-                homeFlakeLocalInputs = [ "cli" "local" ];
+                homeFlakeLocalInputs = [
+                  "shared"
+                  "local"
+                ];
               };
 
               home.stateVersion = "24.11";
             }
-            cli.default
-            cli.nvim
-            cli.rmm
-            cli.vscode-server
+            shared.default
+            shared.nvim
+            shared.rmm
+            shared.vscode-server
             "${inputs.local}/home-local.nix"
           ];
       };

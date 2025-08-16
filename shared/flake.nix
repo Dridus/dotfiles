@@ -19,7 +19,7 @@
 
       foos = inputs.dotfiles-lib.lib.foos {
         storeRoot = self;
-        sourceRootSubdir = "cli";
+        sourceRootSubdir = "shared";
       };
     in
     {
@@ -29,15 +29,16 @@
           ./direnv
           ./git
           ./home-manager
-          ./lsd
           ./misc
           ./nix
+          ./nushell
           ./zsh
         ];
         _other = [
+          ./aerospace
           ./keychain
+          ./lsd
           ./man
-          ./nushell
           ./nvim
           ./rmm
           ./vscode

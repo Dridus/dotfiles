@@ -21,7 +21,7 @@ in {
         cfg = config.wayland.windowManager.hyprland;
       in
         cfg.enable && cfg.systemd.enable;
-      message = "gui/anyrun expects hyprland";
+      message = "wayland/anyrun expects hyprland";
     }
   ];
 
