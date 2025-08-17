@@ -1,3 +1,6 @@
+after-startup-command = [
+    "exec-and-forget /Users/ross/.nix-profile/bin/borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0",
+]
 automatically-unhide-macos-hidden-apps = true
 default-root-container-layout = "accordion"
 on-focused-monitor-changed = []
@@ -17,6 +20,108 @@ outer.bottom = 8
 outer.top = 8
 outer.right = 8
 
+[mode.main.binding]
+alt-r = "mode aero"
+
+alt-h = "focus left"
+alt-j = "focus down"
+alt-k = "focus up"
+alt-l = "focus right"
+alt-shift-h = "move left"
+alt-shift-j = "move down"
+alt-shift-k = "move up"
+alt-shift-l = "move right"
+
+[mode.aero.binding]
+alt-r = "mode main"
+equal = ["balance-sizes", "mode main"]
+slash = ["layout tiles horizontal vertical", "mode main"]
+comma = ["layout accordion horizontal vertical", "mode main"]
+shift-f = ["flatten-workspace-tree", "mode main"]
+shift-r = ["reload-config", "mode main"]
+
+shift-h = ["join-with left", "mode main"]
+shift-j = ["join-with down", "mode main"]
+shift-k = ["join-with up", "mode main"]
+shift-l = ["join-with right", "mode main"]
+
+1 = ["workspace 1", "mode main"]
+shift-1 = ["move-node-to-workspace 1", "mode main"]
+2 = ["workspace 2", "mode main"]
+shift-2 = ["move-node-to-workspace 2", "mode main"]
+w = ["workspace W", "mode main"]
+shift-w = ["move-node-to-workspace W", "mode main"]
+c = ["workspace C", "mode main"]
+shift-c = ["move-node-to-workspace C", "mode main"]
+m = ["workspace M", "mode main"]
+shift-m = ["move-node-to-workspace M", "mode main"]
+v = ["workspace V", "mode main"]
+shift-v = ["move-node-to-workspace V", "mode main"]
+
 [workspace-to-monitor-force-assignment]
 1 = "primary"
 2 = ["secondary", "primary"]
+W = "primary"
+C = "primary"
+M = ["secondary", "primary"]
+V = "primary"
+
+[[on-window-detected]]
+if.app-id = "com.tinyspeck.slackmacgap"
+if.window-title-regex-substring = "^Huddle:"
+check-further-callbacks = false
+run = ["move-node-to-workspace 2"]
+
+[[on-window-detected]]
+if.app-id = "com.tinyspeck.slackmacgap"
+run = ["move-node-to-workspace C"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.apple.MobileSMS"
+run = ["move-node-to-workspace C"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.apple.mail"
+run = ["move-node-to-workspace C"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.apple.Music"
+run = ["move-node-to-workspace M"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.VSCode"
+run = ["move-node-to-workspace V"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.linear"
+run = ["move-node-to-workspace 2"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.google.Chrome"
+run = ["move-node-to-workspace 2"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "org.mozilla.firefox"
+run = ["move-node-to-workspace W"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.kapeli.dashdoc"
+run = ["move-node-to-workspace 2"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "com.valvesoftware.steam.helper"
+if.window-title-regex-substring = "^Steam$"
+run = ["layout tiling", "move-node-to-workspace 1"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+run = ["move-node-to-workspace 1"]
