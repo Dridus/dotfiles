@@ -67,6 +67,11 @@ M = ["secondary", "primary"]
 V = "primary"
 
 [[on-window-detected]]
+if.app-id = "com.1password.1password"
+check-further-callbacks = false
+run = ["layout floating"]
+
+[[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
 if.window-title-regex-substring = "^Huddle:"
 check-further-callbacks = false
@@ -122,6 +127,3 @@ if.app-id = "com.valvesoftware.steam.helper"
 if.window-title-regex-substring = "^Steam$"
 run = ["layout tiling", "move-node-to-workspace 1"]
 check-further-callbacks = false
-
-[[on-window-detected]]
-run = ["move-node-to-workspace 1"]
