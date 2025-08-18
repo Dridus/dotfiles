@@ -15,10 +15,10 @@ PATH = "${PATH}"
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = 8
-outer.bottom = 8
-outer.top = 8
-outer.right = 8
+outer.left = 4
+outer.bottom = 4
+outer.top = 4
+outer.right = 4
 
 [mode.main.binding]
 alt-r = "mode aero"
@@ -126,4 +126,9 @@ check-further-callbacks = false
 if.app-id = "com.valvesoftware.steam.helper"
 if.window-title-regex-substring = "^Steam$"
 run = ["layout tiling", "move-node-to-workspace 1"]
+check-further-callbacks = false
+
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = ["move-node-to-workspace 2"]
 check-further-callbacks = false
