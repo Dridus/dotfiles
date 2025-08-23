@@ -64,12 +64,13 @@
             [
               enodia
               shared.aerospace
+              shared.claude
               shared.default
               shared.nushell
               shared.nvim
-              shared.vscode
-              shared.claude
               shared.rmm
+              shared.stats
+              shared.vscode
               "${inputs.local}/home-local.nix"
             ];
         };
