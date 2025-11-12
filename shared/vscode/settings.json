@@ -221,5 +221,6 @@
     "panel.border": "#888888"
   },
   "prettier.trailingComma": "all",
-  "prettier.requireConfig": true
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.stickyScroll.enabled": false
 }

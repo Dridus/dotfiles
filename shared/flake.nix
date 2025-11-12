@@ -3,7 +3,7 @@
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     home-manager.url = "github:nix-community/home-manager?ref=master";
     nil.url = "github:oxalica/nil";
-    nix.url = "github:NixOS/nix/2.27.1";
+    nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";

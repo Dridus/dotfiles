@@ -8,6 +8,9 @@ $env.config.footer_mode = "auto"
 $env.config.datetime_format.normal = "%Y-%m-%d %H:%M:%S"
 $env.config.color_config = (vs-code-dark-plus)
 
+# to combat macOS updates eating the whole
+$env.PATH = $env.PATH | append ($env.HOME | path join ".nix-profile" "bin") | uniq
+
 $env.HOSTNAME = (sys host).hostname | str replace --regex "[.].*" ""
 $env.PROMPT_COMMAND = {||
     let path = match (do -i { $env.PWD | path relative-to $nu.home-path }) {
