@@ -7,5 +7,5 @@
     homeDirectory = lib.mkDefault "/home/ross";
     username = lib.mkDefault "ross";
   };
-  programs.git.userName = "Ross MacLeod";
+  programs.git.settings.user.name = "Ross MacLeod";
 }

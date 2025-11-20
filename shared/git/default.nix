@@ -13,7 +13,7 @@
   programs.git = {
     package = pkgs.git;
     enable = true;
-    extraConfig = {
+    settings = {
       add.interactive.useBuiltin = false;
       branch.autoSetupMerge = "simple";
       core.editor = "$EDITOR";
