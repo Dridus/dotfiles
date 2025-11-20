@@ -29,11 +29,13 @@ def parsejournaltext [
         | update content { from json }
 }
 
-def repo []: nothing -> path {
+def repo [
+    ...segs: string
+]: nothing -> path {
     mut p = $env.PWD | path expand;
     while $p != "/" {
         if ($p | path join ".git" | path exists) {
-            return $p
+            return ($p | path join ...$segs)
         }
         $p = $p | path join .. | path expand
     }
