@@ -27,6 +27,7 @@ in
     plugins = [
       pkgs.nushellPlugins.polars
       pkgs.nushellPlugins.query
+      (pkgs.callPackage ./nupsql.nix {})
     ];
   };
 }

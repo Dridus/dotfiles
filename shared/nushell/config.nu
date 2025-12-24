@@ -7,6 +7,16 @@ $env.config.buffer_editor = "code"
 $env.config.footer_mode = "auto"
 $env.config.datetime_format.normal = "%Y-%m-%d %H:%M:%S"
 $env.config.color_config = (vs-code-dark-plus)
+$env.config.plugins.nupsql = {
+    databases: [
+        {
+            name: orbdev,
+            host: localhost,
+            db: orbdev,
+            user: ross,
+        }
+    ]
+}
 
 # to combat macOS updates eating the whole
 $env.PATH = $env.PATH | append ($env.HOME | path join ".nix-profile" "bin") | uniq
