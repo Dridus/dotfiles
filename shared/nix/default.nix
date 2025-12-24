@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  home.packages = [ pkgs.nix ];
+  home.packages = [ pkgs.nix pkgs.nix-diff ];
   nixpkgs.overlays = [
     (final: prev: {
       nix = inputs.nix.packages.${pkgs.system}.nix;
