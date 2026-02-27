@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home = {
     packages = [
       pkgs.delta
@@ -13,6 +14,7 @@
   programs.git = {
     package = pkgs.git;
     enable = true;
+    lfs.enable = true;
     settings = {
       add.interactive.useBuiltin = false;
       branch.autoSetupMerge = "simple";
