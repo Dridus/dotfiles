@@ -25,9 +25,9 @@ in
       source ${foos pkgs ./utils.nu}
     '';
     plugins = [
-      pkgs.nushellPlugins.polars
-      pkgs.nushellPlugins.query
-      (pkgs.callPackage ./nupsql.nix {})
+      # pkgs.nushellPlugins.polars
+      # pkgs.nushellPlugins.query
+      # (pkgs.callPackage ./nupsql.nix {})
     ];
   };
 }
