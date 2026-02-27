@@ -4,6 +4,7 @@
     home = {
       packages =
         [
+          pkgs.awscli2
           pkgs.btop
           pkgs.dnsutils
           pkgs.file
