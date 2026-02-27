@@ -932,5 +932,14 @@
         "key": "shift+cmd+k",
         "command": "-aipopup.action.modal.generate",
         "when": "editorFocus && !composerBarIsVisible"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "-workbench.action.toggleUnifiedSidebar",
+        "when": "cursor.agentIdeUnification.enabled && !isAuxiliaryWindowFocusedContext"
+    },
+    {
+        "key": "alt+tab",
+        "command": "editor.cpp.toggle"
     }
 ]
