@@ -941,5 +941,13 @@
     {
         "key": "alt+tab",
         "command": "editor.cpp.toggle"
+    },
+    {
+        "key": "cmd+k cmd+p",
+        "command": "workbench.action.showAllEditors"
+    },
+    {
+        "key": "cmd+r cmd+p",
+        "command": "-workbench.action.showAllEditors"
     }
 ]
