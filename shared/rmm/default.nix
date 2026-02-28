@@ -8,4 +8,5 @@
     username = lib.mkDefault "ross";
   };
   programs.git.settings.user.name = "Ross MacLeod";
+  programs.jujutsu.settings.user.name = "Ross MacLeod";
 }

@@ -2,6 +2,7 @@
   inputs = {
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     home-manager.url = "github:nix-community/home-manager?ref=master";
+    jujutsu.url = "github:jj-vcs/jj?ref=v0.38.0";
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server = {
@@ -29,6 +30,7 @@
           ./direnv
           ./git
           ./home-manager
+          ./jj
           ./misc
           ./nix
           ./nushell
