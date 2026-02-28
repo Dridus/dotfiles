@@ -4,6 +4,15 @@
     enable = true;
 
     settings = {
+      aliases.tug = [
+        "bookmark"
+        "move"
+        "--from"
+        "heads(::@- & bookmarks())"
+        "--to"
+        "@-"
+      ];
+
       # clone of vscode/vscodium configuration
       merge-tools.cursor = {
         program = "cursor";
