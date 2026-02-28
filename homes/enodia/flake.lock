@@ -190,8 +190,8 @@
     "local": {
       "flake": false,
       "locked": {
-        "lastModified": 1770066897,
-        "narHash": "sha256-/fv19rQ2TMebzXycwlSAiS68wNsk22bAB9iEZt9dt1U=",
+        "lastModified": 1772233237,
+        "narHash": "sha256-yIIqnJhANVmM32hLtWa3dbnYfChKc/66jfgmLOi98uA=",
         "path": "/Users/ross/.config/home-manager",
         "type": "path"
       },
