@@ -32,15 +32,6 @@
       enable = true;
 
       settings = {
-        aliases.tug = [
-          "bookmark"
-          "move"
-          "--from"
-          "heads(::@- & bookmarks())"
-          "--to"
-          "@-"
-        ];
-
         # clone of vscode/vscodium configuration
         merge-tools.cursor = {
           program = "cursor";
@@ -66,6 +57,34 @@
 
         templates = {
           log = "builtin_log_oneline";
+          op_log = "builtin_op_log_oneline";
+        };
+        template-aliases = {
+          "format_duration(dur)" = ''
+            dur
+              .replace("less than a microsecond", "now")
+              .replace(regex:"\\sdays?", "d")
+              .replace(regex:"\\shours?", "h")
+              .replace(regex:"\\sminutes?", "m")
+              .replace(regex:"\\sseconds?", "s")
+              .replace(regex:"\\smilliseconds?", "ms")
+              .replace(regex:"\\smicroseconds?", "µs")
+              .replace(regex:"\\snanoseconds?", "ns")
+          '';
+          "format_time_range(time_range)" = ''
+            format_timestamp(time_range.end())
+              ++ label("time", ", ")
+              ++ format_duration(time_range.duration())
+          '';
+          "format_operation_oneline(op)" = ''
+            separate(" ",
+              format_short_operation_id(op.id()),
+              op.user().replace(regex:"@.*", ""),
+              format_time_range(op.time()),
+              op.description().first_line(),
+              op.tags(),
+            ) ++ "\n"
+          '';
         };
 
         ui.default-command = "log";
