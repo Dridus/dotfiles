@@ -6,8 +6,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager?ref=master";
-    jjui.url = "github:idursun/jjui";
-    jujutsu.url = "github:jj-vcs/jj?ref=v0.38.0";
+    jjui.url = "github:idursun/jjui?ref=v0.10.2";
+    jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server = {
