@@ -17,6 +17,8 @@ $env.config.plugins.nupsql = {
         }
     ]
 }
+$env.config.table.mode = "light"
+$env.config.table.padding = { left: 0, right: 0 }
 
 # to combat macOS updates eating the whole
 $env.PATH = $env.PATH | append ($env.HOME | path join ".nix-profile" "bin") | uniq
