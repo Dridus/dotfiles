@@ -128,6 +128,28 @@
         "type": "github"
       }
     },
+    "forge": {
+      "inputs": {
+        "nixpkgs": [
+          "shared",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774428813,
+        "narHash": "sha256-s9jNN3shGwFLy1M7HsKIj1aBrhx8bpRz+Ulkmd8+F+8=",
+        "owner": "antinomyhq",
+        "repo": "forgecode",
+        "rev": "3cf4aa8d9cd7c7c3ffe6648c287530e1084cfbd0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antinomyhq",
+        "repo": "forgecode",
+        "rev": "3cf4aa8d9cd7c7c3ffe6648c287530e1084cfbd0",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -190,15 +212,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1772745669,
-        "narHash": "sha256-txOU2Nprgtxl+hyXE1KDN2GMNMrNal2151rYtpc2t2Q=",
+        "lastModified": 1773694847,
+        "narHash": "sha256-VTaOd5LSBxo6EhTyjoyAqX+wTEcm88qIgUCcd+TRYY4=",
         "owner": "idursun",
         "repo": "jjui",
-        "rev": "00763cae4922f49eb2854523899b159f0650fc1a",
+        "rev": "05e95d80bb9a3c4a51c26419956edf0952f0e391",
         "type": "github"
       },
       "original": {
         "owner": "idursun",
+        "ref": "v0.10.2",
         "repo": "jjui",
         "type": "github"
       }
@@ -210,16 +233,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1770276670,
-        "narHash": "sha256-FXbQyKmh/CG/TsRi9yq9L8bVbQ39u6PRLZIet3d/bjA=",
+        "lastModified": 1772647195,
+        "narHash": "sha256-rcmiBDDQaJYpESJt/gWkcitWtcvQosDY9pUbX5YpFjA=",
         "owner": "jj-vcs",
         "repo": "jj",
-        "rev": "2508982cde5c7e4db0933e0b6469f9e778e71e28",
+        "rev": "d9689cd9b51b4139d2842fcf6c30f65f4eed8cd1",
         "type": "github"
       },
       "original": {
         "owner": "jj-vcs",
-        "ref": "v0.38.0",
+        "ref": "v0.39.0",
         "repo": "jj",
         "type": "github"
       }
@@ -551,6 +574,7 @@
     "shared": {
       "inputs": {
         "dotfiles-lib": "dotfiles-lib",
+        "forge": "forge",
         "home-manager": [
           "home-manager"
         ],

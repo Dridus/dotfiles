@@ -21,6 +21,8 @@ in
       share = false;
     };
 
+    syntaxHighlighting.enable = true;
+
     initContent = mkMerge [
       (mkBefore ''
         bindkey '^r' history-incremental-search-backward
@@ -28,7 +30,7 @@ in
       ''
         autoload -U colors && colors
         PROMPT_HOST="$(hostname -s)"
-        PROMPT="%{$bg[cyan]$fg[black]%} $PROMPT_HOST %{$bg[black]$fg[yellow]%} %~ ❯ %{$reset_color%}"
+        PROMPT="%{$bg[cyan]$fg[black]%} $PROMPT_HOST %{$reset_color$fg[yellow]%} %~ ❯ %{$reset_color%}"
         ZSH_TAB_TITLE_CONCAT_FOLDER_PROCESS=true
       ''
     ];
@@ -36,10 +38,6 @@ in
     zplug = {
       enable = true;
       plugins = [
-        {
-          name = "zdharma-continuum/fast-syntax-highlighting";
-          tags = [ "as:plugin" ];
-        }
         {
           name = "trystan2k/zsh-tab-title";
           tags = [

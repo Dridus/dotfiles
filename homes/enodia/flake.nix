@@ -66,6 +66,7 @@
               shared.aerospace
               shared.claude
               shared.default
+              shared.forge
               shared.nushell
               shared.nvim
               shared.rmm

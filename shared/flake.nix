@@ -1,6 +1,10 @@
 {
   inputs = {
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
+    forge = {
+      url = "github:antinomyhq/forgecode?rev=3cf4aa8d9cd7c7c3ffe6648c287530e1084cfbd0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager?ref=master";
     jjui.url = "github:idursun/jjui";
     jujutsu.url = "github:jj-vcs/jj?ref=v0.38.0";
@@ -39,6 +43,8 @@
         ];
         _other = [
           ./aerospace
+          ./claude
+          ./forge
           ./keychain
           ./lsd
           ./man
@@ -47,7 +53,6 @@
           ./stats
           ./vscode
           ./vscode-server
-          ./claude
         ];
       };
     };
