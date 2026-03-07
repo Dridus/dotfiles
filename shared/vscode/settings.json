@@ -32,6 +32,8 @@
   },
   "chat.commandCenter.enabled": false,
   "comments.openView": "never",
+  "debug.console.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "debug.console.fontSize": 10,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.acceptSuggestionOnEnter": "off",
@@ -45,9 +47,10 @@
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 10,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": "off",
   "editor.minimap.enabled": false,
   "editor.rulers": [88, 120],
+  "editor.stickyScroll.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -82,6 +85,7 @@
       }
     ]
   },
+  "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 88,
   "eslint.run": "onSave",
@@ -159,6 +163,7 @@
   "powershell.pester.useLegacyCodeLens": false,
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
+  "prettier.trailingComma": "all",
   "remote.SSH.experimental.chat": false,
   "rust-analyzer.imports.granularity.enforce": true,
   "rust-analyzer.imports.granularity.group": "module",
@@ -174,6 +179,7 @@
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.defaultProfile.linux": "Nushell",
   "terminal.integrated.defaultProfile.osx": "Nushell",
+  "terminal.integrated.tabs.enabled": false,
   "terraform.languageServer.enable": false,
   "typescript.preferences.organizeImports": {
     "typeOrder": "last"
@@ -208,6 +214,7 @@
   "vue.autoInsert.bracketSpacing": false,
   "window.autoDetectColorScheme": true,
   "window.title": "${rootNameShort}${separator}${activeEditorShort}${separator}${remoteName}${separator}${profileName}",
+  "workbench.activityBar.location": "top",
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
@@ -219,8 +226,5 @@
   },
   "workbench.colorCustomizations": {
     "panel.border": "#888888"
-  },
-  "prettier.trailingComma": "all",
-  "editor.unicodeHighlight.nonBasicASCII": false,
-  "editor.stickyScroll.enabled": false
+  }
 }

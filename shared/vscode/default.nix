@@ -92,11 +92,11 @@ in
       in
       [
         # black-formatter
-        claude-code
+        # claude-code
         # cpptools-extension-pack
         direnv
         even-better-toml
-        gitlens
+        # gitlens
         # haskell
         javascript-ejs-support
         # jupyter
@@ -105,7 +105,7 @@ in
         # mypy-type-checker
         nix-ide
         # openscad-language-support
-        powershell
+        # powershell
         prettier-vscode
         python
         rainbow-csv
@@ -121,7 +121,7 @@ in
         vscode-nushell-lang
         vscode-postgres
         # vscode-proto3
-        vscode-pull-request-github
+        # vscode-pull-request-github
       ];
     mutableExtensionsDir = false;
   };

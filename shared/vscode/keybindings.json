@@ -949,5 +949,10 @@
     {
         "key": "cmd+r cmd+p",
         "command": "-workbench.action.showAllEditors"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
     }
 ]
