@@ -9,6 +9,7 @@
           pkgs.dnsutils
           pkgs.file
           pkgs.gnumake
+          pkgs.google-cloud-sdk
           pkgs.lsof
           pkgs.openssh
           pkgs.openssl
