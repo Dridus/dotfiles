@@ -3,7 +3,7 @@
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     fh.url = "https://flakehub.com/f/DeterminateSystems/fh/0.1.27";
     forge = {
-      url = "github:antinomyhq/forgecode?rev=3cf4aa8d9cd7c7c3ffe6648c287530e1084cfbd0";
+      url = "github:antinomyhq/forgecode?ref=v2.9.9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager?ref=master";
