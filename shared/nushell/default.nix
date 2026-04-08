@@ -18,7 +18,7 @@ in
       use std/dirs
       use ${nu_scripts}/custom-completions/cargo/cargo-completions.nu *
       use ${nu_scripts}/custom-completions/git/git-completions.nu *
-      use ${nu_scripts}/custom-completions/just/just-completions.nu *
+      # use ${nu_scripts}/custom-completions/just/just-completions.nu *
       use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
       use ${nu_scripts}/themes/nu-themes/vs-code-dark-plus.nu
       source ${foos pkgs ./config.nu}

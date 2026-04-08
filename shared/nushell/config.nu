@@ -21,7 +21,12 @@ $env.config.table.mode = "light"
 $env.config.table.padding = { left: 0, right: 0 }
 
 # to combat macOS updates eating the whole
-$env.PATH = $env.PATH | append ($env.HOME | path join ".nix-profile" "bin") | uniq
+$env.PATH = (
+    $env.PATH
+    | append ($env.HOME | path join ".nix-profile" "bin")
+    | append "/nix/var/nix/profiles/default/bin"
+    | uniq
+)
 
 $env.HOSTNAME = (sys host).hostname | str replace --regex "[.].*" ""
 $env.PROMPT_COMMAND = {||
@@ -42,23 +47,23 @@ $env.PROMPT_COMMAND = {||
     ] | str join
 }
 
-$env.PROMPT_COMMAND_RIGHT = {||
-    let last_exit_segment = if $env.LAST_EXIT_CODE != 0 {
-        $"(ansi bg_red) ($env.LAST_EXIT_CODE) (ansi reset) "
-    } else { "" }
+# $env.PROMPT_COMMAND_RIGHT = {||
+#     let last_exit_segment = if $env.LAST_EXIT_CODE != 0 {
+#         $"(ansi bg_red) ($env.LAST_EXIT_CODE) (ansi reset) "
+#     } else { "" }
 
-    let time_color = $"(ansi reset)(ansi dark_gray_bold)"
-    # let time_color = $"(ansi reset)(ansi default)"
-    let time_sep_color = (ansi dark_gray_dimmed)
-    let time_colorized = (
-        date now |
-        format date "%Y-%m-%d %H:%M:%S" |
-        str replace --all --regex "([-:])" $"($time_sep_color)${1}($time_color)"
-    )
-    let time_segment = $"(ansi reset)($time_color)($time_colorized)"
+#     let time_color = $"(ansi reset)(ansi dark_gray_bold)"
+#     # let time_color = $"(ansi reset)(ansi default)"
+#     let time_sep_color = (ansi dark_gray_dimmed)
+#     let time_colorized = (
+#         date now |
+#         format date "%Y-%m-%d %H:%M:%S" |
+#         str replace --all --regex "([-:])" $"($time_sep_color)${1}($time_color)"
+#     )
+#     let time_segment = $"(ansi reset)($time_color)($time_colorized)"
 
-    $"($last_exit_segment)($time_segment)"
-}
+#     $"($last_exit_segment)($time_segment)"
+# }
 
 $env.PROMPT_INDICATOR_VI_INSERT = "\u{276f} "
 $env.PROMPT_INDICATOR_VI_NORMAL = "\u{eb04} "
