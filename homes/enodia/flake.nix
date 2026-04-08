@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nil.url = "github:oxalica/nil";
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixpkgs-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
   };
 
   outputs =
@@ -54,9 +54,6 @@
 
                   home = {
                     homeDirectory = "/Users/ross";
-                    packages = [
-                      pkgs.qalculate-gtk
-                    ];
                     stateVersion = "23.11";
                   };
                 };

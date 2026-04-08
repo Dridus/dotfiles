@@ -1,6 +1,7 @@
 {
   inputs = {
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
+    fh.url = "https://flakehub.com/f/DeterminateSystems/fh/0.1.27";
     forge = {
       url = "github:antinomyhq/forgecode?rev=3cf4aa8d9cd7c7c3ffe6648c287530e1084cfbd0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,8 +15,7 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-nixfmt.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
   };
 
   outputs =

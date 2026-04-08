@@ -34,5 +34,6 @@
       interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
       merge.conflictstyle = "diff3";
     };
+    signing.format = null;
   };
 }

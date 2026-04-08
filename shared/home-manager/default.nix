@@ -29,7 +29,7 @@ let
         # in question is also changing, even if only to bump the last modified. hacks involving
         # the flake.lock are made more complicated by the flake reference being git+file,
         # meaning finding the source tree is possible but a bit complicated to parse the URL.
-        ${pkgs.nix}/bin/nix flake update ${concatStringsSep " " config.dotfiles.homeFlakeLocalInputs} --flake "$HOME_FLAKE"
+        nix flake update ${concatStringsSep " " config.dotfiles.homeFlakeLocalInputs} --flake "$HOME_FLAKE"
       ''}
       home-manager --impure --flake "$HOME_FLAKE" "$@"
     '';

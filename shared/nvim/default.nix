@@ -20,11 +20,11 @@ in {
   home = {
     packages = [
       bat-fzf-preview
-      inputs.nixpkgs-nixfmt.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nixfmt-rfc-style
       pkgs.fd
       pkgs.fzf
       pkgs.neovim
       pkgs.nil
+      pkgs.nixfmt
       pkgs.ripgrep
     ];
 

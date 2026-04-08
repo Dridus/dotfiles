@@ -11,13 +11,11 @@ let
       "Library/Application Support/Code/User"
     else
       "${config.xdg.configHome}/Code/User";
-
-  nixfmt = inputs.nixpkgs-nixfmt.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nixfmt-rfc-style;
 in
 {
   home.packages = [
-    nixfmt
     pkgs.nil
+    pkgs.nixfmt
   ];
 
   programs.vscode = {
