@@ -32,6 +32,25 @@
       enable = true;
 
       settings = {
+        aliases = {
+          # https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
+          restack = [
+            "rebase"
+            "--onto"
+            "trunk()"
+            "--source"
+            "roots(trunk()..) & mutable()"
+            "--simplify-parents"
+          ];
+          stack = [
+            "rebase"
+            "--after"
+            "trunk()"
+            "--before"
+            "closest_merge(@)"
+          ];
+        };
+
         # clone of vscode/vscodium configuration
         merge-tools.cursor = {
           program = "cursor";
