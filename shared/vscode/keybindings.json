@@ -441,16 +441,6 @@
         "when": "listFocus && !inputFocus && !treestickyScrollFocused"
     },
     {
-        "key": "cmd+k i",
-        "command": "notebook.cell.chat.start",
-        "when": "config.notebook.experimental.cellChat && notebookChatAgentRegistered && notebookEditable && notebookEditorFocused && !inputFocus || config.notebook.experimental.generate && notebookChatAgentRegistered && notebookEditable && notebookEditorFocused && !inputFocus"
-    },
-    {
-        "key": "cmd+r i",
-        "command": "-notebook.cell.chat.start",
-        "when": "config.notebook.experimental.cellChat && notebookChatAgentRegistered && notebookEditable && notebookEditorFocused && !inputFocus || config.notebook.experimental.generate && notebookChatAgentRegistered && notebookEditable && notebookEditorFocused && !inputFocus"
-    },
-    {
         "key": "cmd+k cmd+c",
         "command": "notebook.cell.collapseCellInput",
         "when": "notebookCellListFocused && !inputFocus && !notebookCellInputIsCollapsed"
@@ -951,8 +941,12 @@
         "command": "-workbench.action.showAllEditors"
     },
     {
-        "key": "alt+cmd+s",
-        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
-        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
+        "key": "cmd+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+1",
+        "command": "-workbench.action.focusFirstEditorGroup",
+        "when": "!cursor.chatEditorGroup.enabled"
     }
 ]
