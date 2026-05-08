@@ -50,7 +50,6 @@
           ./man
           ./nvim
           ./rmm
-          ./stats
           ./vscode
           ./vscode-server
         ];

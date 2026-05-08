@@ -67,7 +67,6 @@
               shared.nushell
               shared.nvim
               shared.rmm
-              shared.stats
               shared.vscode
               "${inputs.local}/home-local.nix"
             ];
