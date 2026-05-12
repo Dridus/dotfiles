@@ -33,6 +33,12 @@
 
       settings = {
         aliases = {
+          push = [
+            "git"
+            "push"
+            "--bookmark"
+            "ross/*"
+          ];
           # https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
           restack = [
             "rebase"
