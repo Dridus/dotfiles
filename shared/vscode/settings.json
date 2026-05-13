@@ -1,41 +1,43 @@
 {
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[jsonl]": {},
   "[scad]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
-  "chat.commandCenter.enabled": false,
+  "chat.agent.enabled": false,
+  "chat.disableAIFeatures": true,
   "comments.openView": "never",
   "debug.console.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "debug.console.fontSize": 10,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingComments": "never",
@@ -56,56 +58,91 @@
       {
         "scope": ["asn1.keywords"],
         "settings": {
-          "foreground": "#AF00DB"
-        }
+          "foreground": "#AF00DB",
+        },
       },
       {
         "scope": ["asn1.moduleName"],
         "settings": {
-          "foreground": "#c97002"
-        }
+          "foreground": "#c97002",
+        },
       },
       {
         "scope": ["asn1.typeName"],
         "settings": {
-          "foreground": "#795E26"
-        }
+          "foreground": "#795E26",
+        },
       },
       {
         "scope": ["asn1.identifier"],
         "settings": {
-          "foreground": "#267f99"
-        }
+          "foreground": "#267f99",
+        },
       },
       {
         "scope": ["asn1.openTypeIdentifier"],
         "settings": {
-          "foreground": "#696969"
-        }
-      }
-    ]
+          "foreground": "#696969",
+        },
+      },
+    ],
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 88,
+  "errorLens.alignMessage": {
+    "start": 80,
+  },
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.messageBackgroundMode": "message",
+  "errorLens.borderRadius": "2px",
+  "errorLens.padding": "3px",
+  "errorLens.problemRangeDecorationEnabled": true,
+  "errorLens.decorations": {
+    "errorRange": {
+      "backgroundColor": "#ff000008",
+      "borderColor": "#ff000080",
+      "borderRadius": "4px",
+      "borderStyle": "solid",
+      "borderWidth": "0px 1px",
+    },
+    "warningRange": {
+      "borderColor": "#ffff0080",
+      "borderRadius": "4px",
+      "borderStyle": "solid",
+      "borderWidth": "0px 1px",
+    },
+    "infoRange": {},
+    "hintRange": {},
+    "errorMessage": {},
+    "warningMessage": {},
+    "infoMessage": {},
+    "hintMessage": {},
+  },
   "eslint.run": "onSave",
   "explorer.sortOrder": "mixed",
   "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
   "files.associations": {
-    "*.sql": "postgres"
+    "*.sql": "postgres",
   },
   "files.insertFinalNewline": true,
   "files.simpleDialog.enable": true,
   "files.trimFinalNewlines": true,
   "git.autofetch": false,
   "git.confirmSync": false,
+  "git.enabled": false,
+  "git.enableSmartCommit": true,
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
   "githubPullRequests.createOnPublishBranch": "never",
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.terminalLinksHandler": "github",
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressGitDisabledWarning": true,
+    "suppressGitMissingWarning": true,
+  },
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.graph.dimMergeCommits": true,
@@ -134,26 +171,26 @@
     "contributors": true,
     "repositories": true,
     "searchAndCompare": false,
-    "launchpad": false
+    "launchpad": false,
   },
   "haskell.formattingProvider": "fourmolu",
   "haskell.manageHLS": "PATH",
   "html.autoCreateQuotes": false,
   "html.autoClosingTags": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "jjk.enableAnnotations": false,
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.hiddenLanguageServerErrors": [
     "textDocument/formatting",
-    "textDocument/documentSymbol"
+    "textDocument/documentSymbol",
   ],
   "nix.serverPath": "nil",
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": ["nixfmt"]
-      }
-    }
+        "command": ["nixfmt"],
+      },
+    },
   },
   "nushellLanguageServer.hints.showInferredTypes": false,
   "powershell.enableProfileLoading": false,
@@ -164,9 +201,11 @@
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
   "prettier.trailingComma": "all",
-  "remote.SSH.experimental.chat": false,
+  "rust-analyzer.check.allTargets": false,
+  "rust-analyzer.diagnostics.disabled": ["unlinked-file"],
   "rust-analyzer.imports.granularity.enforce": true,
   "rust-analyzer.imports.granularity.group": "module",
+  "rust-analyzer.imports.group.enable": false,
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
@@ -174,17 +213,19 @@
   "rust-analyzer.lens.implementations.enable": false,
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
+  "svelte.enable-ts-plugin": true,
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.fontSize": 10,
-  "terminal.integrated.scrollback": 10000,
   "terminal.integrated.defaultProfile.linux": "Nushell",
   "terminal.integrated.defaultProfile.osx": "Nushell",
+  "terminal.integrated.env.osx": {
+    "EDITOR": "code --wait",
+    "JJ_EDITOR": "code --wait",
+    "VISUAL": "code --wait",
+  },
+  "terminal.integrated.fontSize": 10,
+  "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
   "terraform.languageServer.enable": false,
-  "typescript.preferences.organizeImports": {
-    "typeOrder": "last"
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
   "vim.autoindent": false,
   "vim.camelCaseMotion.enable": true,
@@ -195,26 +236,29 @@
   "vim.normalModeKeyBindings": [
     {
       "before": ["<C-j>"],
-      "after": ["i", "<cr>", "<esc>", "<right>"]
+      "after": ["i", "<cr>", "<esc>", "<right>"],
     },
     {
       "before": ["Q"],
-      "after": ["@", "q"]
+      "after": ["@", "q"],
     },
     {
       "before": ["<C-w>", "<C-w>"],
-      "commands": ["workbench.action.switchWindow"]
+      "commands": ["workbench.action.switchWindow"],
     },
     {
       "before": ["<leader>", "s", "c"],
-      "commands": [":nohl"]
-    }
+      "commands": [":nohl"],
+    },
   ],
   "vim.smartRelativeLine": true,
-  "vue.autoInsert.bracketSpacing": false,
   "window.autoDetectColorScheme": true,
   "window.title": "${rootNameShort}${separator}${activeEditorShort}${separator}${remoteName}${separator}${profileName}",
   "workbench.activityBar.location": "top",
+  "workbench.colorCustomizations": {
+    "editorError.foreground": "#ff000000",
+    "panel.border": "#888888",
+  },
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.splitInGroupLayout": "vertical",
@@ -222,9 +266,8 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 14,
   "workbench.editorAssociations": {
-    "*.svg": "default"
+    "*.svg": "default",
   },
-  "workbench.colorCustomizations": {
-    "panel.border": "#888888"
-  }
+  "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
+  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
 }
