@@ -1,5 +1,6 @@
 {
   foos,
+  inputs,
   pkgs,
   ...
 }:
@@ -21,6 +22,9 @@ in
       # use ${nu_scripts}/custom-completions/just/just-completions.nu *
       use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
       use ${nu_scripts}/themes/nu-themes/vs-code-dark-plus.nu
+      use ${inputs.nai}/nu-plugin *
+      $env.NAI.forge_needs_color_convert = true
+      $env.PROMPT_COMMAND_RIGHT = {|| prompt-right }
       source ${foos pkgs ./config.nu}
       source ${foos pkgs ./utils.nu}
     '';

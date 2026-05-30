@@ -3,12 +3,20 @@
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     fh.url = "https://flakehub.com/f/DeterminateSystems/fh/0.1.27";
     forge = {
-      url = "github:antinomyhq/forgecode?ref=v2.9.9";
+      url = "github:antinomyhq/forgecode?ref=v2.13.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager?ref=master";
+    jj-nushell-dynamic-completions = {
+      url = "github:OmnibusAI/jj-nushell-dynamic-completions";
+      flake = false;
+    };
     jjui.url = "github:idursun/jjui?ref=v0.10.2";
     jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
+    nai = {
+      url = "github:OmnibusAI/nai";
+      flake = false;
+    };
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server = {

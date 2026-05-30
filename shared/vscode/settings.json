@@ -270,4 +270,9 @@
   },
   "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
   "workbench.preferredLightColorTheme": "Ayu Light Bordered",
+  "claudeCode.preferredLocation": "panel",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "js/ts.updateImportsOnFileMove.enabled": "never",
+  "forge.codeLens.enabled": false,
+  "forge.openTerminal": "never",
 }

@@ -116,6 +116,17 @@
       };
 
     };
+
+    nushell = {
+      extraConfig = ''
+        use ${inputs.jj-nushell-dynamic-completions}/jj-completions.nu *
+        $env.config.completions.external = {
+          enable: true
+          max_results: 200
+          completer: (jj-external-completer)
+        }
+      '';
+    };
   };
 
   nixpkgs.overlays = [
