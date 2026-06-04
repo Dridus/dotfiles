@@ -6,6 +6,7 @@
         [
           pkgs.awscli2
           pkgs.btop
+          pkgs.d2
           pkgs.dnsutils
           pkgs.file
           pkgs.gnumake
