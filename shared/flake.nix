@@ -1,5 +1,6 @@
 {
   inputs = {
+    claude-code-nix.url = "github:sadjow/claude-code-nix";
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     fh.url = "https://flakehub.com/f/DeterminateSystems/fh/0.1.27";
     forge = {
@@ -11,6 +12,7 @@
       url = "github:OmnibusAI/jj-nushell-dynamic-completions";
       flake = false;
     };
+    jj-spr.url = "github:jennings/jj-spr";
     jjui.url = "github:idursun/jjui?ref=v0.10.2";
     jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
     nai = {

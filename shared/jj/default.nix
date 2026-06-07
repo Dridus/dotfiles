@@ -5,15 +5,20 @@
   ...
 }:
 {
-  home.file = {
-    "${config.programs.jjui.configDir}/themes/base24_ayu_dark.toml".source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/vic/tinted-jjui/566bd0b376672546b47fb6b8df85924df0d333a2/themes/base24-ayu-dark.toml";
-      hash = "sha256-vbpsS11s3nOUmfpxxDLSA2jy3jNqVLqZ157B35/epYY=";
+  home = {
+    file = {
+      "${config.programs.jjui.configDir}/themes/base24_ayu_dark.toml".source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/vic/tinted-jjui/566bd0b376672546b47fb6b8df85924df0d333a2/themes/base24-ayu-dark.toml";
+        hash = "sha256-vbpsS11s3nOUmfpxxDLSA2jy3jNqVLqZ157B35/epYY=";
+      };
+      "${config.programs.jjui.configDir}/themes/base24_ayu_light.toml".source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/vic/tinted-jjui/566bd0b376672546b47fb6b8df85924df0d333a2/themes/base24-ayu-light.toml";
+        hash = "sha256-IubBkuzAFb2gGMlI0j4hkeTCARqdOSqPUlCeOPtV0Dc=";
+      };
     };
-    "${config.programs.jjui.configDir}/themes/base24_ayu_light.toml".source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/vic/tinted-jjui/566bd0b376672546b47fb6b8df85924df0d333a2/themes/base24-ayu-light.toml";
-      hash = "sha256-IubBkuzAFb2gGMlI0j4hkeTCARqdOSqPUlCeOPtV0Dc=";
-    };
+    packages = [
+      inputs.jj-spr.packages.${pkgs.system}.default
+    ];
   };
 
   programs = {
@@ -47,6 +52,12 @@
             "--source"
             "roots(trunk()..) & mutable()"
             "--simplify-parents"
+          ];
+          spr = [
+            "util"
+            "exec"
+            "--"
+            "jj-spr"
           ];
           stack = [
             "rebase"

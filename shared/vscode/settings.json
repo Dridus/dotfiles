@@ -275,4 +275,5 @@
   "js/ts.updateImportsOnFileMove.enabled": "never",
   "forge.codeLens.enabled": false,
   "forge.openTerminal": "never",
+  "claudeCode.environmentVariables": [],
 }
