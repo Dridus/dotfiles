@@ -61,6 +61,7 @@
             [
               enodia
               shared.aerospace
+              shared.agentsview
               shared.claude
               shared.default
               shared.forge

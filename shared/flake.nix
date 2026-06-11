@@ -53,6 +53,7 @@
         ];
         _other = [
           ./aerospace
+          ./agentsview
           ./claude
           ./forge
           ./keychain
