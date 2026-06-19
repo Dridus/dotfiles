@@ -63,6 +63,7 @@
               shared.aerospace
               shared.agentsview
               shared.claude
+              shared.colima
               shared.default
               shared.forge
               shared.nushell

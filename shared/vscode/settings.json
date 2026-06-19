@@ -192,7 +192,6 @@
       },
     },
   },
-  "nushellLanguageServer.hints.showInferredTypes": false,
   "powershell.enableProfileLoading": false,
   "powershell.enableReferencesCodeLens": false,
   "powershell.integratedConsole.showOnStartup": false,
@@ -276,4 +275,5 @@
   "forge.codeLens.enabled": false,
   "forge.openTerminal": "never",
   "claudeCode.environmentVariables": [],
+  "nushellLanguageServer.hints.showInferredTypes": false,
 }

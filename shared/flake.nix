@@ -55,6 +55,7 @@
           ./aerospace
           ./agentsview
           ./claude
+          ./colima
           ./forge
           ./keychain
           ./lsd
