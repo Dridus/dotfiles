@@ -1,37 +1,39 @@
 {
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[jsonl]": {},
   "[scad]": {
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "chat.agent.enabled": false,
   "chat.disableAIFeatures": true,
+  "claudeCode.environmentVariables": [],
+  "claudeCode.preferredLocation": "panel",
   "comments.openView": "never",
   "debug.console.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "debug.console.fontSize": 10,
@@ -58,40 +60,40 @@
       {
         "scope": ["asn1.keywords"],
         "settings": {
-          "foreground": "#AF00DB",
-        },
+          "foreground": "#AF00DB"
+        }
       },
       {
         "scope": ["asn1.moduleName"],
         "settings": {
-          "foreground": "#c97002",
-        },
+          "foreground": "#c97002"
+        }
       },
       {
         "scope": ["asn1.typeName"],
         "settings": {
-          "foreground": "#795E26",
-        },
+          "foreground": "#795E26"
+        }
       },
       {
         "scope": ["asn1.identifier"],
         "settings": {
-          "foreground": "#267f99",
-        },
+          "foreground": "#267f99"
+        }
       },
       {
         "scope": ["asn1.openTypeIdentifier"],
         "settings": {
-          "foreground": "#696969",
-        },
-      },
-    ],
+          "foreground": "#696969"
+        }
+      }
+    ]
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 88,
   "errorLens.alignMessage": {
-    "start": 80,
+    "start": 80
   },
   "errorLens.gutterIconsEnabled": true,
   "errorLens.messageBackgroundMode": "message",
@@ -104,27 +106,27 @@
       "borderColor": "#ff000080",
       "borderRadius": "4px",
       "borderStyle": "solid",
-      "borderWidth": "0px 1px",
+      "borderWidth": "0px 1px"
     },
     "warningRange": {
       "borderColor": "#ffff0080",
       "borderRadius": "4px",
       "borderStyle": "solid",
-      "borderWidth": "0px 1px",
+      "borderWidth": "0px 1px"
     },
     "infoRange": {},
     "hintRange": {},
     "errorMessage": {},
     "warningMessage": {},
     "infoMessage": {},
-    "hintMessage": {},
+    "hintMessage": {}
   },
   "eslint.run": "onSave",
   "explorer.sortOrder": "mixed",
   "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
   "files.associations": {
-    "*.sql": "postgres",
+    "*.sql": "postgres"
   },
   "files.insertFinalNewline": true,
   "files.simpleDialog.enable": true,
@@ -141,7 +143,7 @@
   "gitlens.ai.experimental.generateCommitMessage.enabled": false,
   "gitlens.advanced.messages": {
     "suppressGitDisabledWarning": true,
-    "suppressGitMissingWarning": true,
+    "suppressGitMissingWarning": true
   },
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
@@ -171,27 +173,29 @@
     "contributors": true,
     "repositories": true,
     "searchAndCompare": false,
-    "launchpad": false,
+    "launchpad": false
   },
   "haskell.formattingProvider": "fourmolu",
   "haskell.manageHLS": "PATH",
   "html.autoCreateQuotes": false,
   "html.autoClosingTags": false,
   "jjk.enableAnnotations": false,
+  "js/ts.updateImportsOnFileMove.enabled": "never",
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixfmt",
   "nix.hiddenLanguageServerErrors": [
     "textDocument/formatting",
-    "textDocument/documentSymbol",
+    "textDocument/documentSymbol"
   ],
   "nix.serverPath": "nil",
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": ["nixfmt"],
-      },
-    },
+        "command": ["nixfmt"]
+      }
+    }
   },
+  "nushellLanguageServer.hints.showInferredTypes": false,
   "powershell.enableProfileLoading": false,
   "powershell.enableReferencesCodeLens": false,
   "powershell.integratedConsole.showOnStartup": false,
@@ -200,6 +204,7 @@
   "powershell.promptToUpdatePowerShell": false,
   "powershell.scriptAnalysis.enable": false,
   "prettier.trailingComma": "all",
+  "reflowMarkdown.preferredLineLength": 100,
   "rust-analyzer.check.allTargets": false,
   "rust-analyzer.diagnostics.disabled": ["unlinked-file"],
   "rust-analyzer.imports.granularity.enforce": true,
@@ -219,7 +224,7 @@
   "terminal.integrated.env.osx": {
     "EDITOR": "code --wait",
     "JJ_EDITOR": "code --wait",
-    "VISUAL": "code --wait",
+    "VISUAL": "code --wait"
   },
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.scrollback": 10000,
@@ -235,20 +240,20 @@
   "vim.normalModeKeyBindings": [
     {
       "before": ["<C-j>"],
-      "after": ["i", "<cr>", "<esc>", "<right>"],
+      "after": ["i", "<cr>", "<esc>", "<right>"]
     },
     {
       "before": ["Q"],
-      "after": ["@", "q"],
+      "after": ["@", "q"]
     },
     {
       "before": ["<C-w>", "<C-w>"],
-      "commands": ["workbench.action.switchWindow"],
+      "commands": ["workbench.action.switchWindow"]
     },
     {
       "before": ["<leader>", "s", "c"],
-      "commands": [":nohl"],
-    },
+      "commands": [":nohl"]
+    }
   ],
   "vim.smartRelativeLine": true,
   "window.autoDetectColorScheme": true,
@@ -256,7 +261,7 @@
   "workbench.activityBar.location": "top",
   "workbench.colorCustomizations": {
     "editorError.foreground": "#ff000000",
-    "panel.border": "#888888",
+    "panel.border": "#888888"
   },
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.empty.hint": "hidden",
@@ -265,15 +270,9 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 14,
   "workbench.editorAssociations": {
-    "*.svg": "default",
+    "*.svg": "default"
   },
   "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
   "workbench.preferredLightColorTheme": "Ayu Light Bordered",
-  "claudeCode.preferredLocation": "panel",
-  "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "js/ts.updateImportsOnFileMove.enabled": "never",
-  "forge.codeLens.enabled": false,
-  "forge.openTerminal": "never",
-  "claudeCode.environmentVariables": [],
-  "nushellLanguageServer.hints.showInferredTypes": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
