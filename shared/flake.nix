@@ -15,10 +15,6 @@
     jj-spr.url = "github:jennings/jj-spr";
     jjui.url = "github:idursun/jjui?ref=v0.10.2";
     jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
-    nai = {
-      url = "github:OmnibusAI/nai";
-      flake = false;
-    };
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server = {

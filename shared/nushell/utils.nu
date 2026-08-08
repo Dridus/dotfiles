@@ -34,7 +34,7 @@ def repo [
 ]: nothing -> path {
     mut p = $env.PWD | path expand;
     while $p != "/" {
-        if ($p | path join ".git" | path exists) {
+        if ($p | path join ".git" | path exists) or ($p | path join ".jj" | path exists) {
             return ($p | path join ...$segs)
         }
         $p = $p | path join .. | path expand

@@ -475,22 +475,6 @@
         "type": "path"
       }
     },
-    "nai": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780340405,
-        "narHash": "sha256-DLKGq5hQHEhweZd+ebsFLRXsGk/O8PShdA5JDKwxAfA=",
-        "owner": "OmnibusAI",
-        "repo": "nai",
-        "rev": "c85db29623defade78bd45d2f2e904d4ba49fc3a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "OmnibusAI",
-        "repo": "nai",
-        "type": "github"
-      }
-    },
     "nil": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -869,7 +853,6 @@
         "jj-spr": "jj-spr",
         "jjui": "jjui",
         "jujutsu": "jujutsu",
-        "nai": "nai",
         "nil": "nil_2",
         "nix": "nix",
         "nixos-vscode-server": "nixos-vscode-server",

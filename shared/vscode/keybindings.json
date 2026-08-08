@@ -948,5 +948,9 @@
         "key": "cmd+1",
         "command": "-workbench.action.focusFirstEditorGroup",
         "when": "!cursor.chatEditorGroup.enabled"
+    },
+    {
+        "key": "shift+alt+e",
+        "command": "workbench.files.action.showActiveFileInExplorer"
     }
 ]

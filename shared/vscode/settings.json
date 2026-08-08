@@ -274,5 +274,23 @@
   },
   "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
   "workbench.preferredLightColorTheme": "Ayu Light Bordered",
-  "workbench.secondarySideBar.defaultVisibility": "hidden"
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "explorer.autoReveal": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js, ${capture}.test.js",
+    "*.sql": "${capture}.test.ts",
+    "*.svelte": "${capture}.stories.svelte, ${capture}.test.ts",
+    "U*.sql": "U${capture}.schema_*.json.br"
+  },
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://biomejs.dev": true
+  }
 }
