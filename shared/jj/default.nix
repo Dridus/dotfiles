@@ -16,9 +16,6 @@
         hash = "sha256-IubBkuzAFb2gGMlI0j4hkeTCARqdOSqPUlCeOPtV0Dc=";
       };
     };
-    packages = [
-      inputs.jj-spr.packages.${pkgs.system}.default
-    ];
   };
 
   programs = {
@@ -52,12 +49,6 @@
             "--source"
             "roots(trunk()..) & mutable()"
             "--simplify-parents"
-          ];
-          spr = [
-            "util"
-            "exec"
-            "--"
-            "jj-spr"
           ];
           stack = [
             "rebase"

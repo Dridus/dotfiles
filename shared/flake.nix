@@ -12,7 +12,6 @@
       url = "github:OmnibusAI/jj-nushell-dynamic-completions";
       flake = false;
     };
-    jj-spr.url = "github:jennings/jj-spr";
     jjui.url = "github:idursun/jjui?ref=v0.10.2";
     jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
     nil.url = "github:oxalica/nil";

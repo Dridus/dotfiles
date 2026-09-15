@@ -56,6 +56,8 @@
                     homeDirectory = "/Users/ross";
                     stateVersion = "23.11";
                   };
+
+                  nix.registry.nixpkgs.flake = nixpkgs;
                 };
             in
             [

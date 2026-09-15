@@ -1,13 +1,13 @@
 {
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
   },
   "[json]": {
@@ -15,7 +15,7 @@
     "editor.tabSize": 2
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.tabSize": 2
   },
   "[jsonl]": {},
@@ -23,11 +23,11 @@
     "editor.tabSize": 2
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.tabSize": 2
   },
   "chat.agent.enabled": false,
@@ -53,36 +53,49 @@
   "editor.fontSize": 10,
   "editor.hover.enabled": "off",
   "editor.minimap.enabled": false,
-  "editor.rulers": [88, 120],
+  "editor.rulers": [
+    88,
+    120
+  ],
   "editor.stickyScroll.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": ["asn1.keywords"],
+        "scope": [
+          "asn1.keywords"
+        ],
         "settings": {
           "foreground": "#AF00DB"
         }
       },
       {
-        "scope": ["asn1.moduleName"],
+        "scope": [
+          "asn1.moduleName"
+        ],
         "settings": {
           "foreground": "#c97002"
         }
       },
       {
-        "scope": ["asn1.typeName"],
+        "scope": [
+          "asn1.typeName"
+        ],
         "settings": {
           "foreground": "#795E26"
         }
       },
       {
-        "scope": ["asn1.identifier"],
+        "scope": [
+          "asn1.identifier"
+        ],
         "settings": {
           "foreground": "#267f99"
         }
       },
       {
-        "scope": ["asn1.openTypeIdentifier"],
+        "scope": [
+          "asn1.openTypeIdentifier"
+        ],
         "settings": {
           "foreground": "#696969"
         }
@@ -191,7 +204,9 @@
   "nix.serverSettings": {
     "nil": {
       "formatting": {
-        "command": ["nixfmt"]
+        "command": [
+          "nixfmt"
+        ]
       }
     }
   },
@@ -206,7 +221,9 @@
   "prettier.trailingComma": "all",
   "reflowMarkdown.preferredLineLength": 100,
   "rust-analyzer.check.allTargets": false,
-  "rust-analyzer.diagnostics.disabled": ["unlinked-file"],
+  "rust-analyzer.diagnostics.disabled": [
+    "unlinked-file"
+  ],
   "rust-analyzer.imports.granularity.enforce": true,
   "rust-analyzer.imports.granularity.group": "module",
   "rust-analyzer.imports.group.enable": false,
@@ -239,20 +256,43 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<C-j>"],
-      "after": ["i", "<cr>", "<esc>", "<right>"]
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "i",
+        "<cr>",
+        "<esc>",
+        "<right>"
+      ]
     },
     {
-      "before": ["Q"],
-      "after": ["@", "q"]
+      "before": [
+        "Q"
+      ],
+      "after": [
+        "@",
+        "q"
+      ]
     },
     {
-      "before": ["<C-w>", "<C-w>"],
-      "commands": ["workbench.action.switchWindow"]
+      "before": [
+        "<C-w>",
+        "<C-w>"
+      ],
+      "commands": [
+        "workbench.action.switchWindow"
+      ]
     },
     {
-      "before": ["<leader>", "s", "c"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "s",
+        "c"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     }
   ],
   "vim.smartRelativeLine": true,
@@ -292,5 +332,7 @@
     "https://json-schema.org/": true,
     "https://developer.microsoft.com/json-schemas/": true,
     "https://biomejs.dev": true
-  }
+  },
+  "biome.suggestInstallingGlobally": false,
+  "biome.requireConfiguration": true,
 }
