@@ -6,7 +6,7 @@
 }:
 let
   userDir =
-    if pkgs.hostPlatform.isDarwin then
+    if pkgs.stdenv.hostPlatform.isDarwin then
       "Library/Application Support/Code/User"
     else
       "${config.xdg.configHome}/Code/User";

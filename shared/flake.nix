@@ -16,10 +16,7 @@
     jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
-    nixos-vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
   };
 
@@ -56,6 +53,7 @@
           ./lsd
           ./man
           ./nvim
+          ./python
           ./rmm
           ./vscode
           ./vscode-server

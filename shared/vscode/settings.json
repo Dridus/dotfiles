@@ -247,7 +247,7 @@
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
   "terraform.languageServer.enable": false,
-  "update.mode": "none",
+  "update.mode": "manual",
   "vim.autoindent": false,
   "vim.camelCaseMotion.enable": true,
   "vim.highlightedyank.enable": true,
@@ -335,4 +335,7 @@
   },
   "biome.suggestInstallingGlobally": false,
   "biome.requireConfiguration": true,
+  "claudeCode.hideOnboarding": true,
+  "markdown.preview.scrollEditorWithPreview": false,
+  "workbench.editor.useModal": "off",
 }

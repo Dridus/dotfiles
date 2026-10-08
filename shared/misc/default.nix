@@ -2,37 +2,36 @@
 {
   config = {
     home = {
-      packages =
-        [
-          pkgs.awscli2
-          pkgs.btop
-          pkgs.d2
-          pkgs.dnsutils
-          pkgs.file
-          pkgs.gnumake
-          pkgs.google-cloud-sdk
-          pkgs.lsof
-          pkgs.openssh
-          pkgs.openssl
-          pkgs.pkg-config
-          pkgs.pstree
-          pkgs.rsync
-          pkgs.screen
-          pkgs.stdenv.cc
-          pkgs.sqlite # cargo-docset wants libsqlite3
-          pkgs.sqlite.dev # cargo-docset wants libsqlite3
-          pkgs.unzip
-          pkgs.xxd
-          pkgs.zip
-        ]
-        ++ pkgs.lib.optionals pkgs.hostPlatform.isLinux [
-          pkgs.acpi
-          pkgs.glibc.dev
-          pkgs.linuxHeaders
-          pkgs.openssl.dev
-          pkgs.patchelf
-          pkgs.strace
-        ];
+      packages = [
+        pkgs.awscli2
+        pkgs.btop
+        pkgs.d2
+        pkgs.dnsutils
+        pkgs.file
+        pkgs.gnumake
+        pkgs.google-cloud-sdk
+        pkgs.lsof
+        pkgs.openssh
+        pkgs.openssl
+        pkgs.pkg-config
+        pkgs.pstree
+        pkgs.rsync
+        pkgs.screen
+        pkgs.stdenv.cc
+        pkgs.sqlite # cargo-docset wants libsqlite3
+        pkgs.sqlite.dev # cargo-docset wants libsqlite3
+        pkgs.unzip
+        pkgs.xxd
+        pkgs.zip
+      ]
+      ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+        pkgs.acpi
+        pkgs.glibc.dev
+        pkgs.linuxHeaders
+        pkgs.openssl.dev
+        pkgs.patchelf
+        pkgs.strace
+      ];
 
       sessionVariables.TERM = "xterm-256color";
     };

@@ -70,6 +70,7 @@
               shared.forge
               shared.nushell
               shared.nvim
+              shared.python
               shared.rmm
               shared.vscode
               "${inputs.local}/home-local.nix"
