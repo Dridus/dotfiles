@@ -3,17 +3,13 @@
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     dotfiles-lib.url = "github:Dridus/dotfiles-lib";
     fh.url = "https://flakehub.com/f/DeterminateSystems/fh/0.1.27";
-    forge = {
-      url = "github:antinomyhq/forgecode?ref=v2.13.3";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager.url = "github:nix-community/home-manager?ref=master";
     jj-nushell-dynamic-completions = {
       url = "github:OmnibusAI/jj-nushell-dynamic-completions";
       flake = false;
     };
-    jjui.url = "github:idursun/jjui?ref=v0.10.2";
-    jujutsu.url = "github:jj-vcs/jj?ref=v0.39.0";
+    jjui.url = "github:idursun/jjui?ref=v0.10.12";
+    jujutsu.url = "github:jj-vcs/jj?ref=v0.46.0";
     nil.url = "github:oxalica/nil";
     nix.url = "github:NixOS/nix/2.32.3";
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
@@ -48,7 +44,6 @@
           ./agentsview
           ./claude
           ./colima
-          ./forge
           ./keychain
           ./lsd
           ./man

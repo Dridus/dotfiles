@@ -67,7 +67,6 @@
               shared.claude
               shared.colima
               shared.default
-              shared.forge
               shared.nushell
               shared.nvim
               shared.python
